@@ -1,0 +1,83 @@
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from urllib import request
+from urllib.request import Request, urlopen
+from urllib.parse import urlencode, quote_plus, quote
+
+import time, csv, json, folium
+import mariadb as ma
+import sys
+
+host = 'localhost'
+# Default 값은 3306  (Port 번호는 변경될 수 있음)
+port = int(3306)
+user = 'root'
+passwd = 'root'
+database = 'scott'
+autocommit = False
+
+
+try:
+    conn = ma.connect(user=user, password=passwd,
+                      host=host, port=port, database=database, autocommit=autocommit)
+except ma.Error as e:
+    print(f"Error connecting to MariaDB Platform: {e}")
+    sys.exit(1)
+
+
+driver = webdriver.Chrome('../webdrive/chromedriver.exe')
+driver.implicitly_wait(1)
+
+
+
+with open('./data/학원1.csv','a',encoding='utf-8-sig') as f:
+
+    for page_num in range(1,8):
+        driver.get('https://learnfree.co.kr/detail.php?' % number)
+
+        html = driver.page_source
+        time.sleep(1)
+
+        soup = BeautifulSoup(html,'html.parser')
+
+        ed_title = soup.select('.lecture_title')
+
+
+        '''
+        name = soup.select('#bbslist tr>td:nth-child(3)')
+        tel = soup.select('#bbslist tr>td:nth-child(4)')
+        '''
+
+
+
+
+
+        for ed_title in zip(ed_title) :
+            print(ed_title.text.strip())
+
+
+
+            sql = f"insert into course_info values('{ed_title.text}','{ed_intro.text}')"
+
+            cursor = conn.cursor()
+
+            cursor.execute(sql)
+
+            cursor.close()
+
+            data =[ed_title.text.strip().text.strip()]
+
+            cout = csv.writer(f)  # csv.writer 를 f 랑 연결한다 / 이거하나를 꼭 가지고있어주장
+            cout.writerow(data)  # 하나씩 읽어준다
+
+conn.commit()
+conn.close()
+
+driver.close()
+
+
+
+
+
+
+

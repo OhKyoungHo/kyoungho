@@ -1,0 +1,18 @@
+package com.example.domain;
+
+import java.util.Date;
+
+public class EducationVO {
+	
+	private Integer ed_id;
+	private String ed_title;
+	private String ed_name;
+	private Date ed_enlist_date;
+	private Date ed_start_date;
+	private Date ed_end_date;
+	private String ed_addr;
+	private Integer ed_price;
+	private String ed_intro;
+	private String ed_keyword;
+
+}

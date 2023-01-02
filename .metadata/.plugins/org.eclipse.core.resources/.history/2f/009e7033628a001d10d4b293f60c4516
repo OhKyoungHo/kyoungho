@@ -1,0 +1,10 @@
+package com.example.service;
+
+public interface EducationService {
+	List<EducatioVO> getBoardList(EducationVO vo);
+	void saveBoard(EducatioVO vo);
+	EducatioVO getBoard(EducatioVO vo);
+	void deleteBoard(EducatioVO vo);
+	void updateBoard(EducatioVO vo);
+
+}
