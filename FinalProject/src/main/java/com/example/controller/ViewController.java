@@ -17,10 +17,10 @@ public class ViewController {
 //		return "/academy/"+step;
 //	}
 //	
-//	@RequestMapping("/admin/{step}")
-//	public String viewAdmin(@PathVariable String step) {
-//		return "/admin/"+step;
-//	}
+	@RequestMapping("/admin/{step}")
+	public String viewAdmin(@PathVariable String step) {
+		return "/admin/"+step;
+	}
 //	
 //	@RequestMapping("/lecture/{step}")
 //	public String viewLecture(@PathVariable String step) {
