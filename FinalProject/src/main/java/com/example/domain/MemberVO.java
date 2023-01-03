@@ -17,7 +17,8 @@ import lombok.Data;
 public class MemberVO {
 	
 	@Id
-	private String m_id;
+	@Column(name="m_id")
+	private String MId;
 	@Column(nullable=false)
 	private String m_pass;
 	private String m_tel;

@@ -388,7 +388,7 @@
                                  <option>인기순</option>
                                  <option>리뷰많은순</option>
                                  <option>별점순</option>
-                                 <option>Option 5</option>
+                                 <option>가격순</option>
                                  <option>Option 6</option>
                               </select>
                            </div>
@@ -403,7 +403,8 @@
                                     <div class="course__item white-bg mb-30 fix">
                                        <div class="course__thumb w-img p-relative fix">
                                           <a href="course-details?ed_id=${education.ed_id}">
-                                             <img src="../assets/img/course/course-1.jpg" alt="">
+                                             <!--해당 교육과정 관련 이미지 저장 경로 지정-->
+                                             <img src="../assets/img/course/${education.ed_pic}" alt="" width='370' height='260' >
                                           </a>
                                           <div class="course__tag">
                                              <!-- 국비/ 부트캠프 인지-->
@@ -420,7 +421,7 @@
                                                 <span><i class="icon_star"></i>4.5(평균해서) (44)</span>
                                              </div>
                                           </div>
-                                          <h3 class="course__title"><a href="../course-details?ed_id=${education.ed_id}">${education.edTitle}</a></h3>
+                                          <h3 class="course__title"><a href="course-details?ed_id=${education.ed_id}">${education.edTitle}</a></h3>
                                           <div class="course__teacher d-flex align-items-center">
                                              <div class="course__teacher-thumb mr-15">
                                                 <img src="../assets/img/course/teacher/teacher-1.jpg" alt="">
@@ -430,10 +431,10 @@
                                        </div>
                                        <div class="course__more d-flex justify-content-between align-items-center">
                                           <div class="course__status">
-                                             <span>${education.ed_price}</span>
+                                             <span>${education.ed_price}원</span>
                                           </div>
                                           <div class="course__btn">
-                                             <a href="course-details" class="link-btn">
+                                             <a href="course-details?ed_id=${education.ed_id}" class="link-btn">
                                                 Know Details
                                                 <i class="far fa-arrow-right"></i>
                                                 <i class="far fa-arrow-right"></i>
@@ -454,7 +455,8 @@
                                           <div class="col-xxl-4 col-xl-4 col-lg-4">
                                              <div class="course__thumb course__thumb-list w-img p-relative fix">
                                                 <a href="course-details">
-                                                   <img src="../assets/img/course/list/course-1.jpg" alt="">
+                                                   <!--해당 교육과정 관련 이미지 저장 경로 지정-->
+                                                   <img src="../assets/img/course/${education.ed_pic}" alt="" width='370' height='220' />
                                                 </a>
                                                 <div class="course__tag">
                                                    <a href="#">국비인지 부트인지</a>
@@ -485,7 +487,7 @@
                                                 </div>
                                                 <div class="course__more course__more-2 course__more-3 d-flex justify-content-between align-items-center">
                                                    <div class="course__status">
-                                                      <span>${education.ed_price}</span>
+                                                      <span>${education.ed_price}원</span>
                                                    </div>
                                                    <div class="course__btn">
                                                       <a href="course-details" class="link-btn">

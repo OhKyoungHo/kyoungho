@@ -10,20 +10,26 @@ import com.example.persistence.EducationRepository;
 
 @Service
 public class EducationServiceImpl implements EducationService {
-	
+
 	@Autowired
 	private EducationRepository eduRepo;
-	//교육과정 전체리스트 출력
+
 	@Override
 	public List<EducationVO> getBoardList(EducationVO vo) {
 		List<EducationVO> list = (List<EducationVO>) eduRepo.findAll();
 		System.out.println(list);
 		return list;
 	}
-	//교육과정 상세정보 출력
+
 	@Override
 	public EducationVO getBoard(EducationVO vo) {
 		return eduRepo.findById(vo.getEd_id()).get();
+	}
+	//경호
+	//관리자페이지
+	//상품 전체 조회
+	public List<EducationVO> selectAllAcademy() {
+		return (List<EducationVO>) eduRepo.findAll();
 	}
 
 }

@@ -1,7 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
-      <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>Educal – Online Learning and Education HTML5 Template </title>
@@ -319,13 +318,13 @@
 
       <main>
 
-         <!-- page title area start(학원리스트 시작부분) -->
+         <!-- page title area start -->
          <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="assets/img/page-title/page-title.jpg">
             <div class="container">
                <div class="row">
                   <div class="col-xxl-12">
                      <div class="page__title-wrapper mt-110">
-                        <h3 class="page__title">국비&부트캠프 리스트</h3>                         
+                        <h3 class="page__title">Courses</h3>                         
                         <nav aria-label="breadcrumb">
                            <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="index">Home</a></li>
@@ -339,7 +338,7 @@
          </section>
          <!-- page title area end -->
 
-         <!-- course area start(학원리스트 내용 시작) -->
+         <!-- course area start -->
          <section class="course__area pt-120 pb-120">
             <div class="container">
                <div class="course__tab-inner grey-bg-2 mb-50">
@@ -375,7 +374,6 @@
                               </ul>
                            </div>
                            <div class="course__view">
-                               <!-- 이부분은 나중에 값넣어서 보이게 하기 -->
                               <h4>Showing 1 - 9 of 84</h4>
                            </div>
                         </div>
@@ -384,11 +382,11 @@
                         <div class="course__sort d-flex justify-content-sm-end">
                            <div class="course__sort-inner">
                               <select>
-                                 <option>--선택--</option>
-                                 <option>최신순</option>
-                                 <option>인기순</option>
-                                 <option>리뷰많은순</option>
-                                 <option>별점순</option>
+                                 <option>Default</option>
+                                 <option>Option 1</option>
+                                 <option>Option 2</option>
+                                 <option>Option 3</option>
+                                 <option>Option 4</option>
                                  <option>Option 5</option>
                                  <option>Option 6</option>
                               </select>
@@ -406,12 +404,11 @@
                                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                                     <div class="course__item white-bg mb-30 fix">
                                        <div class="course__thumb w-img p-relative fix">
-                                          <a href="course-details.jsp">
+                                          <a href="course-details">
                                              <img src="assets/img/course/course-1.jpg" alt="">
                                           </a>
                                           <div class="course__tag">
-                                             <!-- 국비/ 부트캠프 인지-->
-                                             <a href="#">국비 or 부트캠프</a>
+                                             <a href="#">Art & Design</a>
                                           </div>
                                        </div>
                                        <div class="course__content">
@@ -423,12 +420,12 @@
                                                 <span><i class="icon_star"></i>4.5 (44)</span>
                                              </div>
                                           </div>
-                                          <h3 class="course__title"><a href="course-details.jsp">교육과정이름</a></h3>
+                                          <h3 class="course__title"><a href="course-details">Become a product Manager learn the skills & job.</a></h3>
                                           <div class="course__teacher d-flex align-items-center">
                                              <div class="course__teacher-thumb mr-15">
                                                 <img src="assets/img/course/teacher/teacher-1.jpg" alt="">
                                              </div>
-                                             <h6><a href="instructor-details.jsp">학원이름</a></h6>
+                                             <h6><a href="instructor-details">Jim Séchen</a></h6>
                                           </div>
                                        </div>
                                        <div class="course__more d-flex justify-content-between align-items-center">
@@ -436,7 +433,7 @@
                                              <span>Free</span>
                                           </div>
                                           <div class="course__btn">
-                                             <a href="course-details.jsp" class="link-btn">
+                                             <a href="course-details" class="link-btn">
                                                 Know Details
                                                 <i class="far fa-arrow-right"></i>
                                                 <i class="far fa-arrow-right"></i>

@@ -1,7 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
-      <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>Educal – Online Learning and Education HTML5 Template </title>
@@ -317,34 +316,29 @@
                                  <ol class="breadcrumb">
                                    <li class="breadcrumb-item"><a href="index">Home</a></li>
                                    <li class="breadcrumb-item"><a href="course-grid">Courses</a></li>
-                                   <li class="breadcrumb-item active" aria-current="page">교육과정이름</li>
+                                   <li class="breadcrumb-item active" aria-current="page">The business Intelligence analyst Course 2022</li>
                                  </ol>
                                </nav>
                            </div>
-                             <!-- 국비인지 부트인지-->
                            <span class="page__title-pre">Development</span>
-                             <!-- 교육과정 이름-->
-                           <h5 class="page__title-3">안녕 나는 경호야</h5>
+                           <h5 class="page__title-3">The business Intelligence analyst Course 2022</h5>
                         </div>
                         <div class="course__meta-2 d-sm-flex mb-30">
                            <div class="course__teacher-3 d-flex align-items-center mr-70 mb-30">
                               <div class="course__teacher-thumb-3 mr-15">
-                                   <!--학원 상세페이지로 이동 -->
                                  <img src="assets/img/course/teacher/teacher-1.jpg" alt="">
                               </div>
                               <div class="course__teacher-info-3">
-                                 <h5>학원이름</h5>
-                                   <!--누르면 학원 상세페이지로 이동 -->
-                                 <p><a href="#">학원명</a></p>
+                                 <h5>Teacher</h5>
+                                 <p><a href="#">Elon Gated</a></p>
                               </div>
                            </div>
                            <div class="course__update mr-80 mb-30">
                               <h5>Last Update:</h5>
-                                <!--날짜의 값이 들어가도록 세팅 -->
                               <p>July 24, 2022</p>
                            </div>
                            <div class="course__rating-2 mb-30">
-                              <h5>별점:</h5>
+                              <h5>Review:</h5>
                               <div class="course__rating-inner d-flex align-items-center">
                                  <ul>
                                     <li><a href="#"> <i class="icon_star"></i> </a></li>
@@ -360,20 +354,19 @@
                         <div class="course__img w-img mb-30">
                            <img src="assets/img/course/details/course-details-1.jpg" alt="">
                         </div>
-                         <!--교육과정 관련 tab부분 -->
                         <div class="course__tab-2 mb-45">
                            <ul class="nav nav-tabs" id="courseTab" role="tablist">
                               <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true"> <i class="icon_ribbon_alt"></i> <span>상세설명</span> </button>
+                                <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true"> <i class="icon_ribbon_alt"></i> <span>Discription</span> </button>
                               </li>
                               <li class="nav-item" role="presentation">
-                                <button class="nav-link " id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum" type="button" role="tab" aria-controls="curriculum" aria-selected="false"> <i class="icon_book_alt"></i> <span>교육과정</span> </button>
+                                <button class="nav-link " id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum" type="button" role="tab" aria-controls="curriculum" aria-selected="false"> <i class="icon_book_alt"></i> <span>Curriculum</span> </button>
                               </li>
                               <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false"> <i class="icon_star_alt"></i> <span>후기</span> </button>
+                                <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false"> <i class="icon_star_alt"></i> <span>Reviews</span> </button>
                               </li>
                               <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="member-tab" data-bs-toggle="tab" data-bs-target="#member" type="button" role="tab" aria-controls="member" aria-selected="false"> <i class="fal fa-user"></i> <span>담당강사님들</span> </button>
+                                <button class="nav-link" id="member-tab" data-bs-toggle="tab" data-bs-target="#member" type="button" role="tab" aria-controls="member" aria-selected="false"> <i class="fal fa-user"></i> <span>Members</span> </button>
                               </li>
                             </ul>
                         </div>
@@ -381,12 +374,10 @@
                            <div class="tab-content" id="courseTabContent">
                               <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
                                  <div class="course__description">
-                                    <h3>교육과정이름(디자인 해서)</h3>
-                                     <!--상세내용(크롤링해서 넣기)-->
+                                    <h3>Course Overview</h3>
                                     <p>Only a quid me old mucker squiffy tomfoolery grub cheers ruddy cor blimey guvnor in my flat, up the duff Eaton car boot up the kyver pardon you A bit of how's your father David skive off sloshed, don't get shirty with me chip shop vagabond crikey bugger Queen's English chap. Matie boy nancy boy bite your arm off up the kyver old no biggie fantastic boot, David have it show off show off pick your nose and blow off lost the plot porkies bits and bobs only a quid bugger all mate, absolutely bladdered bamboozled it's your round don't get shirty with me down the pub well. Give us a bell bits and bobs Charles he lost his bottle super my lady cras starkers bite your arm off Queen's English, pardon me horse play Elizabeth a blinding shot chinwag knees up do one David, blag cup of tea Eaton so I said bleeding haggle James Bond cup of char. Gosh William ummm I'm telling crikey burke I don't want no agro A bit of how's your father bugger all mate off his nut that, what a plonker cuppa owt to do with me nancy boy show off show off pick your nose and blow off spiffing good time lavatory me old mucker, chimney pot what a load of rubbish boot squiffy lost the plot brolly wellies excuse my french.</p>
 
                                     <div class="course__tag-2 mb-35 mt-35">
-                                        <!--여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
                                        <i class="fal fa-tag"></i>
                                        <a href="#">Big data,</a>
                                        <a href="#">Data analysis,</a>
@@ -796,6 +787,68 @@
                                           <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
                                              <div class="course__member-info pl-85">
                                                 <h5>3.00</h5>
+                                                <span>Rating</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="course__member-item">
+                                       <div class="row align-items-center">
+                                          <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-6">
+                                             <div class="course__member-thumb d-flex align-items-center">
+                                                <img src="assets/img/course/instructor/course-instructor-2.jpg" alt="">
+                                                <div class="course__member-name ml-20">
+                                                   <h5>Lauren Stamps</h5>
+                                                   <span>Teacher</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
+                                             <div class="course__member-info pl-45">
+                                                <h5>05</h5>
+                                                <span>Courses</span>
+                                             </div>
+                                          </div>
+                                          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
+                                             <div class="course__member-info pl-70">
+                                                <h5>03</h5>
+                                                <span>Reviw</span>
+                                             </div>
+                                          </div>
+                                          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
+                                             <div class="course__member-info pl-85">
+                                                <h5>3.00</h5>
+                                                <span>Rating</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="course__member-item">
+                                       <div class="row align-items-center">
+                                          <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-6 ">
+                                             <div class="course__member-thumb d-flex align-items-center">
+                                                <img src="assets/img/course/instructor/course-instructor-3.jpg" alt="">
+                                                <div class="course__member-name ml-20">
+                                                   <h5>Jonquil Von</h5>
+                                                   <span>Associate</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
+                                             <div class="course__member-info pl-45">
+                                                <h5>09</h5>
+                                                <span>Courses</span>
+                                             </div>
+                                          </div>
+                                          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
+                                             <div class="course__member-info pl-70">
+                                                <h5>07</h5>
+                                                <span>Reviw</span>
+                                             </div>
+                                          </div>
+                                          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
+                                             <div class="course__member-info pl-85">
+                                                <h5>4.00</h5>
                                                 <span>Rating</span>
                                              </div>
                                           </div>

@@ -1,0 +1,522 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+   <head>
+      <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>뉴스상세페이지</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Place favicon.ico in the root directory -->
+      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+      <!-- CSS here -->
+      <link rel="stylesheet" href="assets/css/preloader.css">
+      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/css/meanmenu.css">
+      <link rel="stylesheet" href="assets/css/animate.min.css">
+      <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+      <link rel="stylesheet" href="assets/css/backToTop.css">
+      <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+      <link rel="stylesheet" href="assets/css/fontAwesome5Pro.css">
+      <link rel="stylesheet" href="assets/css/elegantFont.css">
+      <link rel="stylesheet" href="assets/css/default.css">
+      <link rel="stylesheet" href="assets/css/style.css">
+   </head>
+   <body>
+      <!--[if lte IE 9]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+      <![endif]-->
+      
+      <!-- Add your site or application content here -->  
+
+      <!-- pre loader area start -->
+      <div id="loading">
+         <div id="loading-center">
+            <div id="loading-center-absolute">
+               <div class="loading-content">
+                  <img class="loading-logo-text" src="assets/img/logo/logo-text-2.png" alt="">
+                  <div class="loading-stroke">
+                     <img class="loading-logo-icon" src="assets/img/logo/logo-icon.png" alt="">
+                  </div>
+               </div>
+            </div>
+         </div>  
+      </div>
+      <!-- pre loader area end -->
+
+      <!-- back to top start -->
+      <div class="progress-wrap">
+         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+         </svg>
+      </div>
+      <!-- back to top end -->
+
+      <!-- header area start -->
+      <header>
+         <div id="header-sticky" class="header__area header__transparent header__padding header__white">
+            <div class="container-fluid">
+               <div class="row align-items-center">
+                  <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
+                     <div class="header__left d-flex">
+                        <div class="logo">
+                           <a href="index">
+                              <img class="logo-white" src="assets/img/logo/logo-2.png" alt="logo">
+                              <img class="logo-black" src="assets/img/logo/logo.png" alt="logo">
+                           </a>
+                        </div>
+                        <div class="header__category d-none d-lg-block">
+                           <nav>
+                              <ul>
+                                 <li>
+                                    <a href="course-grid" class="cat-menu d-flex align-items-center">
+                                       <div class="cat-dot-icon d-inline-block">
+                                          <svg viewBox="0 0 276.2 276.2">
+                                             <g>
+                                                <g>
+                                                   <path class="cat-dot" d="M33.1,2.5C15.3,2.5,0.9,17,0.9,34.8s14.5,32.3,32.3,32.3s32.3-14.5,32.3-32.3S51,2.5,33.1,2.5z"/>
+                                                   <path class="cat-dot" d="M137.7,2.5c-17.8,0-32.3,14.5-32.3,32.3s14.5,32.3,32.3,32.3c17.8,0,32.3-14.5,32.3-32.3S155.5,2.5,137.7,2.5    z"/>
+                                                   <path class="cat-dot" d="M243.9,67.1c17.8,0,32.3-14.5,32.3-32.3S261.7,2.5,243.9,2.5S211.6,17,211.6,34.8S226.1,67.1,243.9,67.1z"/>
+                                                   <path class="cat-dot" d="M32.3,170.5c17.8,0,32.3-14.5,32.3-32.3c0-17.8-14.5-32.3-32.3-32.3S0,120.4,0,138.2S14.5,170.5,32.3,170.5z"/>
+                                                   <path class="cat-dot" d="M136.8,170.5c17.8,0,32.3-14.5,32.3-32.3c0-17.8-14.5-32.3-32.3-32.3c-17.8,0-32.3,14.5-32.3,32.3    C104.5,156.1,119,170.5,136.8,170.5z"/>
+                                                   <path class="cat-dot" d="M243,170.5c17.8,0,32.3-14.5,32.3-32.3c0-17.8-14.5-32.3-32.3-32.3s-32.3,14.5-32.3,32.3    C210.7,156.1,225.2,170.5,243,170.5z"/>
+                                                   <path class="cat-dot" d="M33,209.1c-17.8,0-32.3,14.5-32.3,32.3c0,17.8,14.5,32.3,32.3,32.3s32.3-14.5,32.3-32.3S50.8,209.1,33,209.1z    "/>
+                                                   <path class="cat-dot" d="M137.6,209.1c-17.8,0-32.3,14.5-32.3,32.3c0,17.8,14.5,32.3,32.3,32.3c17.8,0,32.3-14.5,32.3-32.3    S155.4,209.1,137.6,209.1z"/>
+                                                   <path class="cat-dot" d="M243.8,209.1c-17.8,0-32.3,14.5-32.3,32.3c0,17.8,14.5,32.3,32.3,32.3c17.8,0,32.3-14.5,32.3-32.3    S261.6,209.1,243.8,209.1z"/>
+                                                </g>
+                                             </g>
+                                          </svg>
+                                       </div>
+                                       <span>Category</span>
+                                    </a>
+                                    <ul class="cat-submenu">
+                                       <li><a href="course-details">English Learning</a></li>
+                                       <li><a href="course-details">Web Development</a></li>
+                                       <li><a href="course-details">Logo Design</a></li>
+                                       <li><a href="course-details">Motion Graphics</a></li>
+                                       <li><a href="course-details">Video Edition</a></li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </nav>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-10 col-sm-8 col-6">
+                     <div class="header__right d-flex justify-content-end align-items-center">
+                        <div class="main-menu main-menu-3">
+                           <nav id="mobile-menu">
+                              <ul>
+                                 <li class="has-dropdown">
+                                    <a href="index">Home</a>
+                                    <ul class="submenu">
+                                       <li><a href="index">Home Style 1</a></li>
+                                       <li><a href="index-2">Home Style 2</a></li>
+                                       <li><a href="index-3">Home Style 3</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="has-dropdown">
+                                    <a href="course-grid">Courses</a>
+                                    <ul class="submenu">
+                                       <li><a href="course-grid">Courses</a></li>
+                                       <li><a href="course-list">Course List</a></li>
+                                       <li><a href="course-sidebar">Course sidebar</a></li>
+                                       <li><a href="course-details">Course Details</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="has-dropdown">
+                                    <a href="blog">Blog</a>
+                                    <ul class="submenu">
+                                       <li><a href="blog">Blog</a></li>
+                                       <li><a href="blog-details">Blog Details</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="has-dropdown">
+                                    <a href="course-grid">Pages</a>
+                                    <ul class="submenu">
+                                       <li><a href="about">About</a></li>
+                                       <li><a href="instructor">Instructor</a></li>
+                                       <li><a href="instructor-details">Instructor Details</a></li>
+                                       <li><a href="event-details">Event Details</a></li>
+                                       <li><a href="cart">My Cart</a></li>
+                                       <li><a href="wishlist">My Wishlist</a></li>
+                                       <li><a href="checkout">checkout</a></li>
+                                       <li><a href="sign-in">Sign In</a></li>
+                                       <li><a href="sign-up">Sign Up</a></li>
+                                       <li><a href="error">Error</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a href="contact">Contact</a></li>
+                              </ul>
+                           </nav>
+                        </div>
+                        <div class="header__search p-relative ml-50 d-none d-md-block">
+                           <form action="#">
+                              <input type="text" placeholder="Search...">
+                              <button type="submit"><i class="fad fa-search"></i></button>
+                           </form>
+                           <div class="header__cart">
+                              <a href="javascript:void(0);" class="cart-toggle-btn">
+                                 <div class="header__cart-icon">
+                                    <svg viewBox="0 0 24 24">
+                                       <circle class="st0" cx="9" cy="21" r="1"/>
+                                       <circle class="st0" cx="20" cy="21" r="1"/>
+                                       <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
+                                    </svg>
+                                 </div>
+                                 <span class="cart-item">2</span>
+                              </a>
+                           </div>
+                        </div>
+                        <div class="header__btn ml-20 d-none d-sm-block">
+                           <a href="contact" class="e-btn">Try for free</a>
+                        </div>
+                        <div class="sidebar__menu d-xl-none">
+                           <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
+                               <span class="line"></span>
+                               <span class="line"></span>
+                               <span class="line"></span>
+                           </div>
+                       </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- header area end -->
+
+      <!-- cart mini area start -->
+      <div class="cartmini__area">
+         <div class="cartmini__wrapper">
+            <div class="cartmini__title">
+               <h4>Shopping cart</h4>
+            </div>
+            <div class="cartmini__close">
+               <button type="button" class="cartmini__close-btn"><i class="fal fa-times"></i></button>
+            </div>
+            <div class="cartmini__widget">
+               <div class="cartmini__inner">
+                  <ul>
+                     <li>
+                        <div class="cartmini__thumb">
+                           <a href="#">
+                              <img src="assets/img/course/sm/cart-1.jpg" alt="">
+                           </a>
+                        </div>
+                        <div class="cartmini__content">
+                           <h5><a href="#">Strategy law and organization Foundation </a></h5>
+                           <div class="product-quantity mt-10 mb-10">
+                              <span class="cart-minus">-</span>
+                              <input class="cart-input" type="text" value="1"/>
+                              <span class="cart-plus">+</span>
+                           </div>
+                           <div class="product__sm-price-wrapper">
+                              <span class="product__sm-price">$46.00</span>
+                           </div>
+                        </div>
+                        <a href="#" class="cartmini__del"><i class="fal fa-times"></i></a>
+                     </li>
+                     <li>
+                        <div class="cartmini__thumb">
+                           <a href="#">
+                              <img src="assets/img/course/sm/cart-2.jpg" alt="">
+                           </a>
+                        </div>
+                        <div class="cartmini__content">
+                           <h5><a href="#">Fundamentals of music theory Learn new</a></h5>
+                           <div class="product-quantity mt-10 mb-10">
+                              <span class="cart-minus">-</span>
+                              <input class="cart-input" type="text" value="1"/>
+                              <span class="cart-plus">+</span>
+                           </div>
+                           <div class="product__sm-price-wrapper">
+                              <span class="product__sm-price">$32.00</span>
+                           </div>
+                        </div>
+                        <a href="#" class="cartmini__del"><i class="fal fa-times"></i></a>
+                     </li>
+                     <li>
+                        <div class="cartmini__thumb">
+                           <a href="#">
+                              <img src="assets/img/course/sm/cart-3.jpg" alt="">
+                           </a>
+                        </div>
+                        <div class="cartmini__content">
+                           <h5><a href="#">Strategy law and organization Foundation </a></h5>
+                           <div class="product-quantity mt-10 mb-10">
+                              <span class="cart-minus">-</span>
+                              <input class="cart-input" type="text" value="1"/>
+                              <span class="cart-plus">+</span>
+                           </div>
+                           <div class="product__sm-price-wrapper">
+                              <span class="product__sm-price">$62.00</span>
+                           </div>
+                        </div>
+                        <a href="#" class="cartmini__del"><i class="fal fa-times"></i></a>
+                     </li>
+                  </ul>
+               </div>
+               <div class="cartmini__checkout">
+                  <div class="cartmini__checkout-title mb-30">
+                     <h4>Subtotal:</h4>
+                     <span>$113.00</span>
+                  </div>
+                  <div class="cartmini__checkout-btn">
+                     <a href="cart" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
+                     <a href="checkout" class="e-btn w-100"> <span></span> checkout</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="body-overlay"></div>
+      <!-- cart mini area end -->
+
+
+      <!-- sidebar area start -->
+      <div class="sidebar__area">
+         <div class="sidebar__wrapper">
+            <div class="sidebar__close">
+               <button class="sidebar__close-btn" id="sidebar__close-btn">
+               <span><i class="fal fa-times"></i></span>
+               <span>close</span>
+               </button>
+            </div>
+            <div class="sidebar__content">
+               <div class="logo mb-40">
+                  <a href="index">
+                  <img src="assets/img/logo/logo.png" alt="logo">
+                  </a>
+               </div>
+               <div class="mobile-menu fix"></div>
+
+               <div class="sidebar__search p-relative mt-40 ">
+                  <form action="#">
+                     <input type="text" placeholder="Search...">
+                     <button type="submit"><i class="fad fa-search"></i></button>
+                  </form>
+               </div>
+               <div class="sidebar__cart mt-30">
+                  <a href="#">
+                     <div class="header__cart-icon">
+                        <svg viewBox="0 0 24 24">
+                           <circle class="st0" cx="9" cy="21" r="1"/>
+                           <circle class="st0" cx="20" cy="21" r="1"/>
+                           <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
+                        </svg>
+                     </div>
+                     <span class="cart-item">2</span>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- sidebar area end -->      
+      <div class="body-overlay"></div>
+      <!-- sidebar area end -->
+
+      <main>
+
+         <!-- page title area start -->
+         <section class="page__title-area page__title-height-2 page__title-overlay d-flex align-items-center" data-background="assets/img/page-title/page-title-3.jpg">
+            <div class="page__title-shape">
+               <img class="page-title-shape-1" src="assets/img/page-title/page-title-shape-1.png" alt="">
+               <img class="page-title-shape-2" src="assets/img/page-title/page-title-shape-2.png" alt="">
+               <img class="page-title-shape-3" src="assets/img/page-title/page-title-shape-3.png" alt="">
+               <img class="page-title-shape-4" src="assets/img/page-title/page-title-shape-4.png" alt="">
+            </div>
+            <div class="container">
+               <div class="row">
+                  <div class="col-xxl-10 col-xl-10 col-lg-10 ">
+                     <div class="page__title-wrapper mt-110">
+                        <span class="page__title-pre">분류?</span>
+                        <h3 class="page__title-2">기사제목</h3> 
+                        <div class="blog__meta d-flex align-items-center">
+                           <div class="blog__author d-flex align-items-center mr-40">
+                              <div class="blog__author-thumb mr-10">
+                                 <img src="assets/img/blog/author/author-1.jpg" alt="">
+                              </div>
+                              <div class="blog__author-info blog__author-info-2">
+                                 <h5>기자이름</h5>
+                              </div>
+                           </div>
+                           <div class="blog__date blog__date-2 d-flex align-items-center">
+                              <i class="fal fa-clock"></i>
+                              <span>작성날짜</span>
+                           </div>
+                        </div>                      
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- page title area end -->
+
+         <!-- blog area start -->
+         <section class="blog__area pt-120 pb-120">
+            <div class="container">
+               <div class="row">
+                  <div class="col-xxl-8 col-xl-8 col-lg-8">
+                     <div class="blog__wrapper">
+                        <div class="blog__text mb-40">
+                           <p>기사내용
+                              인간이 다른 사람과 상호작용하기 위해 특정 언어가 필요한 것처럼 개발자는 기계와 상호작용하기 위해 프로그래밍 언어가 필요하다. 기술이 진보하면서 그 어느 때보다 아동의 프로그래밍 언어 교육 수요가 증가했다. 컴퓨터 프로그래밍 교육은 아동이 문제 해결력과 논리적 사고력을 재미있게 배울 방법을 제시한다.
+
+하루가 멀다 하고 개발자 세계에는 새로운 프로그래밍 언어가 등장하며, 저마다 장단점을 지닌다. 비교적 최근 등장한 언어 중 줄리아(Julia)와 고(Go)가 개발자 세계에서 화제가 되는 추세이다. 개발자 사이에서 관심도가 높은 두 언어는 아동이 학습하기에도 적합할까? 이에, 인도 IT·빅데이터 전문 매체 애널리틱스 인사이트는 둘 중 아동이 학습하기 더 어려운 언어가 어떤 언어인지 다음과 같이 설명했다.
+
+먼저, 줄리아는 MIT 재학생 네 명으로 구성된 개발팀이 프로그래밍 언어 속도 개선을 위해 개발한 고급 오픈소스 프로그래밍 언어이다. 동적 고성능 프로그래밍 언어로, 과학 분야 컴퓨터 활동에 주로 사용한다. 프로그래밍 언어 R과 비슷하게 통계적 계산이나 데이터 분석 작업에 주로 사용한다. 파이썬이나 R과 비교했을 때 실행 속도가 월등히 높은 편이다. 대규모 데이터 분석 시 필수인 클라우드 컴퓨팅과 병렬성 등 복잡한 작업을 완료하면서 빅데이터 분석 작업을 지원한다.
+
+줄리아는 파이썬, C, R과 같은 고급 프로그래밍 언어와 유사하며, 학습이 쉬운 편이라는 정점이 있다. 이 덕분에 누구나 줄리아를 비교적 쉽게 학습할 수 있다. 파이썬과 C 언어를 결합했다는 특성도 있어, 파이썬이나 C를 마스터했다면 학습하기 유리하다. 줄리아는 파이썬, R, 매트랩(MATLAB)처럼 범용 프로그래밍 언어에서 출발하며 과학적 수치계산을 위해 설계되었다. 
+
+그러나 비교적 새로 등장한 언어라는 점에서 완성도가 높은 기존 언어보다 안정성이 부족한 편이다. 또, 파이썬과 R보다 지원하는 라이브러리 수도 적다. 
+
+고는 절차지향 언어이다. 구글의 로버트 그리즈머(Robert Griesemer), 켄 톰슨(Ken Thompson)과 롭 파이크(Rob Pike)가 2007년에 개발하기 시작했지만, 2009년이 되어서야 오픈소스 프로그래밍 언어로 출시됐다. 패키지는 프로그램 어셈블리에 활용되어 종속성을 효과적으로 관리한다. 다른 동적 언어와 마찬가지로 환경 적응 패턴을 지원한다.
+
+
+
+고는 강력한 타입 시스템과 가비지 컬렉터를 사용해 실행 속도가 높다. 정적 타입 언어이므로 실행 시간이 아니라 컴파일 시간에 문제를 발견한다. 다른 언어를 학습한 개발자에게 고는 학습하기 쉬운 언어이다.
+
+그러나 고로 작성한 프로그램은 지시자와 반환 값 사용 빈도가 높아 코드 가독성이 떨어진다. 고의 자료형 체계는 하스켈(Haskell)이나 스칼라(Scala)처럼 표현력이 높지 않다.
+
+고와 줄리아는 각각 장단점을 가졌지만 모두 범용 프로그래밍 언어로 다양한 용도의 애플리케이션 개발에 활용할 수 있다. 하지만 학습 난이도만 비교하면, 줄리아가 더 쉽다고 평가할 수 있다. 언어의 학습 난이도를 과학적으로 측정할 방법은 존재하지 않지만, 언어 학계에서는 간혹 특정 언어에 익숙해질 때까지 소요하는 ‘학습 시간’을 학습 난이도의 척도로 삼는다.
+
+자연어처리 저널(Natural Language Processing (NLP) journal)에 게재된 논문 여러 편을 분석한 결과, 고 학습 시 필요한 시간은 약 3,900시간이다. 줄리아 학습 시 필요한 시간은 2,400시간으로 비교적 적은 편이다. 즉, 줄리아는 약 2개월 동안 충분히 익힐 수 있다는 의미이다. 게다가 줄리아는 파이썬을 비롯한 다른 인기 언어보다도 학습이 쉽다. 따라서 두 언어 중 고가 아동이 학습하기에는 더 어려운 언어라고 평가할 수 있다.
+
+출처 : 코딩월드뉴스(https://www.codingworldnews.com)  
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- blog area end -->
+
+      </main>  
+
+         <!-- footer area start -->
+         <footer>
+            <div class="footer__area footer-bg">
+               <div class="footer__top pt-90 pb-40">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                           <div class="footer__widget mb-50">
+                              <div class="footer__widget-head mb-22">
+                                 <div class="footer__logo">
+                                    <a href="index">
+                                       <img src="assets/img/logo/logo-2.png" alt="">
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="footer__widget-body">
+                                 <p>Great lesson ideas and lesson plans for ESL teachers! Educators can customize lesson plans to best.</p>
+
+                                 <div class="footer__social">
+                                    <ul>
+                                       <li><a href="#"><i class="social_facebook"></i></a></li>
+                                       <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
+                                       <li><a href="#" class="pin"><i class="social_pinterest"></i></a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
+                           <div class="footer__widget mb-50">
+                              <div class="footer__widget-head mb-22">
+                                 <h3 class="footer__widget-title">Company</h3>
+                              </div>
+                              <div class="footer__widget-body">
+                                 <div class="footer__link">
+                                    <ul>
+                                       <li><a href="#">About</a></li>
+                                       <li><a href="#">Courses</a></li>
+                                       <li><a href="#">Events</a></li>
+                                       <li><a href="#">Instructor</a></li>
+                                       <li><a href="#">Career</a></li>
+                                       <li><a href="#">Become a Teacher</a></li>
+                                       <li><a href="#">Contact</a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-xxl-2 col-xl-2 col-lg-2 offset-lg-0 col-md-3 offset-md-1 col-sm-6">
+                           <div class="footer__widget mb-50">
+                              <div class="footer__widget-head mb-22">
+                                 <h3 class="footer__widget-title">Platform</h3>
+                              </div>
+                              <div class="footer__widget-body">
+                                 <div class="footer__link">
+                                    <ul>
+                                       <li><a href="#">Browse Library</a></li>
+                                       <li><a href="#">Library</a></li>
+                                       <li><a href="#">Partners</a></li>
+                                       <li><a href="#">News & Blogs</a></li>
+                                       <li><a href="#">FAQs</a></li>
+                                       <li><a href="#">Tutorials</a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-6">
+                           <div class="footer__widget footer__pl-70 mb-50">
+                              <div class="footer__widget-head mb-22">
+                                 <h3 class="footer__widget-title">Subscribe</h3>
+                              </div>
+                              <div class="footer__widget-body">
+                                 <div class="footer__subscribe">
+                                    <form action="#">
+                                       <div class="footer__subscribe-input mb-15">
+                                          <input type="email" placeholder="Your email address">
+                                          <button type="submit">
+                                             <i class="far fa-arrow-right"></i>
+                                             <i class="far fa-arrow-right"></i>
+                                          </button>
+                                       </div>
+                                    </form>
+                                    <p>Get the latest news and updates right at your inbox.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="footer__bottom">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-xxl-12">
+                           <div class="footer__copyright text-center">
+                              <p>© 2022 Educal, All Rights Reserved. Design By <a href="index">Theme Pure</a></p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </footer>
+         <!-- footer area end -->
+      <!-- JS here -->
+      <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+      <script src="assets/js/vendor/waypoints.min.js"></script>
+      <script src="assets/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/js/jquery.meanmenu.js"></script>
+      <script src="assets/js/swiper-bundle.min.js"></script>
+      <script src="assets/js/owl.carousel.min.js"></script>
+      <script src="assets/js/jquery.fancybox.min.js"></script>
+      <script src="assets/js/isotope.pkgd.min.js"></script>
+      <script src="assets/js/parallax.min.js"></script>
+      <script src="assets/js/backToTop.js"></script>
+      <script src="assets/js/jquery.counterup.min.js"></script>
+      <script src="assets/js/ajax-form.js"></script>
+      <script src="assets/js/wow.min.js"></script>
+      <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+      <script src="assets/js/main.js"></script>
+   </body>
+</html>
+

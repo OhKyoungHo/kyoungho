@@ -34,4 +34,5 @@ public class EducationVO {
 	private String ed_comm;
 	private String ed_curriculum;
 	private Boolean ed_tf;
+	private String ed_pic;
 }

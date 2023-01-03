@@ -1,7 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
-      <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>Educal – Online Learning and Education HTML5 Template </title>
@@ -319,13 +318,13 @@
 
       <main>
 
-          <!-- page title area start(학원리스트 시작부분) -->
+         <!-- page title area start -->
          <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="assets/img/page-title/page-title.jpg">
             <div class="container">
                <div class="row">
                   <div class="col-xxl-12">
                      <div class="page__title-wrapper mt-110">
-                        <h3 class="page__title">국비&부트캠프 리스트</h3>                          
+                        <h3 class="page__title">Courses</h3>                         
                         <nav aria-label="breadcrumb">
                            <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="index">Home</a></li>
@@ -339,7 +338,7 @@
          </section>
          <!-- page title area end -->
 
-         <!-- course area start(학원리스트 내용 시작) -->
+         <!-- course area start -->
          <section class="course__area pt-120 pb-120">
             <div class="container">
                <div class="row">
@@ -375,18 +374,17 @@
                               </ul>
                            </div>
                            <div class="course__view">
-                               <!-- 이부분은 나중에 값넣어서 보이게 하기 -->
                               <h4>Showing 1 - 9 of 84</h4>
                            </div>
                         </div>
                         <div class="course__sort d-flex justify-content-sm-end">
                            <div class="course__sort-inner">
                               <select>
-                                 <option>--선택--</option>
-                                 <option>최신순</option>
-                                 <option>인기순</option>
-                                 <option>리뷰많은순</option>
-                                 <option>별점순</option>
+                                 <option>Default</option>
+                                 <option>Option 1</option>
+                                 <option>Option 2</option>
+                                 <option>Option 3</option>
+                                 <option>Option 4</option>
                                  <option>Option 5</option>
                                  <option>Option 6</option>
                               </select>
@@ -404,8 +402,7 @@
                                              <img src="assets/img/course/course-1.jpg" alt="">
                                           </a>
                                           <div class="course__tag">
-                                             <!-- 국비/ 부트캠프 인지-->
-                                             <a href="#">국비 or 부트캠프</a>
+                                             <a href="#">Art & Design</a>
                                           </div>
                                        </div>
                                        <div class="course__content">
@@ -414,21 +411,20 @@
                                                 <span><i class="far fa-book-alt"></i>43 Lesson</span>
                                              </div>
                                              <div class="course__rating">
-                                                <!--별점과 값은 평균내서 값을 넣어야함-->
-                                                <span><i class="icon_star"></i>4.5(평균해서) (44)</span>
+                                                <span><i class="icon_star"></i>4.5 (44)</span>
                                              </div>
                                           </div>
-                                          <h3 class="course__title"><a href="course-details">교육과정이름</a></h3>
+                                          <h3 class="course__title"><a href="course-details">Become a product Manager learn the skills & job.</a></h3>
                                           <div class="course__teacher d-flex align-items-center">
                                              <div class="course__teacher-thumb mr-15">
                                                 <img src="assets/img/course/teacher/teacher-1.jpg" alt="">
                                              </div>
-                                             <h6><a href="instructor-details">학원이름</a></h6>
+                                             <h6><a href="instructor-details">Jim Séchen</a></h6>
                                           </div>
                                        </div>
                                        <div class="course__more d-flex justify-content-between align-items-center">
                                           <div class="course__status">
-                                             <span>가격넣어야함</span>
+                                             <span>Free</span>
                                           </div>
                                           <div class="course__btn">
                                              <a href="course-details" class="link-btn">
@@ -440,11 +436,216 @@
                                        </div>
                                     </div>
                                  </div>
-                                
-                                 
-                                
-                                 
-                               
+                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                    <div class="course__item white-bg mb-30 fix">
+                                       <div class="course__thumb w-img p-relative fix">
+                                          <a href="course-details">
+                                             <img src="assets/img/course/course-2.jpg" alt="">
+                                          </a>
+                                          <div class="course__tag">
+                                             <a href="#" class="sky-blue">Mechanical</a>
+                                          </div>
+                                       </div>
+                                       <div class="course__content">
+                                          <div class="course__meta d-flex align-items-center justify-content-between">
+                                             <div class="course__lesson">
+                                                <span><i class="far fa-book-alt"></i>72 Lesson</span>
+                                             </div>
+                                             <div class="course__rating">
+                                                <span><i class="icon_star"></i>4.5 (44)</span>
+                                             </div>
+                                          </div>
+                                          <h3 class="course__title"><a href="course-details">Fundamentals of music theory Learn new</a></h3>
+                                          <div class="course__teacher d-flex align-items-center">
+                                             <div class="course__teacher-thumb mr-15">
+                                                <img src="assets/img/course/teacher/teacher-2.jpg" alt="">
+                                             </div>
+                                             <h6><a href="instructor-details">Barry Tone</a></h6>
+                                          </div>
+                                       </div>
+                                       <div class="course__more d-flex justify-content-between align-items-center">
+                                          <div class="course__status d-flex align-items-center">
+                                             <span class="sky-blue">$32.00</span>
+                                             <span class="old-price">$68.00</span>
+                                          </div>
+                                          <div class="course__btn">
+                                             <a href="course-details" class="link-btn">
+                                                Know Details
+                                                <i class="far fa-arrow-right"></i>
+                                                <i class="far fa-arrow-right"></i>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                    <div class="course__item white-bg mb-30 fix">
+                                       <div class="course__thumb w-img p-relative fix">
+                                          <a href="course-details">
+                                             <img src="assets/img/course/course-7.jpg" alt="">
+                                          </a>
+                                          <div class="course__tag">
+                                             <a href="#" class="blue-2">Development</a>
+                                          </div>
+                                       </div>
+                                       <div class="course__content">
+                                          <div class="course__meta d-flex align-items-center justify-content-between">
+                                             <div class="course__lesson">
+                                                <span><i class="far fa-book-alt"></i>43 Lesson</span>
+                                             </div>
+                                             <div class="course__rating">
+                                                <span><i class="icon_star"></i>4.4 (40)</span>
+                                             </div>
+                                          </div>
+                                          <h3 class="course__title"><a href="course-details">Bases Matemáticas dios Álgebra Ecuacion</a></h3>
+                                          <div class="course__teacher d-flex align-items-center">
+                                             <div class="course__teacher-thumb mr-15">
+                                                <img src="assets/img/course/teacher/teacher-7.jpg" alt="">
+                                             </div>
+                                             <h6><a href="instructor-details">Samuel Serif</a></h6>
+                                          </div>
+                                       </div>
+                                       <div class="course__more d-flex justify-content-between align-items-center">
+                                          <div class="course__status d-flex align-items-center">
+                                             <span class="blue-2">$46.00</span>
+                                             <span class="old-price">$68.00</span>
+                                          </div>
+                                          <div class="course__btn">
+                                             <a href="course-details" class="link-btn">
+                                                Know Details
+                                                <i class="far fa-arrow-right"></i>
+                                                <i class="far fa-arrow-right"></i>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                    <div class="course__item white-bg mb-30 fix">
+                                       <div class="course__thumb w-img p-relative fix">
+                                          <a href="course-details">
+                                             <img src="assets/img/course/course-3.jpg" alt="">
+                                          </a>
+                                          <div class="course__tag">
+                                             <a href="#" class="green">Development</a>
+                                          </div>
+                                       </div>
+                                       <div class="course__content">
+                                          <div class="course__meta d-flex align-items-center justify-content-between">
+                                             <div class="course__lesson">
+                                                <span><i class="far fa-book-alt"></i>14 Lesson</span>
+                                             </div>
+                                             <div class="course__rating">
+                                                <span><i class="icon_star"></i>3.5 (55)</span>
+                                             </div>
+                                          </div>
+                                          <h3 class="course__title"><a href="course-details">Strategy law and organization Foundation</a></h3>
+                                          <div class="course__teacher d-flex align-items-center">
+                                             <div class="course__teacher-thumb mr-15">
+                                                <img src="assets/img/course/teacher/teacher-3.jpg" alt="">
+                                             </div>
+                                             <h6><a href="instructor-details">Elon Gated</a></h6>
+                                          </div>
+                                       </div>
+                                       <div class="course__more d-flex justify-content-between align-items-center">
+                                          <div class="course__status d-flex align-items-center">
+                                             <span class="green">$46.00</span>
+                                             <span class="old-price">$68.00</span>
+                                          </div>
+                                          <div class="course__btn">
+                                             <a href="course-details" class="link-btn">
+                                                Know Details
+                                                <i class="far fa-arrow-right"></i>
+                                                <i class="far fa-arrow-right"></i>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                    <div class="course__item white-bg mb-30 fix">
+                                       <div class="course__thumb w-img p-relative fix">
+                                          <a href="course-details">
+                                             <img src="assets/img/course/course-4.jpg" alt="">
+                                          </a>
+                                          <div class="course__tag">
+                                             <a href="#" class="blue">Marketing</a>
+                                          </div>
+                                       </div>
+                                       <div class="course__content">
+                                          <div class="course__meta d-flex align-items-center justify-content-between">
+                                             <div class="course__lesson">
+                                                <span><i class="far fa-book-alt"></i>22 Lesson</span>
+                                             </div>
+                                             <div class="course__rating">
+                                                <span><i class="icon_star"></i>4.5 (42)</span>
+                                             </div>
+                                          </div>
+                                          <h3 class="course__title"><a href="course-details">The business Intelligence analyst Course 2022</a></h3>
+                                          <div class="course__teacher d-flex align-items-center">
+                                             <div class="course__teacher-thumb mr-15">
+                                                <img src="assets/img/course/teacher/teacher-4.jpg" alt="">
+                                             </div>
+                                             <h6><a href="instructor-details">Eleanor Fant</a></h6>
+                                          </div>
+                                       </div>
+                                       <div class="course__more d-flex justify-content-between align-items-center">
+                                          <div class="course__status d-flex align-items-center">
+                                             <span class="blue">$62.00</span>
+                                             <span class="old-price">$97.00</span>
+                                          </div>
+                                          <div class="course__btn">
+                                             <a href="course-details" class="link-btn">
+                                                Know Details
+                                                <i class="far fa-arrow-right"></i>
+                                                <i class="far fa-arrow-right"></i>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                    <div class="course__item white-bg mb-30 fix">
+                                       <div class="course__thumb w-img p-relative fix">
+                                          <a href="course-details">
+                                             <img src="assets/img/course/course-8.jpg" alt="">
+                                          </a>
+                                          <div class="course__tag">
+                                             <a href="#" class="yellow">Marketing</a>
+                                          </div>
+                                       </div>
+                                       <div class="course__content">
+                                          <div class="course__meta d-flex align-items-center justify-content-between">
+                                             <div class="course__lesson">
+                                                <span><i class="far fa-book-alt"></i>22 Lesson</span>
+                                             </div>
+                                             <div class="course__rating">
+                                                <span><i class="icon_star"></i>4.5 (42)</span>
+                                             </div>
+                                          </div>
+                                          <h3 class="course__title"><a href="course-details">The business Intelligence analyst Course 2022</a></h3>
+                                          <div class="course__teacher d-flex align-items-center">
+                                             <div class="course__teacher-thumb mr-15">
+                                                <img src="assets/img/course/teacher/teacher-8.jpg" alt="">
+                                             </div>
+                                             <h6><a href="instructor-details">Brian Cumin</a></h6>
+                                          </div>
+                                       </div>
+                                       <div class="course__more d-flex justify-content-between align-items-center">
+                                          <div class="course__status d-flex align-items-center">
+                                             <span class="yellow">$62.00</span>
+                                             <span class="old-price">$97.00</span>
+                                          </div>
+                                          <div class="course__btn">
+                                             <a href="course-details" class="link-btn">
+                                                Know Details
+                                                <i class="far fa-arrow-right"></i>
+                                                <i class="far fa-arrow-right"></i>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
                               </div>
                            </div>
                            <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
@@ -458,7 +659,7 @@
                                                    <img src="assets/img/course/list/course-1.jpg" alt="">
                                                 </a>
                                                 <div class="course__tag">
-                                                   <a href="#">국비인지 부트인지</a>
+                                                   <a href="#">Art & Design</a>
                                                 </div>
                                              </div>
                                           </div>
@@ -470,27 +671,26 @@
                                                          <span><i class="far fa-book-alt"></i>43 Lesson</span>
                                                       </div>
                                                       <div class="course__rating">
-                                                         <!--별점과 값은 평균내서 값을 넣어야함-->
-                                                         <span><i class="icon_star"></i>4.5(평균해서) (44)</span>
+                                                         <span><i class="icon_star"></i>4.5 (44)</span>
                                                       </div>
                                                    </div>
                                                    <h3 class="course__title">
-                                                      <a href="course-details">교육과정이름</a>
+                                                      <a href="course-details">Become a product Manager learn the skills & job.</a>
                                                    </h3>
                                                    <div class="course__teacher d-flex align-items-center">
                                                       <div class="course__teacher-thumb mr-15">
                                                          <img src="assets/img/course/teacher/teacher-1.jpg" alt="">
                                                       </div>
-                                                      <h6><a href="instructor-details">학원이름</a></h6>
+                                                      <h6><a href="instructor-details">Jim Séchen</a></h6>
                                                    </div>
                                                 </div>
                                                 <div class="course__more course__more-2 course__more-3 d-flex justify-content-between align-items-center">
                                                    <div class="course__status">
-                                                      <span>가격넣어야함</span>
+                                                      <span>Free</span>
                                                    </div>
                                                    <div class="course__btn">
                                                       <a href="course-details" class="link-btn">
-                                                         상세보기
+                                                         Know Details
                                                          <i class="far fa-arrow-right"></i>
                                                          <i class="far fa-arrow-right"></i>
                                                       </a>
@@ -501,8 +701,266 @@
                                        </div>
                                     </div>
                                  </div>                                                           
-                                 
-                                                                                          
+                                 <div class="col-xxl-12">
+                                    <div class="course__item white-bg mb-30 fix">
+                                       <div class="row gx-0">
+                                          <div class="col-xxl-4 col-xl-4 col-lg-4">
+                                             <div class="course__thumb course__thumb-list w-img p-relative fix">
+                                                <a href="course-details">
+                                                   <img src="assets/img/course/list/course-2.jpg" alt="">
+                                                </a>
+                                                <div class="course__tag">
+                                                   <a href="#" class="sky-blue">Art & Design</a>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="col-xxl-8 col-xl-8 col-lg-8">
+                                             <div class="course__right">
+                                                <div class="course__content course__content-4">
+                                                   <div class="course__meta d-flex align-items-center">
+                                                      <div class="course__lesson mr-20">
+                                                         <span><i class="far fa-book-alt"></i>72 Lesson</span>
+                                                      </div>
+                                                      <div class="course__rating">
+                                                         <span><i class="icon_star"></i>4.5 (44)</span>
+                                                      </div>
+                                                   </div>
+                                                   <h3 class="course__title">
+                                                      <a href="course-details">Fundamentals of music theory Learn new.</a>
+                                                   </h3>
+                                                   <div class="course__teacher d-flex align-items-center">
+                                                      <div class="course__teacher-thumb mr-15">
+                                                         <img src="assets/img/course/teacher/teacher-2.jpg" alt="">
+                                                      </div>
+                                                      <h6><a href="instructor-details">Barry Tone</a></h6>
+                                                   </div>
+                                                </div>
+                                                <div class="course__more course__more-2 course__more-3 d-flex justify-content-between align-items-center">
+                                                   <div class="course__status d-flex align-items-center">
+                                                      <span class="sky-blue">$32.00</span>
+                                                      <span class="old-price">$68.00</span>
+                                                   </div>
+                                                   <div class="course__btn">
+                                                      <a href="course-details" class="link-btn">
+                                                         Know Details
+                                                         <i class="far fa-arrow-right"></i>
+                                                         <i class="far fa-arrow-right"></i>
+                                                      </a>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>                                                           
+                                 <div class="col-xxl-12">
+                                    <div class="course__item white-bg mb-30 fix">
+                                       <div class="row gx-0">
+                                          <div class="col-xxl-4 col-xl-4 col-lg-4">
+                                             <div class="course__thumb course__thumb-list w-img p-relative fix">
+                                                <a href="course-details">
+                                                   <img src="assets/img/course/list/course-3.jpg" alt="">
+                                                </a>
+                                                <div class="course__tag">
+                                                   <a href="#" class="blue-2">Art & Design</a>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="col-xxl-8 col-xl-8 col-lg-8">
+                                             <div class="course__right">
+                                                <div class="course__content course__content-4">
+                                                   <div class="course__meta d-flex align-items-center">
+                                                      <div class="course__lesson mr-20">
+                                                         <span><i class="far fa-book-alt"></i>14 Lesson</span>
+                                                      </div>
+                                                      <div class="course__rating">
+                                                         <span><i class="icon_star"></i>3.5 (32)</span>
+                                                      </div>
+                                                   </div>
+                                                   <h3 class="course__title">
+                                                      <a href="course-details">Strategy law and organization Foundation</a>
+                                                   </h3>
+                                                   <div class="course__teacher d-flex align-items-center">
+                                                      <div class="course__teacher-thumb mr-15">
+                                                         <img src="assets/img/course/teacher/teacher-3.jpg" alt="">
+                                                      </div>
+                                                      <h6><a href="instructor-details">Elon Gated</a></h6>
+                                                   </div>
+                                                </div>
+                                                <div class="course__more course__more-2 course__more-3 d-flex justify-content-between align-items-center">
+                                                   <div class="course__status d-flex align-items-center">
+                                                      <span class="blue-2">$46.00</span>
+                                                      <span class="old-price">$68.00</span>
+                                                   </div>
+                                                   <div class="course__btn">
+                                                      <a href="course-details" class="link-btn">
+                                                         Know Details
+                                                         <i class="far fa-arrow-right"></i>
+                                                         <i class="far fa-arrow-right"></i>
+                                                      </a>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>                                                           
+                                 <div class="col-xxl-12">
+                                    <div class="course__item white-bg mb-30 fix">
+                                       <div class="row gx-0">
+                                          <div class="col-xxl-4 col-xl-4 col-lg-4">
+                                             <div class="course__thumb course__thumb-list w-img p-relative fix">
+                                                <a href="course-details">
+                                                   <img src="assets/img/course/list/course-4.jpg" alt="">
+                                                </a>
+                                                <div class="course__tag">
+                                                   <a href="#" class="green">Art & Design</a>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="col-xxl-8 col-xl-8 col-lg-8">
+                                             <div class="course__right">
+                                                <div class="course__content course__content-4">
+                                                   <div class="course__meta d-flex align-items-center">
+                                                      <div class="course__lesson mr-20">
+                                                         <span><i class="far fa-book-alt"></i>14 Lesson</span>
+                                                      </div>
+                                                      <div class="course__rating">
+                                                         <span><i class="icon_star"></i>3.5 (32)</span>
+                                                      </div>
+                                                   </div>
+                                                   <h3 class="course__title">
+                                                      <a href="course-details">The business Intelligence analyst Course 2022</a>
+                                                   </h3>
+                                                   <div class="course__teacher d-flex align-items-center">
+                                                      <div class="course__teacher-thumb mr-15">
+                                                         <img src="assets/img/course/teacher/teacher-4.jpg" alt="">
+                                                      </div>
+                                                      <h6><a href="instructor-details">Eleanor Fant</a></h6>
+                                                   </div>
+                                                </div>
+                                                <div class="course__more course__more-2 course__more-3 d-flex justify-content-between align-items-center">
+                                                   <div class="course__status d-flex align-items-center">
+                                                      <span class="green">$46.00</span>
+                                                      <span class="old-price">$68.00</span>
+                                                   </div>
+                                                   <div class="course__btn">
+                                                      <a href="course-details" class="link-btn">
+                                                         Know Details
+                                                         <i class="far fa-arrow-right"></i>
+                                                         <i class="far fa-arrow-right"></i>
+                                                      </a>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>                                                           
+                                 <div class="col-xxl-12">
+                                    <div class="course__item white-bg mb-30 fix">
+                                       <div class="row gx-0">
+                                          <div class="col-xxl-4 col-xl-4 col-lg-4">
+                                             <div class="course__thumb course__thumb-list w-img p-relative fix">
+                                                <a href="course-details">
+                                                   <img src="assets/img/course/list/course-5.jpg" alt="">
+                                                </a>
+                                                <div class="course__tag">
+                                                   <a href="#" class="blue">Art & Design</a>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="col-xxl-8 col-xl-8 col-lg-8">
+                                             <div class="course__right">
+                                                <div class="course__content course__content-4">
+                                                   <div class="course__meta d-flex align-items-center">
+                                                      <div class="course__lesson mr-20">
+                                                         <span><i class="far fa-book-alt"></i>14 Lesson</span>
+                                                      </div>
+                                                      <div class="course__rating">
+                                                         <span><i class="icon_star"></i>3.5 (32)</span>
+                                                      </div>
+                                                   </div>
+                                                   <h3 class="course__title">
+                                                      <a href="course-details">Build your media and Public presence</a>
+                                                   </h3>
+                                                   <div class="course__teacher d-flex align-items-center">
+                                                      <div class="course__teacher-thumb mr-15">
+                                                         <img src="assets/img/course/teacher/teacher-5.jpg" alt="">
+                                                      </div>
+                                                      <h6><a href="instructor-details">Pelican Steve</a></h6>
+                                                   </div>
+                                                </div>
+                                                <div class="course__more course__more-2 course__more-3 d-flex justify-content-between align-items-center">
+                                                   <div class="course__status d-flex align-items-center">
+                                                      <span class="blue">$62.00</span>
+                                                      <span class="old-price">$97.00</span>
+                                                   </div>
+                                                   <div class="course__btn">
+                                                      <a href="course-details" class="link-btn">
+                                                         Know Details
+                                                         <i class="far fa-arrow-right"></i>
+                                                         <i class="far fa-arrow-right"></i>
+                                                      </a>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>                                                           
+                                 <div class="col-xxl-12">
+                                    <div class="course__item white-bg mb-30 fix">
+                                       <div class="row gx-0">
+                                          <div class="col-xxl-4 col-xl-4 col-lg-4">
+                                             <div class="course__thumb course__thumb-list w-img p-relative fix">
+                                                <a href="course-details">
+                                                   <img src="assets/img/course/list/course-6.jpg" alt="">
+                                                </a>
+                                                <div class="course__tag">
+                                                   <a href="#" class="yellow">Art & Design</a>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="col-xxl-8 col-xl-8 col-lg-8">
+                                             <div class="course__right">
+                                                <div class="course__content course__content-4">
+                                                   <div class="course__meta d-flex align-items-center">
+                                                      <div class="course__lesson mr-20">
+                                                         <span><i class="far fa-book-alt"></i>33 Lesson</span>
+                                                      </div>
+                                                      <div class="course__rating">
+                                                         <span><i class="icon_star"></i>3.5 (72)</span>
+                                                      </div>
+                                                   </div>
+                                                   <h3 class="course__title">
+                                                      <a href="course-details">Creative writing through Storytelling</a>
+                                                   </h3>
+                                                   <div class="course__teacher d-flex align-items-center">
+                                                      <div class="course__teacher-thumb mr-15">
+                                                         <img src="assets/img/course/teacher/teacher-6.jpg" alt="">
+                                                      </div>
+                                                      <h6><a href="instructor-details">Elon Gated</a></h6>
+                                                   </div>
+                                                </div>
+                                                <div class="course__more course__more-2 course__more-3 d-flex justify-content-between align-items-center">
+                                                   <div class="course__status d-flex align-items-center">
+                                                      <span class="yellow">$62.00</span>
+                                                      <span class="old-price">$97.00</span>
+                                                   </div>
+                                                   <div class="course__btn">
+                                                      <a href="course-details" class="link-btn">
+                                                         Know Details
+                                                         <i class="far fa-arrow-right"></i>
+                                                         <i class="far fa-arrow-right"></i>
+                                                      </a>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>                                                           
                               </div>
                            </div>
                          </div>
