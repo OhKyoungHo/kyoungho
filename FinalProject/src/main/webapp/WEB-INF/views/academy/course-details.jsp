@@ -393,7 +393,7 @@
                                     <h3>${education.edTitle}</h3>
                                      <!--상세내용(크롤링해서 넣기)-->
                                     <p>${education.ed_intro}</p>
-
+                                    <p>${education.ed_curriculum}</p>
                                     
                                     <div class="course__description-list mb-45">
                                        <h4>What is the Target Audience?</h4>

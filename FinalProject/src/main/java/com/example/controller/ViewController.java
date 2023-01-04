@@ -21,7 +21,7 @@ public class ViewController {
 	public String viewAdmin(@PathVariable String step) {
 		return "/admin/"+step;
 	}
-//	
+	
 //	@RequestMapping("/lecture/{step}")
 //	public String viewLecture(@PathVariable String step) {
 //		return "/lecture/"+step;

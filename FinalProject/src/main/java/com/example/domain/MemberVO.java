@@ -19,8 +19,8 @@ public class MemberVO {
 	@Id
 	@Column(name="m_id")
 	private String MId;
-	@Column(nullable=false)
-	private String m_pass;
+	@Column(nullable=false, name="m_pass")
+	private String MPass;
 	private String m_tel;
 	private String m_post;
 	private String m_addr;

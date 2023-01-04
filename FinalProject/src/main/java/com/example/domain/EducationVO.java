@@ -19,7 +19,8 @@ public class EducationVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer ed_id;
+	@Column(name="ed_id", nullable=false)
+	private Integer edId;
 	@Column(name="ed_title", nullable=false)
 	private String edTitle;
 	private String ed_name;

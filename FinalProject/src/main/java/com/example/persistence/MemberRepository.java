@@ -9,6 +9,6 @@ import com.example.domain.MemberVO;
 public interface MemberRepository extends JpaRepository<MemberVO, Integer> {
 	
 	// 로그인
-	List<MemberVO> findByMId(String mId);
+	List<MemberVO> findByMIdAndMPass(String mId, String MPass);
 	
 }

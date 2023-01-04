@@ -3,6 +3,10 @@ package com.example.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.domain.EducationVO;
@@ -10,7 +14,7 @@ import com.example.persistence.EducationRepository;
 
 @Service
 public class EducationServiceImpl implements EducationService {
-
+	
 	@Autowired
 	private EducationRepository eduRepo;
 
@@ -20,16 +24,18 @@ public class EducationServiceImpl implements EducationService {
 		System.out.println(list);
 		return list;
 	}
-
+	
 	@Override
 	public EducationVO getBoard(EducationVO vo) {
-		return eduRepo.findById(vo.getEd_id()).get();
+		return eduRepo.findById(vo.getEdId()).get();
 	}
+	
 	//경호
 	//관리자페이지
 	//상품 전체 조회
 	public List<EducationVO> selectAllAcademy() {
 		return (List<EducationVO>) eduRepo.findAll();
 	}
-
+	
+	
 }

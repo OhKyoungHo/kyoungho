@@ -1,0 +1,21 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class FinalProjectApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(FinalProjectApplication.class, args);
+	}
+	
+	@Bean
+	public PageableHandlerMethodArgumentResolverCustomizer customize() {
+		return p -> {
+			p.setOneIndexedParameters(true);	// 1부터 시작
+			p.setMaxPageSize(10);				// size=10
+		};
+	}
+
+}

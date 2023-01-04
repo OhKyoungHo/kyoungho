@@ -1,6 +1,5 @@
 package com.example.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -15,17 +14,28 @@ import com.example.persistence.SearchRepository;
 public class SearchServiceImpl implements SearchService {
    
    @Autowired
-   private SearchRepository searchRepo;
+   private SearchRepository searchRepository;
    
    
-   
+   //교육과정이름 + 학원이름
    @Transactional
-   public List<EducationVO> search(String keyword) {
-      System.out.println("keyword : " + keyword );
-      List<EducationVO> postlist = searchRepo.findByEdTitleContaining(keyword);
-      System.out.println(postlist);
-      return postlist;
-      
+   public List<EducationVO> titleAndNameSearchQuery(String keyword){
+     
+      List<EducationVO> searchList = searchRepository.titleAndNameSearchQuery(keyword);
+      return searchList;
    }
    
+
+   //키워드검색
+   @Transactional
+   public List<EducationVO> detailsSearchQuery(String keywords){
+     
+      List<EducationVO> searchList2 = searchRepository.detailsSearchQuery(keywords);
+      return searchList2;
+   }
+  
+   
+   
+   
+
 }

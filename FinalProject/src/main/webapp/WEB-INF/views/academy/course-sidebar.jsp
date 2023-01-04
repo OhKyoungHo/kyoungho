@@ -152,11 +152,24 @@
                               </ul>
                            </nav>
                         </div>
+
+
+
+                        
+                        <!-- 0103 찬주2
+                           메인화면에서의 검색기능과 동일한 부분 
+                        -->
+
                         <div class="header__search p-relative ml-50 d-none d-md-block">
-                           <form action="#">
-                              <input type="text" placeholder="Search...">
+                           <form action=/academy/mainsearch method="GET" role="search">
+                              <input type="text"  name ="keyword" placeholder="ex)교육과정 및 학원이름 검색">
                               <button type="submit"><i class="fad fa-search"></i></button>
                            </form>
+                           <!-- 검색 끝-->
+
+
+
+
                            <div class="header__cart">
                               <a href="javascript:void(0);" class="cart-toggle-btn">
                                  <div class="header__cart-icon">
@@ -402,13 +415,13 @@
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="course__item white-bg mb-30 fix">
                                        <div class="course__thumb w-img p-relative fix">
-                                          <a href="course-details?ed_id=${education.ed_id}">
+                                          <a href="course-details?edId=${education.edId}">
                                              <!--해당 교육과정 관련 이미지 저장 경로 지정-->
                                              <img src="../assets/img/course/${education.ed_pic}" alt="" width='370' height='260' >
                                           </a>
                                           <div class="course__tag">
                                              <!-- 국비/ 부트캠프 인지-->
-                                             <a href="#">국비 or 부트캠프</a>
+                                             <a href="#">${education.ed_name}</a>
                                           </div>
                                        </div>
                                        <div class="course__content">
@@ -421,7 +434,8 @@
                                                 <span><i class="icon_star"></i>4.5(평균해서) (44)</span>
                                              </div>
                                           </div>
-                                          <h3 class="course__title"><a href="course-details?ed_id=${education.ed_id}">${education.edTitle}</a></h3>
+                                          <!--변수명에 _가 있는 경우에는 오류 발생 -> 낙타식표기법으로 변경함-->
+                                          <h3 class="course__title"><a href="course-details?edId=${education.edId}">${education.edTitle}</a></h3>
                                           <div class="course__teacher d-flex align-items-center">
                                              <div class="course__teacher-thumb mr-15">
                                                 <img src="../assets/img/course/teacher/teacher-1.jpg" alt="">
@@ -434,7 +448,7 @@
                                              <span>${education.ed_price}원</span>
                                           </div>
                                           <div class="course__btn">
-                                             <a href="course-details?ed_id=${education.ed_id}" class="link-btn">
+                                             <a href="course-details?edId=${education.edId}" class="link-btn">
                                                 Know Details
                                                 <i class="far fa-arrow-right"></i>
                                                 <i class="far fa-arrow-right"></i>
@@ -459,7 +473,7 @@
                                                    <img src="../assets/img/course/${education.ed_pic}" alt="" width='370' height='220' />
                                                 </a>
                                                 <div class="course__tag">
-                                                   <a href="#">국비인지 부트인지</a>
+                                                   <a href="#">${education.ed_name}</a>
                                                 </div>
                                              </div>
                                           </div>
@@ -564,203 +578,99 @@
                         </div>
                         <div class="course__sidebar-widget grey-bg">
                            <div class="course__sidebar-info">
-                              <h3 class="course__sidebar-title">Categories</h3>
+                              <h3 class="course__sidebar-title">All Curriculum</h3>
+
+                              <!-- 찬주3
+                                  0103 카테고리별 검색 form태그-->
+                              <form action=/academy/detailsSearch method="GET" role="search">
                               <ul>
                                  <li>
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-eng">
-                                       <label class="m-check-label" for="m-eng">English  (6)</label>
+                                       <input class="m-check-input" type="checkbox" 
+                                             id="m-all" name ="keywords" value="JAVA"  onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">JAVA</label>
                                     </div>
                                  </li>
                                  <li>
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-edu">
-                                       <label class="m-check-label" for="m-edu">Education  (8)</label>
+                                       <input class="m-check-input" type="checkbox" 
+                                          id="m-all" name ="keywords" value="Python"  onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">Python</label>
                                     </div>
                                  </li>
                                  <li>
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-bus">
-                                       <label class="m-check-label" for="m-bus">Business  (5)</label>
+                                       <input class="m-check-input" type="checkbox" 
+                                          id="m-all" name ="keywords"  value="JavaScript" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">JavaScript</label>
                                     </div>
                                  </li>
                                  <li>
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-design">
-                                       <label class="m-check-label" for="m-design">UX Design  (3)</label>
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="HTML" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">HTML</label>
                                     </div>
                                  </li>
                                  <li>
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-math">
-                                       <label class="m-check-label" for="m-math">Mathematics  (3)</label>
+                                       <input class="m-check-input" type="checkbox" 
+                                          id="m-all" name ="keywords" value="CSS" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">CSS</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="JSP" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">JSP</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="SQL"  onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">SQL</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                          id="m-all" name ="keywords" value="Spring" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">Spring</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox" 
+                                        id="m-all" name ="keywords" value="머신러닝" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">머신러닝</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox" 
+                                          id="m-all" name ="keywords" value="딥러닝" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">딥러닝</label>
                                     </div>
                                  </li>
                               </ul>
+                          
                            </div>
                         </div>
-                        <div class="course__sidebar-widget grey-bg">
-                           <div class="course__sidebar-info">
-                              <h3 class="course__sidebar-title">Language</h3>
-                              <ul>
-                                 <li>
-                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-all">
-                                       <label class="m-check-label" for="m-all">All Language</label>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-eng-2">
-                                       <label class="m-check-label" for="m-eng-2">English</label>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-russ">
-                                       <label class="m-check-label" for="m-russ">Russian</label>
-                                    </div>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                        <div class="course__sidebar-widget grey-bg">
-                           <div class="course__sidebar-info">
-                              <h3 class="course__sidebar-title">Price Filter</h3>
-                              <ul>
-                                 <li>
-                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-all-course">
-                                       <label class="m-check-label" for="m-all-course">All  (204)</label>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-free">
-                                       <label class="m-check-label" for="m-free">Free Courses  (36)</label>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-premium">
-                                       <label class="m-check-label" for="m-premium">Premium Courses  (184)</label>
-                                    </div>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                        <div class="course__sidebar-widget grey-bg">
-                           <div class="course__sidebar-info">
-                              <h3 class="course__sidebar-title">Skill level</h3>
-                              <ul>
-                                 <li>
-                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-level">
-                                       <label class="m-check-label" for="m-level">All Levels  (50)</label>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-beginner">
-                                       <label class="m-check-label" for="m-beginner">Beginner  (32)</label>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-intermediate">
-                                       <label class="m-check-label" for="m-intermediate">Intermediate  (17)</label>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
-                                       <input class="m-check-input" type="checkbox" id="m-expert">
-                                       <label class="m-check-label" for="m-expert">Expert  (2)</label>
-                                    </div>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
+                        <!--카테고리 선택후 전송버튼-->
                         <div class="course__sidebar-widget grey-bg">
                            <div class="course__sidebar-course">
-                              <h3 class="course__sidebar-title">Related courses</h3>
-                              <ul>
-                                 <li>
-                                    <div class="course__sm d-flex align-items-center mb-30">
-                                       <div class="course__sm-thumb mr-20">
-                                          <a href="#">
-                                             <img src="../assets/img/course/sm/course-sm-1.jpg" alt="">
-                                          </a>
-                                       </div>
-                                       <div class="course__sm-content">
-                                          <div class="course__sm-rating">
-                                             <ul>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                             </ul>
-                                          </div>
-                                          <h5><a href="course-details">Development</a></h5>
-                                          <div class="course__sm-price">
-                                             <span>$54.00</span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="course__sm d-flex align-items-center mb-30">
-                                       <div class="course__sm-thumb mr-20">
-                                          <a href="#">
-                                             <img src="../assets/img/course/sm/course-sm-2.jpg" alt="">
-                                          </a>
-                                       </div>
-                                       <div class="course__sm-content">
-                                          <div class="course__sm-rating">
-                                             <ul>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                             </ul>
-                                          </div>
-                                          <h5><a href="course-details">Data Science</a></h5>
-                                          <div class="course__sm-price">
-                                             <span>$72.00</span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="course__sm d-flex align-items-center mb-10">
-                                       <div class="course__sm-thumb mr-20">
-                                          <a href="#">
-                                             <img src="../assets/img/course/sm/course-sm-3.jpg" alt="">
-                                          </a>
-                                       </div>
-                                       <div class="course__sm-content">
-                                          <div class="course__sm-rating">
-                                             <ul>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                             </ul>
-                                          </div>
-                                          <h5><a href="course-details">UX Design</a></h5>
-                                          <div class="course__sm-price">
-                                             <span>Free</span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                              </ul>
+                              <h5 class="course__sidebar-title">키워드별 검색</h5>
+                                 <input type="submit" value="검색" onclick='sub(this)'>
+                                 <button></button>  
                            </div>
                         </div>
+                     </form>
+                      </div>
                      </div>
                   </div>
+                  <!-- 여기 위까지-->
                </div>
             </div>
          </section>
@@ -913,6 +823,7 @@
       <script src="../assets/js/wow.min.js"></script>
       <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="../assets/js/main.js"></script>
+      <script src="../assets/js/search.js"></script><!--0103 카테고리 검색용 추가 찬주-->
    </body>
 </html>
 

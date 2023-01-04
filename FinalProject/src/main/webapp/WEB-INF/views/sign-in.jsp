@@ -328,18 +328,18 @@
                            </div>
                         </div>
                         <div class="sign__form">
-                           <form action="#">
+                           <form action="loginMember" method="post">
                               <div class="sign__input-wrapper mb-25">
-                                 <h5>Work email</h5>
+                                 <h5>ID</h5>
                                  <div class="sign__input">
-                                    <input type="text" placeholder="e-mail address">
+                                    <input type="text" placeholder="ID" name="MId">
                                     <i class="fal fa-envelope"></i>
                                  </div>
                               </div>
                               <div class="sign__input-wrapper mb-10">
                                  <h5>Password</h5>
                                  <div class="sign__input">
-                                    <input type="text" placeholder="Password">
+                                    <input type="text" placeholder="Password" name="MPass">
                                     <i class="fal fa-lock"></i>
                                  </div>
                               </div>

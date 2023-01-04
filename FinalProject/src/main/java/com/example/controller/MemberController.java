@@ -16,25 +16,32 @@ import com.example.service.MemberService;
 public class MemberController {
 	
 	@Autowired
-	MemberService userService;
+	MemberService memberService;
 	
-	@RequestMapping("/insertMember")
+	@RequestMapping("insertMember")
 	public String insertMember(MemberVO vo) {
-		userService.insertMember(vo);
+		memberService.insertMember(vo);
 		return "redirect:index";
 	}
 	
-    @RequestMapping("/loginMember")
+    @RequestMapping("loginMember")
     public String loginMember(MemberVO vo, HttpSession session) {
     	System.out.println(vo);
-    	List<MemberVO> result = userService.loginMember(vo);
+    	List<MemberVO> result = memberService.loginMember(vo);
     	System.out.println(result);
     	if (result != null) {
     		session.setAttribute("MId", vo.getMId());
-    		return "redirect:index";
+    		return "redirect:/academy/index-2";
     	} else {
     		return "redirect:sign-in";
     	}
     	
     }
+    
+    @RequestMapping("logoutMember")
+	public String logoutMember(HttpSession session) {
+		session.removeAttribute("MId");
+		return "redirect:/academy/index-2";
+	}
+    
 }

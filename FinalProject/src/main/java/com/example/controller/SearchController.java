@@ -15,25 +15,47 @@ import com.example.service.SearchService;
 @Controller
 @RequestMapping("/academy")
 public class SearchController {
-   
+
    @Autowired
    private SearchService searchService;
-   
-   
-   //index-2 검색부분 form태그 액션값타고 들어옴
+
+   //찬주
+    //교육과정이름 + 학원이름 메인단에서 검색가능하게 구현
+    //index-2.jsp 에서 /mainsearch form태그 액션값으로 들어옵니다
     @GetMapping("/mainsearch")
-    public String search(String keyword, Model model) {
-       
+    public String mainSearch(String keyword, Model model) {
        //keyword 넘어오나 확인용
-       System.out.println("[SearchController] : /academy/mainsearch 요청 :" + keyword );
-       
-       //academyList라는 이름으로 사용하기위해 model로 넘기기
-        List<EducationVO> list = searchService.search(keyword);
-        model.addAttribute("academyList", list);
+        System.out.println("[SearchController] : /academy/mainsearch 요청 :" + keyword );
         
-        //view로 마지막 페이지 지정
+        //널이아니면 조건검색 시작
+        if(keyword != null) {
+           List<EducationVO> searchList = searchService.titleAndNameSearchQuery(keyword);
+            System.out.println("list.size():" + searchList.size());
+            model.addAttribute("academyList", searchList);   
+        }else { //널이면 전체리스트로 리다이렉트
+           
+           return "redirect:/academy/course-sidebar";
+        }
         return "/academy/course-sidebar";
     }
+    
+    
+    
+    
+    @GetMapping("/detailsSearch")
+    public String detailsSearch(String keywords, Model model) {
+        System.out.println("[SearchController] : /academy/mainsearch 요청 :" + keywords );
+        
+        List<EducationVO> searchList2 = searchService.detailsSearchQuery(keywords);
+        System.out.println("list.size():" + searchList2.size());
+        model.addAttribute("academyList", searchList2);  
+        
+        return "/academy/course-sidebar";
+    }
+    
+   
+
+
 
 
    
