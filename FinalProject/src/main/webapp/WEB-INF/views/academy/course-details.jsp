@@ -338,7 +338,7 @@
                               <div class="course__teacher-info-3">
                                  <h5>학원이름</h5>
                                    <!--누르면 학원 상세페이지로 이동 -->
-                                 <p><a href="#">${education.ed_name}</a></p>
+                                 <p><a href="#">${education.edName}</a></p>
                               </div>
                            </div>
                            <div class="course__update mr-80 mb-20">
@@ -346,20 +346,34 @@
                                 <!--날짜의 값이 들어가도록 세팅 -->
                               <p><fmt:formatDate value="${education.ed_start_date}" pattern="yyyy.MM.dd" /> ~ <fmt:formatDate value="${education.ed_end_date}" pattern="yyyy.MM.dd" /> </p>
                            </div>
+
+
+                               <!--0105 찬주 별점1  평균 부분 나오는 작은부분-->
                            <div class="course__rating-2 mb-20">
                               <h5>별점:</h5>
                               <div class="course__rating-inner d-flex align-items-center">
-                                 <ul>
-                                    <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                    <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                    <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                    <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                    <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                 </ul>
-                                 <p>4.5</p>
+                                 <c:if test="${avg == 1}">
+                                    <img src="../assets/img/star/1s.png">
+                              </c:if>
+                              <c:if test="${avg == 2}">
+                                    <img src="../assets/img/star/2s.png">
+                              </c:if>
+                              <c:if test="${avg == 3}">
+                                    <img src="../assets/img/star/3s.png">
+                              </c:if>
+                              <c:if test="${avg == 4}">
+                                    <img src="../assets/img/star/4s.png">
+                              </c:if>
+                              <c:if test="${avg == 5}">
+                                    <img src="../assets/img/star/5s.png">
+                              </c:if>
+                                 <p>${avg}</p>
                               </div>
                            </div>
                         </div>
+
+
+                        
                         <div class="course__tag-2 mb-15">
                            <!--여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
                           <i class="fal fa-tag"></i>
@@ -393,7 +407,7 @@
                                     <h3>${education.edTitle}</h3>
                                      <!--상세내용(크롤링해서 넣기)-->
                                     <p>${education.ed_intro}</p>
-                                    <p>${education.ed_curriculum}</p>
+
                                     
                                     <div class="course__description-list mb-45">
                                        <h4>What is the Target Audience?</h4>
@@ -437,340 +451,211 @@
                                     </div>
                                  </div>
                               </div>
+
+                              <!--커리큘럼-->
                               <div class="tab-pane fade" id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
                                  <div class="course__curriculum">
+                                    <c:forEach items="${title}" var="i" step="3" varStatus="status" >
                                     <div class="accordion" id="course__accordion">
-                                       <div class="accordion-item mb-50">
-                                         <h2 class="accordion-header" id="week-01">
-                                           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#week-01-content" aria-expanded="true" aria-controls="week-01-content">
-                                             Week 01
-                                           </button>
-                                         </h2>
-                                         <div id="week-01-content" class="accordion-collapse collapse show" aria-labelledby="week-01" data-bs-parent="#course__accordion">
-                                           <div class="accordion-body">
-                                             <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                                <div class="course__curriculum-info">
-                                                   <svg class="document" viewBox="0 0 24 24">
-                                                      <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                                      <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                                      <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                                      <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                                      <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                                   </svg>
-                                                   <h3> <span>Reading:</span> Ut enim ad minim veniam</h3>
-                                                </div>
-                                                <div class="course__curriculum-meta">
-                                                   <span class="time"> <i class="icon_clock_alt"></i> 14 minutes</span>
-                                                   <span class="question">2 questions</span>
-                                                </div>
-                                             </div>
-                                             <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                                <div class="course__curriculum-info">
-                                                   <svg viewBox="0 0 24 24">
-                                                      <polygon class="st0" points="23,7 16,12 23,17 "/>
-                                                      <path class="st0" d="M3,5h11c1.1,0,2,0.9,2,2v10c0,1.1-0.9,2-2,2H3c-1.1,0-2-0.9-2-2V7C1,5.9,1.9,5,3,5z"/>
-                                                      </svg>
-                                                   <h3> <span>Video: </span> Greetings and introduction</h3>
-                                                </div>
-                                                <div class="course__curriculum-meta">
-                                                   <span class="time"> <i class="icon_clock_alt"></i> 15 minutes</span>
+                                          <div class="accordion-item mb-20">
+                                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#${title[status.index-3]}-content" aria-expanded="true"
+                                                aria-controls="${title[status.index-3]}-content">
+                                                ${i}
+                                             </button>
+                                             </h2>
+                                             <div id="${title[status.index-3]}-content" class="accordion-collapse collapse show"
+                                                aria-labelledby="${title[status.index-3]}" data-bs-parent="#course__accordion">
+                                                <div class="accordion-body">
+                                                   <div
+                                                      class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
+                                                      <div class="course__curriculum-info">
+
+                                                         <svg class="document" viewBox="0 0 24 24">
+
+                                                            <path class="st0"
+                                                               d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z" />
+                                                            <polyline class="st0" points="14,2 14,8 20,8 " />
+                                                            <line class="st0" x1="16" y1="13" x2="8" y2="13" />
+                                                            <line class="st0" x1="16" y1="17" x2="8" y2="17" />
+                                                            <polyline class="st0" points="10,9 9,9 8,9 " />
+                                                         </svg>
+                                                         <h3><span> ${title[status.index+1]}: </span>
+                                                            ${title[status.index+2]}</h3>
+                                                      </div>
+                                                   </div>
                                                 </div>
                                              </div>
-                                             <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                                <div class="course__curriculum-info">
-                                                   <svg viewBox="0 0 16 16">
-                                                      
-                                                      <path class="st0" d="M2,12V8c0-3.3,2.9-6,6.4-6s6.4,2.7,6.4,6v4"/>
-                                                      <path class="st0" d="M14.8,12.7c0,0.7-0.6,1.3-1.4,1.3h-0.7c-0.8,0-1.4-0.6-1.4-1.3v-2c0-0.7,0.6-1.3,1.4-1.3h2.1V12.7z M2,12.7  C2,13.4,2.6,14,3.3,14H4c0.7,0,1.3-0.6,1.3-1.3v-2c0-0.7-0.6-1.3-1.3-1.3H2V12.7z"/>
-                                                      </svg>
-                                                   <h3> <span>Audio:</span> Interactive lesson</h3>
-                                                </div>
-                                                <div class="course__curriculum-meta">
-                                                   <span class="time"> <i class="icon_clock_alt"></i> 7 minutes</span>
-                                                   <span class="question">3 questions</span>
-                                                </div>
-                                             </div>
-                                             <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                                <div class="course__curriculum-info">
-                                                   <svg class="document" viewBox="0 0 24 24">
-                                                      <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                                      <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                                      <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                                      <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                                      <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                                   </svg>
-                                                   <h3> <span>Reading: </span> Ut enim ad minim veniam</h3>
-                                                </div>
-                                                <div class="course__curriculum-meta">
-                                                   <span class="time"> <i class="icon_clock_alt"></i> 22 minutes</span>
-                                                </div>
-                                             </div>
-                                           </div>
-                                         </div>
-                                       </div>
-                                    </div>
-                                    <div class="accordion" id="course__accordion-2">
-                                       <div class="accordion-item mb-50">
-                                         <h2 class="accordion-header" id="week-02">
-                                           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#week-02-content" aria-expanded="true" aria-controls="week-02-content">
-                                             Week 02
-                                           </button>
-                                         </h2>
-                                         <div id="week-02-content" class="accordion-collapse  collapse show" aria-labelledby="week-02" data-bs-parent="#course__accordion-2">
-                                           <div class="accordion-body">
-                                             <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                                <div class="course__curriculum-info">
-                                                   <svg class="document" viewBox="0 0 24 24">
-                                                      <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                                      <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                                      <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                                      <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                                      <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                                   </svg>
-                                                   <h3> <span>Reading:</span> Ut enim ad minim veniam</h3>
-                                                </div>
-                                                <div class="course__curriculum-meta">
-                                                   <span class="time"> <i class="icon_clock_alt"></i> 14 minutes</span>
-                                                </div>
-                                             </div>
-                                             <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                                <div class="course__curriculum-info">
-                                                   <svg viewBox="0 0 24 24">
-                                                      <polygon class="st0" points="23,7 16,12 23,17 "/>
-                                                      <path class="st0" d="M3,5h11c1.1,0,2,0.9,2,2v10c0,1.1-0.9,2-2,2H3c-1.1,0-2-0.9-2-2V7C1,5.9,1.9,5,3,5z"/>
-                                                      </svg>
-                                                   <h3> <span>Video: </span> Greetings and introduction</h3>
-                                                </div>
-                                                <div class="course__curriculum-meta">
-                                                   <span class="time"> <i class="icon_clock_alt"></i> 15 minutes</span>
-                                                </div>
-                                             </div>
-                                             <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                                <div class="course__curriculum-info">
-                                                   <svg viewBox="0 0 16 16">
-                                                      <path class="st0" d="M2,12V8c0-3.3,2.9-6,6.4-6s6.4,2.7,6.4,6v4"/>
-                                                      <path class="st0" d="M14.8,12.7c0,0.7-0.6,1.3-1.4,1.3h-0.7c-0.8,0-1.4-0.6-1.4-1.3v-2c0-0.7,0.6-1.3,1.4-1.3h2.1V12.7z M2,12.7  C2,13.4,2.6,14,3.3,14H4c0.7,0,1.3-0.6,1.3-1.3v-2c0-0.7-0.6-1.3-1.3-1.3H2V12.7z"/>
-                                                      </svg>
-                                                   <h3> <span>Audio:</span> Interactive lesson</h3>
-                                                </div>
-                                                <div class="course__curriculum-meta">
-                                                   <span class="time"> <i class="icon_clock_alt"></i> 7 minutes</span>
-                                                   <span class="question">2 questions</span>
-                                                </div>
-                                             </div>
-                                             <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                                <div class="course__curriculum-info">
-                                                   <svg class="document" viewBox="0 0 24 24">
-                                                      <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                                      <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                                      <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                                      <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                                      <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                                   </svg>
-                                                   <h3> <span>Reading: </span> Ut enim ad minim veniam</h3>
-                                                </div>
-                                                <div class="course__curriculum-meta">
-                                                   <span class="time"> <i class="icon_clock_alt"></i> 22 minutes</span>
-                                                </div>
-                                             </div>
-                                           </div>
-                                         </div>
-                                       </div>
-                                    </div>
+                                          </div>
+                                       </c:forEach>
                                  </div>
                               </div>
+
+                              <!----------------------------------------------------------------------------------------------------------------->
+                              <!--0105 찬주 별점2  평균 부분 나오는 큰부분 -->
                               <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                                  <div class="course__review">
-                                    <h3>Reviews</h3>
-                                    <p>Gosh william I'm telling crikey burke I don't want no agro A bit of how's your father bugger all mate off his nut that, what a plonker cuppa owt to do</p>
+                                    
+                                    <h3>평균 별점</h3>
+                                    <p>평균 별점으로 확실히 확인하세요!</p>
 
                                     <div class="course__review-rating mb-50">
                                        <div class="row g-0">
                                           <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
                                              <div class="course__review-rating-info grey-bg text-center">
-                                                <h5>5</h5>
-                                                <ul>
-                                                   <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                   <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                   <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                   <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                   <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                </ul>
-                                                <p>4 Ratings</p>
+                                                <h5>${avg}</h5>
+                                                <c:if test="${avg == 1}">
+                                                      <img src="../assets/img/star/1s.png">
+                                                </c:if>
+                                                <c:if test="${avg == 2}">
+                                                      <img src="../assets/img/star/2s.png">
+                                                </c:if>
+                                                <c:if test="${avg == 3}">
+                                                      <img src="../assets/img/star/3s.png">
+                                                </c:if>
+                                                <c:if test="${avg == 4}">
+                                                      <img src="../assets/img/star/4s.png">
+                                                </c:if>
+                                                <c:if test="${avg == 5}">
+                                                      <img src="../assets/img/star/5s.png">
+                                                </c:if>
+                                                <p>${avg} Ratings</p>
                                              </div>
                                           </div>
+                                         
+                                          <!-- 별점 큰부분 옆 이미지 대체-->
                                           <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8">
-                                             <div class="course__review-details grey-bg">
-                                                <h5>Detailed Rating</h5>
-                                                <div class="course__review-content mb-20">
-                                                   <div class="course__review-item d-flex align-items-center justify-content-between">
-                                                      <div class="course__review-text">
-                                                         <span>5 stars</span>
-                                                      </div>
-                                                      <div class="course__review-progress">
-                                                         <div class="single-progress" data-width="100%"></div>
-                                                      </div>
-                                                      <div class="course__review-percent">
-                                                         <h5>100%</h5>
-                                                      </div>
-                                                   </div>
-                                                   <div class="course__review-item d-flex align-items-center justify-content-between">
-                                                      <div class="course__review-text">
-                                                         <span>4 stars</span>
-                                                      </div>
-                                                      <div class="course__review-progress">
-                                                         <div class="single-progress" data-width="30%"></div>
-                                                      </div>
-                                                      <div class="course__review-percent">
-                                                         <h5>30%</h5>
-                                                      </div>
-                                                   </div>
-                                                   <div class="course__review-item d-flex align-items-center justify-content-between">
-                                                      <div class="course__review-text">
-                                                         <span>3 stars</span>
-                                                      </div>
-                                                      <div class="course__review-progress">
-                                                         <div class="single-progress" data-width="0%"></div>
-                                                      </div>
-                                                      <div class="course__review-percent">
-                                                         <h5>0%</h5>
-                                                      </div>
-                                                   </div>
-                                                   <div class="course__review-item d-flex align-items-center justify-content-between">
-                                                      <div class="course__review-text">
-                                                         <span>2 stars</span>
-                                                      </div>
-                                                      <div class="course__review-progress">
-                                                         <div class="single-progress" data-width="0%"></div>
-                                                      </div>
-                                                      <div class="course__review-percent">
-                                                         <h5>0%</h5>
-                                                      </div>
-                                                   </div>
-                                                   <div class="course__review-item d-flex align-items-center justify-content-between">
-                                                      <div class="course__review-text">
-                                                         <span>1 stars</span>
-                                                      </div>
-                                                      <div class="course__review-progress">
-                                                         <div class="single-progress" data-width="0%"></div>
-                                                      </div>
-                                                      <div class="course__review-percent">
-                                                         <h5>0%</h5>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
+                                                <img src="../assets/img/star/re.png "  height="255" width="515">
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="course__comment mb-75">
-                                       <h3>2 Comments</h3>
+                                  
+                                   
+                            
 
+                                 <!-- 0105 찬주 등록된 리뷰확인 -->
+                                    <div class="course__comment mb-75">
+                                       <h3>리뷰확인</h3>
+                                    <!--반복문으로 출력--> 
+                                    <c:forEach var="reviewList" items="${reviewList}">  
                                        <ul>
                                           <li>
                                              <div class="course__comment-box ">
                                                 <div class="course__comment-thumb float-start">
-                                                   <img src="../assets/img/course/comment/course-comment-1.jpg" alt="">
+                                                   
                                                 </div>
                                                 <div class="course__comment-content">
                                                    <div class="course__comment-wrapper ml-70 fix">
                                                       <div class="course__comment-info float-start">
-                                                         <h4>Eleanor Fant</h4>
-                                                         <span>July 14, 2022</span>
+                                                         <h4>${reviewList.MId}</h4>
+                                                         <span>${reviewList.reDate}</span>
                                                       </div>
                                                       <div class="course__comment-rating float-start float-sm-end">
-                                                         <ul>
-                                                            <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                            <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                            <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                            <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                            <li><a href="#" > <i class="icon_star"></i> </a></li>
-                                                         </ul>
+                                                         <tr>
+                                                            <td>${reviewList.star}
+                                                               <c:if test="${reviewList.star ==1}">
+                                                                  <img src="../assets/img/star/1s.png">
+                                                               </c:if>
+                                                               <c:if test="${reviewList.star ==2}">
+                                                                  <img src="../assets/img/star/2s.png">
+                                                               </c:if>
+                                                               <c:if test="${reviewList.star ==3}">
+                                                                  <img src="../assets/img/star/3s.png">
+                                                               </c:if>
+                                                               <c:if test="${reviewList.star ==4}">
+                                                                  <img src="../assets/img/star/4s.png">
+                                                               </c:if>
+                                                               <c:if test="${reviewList.star ==5}">
+                                                                  <img src="../assets/img/star/5s.png">
+                                                               </c:if>
+
+                                                            </td>
+                                                         </tr>
                                                       </div>
                                                    </div>
                                                    <div class="course__comment-text ml-70">
-                                                      <p>So I said lurgy dropped a clanger Jeffrey bugger cuppa gosh David blatant have it, standard A bit of how's your father my lady absolutely.</p>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </li>
-                                          <li>
-                                             <div class="course__comment-box ">
-                                                <div class="course__comment-thumb float-start">
-                                                   <img src="../assets/img/course/comment/course-comment-2.jpg" alt="">
-                                                </div>
-                                                <div class="course__comment-content">
-                                                   <div class="course__comment-wrapper ml-70 fix">
-                                                      <div class="course__comment-info float-start">
-                                                         <h4>Shahnewaz Sakil</h4>
-                                                         <span>July 17, 2022</span>
-                                                      </div>
-                                                      <div class="course__comment-rating float-start float-sm-end">
-                                                         <ul>
-                                                            <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                            <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                            <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                            <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                            <li><a href="#" class="no-rating"> <i class="icon_star"></i> </a></li>
-                                                         </ul>
-                                                      </div>
-                                                   </div>
-                                                   <div class="course__comment-text ml-70">
-                                                      <p>David blatant have it, standard A bit of how's your father my lady absolutely.</p>
-                                                   </div>
+                                                      <p>${reviewList.reContent}</p>
                                                 </div>
                                              </div>
                                           </li>
                                        </ul>
+                                    </c:forEach>
                                     </div>
+
+
+
+
+
+                                    <!-- 0104 찬주 리뷰등록 -->
                                     <div class="course__form">
-                                       <h3>Write a Review</h3>
+                                       <h3>리뷰작성</h3>
                                        <div class="course__form-inner">
-                                          <form action="#">
+
+                                          <!--form의 시작-->
+                                          <form action="insertRV" method="get" name ="cmtfrm">
+
                                              <div class="row">
                                                 <div class="col-xxl-6">
                                                    <div class="course__form-input">
-                                                      <input type="text" placeholder="Your Name">
+                                                      <!--아이디값 저장 지금은 그냥 임의의 값 넣어줌-->
+                                                      <!--참고로 re_id 는 시퀀스라 자동이고 날짜도 자동으로 들어가게 해놓음-->
+                                                      <input type="text" name="MId" value='ckswn' readonly> <!-- "${sessionScope.MId}"-->
+                                                    
+                                                      
                                                    </div>
                                                 </div>
-                                                <div class="col-xxl-6">
-                                                   <div class="course__form-input">
-                                                      <input type="email" placeholder="Your Email">
-                                                   </div>
-                                                </div>
-                                                <div class="col-xxl-12">
-                                                   <div class="course__form-input">
-                                                      <input type="text" placeholder="Review Title">
-                                                   </div>
-                                                </div>
+                                                
+                              
+                                                <!--별점 체크 부분-->
                                                 <div class="col-xxl-12">
                                                    <div class="course__form-input">
                                                       <div class="course__form-rating">
-                                                         <span>Rating : </span>
-                                                         <ul>
-                                                            <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                            <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                            <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                            <li><a href="#" class="no-rating" > <i class="icon_star"></i> </a></li>
-                                                            <li><a href="#" class="no-rating" > <i class="icon_star"></i> </a></li>
-                                                         </ul>
+                                                         <span>별점 </span>
+                                                         <img id =image1 onmouseover=show(1) onclick=mark(1) onmouseout=noshow(1) src="../assets/img/star/0star.png">
+                                                         <img id =image2 onmouseover=show(2) onclick=mark(2) onmouseout=noshow(2) src="../assets/img/star/0star.png">
+                                                         <img id =image3 onmouseover=show(3) onclick=mark(3) onmouseout=noshow(3) src="../assets/img/star/0star.png">
+                                                         <img id =image4 onmouseover=show(4) onclick=mark(4) onmouseout=noshow(4) src="../assets/img/star/0star.png">
+                                                         <img id =image5 onmouseover=show(5) onclick=mark(5) onmouseout=noshow(5) src="../assets/img/star/0star.png">
+                                                         <span id=startext></span>
+                                                         <input type="hidden" name="star" > <!--히든넘기기-->
+                                                         <input type="hidden" name="edId" value="333"> <!--히든넘기기--> <!--임의의값임 수정해야함-->
                                                       </div>
-                                                      <textarea placeholder="Review Summary"></textarea>
+
+                                                     <!--작성글 들어가는 부분!-->
+                                                      <textarea placeholder="리뷰를작성" name="reContent" ></textarea>
                                                    </div>
                                                 </div>
+                                            
+
                                              </div>
                                              <div class="row">
                                                 <div class="col-xxl-12">
                                                    <div class="course__form-btn mt-10 mb-55">
-                                                      <button type="submit" class="e-btn">Submit Review</button>
+                                                      <button type="submit" class="e-btn">글 등록</button>
                                                    </div>
                                                 </div>
                                              </div>
+                                         
                                           </form>
                                        </div>
                                     </div>
-                                 </div>
-                              </div>
+                                    <!--0105 리뷰부분 종료 여기까지-->
+
+
+
+
+
+
+
+
+
+
+
+                                    
+
+
+
+
                               <div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
                                  <div class="course__member mb-45">
                                     <div class="course__member-item">
@@ -1326,6 +1211,7 @@
       <script src="../assets/js/wow.min.js"></script>
       <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="../assets/js/main.js"></script>
+      <script src="../assets/js/star.js"></script>
    </body>
 </html>
 

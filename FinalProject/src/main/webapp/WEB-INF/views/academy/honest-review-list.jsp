@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
@@ -342,9 +345,13 @@
          <!-- course area start -->
          <section class="course__area pt-120 pb-120">
             <div class="container">
+
+               <!-- 목록 상단바 -->
                <div class="course__tab-inner grey-bg-2 mb-50">
                   <div class="row align-items-center">
-                     <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+
+                     <!-- 페이지 정렬순서와 개수 -->
+                     <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
                         <div class="course__tab-wrapper d-flex align-items-center">
                            <div class="course__tab-btn">
                               <ul class="nav nav-tabs" id="courseTab" role="tablist">
@@ -379,8 +386,11 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+
+                     <!-- 검색 기능과 카데고리 선택 -->
+                     <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
                         <div class="course__sort d-flex justify-content-sm-end">
+                           
                            <div class="course__sort-inner">
                               <select>
                                  <option>Default</option>
@@ -392,10 +402,34 @@
                                  <option>Option 6</option>
                               </select>
                            </div>
+
+                           <div class="honest-review__search">
+                              <form action="HRSearch" method="post">
+                                 <input type="text" placeholder="제목 검색..." class="HR-searchbar">
+                                 <button type="submit">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 584.4 584.4" style="enable-background:new 0 0 584.4 584.4;" xml:space="preserve">
+                                       <g>
+                                          <g>
+                                             <path class="st0" d="M565.7,474.9l-61.1-61.1c-3.8-3.8-8.8-5.9-13.9-5.9c-6.3,0-12.1,3-15.9,8.3c-16.3,22.4-36,42.1-58.4,58.4    c-4.8,3.5-7.8,8.8-8.3,14.5c-0.4,5.6,1.7,11.3,5.8,15.4l61.1,61.1c12.1,12.1,28.2,18.8,45.4,18.8c17.1,0,33.3-6.7,45.4-18.8    C590.7,540.6,590.7,499.9,565.7,474.9z"/>
+                                             <path class="st1" d="M254.6,509.1c140.4,0,254.5-114.2,254.5-254.5C509.1,114.2,394.9,0,254.6,0C114.2,0,0,114.2,0,254.5    C0,394.9,114.2,509.1,254.6,509.1z M254.6,76.4c98.2,0,178.1,79.9,178.1,178.1s-79.9,178.1-178.1,178.1S76.4,352.8,76.4,254.5    S156.3,76.4,254.6,76.4z"/>
+                                          </g>
+                                       </g>
+                                    </svg>
+                                 </button>
+                              </form>
+                           </div>
+
                         </div>
                      </div>
+
+                     <!-- 솔직 질문 등록 -->
+                     <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
+
+                     </div>
+
                   </div>
                </div>
+
                <div class="row">
                   <div class="col-xxl-12">
                      <div class="course__tab-conent">

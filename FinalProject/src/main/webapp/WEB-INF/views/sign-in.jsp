@@ -267,7 +267,7 @@
             <div class="sidebar__content">
                <div class="logo mb-40">
                   <a href="index">
-                  <img src="assets/img/logo/logo.png" alt="logo">
+                  <img src="/assets/img/logo/logo.png" alt="logo">
                   </a>
                </div>
                <div class="mobile-menu fix"></div>
@@ -328,18 +328,19 @@
                            </div>
                         </div>
                         <div class="sign__form">
-                           <form action="loginMember" method="post">
+                           <!-- bk 로그인 버튼 액션 -->
+                           <form action="loginMember" type="post">
                               <div class="sign__input-wrapper mb-25">
                                  <h5>ID</h5>
                                  <div class="sign__input">
-                                    <input type="text" placeholder="ID" name="MId">
-                                    <i class="fal fa-envelope"></i>
+                                    <input type="text" placeholder="ID" id="m_id" name="MId">
+                                    <i class="fal fa-user"></i>
                                  </div>
                               </div>
                               <div class="sign__input-wrapper mb-10">
                                  <h5>Password</h5>
                                  <div class="sign__input">
-                                    <input type="text" placeholder="Password" name="MPass">
+                                    <input type="password" placeholder="Password" id="m_pass" name="MPass">
                                     <i class="fal fa-lock"></i>
                                  </div>
                               </div>
@@ -353,7 +354,7 @@
                                     <a href="#">Forgot your password?</a>
                                  </div>
                               </div>
-                              <button class="e-btn  w-100"> <span></span> Sign In</button>
+                              <button class="e-btn  w-100" type="submit"> <span></span> Sign In</button>
                               <div class="sign__new text-center mt-20">
                                  <p>New to Markit? <a href="sign-up">Sign Up</a></p>
                               </div>

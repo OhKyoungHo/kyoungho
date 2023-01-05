@@ -21,6 +21,8 @@ public class MemberVO {
 	private String MId;
 	@Column(nullable=false, name="m_pass")
 	private String MPass;
+	@Column(nullable=false, name="m_name")
+	   private String MName;
 	private String m_tel;
 	private String m_post;
 	private String m_addr;

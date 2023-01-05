@@ -12,6 +12,9 @@ public interface SearchService {
    //키워드검색
    public List<EducationVO> detailsSearchQuery(String keywords);
    
+   //최신순정렬
+   public List<EducationVO> newDate(String newdate);
+   
    
  
 }

@@ -41,7 +41,7 @@ public class SearchController {
     
     
     
-    
+    //카테고리 검색용
     @GetMapping("/detailsSearch")
     public String detailsSearch(String keywords, Model model) {
         System.out.println("[SearchController] : /academy/mainsearch 요청 :" + keywords );
@@ -54,6 +54,19 @@ public class SearchController {
     }
     
    
+    //최신등록순 정렬
+    @GetMapping("/newSearch")
+    public String newDate(String newdate, Model model) {
+        System.out.println("[SearchController] : /academy/newSearch 요청 :" + newdate);
+        
+        List<EducationVO> searchList3 = searchService.newDate(newdate);
+        System.out.println("list.size()확인:" + searchList3.size());
+        model.addAttribute("academyList", searchList3);  
+        
+        return "/academy/course-sidebar";
+    }
+        
+    
 
 
 

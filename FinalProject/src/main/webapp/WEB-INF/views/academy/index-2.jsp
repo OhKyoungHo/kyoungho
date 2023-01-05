@@ -159,7 +159,7 @@
                         <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-6 col-sm-5 col-5">
                            <div class="header__center align-items-center d-flex justify-content-end">
                               <div>
-                                 <span>${sessionScope.MId}님 환영합니다!</span>
+                                 <span>${sessionScope.m_id}님 환영합니다!</span>
                               </div>
                               <!-- 찜하기, 마이페이지 아이콘, 종 히스토리 -->
                               <div class="header__btn header__btn-2 d-none d-sm-block">

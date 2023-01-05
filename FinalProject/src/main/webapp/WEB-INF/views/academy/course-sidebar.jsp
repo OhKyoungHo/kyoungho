@@ -393,20 +393,34 @@
                               <h4>Showing 1 - 9 of 84</h4>
                            </div>
                         </div>
+
+
+
+
+
+                        <!--0104 찬주 ~순 최신등록순으로 정렬 까지만 했음  -->
                         <div class="course__sort d-flex justify-content-sm-end">
                            <div class="course__sort-inner">
-                              <select>
+
+                           <form action=/academy/newSearch method="GET" role="newSearch">
+                              <select name="selectBox">
                                  <option>--선택--</option>
-                                 <option>최신순</option>
-                                 <option>인기순</option>
-                                 <option>리뷰많은순</option>
-                                 <option>별점순</option>
-                                 <option>가격순</option>
-                                 <option>Option 6</option>
+                                 <option value="list" name="">전체리스트</option>
+                                 <option value="new" name="newdate">최신 등록순</option>
+                                 <option value="star">별점 높은순</option> <!--미완-->
+                                 <option value="JJim">찜 많은순</option><!--미완-->
                               </select>
+                           </form>
+
                            </div>
                         </div>
-                     </div>
+                        <!-- 종료 부분-->
+
+                        
+
+
+
+
                      <div class="course__tab-conent">
                         <div class="tab-content" id="courseTabContent">
                            <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
@@ -421,7 +435,7 @@
                                           </a>
                                           <div class="course__tag">
                                              <!-- 국비/ 부트캠프 인지-->
-                                             <a href="#">${education.ed_name}</a>
+                                             <a href="#">${education.edName}</a>
                                           </div>
                                        </div>
                                        <div class="course__content">
@@ -434,13 +448,12 @@
                                                 <span><i class="icon_star"></i>4.5(평균해서) (44)</span>
                                              </div>
                                           </div>
-                                          <!--변수명에 _가 있는 경우에는 오류 발생 -> 낙타식표기법으로 변경함-->
                                           <h3 class="course__title"><a href="course-details?edId=${education.edId}">${education.edTitle}</a></h3>
                                           <div class="course__teacher d-flex align-items-center">
                                              <div class="course__teacher-thumb mr-15">
                                                 <img src="../assets/img/course/teacher/teacher-1.jpg" alt="">
                                              </div>
-                                             <h6><a href="instructor-details">${education.ed_name}</a></h6>
+                                             <h6><a href="instructor-details">${education.edName}</a></h6>
                                           </div>
                                        </div>
                                        <div class="course__more d-flex justify-content-between align-items-center">
@@ -473,7 +486,7 @@
                                                    <img src="../assets/img/course/${education.ed_pic}" alt="" width='370' height='220' />
                                                 </a>
                                                 <div class="course__tag">
-                                                   <a href="#">${education.ed_name}</a>
+                                                   <a href="#">국비인지 부트인지</a>
                                                 </div>
                                              </div>
                                           </div>
@@ -496,7 +509,7 @@
                                                       <div class="course__teacher-thumb mr-15">
                                                          <img src="../assets/img/course/teacher/teacher-1.jpg" alt="">
                                                       </div>
-                                                      <h6><a href="instructor-details">${education.ed_name}</a></h6>
+                                                      <h6><a href="instructor-details">${education.edName}</a></h6>
                                                    </div>
                                                 </div>
                                                 <div class="course__more course__more-2 course__more-3 d-flex justify-content-between align-items-center">
@@ -520,62 +533,76 @@
                               </div>
                            </div>
                          </div>
-                         <div class="row">
-                           <div class="col-xxl-12">
-                              <div class="basic-pagination wow fadeInUp mt-30" data-wow-delay=".2s">
-                                 <ul class="d-flex align-items-center"> 
-                                    <li class="prev">
-                                       <a href="course-grid" class="link-btn link-prev">
-                                          Prev
-                                          <i class="arrow_left"></i>
-                                          <i class="arrow_left"></i>
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="course-grid">
-                                          <span>1</span>
-                                       </a>
-                                    </li>
-                                    <li class="active">
-                                       <a href="course-grid">
-                                          <span>2</span>
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="product">
-                                          <span>3</span>
-                                       </a>
-                                    </li>
-                                    <li class="next">
-                                       <a href="course-grid" class="link-btn">
-                                          Next
-                                          <i class="arrow_right"></i>
-                                          <i class="arrow_right"></i>
-                                       </a>
-                                    </li>
-                                 </ul>
+
+
+
+
+                  
+                             <!-- 페이징 영역 시작  경호형꺼 받음 0104-->
+                             <div class="row">
+                              <div class="col-xxl-12">
+                                 <div class="basic-pagination wow fadeInUp mt-30" data-wow-delay=".2s">
+                                    <ul class="d-flex align-items-center"> 
+                                       <!-- first : 해당 페이지가 첫번째 페이지인지 여부(true/false로 구분)-->
+                                       <!-- 해당페이지가 첫번째인 경우에는 아무것도 설정안함-->
+                                       <!-- 해당 페이지가 첫번째 페이지가 아닌경우-->
+                                       <!-- 맨처음페이지로 이동 -->
+                                       <c:choose>
+                                       <c:when test="${elist.first}"></c:when>
+                                       
+                                       <c:otherwise>
+                                       <li class="prev">
+                                          <a href="course-sidebar?page=1" class="link-btn link-prev">
+                                             Prev
+                                             <i class="arrow_left"></i>
+                                             <i class="arrow_left"></i>
+                                          </a>
+                                       </li>
+                                    </c:otherwise>
+                                 </c:choose>
+   
+                              <!-- 페이지 그룹 -->
+                              <!-- 시작블럭을 반복시작 인덱스로 종료블럭을 반복종료 인덱스로 설정  -->
+                              <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
+                              <!-- 현재페이지의 +1이 i랑 같은 경우 다음페이지로 이동하게 설정 -->
+                              <!-- 현재페이지의 +1이 i랑 다른 경우 다음 페이지로 이동하게 설정-->
+                              <c:choose>
+                              <c:when test="${pageNumber+1 == i}">
+                                 <li>
+                                    <a href="course-sidebar?page=${i}"><span>${i}</span></a>
+                                 </li>
+                              </c:when>
+                              <c:otherwise>
+                                 <li><a href="course-sidebar?page=${i}"><span>${i}</span></a></li>
+                              </c:otherwise>
+                              </c:choose>
+                              </c:forEach>
+                              <!-- 맨마지막페이지 -->
+                              <!-- last : 해당 페이지가 마지막 페이지인지 여부(true/false로 구분)-->
+                              <!-- 해당페이지가 마지막인 경우에는 아무것도 설정안함-->
+                              <!-- 해당 페이지가 마지막 페이지가 아닌경우-->
+                              <!-- 마지막페이지로 이동 -->
+                              <c:choose>     
+                              <c:when test="${elist.last}"></c:when>
+                              <c:otherwise>
+                                 <li class="next">
+                                    <a href="course-sidebar?page=${totalPages}" class="link-btn">
+                                    Next
+                                    <i class="arrow_right"></i>
+                                    <i class="arrow_right"></i>
+                                    </a>
+                                 </li>
+                              </c:otherwise>
+                              </c:choose>
+                                    </ul>
+                                 </div>
                               </div>
                            </div>
                         </div>
                      </div>
-                  </div>
                   <div class="col-xxl-4 col-xl-4 col-lg-4">
                      <div class="course__sidebar pl-70">
-                        <div class="course__sidebar-search mb-50">
-                           <form action="#">
-                              <input type="text" placeholder="Search for courses...">
-                              <button type="submit">
-                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 584.4 584.4" style="enable-background:new 0 0 584.4 584.4;" xml:space="preserve">
-                                    <g>
-                                       <g>
-                                          <path class="st0" d="M565.7,474.9l-61.1-61.1c-3.8-3.8-8.8-5.9-13.9-5.9c-6.3,0-12.1,3-15.9,8.3c-16.3,22.4-36,42.1-58.4,58.4    c-4.8,3.5-7.8,8.8-8.3,14.5c-0.4,5.6,1.7,11.3,5.8,15.4l61.1,61.1c12.1,12.1,28.2,18.8,45.4,18.8c17.1,0,33.3-6.7,45.4-18.8    C590.7,540.6,590.7,499.9,565.7,474.9z"/>
-                                          <path class="st1" d="M254.6,509.1c140.4,0,254.5-114.2,254.5-254.5C509.1,114.2,394.9,0,254.6,0C114.2,0,0,114.2,0,254.5    C0,394.9,114.2,509.1,254.6,509.1z M254.6,76.4c98.2,0,178.1,79.9,178.1,178.1s-79.9,178.1-178.1,178.1S76.4,352.8,76.4,254.5    S156.3,76.4,254.6,76.4z"/>
-                                       </g>
-                                    </g>
-                                 </svg>
-                              </button>
-                           </form>
-                        </div>
+                        
                         <div class="course__sidebar-widget grey-bg">
                            <div class="course__sidebar-info">
                               <h3 class="course__sidebar-title">All Curriculum</h3>
@@ -824,6 +851,7 @@
       <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="../assets/js/main.js"></script>
       <script src="../assets/js/search.js"></script><!--0103 카테고리 검색용 추가 찬주-->
+      <script src="../assets/js/jquerySelectBox.js"></script><!--0104 셀렉박스 추가 찬주-->
    </body>
 </html>
 

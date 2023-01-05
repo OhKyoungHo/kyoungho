@@ -33,6 +33,19 @@ public class SearchServiceImpl implements SearchService {
       List<EducationVO> searchList2 = searchRepository.detailsSearchQuery(keywords);
       return searchList2;
    }
+   
+   
+   //최신등록순 정렬
+   @Transactional
+   public List<EducationVO> newDate(String newdate){
+     
+      
+      List<EducationVO> searchList3 = searchRepository.newDate(newdate);
+      
+      System.out.println("서비스임풀 : " + searchList3);
+      return searchList3;
+      
+   }
   
    
    

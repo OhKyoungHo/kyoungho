@@ -19,13 +19,18 @@ public interface SearchRepository extends JpaRepository<EducationVO, Integer> {
    
    
    
-   
- 
-   
+   //카테고리로 검색
    @Query(value="SELECT *  "
          + "FROM education "
          + "WHERE lower(ed_title) LIKE CONCAT('%',?1,'%')", nativeQuery=true)
     List<EducationVO> detailsSearchQuery(String keywords);
    
 
+   
+   @Query(value = "SELECT * "
+         + "FROM education "
+         + "ORDER BY ed_days DESC", nativeQuery=true)
+   List<EducationVO> newDate(String newdate);
+  
+   
 }

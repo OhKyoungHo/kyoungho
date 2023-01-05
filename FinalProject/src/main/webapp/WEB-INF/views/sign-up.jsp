@@ -350,18 +350,23 @@
                                 <div class="sign__header mb-35">
                                     <div class="sign__in text-center">
                                         <a href="#" class="sign__social g-plus text-start mb-15"><i class="fab fa-google-plus-g"></i>Sign Up with Google</a>
-                                        <p><span>........</span> Or, <a href="sign-up">sign up</a> with your email<span> ........</span></p>
+                                        <p><span>........</span> Or, <a href="sign-up">sign up</a> with your account<span> ........</span></p>
                                     </div>
                                 </div>
                                 <div class="sign__form">
+                                    <!-- bk 회원가입 버튼 액션-->
                                     <form action="insertMember" type="post">
                                         <div class="sign__input-wrapper mb-25">
-                                            <h5>Account Name</h5>
+                                            <h5>ID</h5>
                                             <div class="sign__input">
-                                                <input type="text" placeholder="ID" id="m_id" name="MId" required/>
-                                                <i class="fal fa-user"></i>
+                                                <input type="text" placeholder="ID" id="m_id" name="MId" required/>                                                
+                                                <i class="fal fa-user"></i>                                                
                                             </div>
+                                            <!-- 유효성검사 js 연결(아이디) -->
+                                            <p id="chkNotice" size="2"></p>
+                                            
                                         </div>
+
 
                                         <div class="sign__input-wrapper mb-25">
                                             <h5>Password</h5>
@@ -369,13 +374,17 @@
                                                 <input type="password" placeholder="Password" id="m_pass" name="MPass" required/>
                                                 <i class="fal fa-lock"></i>
                                             </div>
+                                            <!-- 유효성검사 js 연결(비밀번호)-->
+                                            <p id="chkNotice2" size="2"></p>
                                         </div>
                                         <div class="sign__input-wrapper mb-10">
                                             <h5>Re-Password</h5>
                                             <div class="sign__input">
-                                                <input type="password" placeholder="Re-Password" />
+                                                <input type="password" placeholder="Re-Password" id="m_pass_ck"/>
                                                 <i class="fal fa-lock"></i>
                                             </div>
+                                            <!-- 유효성검사 js 연결(비밀번호 확인)-->
+                                            <p id="chkNotice3" size="2"></p>
                                         </div>
 
                                         <div class="sign__input-wrapper mb-25">
@@ -384,14 +393,18 @@
                                                 <input type="text" placeholder="Full name" id="m_name" name="m_name" required/>
                                                 <i class="fal fa-user"></i>
                                             </div>
+                                            <!-- 유효성검사 js 연결(이름)-->
+                                            <p id="chkNotice4" size="2"></p>
                                         </div>
 
                                         <div class="sign__input-wrapper mb-25">
                                             <h5>Phone Number</h5>
                                             <div class="sign__input">
                                                 <input type="tel" placeholder="Phone number" id="m_tel" name="m_tel" required/>
-                                                <i class="fal fa-envelope"></i>
+                                                <i class="fal fa-phone"></i>
                                             </div>
+                                            <!-- 유효성검사 js 연결(폰번호)-->
+                                            <p id="chkNotice5" size="2"></p>
                                         </div>
 
                                         <div class="sign__input-wrapper mb-25">
@@ -400,20 +413,22 @@
                                                 <input type="email" placeholder="E-mail address" id="m_email" name="m_email" required/>
                                                 <i class="fal fa-envelope"></i>
                                             </div>
+                                            <!-- 유효성검사 js 연결(이메일)-->
+                                            <p id="chkNotice6" size="2"></p>
                                         </div>
 
                                         <div class="sign__input-wrapper mb-25">
                                             <h5>Address</h5>
                                             <div class="sign__input">
                                                 <input type="text" placeholder="Address" id="m_addr" name="m_addr" required/>
-                                                <i class="fal fa-envelope"></i>
+                                                <i class="fal fa-location-arrow"></i>
                                             </div>
                                         </div>
                                         <div class="sign__input-wrapper mb-25">
                                             <h5>Detailed Address</h5>
                                             <div class="sign__input">
                                                 <input type="text" placeholder="Detailed address" id="m_addr_sub" name="m_addr_sub" required/>
-                                                <i class="fal fa-envelope"></i>
+                                                <i class="fal fa-location-arrow"></i>
                                             </div>
                                         </div>
 
@@ -421,7 +436,7 @@
                                             <h5>Postal Code</h5>
                                             <div class="sign__input">
                                                 <input type="text" placeholder="Postal code" id="m_post" name="m_post" required/>
-                                                <i class="fal fa-envelope"></i>
+                                                <i class="fal fa-location"></i>
                                             </div>
                                         </div>
 

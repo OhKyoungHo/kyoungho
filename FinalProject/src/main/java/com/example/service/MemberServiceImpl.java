@@ -12,27 +12,33 @@ import com.example.persistence.MemberRepository;
 public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
-	MemberRepository userRepository;
+	MemberRepository memberRepository;
 
 	//회원가입
 	@Override
 	public void insertMember(MemberVO vo) {
-		userRepository.save(vo);
+		memberRepository.save(vo);
 	}
 
 	//로그인
 	@Override
 	public List<MemberVO> loginMember(MemberVO vo) {
-		return userRepository.findByMIdAndMPass(vo.getMId(), vo.getMPass());
+		return memberRepository.findByMIdAndMPass(vo.getMId(), vo.getMPass());
+	}
+
+	//아이디 중복 체크
+	@Override
+	public int mIdCheck(String MId) {
+		System.out.println(MId);
+		int result = memberRepository.countByMId(MId);
+		System.out.println(result);
+		return result;
 	}
 	
 	
 
 
-//	@Override
-//	public MemberVO checkId(MemberVO vo) {
-//		return userRepository.findById(vo.getM_id().get());
-//	}
+
 
 	
 }
