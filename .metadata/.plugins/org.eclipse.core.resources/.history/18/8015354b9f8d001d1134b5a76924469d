@@ -1,0 +1,10 @@
+//heart 좋아요 클릭시! 하트 뿅
+$(document).ready(function() {
+    
+
+      $('.icon.heart').unbind("click").bind("click",function(){
+      	$('.icon.heart').toggleClass('active');
+
+      
+     })
+})

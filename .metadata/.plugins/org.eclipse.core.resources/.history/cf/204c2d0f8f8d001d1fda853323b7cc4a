@@ -1,0 +1,5 @@
+.course__tag-2 a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

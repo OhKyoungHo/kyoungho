@@ -389,7 +389,7 @@
 
                      <!-- 검색 기능과 카데고리 선택 -->
                      <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                        <div class="course__sort d-flex justify-content-sm-end">
+                        <div class="course__sort d-flex justify-content-sm-end align-items-center">
                            
                            <div class="course__sort-inner">
                               <select>

@@ -1,0 +1,39 @@
+package com.example.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="wishlist")
+public class WishListVO {
+	
+	//위시리스트 번호
+	@Id
+	@Column(name="w_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer wId;
+	//회원아이디
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "m_id")
+    private MemberVO memberEntity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "onClass_id")
+    private OnClassEntity onClassEntity;
+
+	
+	private String MId;
+	@Column(name="ed_id")
+	private Integer edId;
+
+}

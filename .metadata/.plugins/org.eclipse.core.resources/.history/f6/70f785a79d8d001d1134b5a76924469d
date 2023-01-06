@@ -1,0 +1,20 @@
+//heart 좋아요 클릭시! 하트 뿅
+$(document).ready(function() {
+    
+
+      $('.icon.heart').unbind("click").bind("click",function(){
+		 if($('.icon.heart').hasClass('on')){    
+           $(this).find('img').attr({
+              'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+               alt:'찜하기 완료'
+                });
+          $('.icon.heart').removeClass('on')
+       
+           $(this).find('img').attr({
+              'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
+              alt:"찜하기"
+           })
+           $('.icon.heart').removeClass('on')
+         }
+     })
+})

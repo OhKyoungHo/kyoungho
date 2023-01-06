@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+
+
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
@@ -20,7 +24,7 @@
       <link rel="stylesheet" href="assets/css/fontAwesome5Pro.css">
       <link rel="stylesheet" href="assets/css/elegantFont.css">
       <link rel="stylesheet" href="assets/css/default.css">
-      <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/style.css">      
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -267,7 +271,7 @@
             <div class="sidebar__content">
                <div class="logo mb-40">
                   <a href="index">
-                  <img src="/assets/img/logo/logo.png" alt="logo">
+                  <img src="assets/img/logo/logo.png" alt="logo">
                   </a>
                </div>
                <div class="mobile-menu fix"></div>
@@ -297,6 +301,7 @@
       <div class="body-overlay"></div>
       <!-- sidebar area end -->
 
+      <!-- 메인페이지 시작 -->
       <main>
 
          <!-- sign up area start -->
@@ -333,14 +338,14 @@
                               <div class="sign__input-wrapper mb-25">
                                  <h5>ID</h5>
                                  <div class="sign__input">
-                                    <input type="text" placeholder="ID" id="m_id" name="MId">
+                                    <input type="text" placeholder="ID" id="m_id" name="memId">
                                     <i class="fal fa-user"></i>
                                  </div>
                               </div>
                               <div class="sign__input-wrapper mb-10">
                                  <h5>Password</h5>
                                  <div class="sign__input">
-                                    <input type="password" placeholder="Password" id="m_pass" name="MPass">
+                                    <input type="password" placeholder="Password" id="m_pass" name="memPass">
                                     <i class="fal fa-lock"></i>
                                  </div>
                               </div>
@@ -351,7 +356,7 @@
                                        </label>
                                  </div>
                                  <div class="sign__forgot">
-                                    <a href="#">Forgot your password?</a>
+                                    <a href="findIdPw">계정 / 비밀번호 찾기</a>
                                  </div>
                               </div>
                               <button class="e-btn  w-100" type="submit"> <span></span> Sign In</button>
@@ -490,6 +495,7 @@
       <script src="assets/js/wow.min.js"></script>
       <script src="assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="assets/js/main.js"></script>
+      
    </body>
 </html>
 

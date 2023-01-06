@@ -193,8 +193,8 @@
                                 <h1 class="h3 mb-2 text-gray-800" style="text-align:center;"><b>공지</b></h1>
                                 <div style="text-align:right; margin-bottom: 10px;">
 
-                                    <a href="registNotice.do" class="btn btn-primary btn-icon-split">
-                                        <span class="icon text-white-50">
+                                    <a href="announcementInsert" class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">`
                                             <i class="fas fa-flag"></i>
                                         </span>
                                         <span class="text">등록</span>
@@ -241,7 +241,7 @@
                                                                         class="fas fa-info-circle"></i>
                                                                 </a></td>
                                                             <td style="text-align: center;"><a
-                                                                    href=""
+                                                                    href="announcementDelete?anId=${anno.anId}"
                                                                     class="btn btn-danger btn-circle btn-sm"> <i
                                                                         class="fas fa-trash"></i>
                                                                 </a></td>

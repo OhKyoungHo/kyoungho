@@ -79,7 +79,7 @@
                      </div>
                   </div>
                   <c:choose>
-							<c:when test="${empty sessionScope.MId}">
+							<c:when test="${empty sessionScope.memId}">
 
                         <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-7 col-sm-6 col-6">
                            <div class="header__center align-items-center d-flex justify-content-center">
@@ -124,7 +124,7 @@
                         </div>
 
                      </c:when>
-							<c:when test="${not empty sessionScope.MId}">
+							<c:when test="${not empty sessionScope.memId}">
 
                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
                            <div class="header__center align-items-center d-flex justify-content-center">

@@ -16,18 +16,21 @@ import lombok.Data;
 @Table(name="member")
 public class MemberVO {
 	
+	 
 	@Id
 	@Column(name="m_id")
-	private String MId;
+	private String memId;
 	@Column(nullable=false, name="m_pass")
-	private String MPass;
+	private String memPass;
 	@Column(nullable=false, name="m_name")
-	   private String MName;
-	private String m_tel;
+	private String memName;
+	@Column(nullable=false, name="m_tel")
+	private String memTel;
 	private String m_post;
 	private String m_addr;
 	private String m_addr_sub;
-	private String m_email;
+	@Column(nullable=false, name="m_email")
+	private String memEmail;
 	
 	private LocalDateTime p_end_date;
 	private Integer p_daysperweek;
@@ -37,7 +40,5 @@ public class MemberVO {
 	@OneToOne
 	@JoinColumn(name="t_id")
 	private VchatTeacherVO t_id;
-	
-	// @ColumnDefault("0")
 	
 }

@@ -13,19 +13,16 @@
     <meta name="author" content="">
 
     <title>CODE O' CLOCK - 관리자페이지</title>
-
+	
     <!-- Custom fonts for this template-->
-    <link href="../admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-   <!-- Custom styles for this template-->
-<link href="../admin/css/sb-admin-2.min-copy.css" rel="stylesheet">
-
-<!-- Custom styles for this page -->
-<link href="../admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+    <!-- Custom styles for this template-->
+<link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/admin/css\customRegistFAQ.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -66,32 +63,37 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+
+
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800" style="text-align:center;"><b>공지사항 등록</b></h1>
+                    
+                    <h1 class="h3 mb-2 text-gray-800" style="text-align:center;"><b>공지사항 수정</b></h1>
+                    
 
-
-					<!-- 입력 폼 -->
-					<div class="card shadow mb-4"
-						style="width: 75%; margin: auto; margin-top: 50pt;">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">공지사항 게시판 글 관리</h6>
-						</div>
-						<form action="insertNotice.do" id="insertNoticeFrm">
+                    <!-- 입력 폼 -->
+                    <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt;">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">공지사항 게시판 글 관리</h6>
+                        </div>
+                        <form action="announcementUpdate" id="insertNoticeFrm">
+                            <input type = "hidden" name="adId" value ="${adID}"/>
 							<div class="card-body" style="margin-left: 15px;">
 								<div class="inputTitle">
-									<input type="text" style="width: 70%;" placeholder="메인 제목" name="notify_title" value="${anno.anTitle}"/>
+									<input type="hidden" name="anId" value="${anno.anId}"/>
+									<input type="text" style="width: 70%;" placeholder="메인 제목" name="anTitle"
+										value="${anno.anTitle}"/>
 								</div>
 								<hr />
 								<div>
-									상세 내용
-									<textarea style="width: 100%; height: 300px;" name="notify_content">${anno.anContent}</textarea>
+									상세 설명
+									<textarea style="width: 100%; height: 300px;" name="anContent">${anno.anContent}</textarea>
 								</div>
 								<div id="registBtn">
 									<button class="btn btn-primary btn-icon-split" id="insertNoticeBtn"> <span
 										class="icon text-white-50"> <i class="fas fa-flag"></i>
 									</span> <span class="text">등록</span>
 									</button> 
-									<a href="announcement_m" class="btn btn-secondary btn-icon-split">
+									<a href="notice.do" class="btn btn-secondary btn-icon-split">
 										<span class="icon text-white-50"> <i
 											class="fas fa-arrow-right"></i>
 									</span> <span class="text">취소</span>
@@ -99,8 +101,8 @@
 								</div>
 							</div>
 						</form>
-					</div>
-				</div>
+                    </div>
+                </div>
                 <!-- /.container-fluid -->
 
             </div>
@@ -110,7 +112,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; CODE O' CLOCK </span>
+                        <span>Copyright &copy; Code O' Clock</span>
                     </div>
                 </div>
             </footer>
@@ -150,33 +152,24 @@
 	</div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../admin/vendor/jquery/jquery.min.js"></script>
-    <script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin/vendor/jquery/jquery.min.js"></script>
+    <script src="/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../admin/js/sb-admin-2.min.js"></script>
+    <script src="/admin/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../admin/vendor/chart.js/Chart.min.js"></script>
+    <script src="/admin/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../admin/js/demo/chart-area-demo.js"></script>
-    <script src="../admin/js/demo/chart-pie-demo.js"></script>
+    <script src="/admin/js/demo/chart-area-demo.js"></script>
+    <script src="/admin/js/demo/chart-pie-demo.js"></script>
 
 	<!-- font awesome CDN -->
 	<script src="https://kit.fontawesome.com/3364ed6976.js" crossorigin="anonymous"></script>
-
-	<!-- custom scripts -->
-	<script type="text/javascript">
-		$(function(){
-			$("#insertNoticeBtn").click(function(){
-				$("#insertNoticeFrm").submit();
-			});
-		})
-	</script>
 
 </body>
 

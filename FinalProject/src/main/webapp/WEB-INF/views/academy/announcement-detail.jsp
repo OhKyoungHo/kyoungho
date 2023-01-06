@@ -349,6 +349,7 @@
                   <div class="col-xxl-7 col-xl-7 col-lg-6">
                      <div class="contact__wrapper">
                         <div class="section__title-wrapper mb-40">
+                           <!-- 상세내용 출력 -->
                            <h3 class="section__title"><span class="yellow-bg yellow-bg-big">${announcement.anTitle}<img src="/assets/img/shape/yellow-bg.png" alt=""></span></h3>
                            <br/>
                            <span style="float: right;">${announcement.adId}</span><br/>

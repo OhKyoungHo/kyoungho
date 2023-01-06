@@ -1,0 +1,11 @@
+$(function() {
+	$(".icon.heart").click(function() {
+		$(this).toggleClass('active');
+		
+	if($(this).hasClass('active')){  
+		 $(this).find("img").attr("src", "https://cdn-icons-png.flaticon.com/512/812/812327.png");//행동에 따른 리액션
+	}else{
+		$(this).find("img").attr("src", "https://cdn-icons-png.flaticon.com/512/803/803087.png");
+	}
+});
+});
