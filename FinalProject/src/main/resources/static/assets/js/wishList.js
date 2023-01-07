@@ -9,4 +9,7 @@ $(".heart").unbind('click').on('click', function() {
 		$(this).find("img").attr("src", "../assets/img/course/off.png");
 	}
 });
+
+
+
 });

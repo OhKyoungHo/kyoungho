@@ -1,7 +1,0 @@
-//heart 좋아요 클릭시! 하트 뿅
-$(document).ready(function() {
-    
-$(".btn-like").click(function() {
-	$(this).toggleClass("done");
-})
-})

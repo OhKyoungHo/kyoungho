@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
@@ -21,6 +24,33 @@
       <link rel="stylesheet" href="assets/css/elegantFont.css">
       <link rel="stylesheet" href="assets/css/default.css">
       <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/wishlist.css">
+      
+
+      <style> 
+         #accordionSidebar{
+            background-color: aliceblue;
+            color: #696969;
+         }
+         .nav-item span{
+            color: #2F4F4F;
+            font-weight: bolder;
+            margin-left: 10px;
+            margin-bottom: 15px;
+          
+         }
+         .nav-item i{
+            color: #2F4F4F;
+            font-weight: bolder;
+            margin-left: 20px;
+         }
+         .collapse-item {
+             margin-left:30px;
+             margin-top:10px;
+             margin-bottom:20px;
+     }
+     </style>
+
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -322,6 +352,7 @@
          <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="assets/img/page-title/page-title-2.jpg">
             <div class="container">
                <div class="row">
+ 
                   <div class="col-xxl-12">
                      <div class="page__title-wrapper mt-110">
                         <h3 class="page__title">My Wishlist</h3>                         
@@ -338,11 +369,70 @@
          </section>
          <!-- page title area end -->
 
-         <!-- Cart Area Strat-->
+         <!-- 위시리스트 Strat-->
          <section class="cart-area pt-100 pb-100">
             <div class="container">
                <div class="row">
-                  <div class="col-12">
+                  <div class="col-sm-3">
+                     <div class="left-sidebar">
+                        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                           
+                        <li class="nav-item"><a class="nav-link collapsed" href="admin/academyList"
+                           data-toggle="collapse" data-target="#collapseOne"
+                           aria-expanded="true" aria-controls="collapseOne"> <i
+                               class="fas fa-fw fa-address-card"></i> <span>회원 정보 관리</span>
+                       </a>
+                           <div id="collapseOne" class="collapse"
+                               aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                               <div class="bg-white py-2 collapse-inner rounded">
+                                   <a class="collapse-item" href="academyList">회원정보 수정</a><br/> 
+                                   <a class="collapse-item" href="admin/academyRegister">학원 탈퇴</a>
+                               </div>
+                           </div></li>
+                        
+                           <li class="nav-item"><a class="nav-link collapsed" href="admin/tutorList"
+                               data-toggle="collapse" data-target="#collapseTwo"
+                               aria-expanded="true" aria-controls="collapseTwo"> <i
+                                   class="fas fa-fw fa-pencil"></i> <span>작성글 관리</span>
+                           </a>
+                           <div id="collapseTwo" class="collapse"
+                               aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                               <div class="bg-white py-2 collapse-inner rounded">
+                                   <a class="collapse-item" href="academyList">리뷰관리</a><br/>  
+                                   <a class="collapse-item" href="admin/academyRegister">1:1문의</a><br/> 
+                                   <a class="collapse-item" href="admin/academyRegister">코딩게시판</a><br/> 
+                                   <a class="collapse-item" href="admin/academyRegister">솔직답변</a><br/> 
+                                   <a class="collapse-item" href="admin/academyRegister">학원 탈퇴</a>
+                               </div>
+                           </div>
+                               </li>
+                               <li class="nav-item"><a class="nav-link collapsed" href="admin/tutorList"
+                                 data-toggle="collapse" data-target="#collapseThree"
+                                 aria-expanded="true" aria-controls="collapseThree"> <i
+                                     class="fas fa-heart"></i> <span>WishList</span>
+                             </a>
+                                 </li>    
+                               <li class="nav-item"><a class="nav-link collapsed" href="admin/lectureList.do"
+                                   data-toggle="collapse" data-target="#collapseThree"
+                                   aria-expanded="true" aria-controls="collapseThree"> <i
+                                       class="fas fa-fw fa-desktop"></i> <span>나의 학습</span>
+                               </a>
+                                   <div id="collapseThree" class="collapse"
+                                       aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                                       <div class="bg-white py-2 collapse-inner rounded">
+                                           <a class="collapse-item" href="admin/lectureList.do">강의 관리</a><br/>  
+                                       </div>
+                                   </div></li>
+                       
+                                   <li class="nav-item"><a class="nav-link" href="admin/member.do">
+                                       <i class="fas fa-fw fa-table"></i> <span>튜터등록</span>
+                               </a></li>    
+                       
+                               <!-- Nav Item - Pages Collapse Menu -->
+                           </ul> 
+                       </div>
+                       </div>
+                  <div class="col-sm-9">
                         <form action="#">
                            <div class="table-content table-responsive">
                               <table class="table">
@@ -511,6 +601,18 @@
       <script src="assets/js/wow.min.js"></script>
       <script src="assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="assets/js/main.js"></script>
+      <script src="assets/js/wishList.js"></script><!--0106 좋아요 버튼 관련 ajax-->
+        <!-- Bootstrap core JavaScript-->
+    <script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    
+
+ 
+
+  
+
+    
+   
    </body>
 </html>
 
