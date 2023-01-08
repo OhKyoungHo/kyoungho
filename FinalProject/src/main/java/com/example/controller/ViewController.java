@@ -27,10 +27,10 @@ public class ViewController {
 //		return "/lecture/"+step;
 //	}
 //	
-//	@RequestMapping("/mypage/{step}")
-//	public String viewMyPage(@PathVariable String step) {
-//		return "/mypage/"+step;
-//	}
+	@RequestMapping("/mypage/{step}")
+	public String viewMyPage(@PathVariable String step) {
+		return "/mypage/"+step;
+	}
 //	
 //	@RequestMapping("/pay/{step}")
 //	public String viewPay(@PathVariable String step) {
