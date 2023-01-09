@@ -1,0 +1,25 @@
+package com.example.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.persistence.WishListRepository;
+
+@Controller
+@RequestMapping("/mypage")
+public class MypageController {
+	
+	@Autowired
+	private WishListRepository wishRepo;
+	
+	
+	@RequestMapping("/wishlistaca")
+	public void wishListaca(Model m) {
+	      //1~3위까지
+	  m.addAttribute("wishList", wishRepo.getWishList());
+	  
+	}
+
+}

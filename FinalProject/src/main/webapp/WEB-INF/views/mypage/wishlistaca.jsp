@@ -49,6 +49,12 @@
              margin-top:10px;
              margin-bottom:20px;
      }
+     .accounthead img{
+      width:20px;
+      height:20px;
+      margin-right: 10px;
+      margin-bottom : 5px;
+     }
      </style>
 
    </head>
@@ -387,7 +393,7 @@
                                aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                                <div class="bg-white py-2 collapse-inner rounded">
                                    <a class="collapse-item" href="academyList">회원정보 수정</a><br/> 
-                                   <a class="collapse-item" href="admin/academyRegister">학원 탈퇴</a>
+                                   <a class="collapse-item" href="admin/academyRegister">회원 탈퇴</a>
                                </div>
                            </div></li>
                         
@@ -403,7 +409,6 @@
                                    <a class="collapse-item" href="admin/academyRegister">1:1문의</a><br/> 
                                    <a class="collapse-item" href="admin/academyRegister">코딩게시판</a><br/> 
                                    <a class="collapse-item" href="admin/academyRegister">솔직답변</a><br/> 
-                                   <a class="collapse-item" href="admin/academyRegister">학원 탈퇴</a>
                                </div>
                            </div>
                                </li>
@@ -412,16 +417,22 @@
                                  aria-expanded="true" aria-controls="collapseThree"> <i
                                      class="fas fa-heart"></i> <span>WishList</span>
                              </a>
-                                 </li>    
-                               <li class="nav-item"><a class="nav-link collapsed" href="admin/lectureList.do"
+                             <div id="collapseThree" class="collapse"
+                             aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                             <div class="bg-white py-2 collapse-inner rounded">
+                                 <a class="collapse-item" href="#">관심학원리스트</a><br/> 
+                                 <a class="collapse-item" href="#">관심강의리스트</a>
+                             </div>
+                         </div></li>  
+                               <li class="nav-item"><a class="nav-link collapsed" href="#"
                                    data-toggle="collapse" data-target="#collapseThree"
                                    aria-expanded="true" aria-controls="collapseThree"> <i
                                        class="fas fa-fw fa-desktop"></i> <span>나의 학습</span>
                                </a>
-                                   <div id="collapseThree" class="collapse"
+                                   <div id="collapseFour" class="collapse"
                                        aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                                        <div class="bg-white py-2 collapse-inner rounded">
-                                           <a class="collapse-item" href="admin/lectureList.do">강의 관리</a><br/>  
+                                           <a class="collapse-item" href="#">강의 관리</a><br/>  
                                        </div>
                                    </div></li>
                        
@@ -434,41 +445,36 @@
                        </div>
                        </div>
                   <div class="col-sm-9">
+                     <div class="accounthead mb-25">
+                        <h2 class="section__title "><span class="yellow-bg-sm">관심학원리스트 <img src="../assets/img/shape/yellow-bg-4.png" alt="">  </span></h2>
+                     </div>
                         <form action="#">
                            <div class="table-content table-responsive">
                               <table class="table">
                                     <thead>
                                        <tr>
-                                          <th class="product-thumbnail">Images</th>
-                                          <th class="cart-product-name">Product</th>
-                                          <th class="product-price">Unit Price</th>
-                                          <th class="product-quantity">Quantity</th>
-                                          <th class="product-subtotal">Total</th>
+                                          <th class="product-thumbnail"></th>
+                                          <th class="cart-product-name">교육과정명</th>
+                                          <th class="product-price">비용</th>
+                                          <th class="product-quantity">기간</th>
+                                          <th class="product-subtotal">학원 바로가기</th>
                                           <th class="product-remove">Remove</th>
                                        </tr>
                                     </thead>
+                                    <c:forEach items="${wishList}" var="wish">
                                     <tbody>
                                        <tr>
-                                          <td class="product-thumbnail"><a href="course-details"><img src="../assets/img/course/sm/cart-3.jpg" alt=""></a></td>
-                                          <td class="product-name"><a href="course-details">Fundamentals of music theory Learn new</a></td>
-                                          <td class="product-price"><span class="amount">$130.00</span></td>
+                                          <td class="product-thumbnail"><a href="course-details"><img src="../assets/img/course/${wish[1]}" alt=""></a></td>
+                                          <td class="product-name"><a href="course-details">${wish[0]}</a></td>
+                                          <td class="product-price"><span class="amount">${wish[3]}</span></td>
                                           <td class="product-quantity">
-                                                <button class="e-btn e-btn-border" type="submit">Add TO Cart</button>
+                                             <span class="amount">${wish[4]} ~ ${wish[5]} </span>  
                                           </td>
-                                          <td class="product-subtotal"><span class="amount">$130.00</span></td>
-                                          <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                       </tr>
-                                       <tr>
-                                          <td class="product-thumbnail"><a href="course-details"><img src="../assets/img/course/sm/cart-2.jpg" alt=""></a></td>
-                                          <td class="product-name"><a href="course-details">Strategy law and organization Foundation </a></td>
-                                          <td class="product-price"><span class="amount">$120.50</span></td>
-                                          <td class="product-quantity">
-                                                <button class="e-btn e-btn-border" type="submit">Add TO Cart</button>
-                                          </td>
-                                          <td class="product-subtotal"><span class="amount">$120.50</span></td>
+                                          <td class="product-subtotal"> <button class="e-btn e-btn-border" type="submit">상세보기</button></td>
                                           <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
                                        </tr>
                                     </tbody>
+                                    </c:forEach>
                               </table>
                            </div>
                         </form>
