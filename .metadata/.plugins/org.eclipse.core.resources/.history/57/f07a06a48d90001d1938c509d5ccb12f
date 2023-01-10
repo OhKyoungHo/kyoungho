@@ -1,0 +1,6 @@
+package com.example.service;
+
+public interface WishListService {
+	public int findLike(Long boardId, Long memberId);
+
+}

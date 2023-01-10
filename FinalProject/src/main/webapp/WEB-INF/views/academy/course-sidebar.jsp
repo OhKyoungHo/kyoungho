@@ -430,9 +430,11 @@
                               <div class="row">
 
 
-
+                                    <input type="hidden" value="${memId}" id="memId">
                                  <c:forEach items="${academyList}" var="education">
+                                    
                                     <input type="hidden" value="${education.edDays}" name="edDays">
+                                    <input type="hidden" value="${education.edId}" id="edId">
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="course__item white-bg mb-30 fix">
                                        <div class="course__thumb w-img p-relative fix">
@@ -449,8 +451,8 @@
                                           <div class="course__meta d-flex align-items-center justify-content-between">
                                              <div class="course__lesson"> <!--0106 좋아요버튼-->
                                                 <span>  <a href="javascript:;" class="icon heart">
-                                                   <img src="../assets/img/course/off.png" alt="찜하기">
-                                              </a><input type="hidden" id="like_check" value="1"></span>
+                                                   <img src="../assets/img/course/off.png" alt="찜하기" id="likeImg">
+                                              </a><input type="hidden" id="like_check" value="${like}"></span>
                                              </div>
                                              <div class="course__rating">
                                                 <!--별점과 값은 평균내서 값 넣음-->

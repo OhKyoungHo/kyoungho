@@ -25,6 +25,7 @@
       <link rel="stylesheet" href="../assets/css/elegantFont.css">
       <link rel="stylesheet" href="../assets/css/default.css">
       <link rel="stylesheet" href="../assets/css/style.css">
+      <link rel="stylesheet" href="../assets/css/wishlist.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -314,7 +315,9 @@
                <div class="row">
                   <div class="col-xxl-8 col-xl-8 col-lg-8">
                      <div class="course__wrapper">
+                        <form action="/mypage/insert" method="post">
                         <div class="page__title-content mb-25">
+
                            <div class="page__title-breadcrumb">                            
                                <nav aria-label="breadcrumb">
                                  <ol class="breadcrumb">
@@ -324,7 +327,12 @@
                                  </ol>
                                </nav>
                            </div>
+                           
                              <!-- 국비인지 부트인지-->
+                             <input type="hidden" value="${sessionScope.memId}" id="memId">
+                             <input type="text" value="${education.edId}" id="edId">
+                             <input type="text" value="${wish.memId}" id="wId">
+                             <input type="text" value="${wish.wId}" id="wId">
                            <span class="page__title-pre">Development</span>
                              <!-- 교육과정 이름-->
                            <h5 class="page__title-3">${education.edTitle}</h5>
@@ -346,8 +354,11 @@
                                 <!--날짜의 값이 들어가도록 세팅 -->
                               <p><fmt:formatDate value="${education.ed_start_date}" pattern="yyyy.MM.dd" /> ~ <fmt:formatDate value="${education.ed_end_date}" pattern="yyyy.MM.dd" /> </p>
                            </div>
-
-
+                           <div class="course__lesson"> <!--0106 좋아요버튼-->
+                              <span>  <a href="#" class="icon heart">
+                                 <img src="../assets/img/course/off.png" alt="찜하기" id="likeImg">
+                            </a><input type="hidden" id="like_check" value="${like}"></span>
+                           </div>
                                <!--0105 찬주 별점1  평균 부분 나오는 작은부분-->
                            <div class="course__rating-2 mb-20">
                               <h5>별점:</h5>
@@ -383,6 +394,7 @@
                         <div class="course__img w-img mb-30">
                            <img src="../assets/img/course/${education.ed_pic}" alt="" width='770' height='450'>
                         </div>
+                     </form>
                          <!--교육과정 관련 tab부분 -->
                         <div class="course__tab-2 mb-45">
                            <ul class="nav nav-tabs" id="courseTab" role="tablist">
@@ -1212,6 +1224,7 @@
       <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="../assets/js/main.js"></script>
       <script src="../assets/js/star.js"></script>
+      <script src="../assets/js/wishList.js"></script><!--0106 좋아요 버튼 관련 ajax-->
    </body>
 </html>
 

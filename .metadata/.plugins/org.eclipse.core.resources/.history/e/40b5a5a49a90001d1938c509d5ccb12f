@@ -1,0 +1,28 @@
+$(function() {
+	   let likeVal = document.getElementById('like_check').value
+        const edId = $("#edId").val();
+        const memId = $("#memId").val();
+        console.log(memId);
+        console.log(likeVal);
+        const likeImg = document.getElementById("likeImg")
+
+        if (likeVal > 0) {
+            likeImg.src = "../assets/img/course/on.png";
+        } else {
+            likeImg.src = "../assets/img/course/off.png";
+        }
+	
+$(".heart").unbind('click').on('click', function() {
+		
+		$(this).toggleClass('on');
+		
+	if($(this).hasClass('on')){  
+		 $(this).find("img").attr("src", "../assets/img/course/on.png");//행동에 따른 리액션
+	}else{
+		$(this).find("img").attr("src", "../assets/img/course/off.png");
+	}
+});
+
+
+
+});

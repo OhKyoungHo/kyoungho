@@ -2,6 +2,7 @@ package com.example.persistence;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +17,9 @@ public interface EducationRepository extends CrudRepository<EducationVO, Integer
    //Education 테이블을 페이징하는 메서드
    //전체검색을 페이징
    List<EducationVO> findAll();
+   
+//   //상품 아이디로 찾기
+//   Optional<EducationVO> findById(Integer edId);
    
    
    

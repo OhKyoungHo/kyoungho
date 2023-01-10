@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,9 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.domain.EducationVO;
 import com.example.domain.ReviewVO;
+import com.example.domain.WishListVO;
 import com.example.persistence.EducationRepository;
+import com.example.persistence.WishListRepository;
 import com.example.service.EducationService;
 import com.example.service.ReviewService;
+import com.example.service.WishListService;
 
 
 @Controller
@@ -33,8 +37,11 @@ public class EducationController {
    //찬주추가
    @Autowired
    private ReviewService reviewService;
-
    
+   @Autowired
+   private WishListService wishService;
+
+	
    
    
 
@@ -49,9 +56,9 @@ public class EducationController {
 
 
       //keywords 값 잘넘어옵니다 확인완료
-      System.out.println("keywords 값 확인 : " + keywords);
+      //System.out.println("keywords 값 확인 : " + keywords);
       //order 값 잘 넘어옵니다 확인완료
-      System.out.println("order 값 확인:"+ order);
+     // System.out.println("order 값 확인:"+ order);
       
       //만든쿼리 받아서 Page elist에 저장
       Page<EducationVO> elist = eduRepo.AllSearchAndPagingQuery(paging, keywords);
@@ -95,12 +102,15 @@ public class EducationController {
    //0105
    //기존 겟보드에서 리뷰까지 나오기위해  찬주 추가
    @GetMapping("/course-details")
-   public String getBoard(EducationVO vo, ReviewVO re, Model model){
+   public String getBoard(EducationVO vo, ReviewVO re, Integer wId, String memId, Model model){
       EducationVO result = eduService.getBoard(vo);
       String[] a = result.getEd_curriculum().split("\\+");
 
       model.addAttribute("title", a);
-      model.addAttribute("education", result); // Model 정보 저장         
+      model.addAttribute("education", result); // Model 정보 저장   
+      
+      //Integer wdId2 = Integer.parseInt(wId);
+      //model.addAttribute("wish",wishService.getWish(wId, memId));
 
       //0105찬주 리뷰 출력용으로 ReviewVO 란 하나 추가함 !
       List<ReviewVO> reviewList = reviewService.getRV(re);
@@ -113,8 +123,6 @@ public class EducationController {
       model.addAttribute("avg",avg);
 
       return "academy/course-details";
-
-
 
    }
 

@@ -31,5 +31,7 @@ public interface MemberRepository extends JpaRepository<MemberVO, Integer> {
 	// 아이디로 회원 정보 찾기
 	MemberVO findByMemId(String memId);
 	
+
+	
 	
 }
