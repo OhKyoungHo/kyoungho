@@ -8,12 +8,13 @@ $(".heart").unbind('click').on('click', function() {
 		 
 		 let memId1 = $("#memId").val();
 		 let edId1 = $("#edId").val();
+		 let wId1 = $("#wId").attr("value",);
 		 
 		 // 하트를 클릭 시 WishList 테이블에 저장
 		 $.ajax({
                 url: '/mypage/insert',
                 type: 'POST',
-                data: {'memId': memId1, 'edId': edId1},
+                data: {'memId': memId1, 'edId': edId1, 'wId': wId1},
                 success: function (data) {
                     console.log(data);
                 }, error: function () {
@@ -26,13 +27,15 @@ $(".heart").unbind('click').on('click', function() {
 		$(this).find("img").attr("src", "../assets/img/course/off.png");
 	
 	 
+		 let memId1 = $("#memId").val();
+		 let edId1 = $("#edId").val();
 		 let wId1 = $("#wId").val();
 		
 		 // 하트를 클릭 시 WishList 테이블에 삭제
 		 $.ajax({
                 url: '/mypage/delete',
                 type: 'POST',
-                data: {'wId': wId1},
+                data: {'memId': memId1, 'edId': edId1, 'wId': wId1},
                 success: function (data) {
                     console.log(data);
                 }, error: function () {

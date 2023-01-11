@@ -2,7 +2,6 @@ package com.example.persistence;
 
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,9 +17,6 @@ public interface EducationRepository extends CrudRepository<EducationVO, Integer
    //전체검색을 페이징
    List<EducationVO> findAll();
    
-//   //상품 아이디로 찾기
-//   Optional<EducationVO> findById(Integer edId);
-   
    
    
       //0106 찬주
@@ -31,14 +27,41 @@ public interface EducationRepository extends CrudRepository<EducationVO, Integer
       @Query(value="SELECT *  "
             + "FROM education "
             + "WHERE lower(ed_title) LIKE CONCAT('%',?1,'%')"
-            + "OR ed_name LIKE CONCAT('%',?1,'%')"  ,
+            + "OR lower(ed_name) LIKE CONCAT('%',?1,'%')"
+            + "OR lower(ed_keyword) LIKE CONCAT('%',?1,'%') " 
+            + "ORDER BY ed_days DESC",
             countQuery="SELECT count(*)  "
                    + "FROM education "
                    + "WHERE lower(ed_title) LIKE CONCAT('%',?1,'%')"
-                   + "OR ed_name LIKE CONCAT('%',?1,'%') ",
-                   //+ "ORDER BY ed_days DESC",
+                   + "OR lower(ed_name) LIKE CONCAT('%',?1,'%') "
+                   + "OR lower(ed_keyword) LIKE CONCAT('%',?1,'%') "  
+                   + "ORDER BY ed_days DESC",
             nativeQuery=true)
       Page<EducationVO> AllSearchAndPagingQuery(Pageable paging, 
-            String keywords);
-     
+            String keywords, String order);
+      
+      
+      
+      @Query(value="SELECT *  "
+              + "FROM education "
+              + "WHERE lower(ed_title) LIKE CONCAT('%',?1,'%')"
+              + "OR lower(ed_name) LIKE CONCAT('%',?1,'%')"
+              + "OR lower(ed_keyword) LIKE CONCAT('%',?1,'%') " 
+              + "ORDER BY avg DESC",
+              countQuery="SELECT count(*)  "
+                     + "FROM education "
+                     + "WHERE lower(ed_title) LIKE CONCAT('%',?1,'%')"
+                     + "OR lower(ed_name) LIKE CONCAT('%',?1,'%') "
+                     + "OR lower(ed_keyword) LIKE CONCAT('%',?1,'%') "  
+                     + "ORDER BY avg DESC",
+              nativeQuery=true)
+        Page<EducationVO> starDesc(Pageable paging, 
+              String keywords, String order);
+        
+      
+      
+    
+      
+      
+
 }

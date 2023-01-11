@@ -1,0 +1,10 @@
+package com.example.domain;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="vchat_class")
+public class LectureVO {
+
+}

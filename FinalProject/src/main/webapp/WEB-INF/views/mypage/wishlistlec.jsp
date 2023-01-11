@@ -462,6 +462,7 @@
                                        </tr>
                                     </thead>
                                     <tbody>
+                                       <for each
                                        <tr>
                                           <td class="product-thumbnail"><a href="course-details"><img src="assets/img/course/sm/cart-1.jpg" alt=""></a></td>
                                           <td class="product-name"><a href="course-details">Strategy law and organization Foundation </a></td>

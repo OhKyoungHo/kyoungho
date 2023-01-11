@@ -19,12 +19,12 @@ public class WishListVO {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="w_id", nullable=false)
+	@Column(name="w_id", nullable=true)
 	private Integer wId;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="m_id")
-	private MemberVO memId;
+	@JoinColumn(name="m_idint")
+	private MemberVO memIdInt;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="ed_id")

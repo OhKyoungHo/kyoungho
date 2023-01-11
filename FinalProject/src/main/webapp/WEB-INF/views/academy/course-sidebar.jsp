@@ -1,32 +1,35 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
-      <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+      
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>Educal – Online Learning and Education HTML5 Template </title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Place favicon.ico in the root directory -->
-      <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
+      <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
       <!-- CSS here -->
-      <link rel="stylesheet" href="../assets/css/preloader.css">
-      <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-      <link rel="stylesheet" href="../assets/css/meanmenu.css">
-      <link rel="stylesheet" href="../assets/css/animate.min.css">
-      <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
-      <link rel="stylesheet" href="../assets/css/swiper-bundle.css">
-      <link rel="stylesheet" href="../assets/css/backToTop.css">
-      <link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css">
-      <link rel="stylesheet" href="../assets/css/fontAwesome5Pro.css">
-      <link rel="stylesheet" href="../assets/css/elegantFont.css">
-      <link rel="stylesheet" href="../assets/css/default.css">
-      <link rel="stylesheet" href="../assets/css/style.css">
-      <link rel="stylesheet" href="../assets/css/wishlist.css"><!-- 0106 좋아요 버튼 관련 css -->
+      <link rel="stylesheet" href="/assets/css/preloader.css">
+      <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/assets/css/meanmenu.css">
+      <link rel="stylesheet" href="/assets/css/animate.min.css">
+      <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="/assets/css/swiper-bundle.css">
+      <link rel="stylesheet" href="/assets/css/backToTop.css">
+      <link rel="stylesheet" href="/assets/css/jquery.fancybox.min.css">
+      <link rel="stylesheet" href="/assets/css/fontAwesome5Pro.css">
+      <link rel="stylesheet" href="/assets/css/elegantFont.css">
+      <link rel="stylesheet" href="/assets/css/default.css">
+      <link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/wishlist.css"><!-- 0106 좋아요 버튼 관련 css -->
       <style>
          @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
          </style>
+      
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -40,9 +43,9 @@
          <div id="loading-center">
             <div id="loading-center-absolute">
                <div class="loading-content">
-                  <img class="loading-logo-text" src="../assets/img/logo/logo-text-2.png" alt="">
+                  <img class="loading-logo-text" src="/assets/img/logo/logo-text-2.png" alt="">
                   <div class="loading-stroke">
-                     <img class="loading-logo-icon" src="../assets/img/logo/logo-icon.png" alt="">
+                     <img class="loading-logo-icon" src="/assets/img/logo/logo-icon.png" alt="">
                   </div>
                </div>
             </div>
@@ -67,8 +70,8 @@
                      <div class="header__left d-flex">
                         <div class="logo">
                            <a href="index">
-                              <img class="logo-white" src="../assets/img/logo/logo-2.png" alt="logo">
-                              <img class="logo-black" src="../assets/img/logo/logo.png" alt="logo">
+                              <img class="logo-white" src="/assets/img/logo/logo-2.png" alt="logo">
+                              <img class="logo-black" src="/assets/img/logo/logo.png" alt="logo">
                            </a>
                         </div>
                         <div class="header__category d-none d-lg-block">
@@ -221,7 +224,7 @@
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="../assets/img/course/sm/cart-1.jpg" alt="">
+                              <img src="/assets/img/course/sm/cart-1.jpg" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
@@ -240,7 +243,7 @@
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="../assets/img/course/sm/cart-2.jpg" alt="">
+                              <img src="/assets/img/course/sm/cart-2.jpg" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
@@ -259,7 +262,7 @@
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="../assets/img/course/sm/cart-3.jpg" alt="">
+                              <img src="/assets/img/course/sm/cart-3.jpg" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
@@ -306,7 +309,7 @@
             <div class="sidebar__content">
                <div class="logo mb-40">
                   <a href="index">
-                  <img src="../assets/img/logo/logo.png" alt="logo">
+                  <img src="/assets/img/logo/logo.png" alt="logo">
                   </a>
                </div>
                <div class="mobile-menu fix"></div>
@@ -339,7 +342,7 @@
       <main>
 
           <!-- page title area start(학원리스트 시작부분) -->
-         <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="../assets/img/page-title/page-title.jpg">
+         <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="/assets/img/page-title/page-title.jpg">
             <div class="container">
                <div class="row">
                   <div class="col-xxl-12">
@@ -408,10 +411,9 @@
 
                            <form id="selectForm" action=/academy/course-sidebar method="GET">
                               <select name="order">
-                                 <option>--선택--</option>
-                               
+                                 <option >--선택--</option>
                                  <option value="new">최신 등록순</option>
-                          
+                                 <option value="star">별점평균높은순</option>
                               </select>
                            </form>
 
@@ -430,17 +432,16 @@
                               <div class="row">
 
 
-                                    <input type="hidden" value="${memId}" id="memId">
+                               <!--화면 상세리스트 값들 나오는 부분 -->
                                  <c:forEach items="${academyList}" var="education">
-                                    
                                     <input type="hidden" value="${education.edDays}" name="edDays">
-                                    <input type="hidden" value="${education.edId}" id="edId">
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="course__item white-bg mb-30 fix">
                                        <div class="course__thumb w-img p-relative fix">
                                           <a href="course-details?edId=${education.edId}">
+                                         
                                              <!--해당 교육과정 관련 이미지 저장 경로 지정-->
-                                             <img src="../assets/img/course/${education.ed_pic}" alt="" width='370' height='260' >
+                                             <img src="/assets/img/course/${education.ed_pic}" alt="" width='370' height='260' >
                                           </a>
                                           <div class="course__tag">
                                              <!-- 국비/ 부트캠프 인지-->
@@ -450,26 +451,34 @@
                                        <div class="course__content">
                                           <div class="course__meta d-flex align-items-center justify-content-between">
                                              <div class="course__lesson"> <!--0106 좋아요버튼-->
-                                                <span>  <a href="javascript:;" class="icon heart">
-                                                   <img src="../assets/img/course/off.png" alt="찜하기" id="likeImg">
-                                              </a><input type="hidden" id="like_check" value="${like}"></span>
+                                                <span><a href="javascript:;"  class="icon heart">
+                                                   <img id="likeBtn" src="https://cdn-icons-png.flaticon.com/512/812/812327.png" alt="찜하기">
+                                                </a><input type="hidden" id="like_check" value="1"></span>
                                              </div>
-                                             <div class="course__rating">
-                                                <!--별점과 값은 평균내서 값 넣음-->
-                                                <span><i class="icon_star"></i>${avg}</span>
-                                             </div>
-                                          </div>
+
+                                                       <!-- 별점출력 부분 값 지정해주기-->
+                                            <c:forEach items="${avg}" var="avg">
+                                             <c:if test="${avg[0] == education.edId}" >
+                                                <div class="course__rating">
+                                                   <span><i class="icon_star"></i>${avg[1]}</span>
+                                                 </div>
+                                             </c:if>
+                                          </c:forEach>
+                                            
+                                         
+
+                                       </div>
                                           <h3 class="course__title"><a href="course-details?edId=${education.edId}">${education.edTitle}</a></h3>
                                           <div class="course__teacher d-flex align-items-center">
                                              <div class="course__teacher-thumb mr-15">
-                                                <img src="../assets/img/course/charity.png" alt="">
+                                                <img src="/assets/img/course/charity.png" alt="">
                                              </div>
                                              <h6><a href="instructor-details">${education.edName}</a></h6>
                                           </div>
                                           <div class="course__tag-2 mt-15">
                                              <!--0106 여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
                                            <span><i class="fal fa-tag"></i>
-                                            ${education.ed_keyword}</span>
+                                            ${education.edKeyword}</span>
                                          </div>
                                        </div>
                                        <div class="course__more d-flex justify-content-between align-items-center">
@@ -487,6 +496,7 @@
                                     </div>
                                  </div>
                               </c:forEach>
+                           
                               </div>
                            </div>
                            <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
@@ -499,7 +509,7 @@
                                              <div class="course__thumb course__thumb-list w-img p-relative fix">
                                                 <a href="course-details">
                                                    <!--해당 교육과정 관련 이미지 저장 경로 지정-->
-                                                   <img src="../assets/img/course/${education.ed_pic}" alt="" width='370' height='220' />
+                                                   <img src="/assets/img/course/${education.ed_pic}" alt="" width='370' height='220' />
                                                 </a>
                                                 <div class="course__tag">
                                                    <a href="#">국비인지 부트인지</a>
@@ -511,28 +521,34 @@
                                                 <div class="course__content course__content-4">
                                                    <div class="course__meta d-flex align-items-center">
                                                       <div class="course__lesson mr-20">
-                                                         <span>  <a href="javascript:;" class="icon heart">
-                                                            <img src="../assets/img/course/off.png" alt="찜하기">
-                                                       </a><input type="hidden" id="like_check" value="1"></span>
+                                                         <span><a href="javascript:;"  class="icon heart">
+                                                            <img id="likeBtn" src="https://cdn-icons-png.flaticon.com/512/812/812327.png" alt="찜하기">
+                                                         </a><input type="hidden" id="like_check" value="1"></span>
                                                       </div>
-                                                      <div class="course__rating">
-                                                         <!--별점 평균내서 값 넣음-->
-                                                         <span><i class="icon_star"></i>${avg} (44)</span>
-                                                      </div>
+
+                                          <!-- 별점출력 부분 값 지정해주기-->
+                                                 <c:forEach items="${avg}" var="avg">
+                                                      <c:if test="${avg[0] == education.edId}" >
+                                                         <div class="course__rating">
+                                                            <span><i class="icon_star"></i>${avg[1]}</span>
+                                                         </div>
+                                                      </c:if>
+                                                </c:forEach>
+
                                                    </div>
                                                    <h3 class="course__title">
                                                       <a href="course-details">${education.edTitle}</a>
                                                    </h3>
                                                    <div class="course__teacher d-flex align-items-center">
                                                       <div class="course__teacher-thumb mr-15">
-                                                         <img src="../assets/img/course/charity.png" alt="">
+                                                         <img src="/assets/img/course/charity.png" alt="">
                                                       </div>
                                                       <h6><a href="instructor-details">${education.edName}</a></h6>
                                                    </div>
                                                    <div class="course__tag-2 mt">
                                                       <!--여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
                                                     <span><i class="fal fa-tag"></i>
-                                                     ${education.ed_keyword}</span>
+                                                     ${education.edKeyword}</span>
                                                   </div>
                                                 </div>
                                                 <div class="course__more course__more-2 course__more-3 d-flex justify-content-between align-items-center">
@@ -743,7 +759,7 @@
             <div class="container">
                <div class="cta__inner blue-bg fix">
                   <div class="cta__shape">
-                     <img src="../assets/img/cta/cta-shape.png" alt="">
+                     <img src="/assets/img/cta/cta-shape.png" alt="">
                   </div>
                   <div class="row align-items-center">
                      <div class="col-xxl-7 col-xl-7 col-lg-8 col-md-8">
@@ -775,7 +791,7 @@
                               <div class="footer__widget-head mb-22">
                                  <div class="footer__logo">
                                     <a href="index">
-                                       <img src="../assets/img/logo/logo-2.png" alt="">
+                                       <img src="/assets/img/logo/logo-2.png" alt="">
                                     </a>
                                  </div>
                               </div>
@@ -870,24 +886,25 @@
          </footer>
          <!-- footer area end -->
       <!-- JS here -->
-      <script src="../assets/js/vendor/jquery-3.5.1.min.js"></script>
-      <script src="../assets/js/vendor/waypoints.min.js"></script>
-      <script src="../assets/js/bootstrap.bundle.min.js"></script>
-      <script src="../assets/js/jquery.meanmenu.js"></script>
-      <script src="../assets/js/swiper-bundle.min.js"></script>
-      <script src="../assets/js/owl.carousel.min.js"></script>
-      <script src="../assets/js/jquery.fancybox.min.js"></script>
-      <script src="../assets/js/isotope.pkgd.min.js"></script>
-      <script src="../assets/js/parallax.min.js"></script>
-      <script src="../assets/js/backToTop.js"></script>
-      <script src="../assets/js/jquery.counterup.min.js"></script>
-      <script src="../assets/js/ajax-form.js"></script>
-      <script src="../assets/js/wow.min.js"></script>
-      <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
-      <script src="../assets/js/main.js"></script>
-      <script src="../assets/js/search.js"></script><!--0103 카테고리 검색용 추가 찬주-->
-      <script src="../assets/js/jquerySelectBox.js"></script><!--0104 ~순 추가 제이쿼리-->
-      <script src="../assets/js/wishList.js"></script><!--0106 좋아요 버튼 관련 ajax-->
+      <script src="/assets/js/vendor/jquery-3.5.1.min.js"></script>
+      <script src="/assets/js/vendor/waypoints.min.js"></script>
+      <script src="/assets/js/bootstrap.bundle.min.js"></script>
+      <script src="/assets/js/jquery.meanmenu.js"></script>
+      <script src="/assets/js/swiper-bundle.min.js"></script>
+      <script src="/assets/js/owl.carousel.min.js"></script>
+      <script src="/assets/js/jquery.fancybox.min.js"></script>
+      <script src="/assets/js/isotope.pkgd.min.js"></script>
+      <script src="/assets/js/parallax.min.js"></script>
+      <script src="/assets/js/backToTop.js"></script>
+      <script src="/assets/js/jquery.counterup.min.js"></script>
+      <script src="/assets/js/ajax-form.js"></script>
+      <script src="/assets/js/wow.min.js"></script>
+      <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+      <script src="/assets/js/main.js"></script>
+      <script src="/assets/js/search.js"></script><!--0103 카테고리 검색용 추가 찬주-->
+      <script src="/assets/js/jquerySelectBox.js"></script><!--0104 ~순 추가 제이쿼리-->
+      <script src="/assets/js/wishList.js"></script><!--0106 좋아요 버튼 관련 ajax-->
+      <script src="/assets/js/jquery-3.6.3.min.js"></script>
 
   
    </body>

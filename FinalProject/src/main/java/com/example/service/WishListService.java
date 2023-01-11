@@ -3,6 +3,7 @@ package com.example.service;
 
 import java.util.List;
 
+
 import com.example.domain.WishListVO;
 
 public interface WishListService {
@@ -11,15 +12,17 @@ public interface WishListService {
 
 		//위시리스트 추가
 		//public void wishInsert(WishListVO vo);
-		public void insertWish(String memId, Integer edId);
+		public void insertWish(Integer memIdInt, Integer edId);
 		
 		//위시리스트 목록
 		public List<WishListVO> getWishList(WishListVO vo);
 		
 		//위시리스트 삭제
-		public void deleteWish(Integer wId);
+		public void deleteWish(Integer memIdInt, Integer edId);
 		
-		public WishListVO getWish(WishListVO vo);
+		public WishListVO getWish(Integer memIdInt, Integer edId) ;
+
+	
 		
 	
 		

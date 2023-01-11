@@ -11,17 +11,17 @@ $(document).ready(function() {
 
 	//회원가입시 아이디 유효성 검사
 
-	$('#m_id').keyup(function() {	//keyup -> 버튼을 누를때만 하는게 아니라 글자 하나하나 바뀔 때 마다 극적인 효과는 나오지만 매번 DB와 비교해서 왔다갔다 하기 때문에  선호하지는 않음
+	$('#m_idstring').keyup(function() {	//keyup -> 버튼을 누를때만 하는게 아니라 글자 하나하나 바뀔 때 마다 극적인 효과는 나오지만 매번 DB와 비교해서 왔다갔다 하기 때문에  선호하지는 않음
 		
 		$('#chkNotice').html('');
 
-		let memId = $('#m_id').val();
+		let memIdString = $('#m_idstring').val();
 		let memIdCheck = /^[a-z0-9]{4,12}$/
 
 
 
 
-		if (!memIdCheck.test(memId)) {
+		if (!memIdCheck.test(memIdString)) {
 			$("#chkNotice").html('4~12자의 영문 소문자와 숫자만 사용 가능합니다.<br><br>')
 			$("#chkNotice").css('color', '#dc3545');
 			$('#m_id').focus()
@@ -34,10 +34,10 @@ $(document).ready(function() {
 		$.ajax({
 			url: "./mIdCheck",	//Controller의 RequestMapping 과 맞춰야함
 			type: "post",
-			data: { memId: memId }, //위에 선언한 변수 memId<-(#m_id)를 Controller 의 memIdCheck 의 parameter(인자) 값인 memId 로 해서 보내 줌
+			data: { memIdString: memIdString }, //위에 선언한 변수 memIdString<-(#m_idstring)를 Controller 의 memIdCheck 의 parameter(인자) 값인 memIdString 로 해서 보내 줌
 			dataType: 'json',
 			success: function(result) {
-//				alert(memId + ", "+ result);
+//				alert(memIdString + ", "+ result);
 				if (result == 1) {
 					$("#chkNotice").html('누군가 이 아이디를 사용하고 있습니다. <br><br>');
 					$("#chkNotice").css('color', '#dc3545');

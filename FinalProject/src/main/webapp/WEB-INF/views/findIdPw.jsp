@@ -11,21 +11,21 @@
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Place favicon.ico in the root directory -->
-      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+      <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
       <!-- CSS here -->
-      <link rel="stylesheet" href="assets/css/preloader.css">
-      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-      <link rel="stylesheet" href="assets/css/meanmenu.css">
-      <link rel="stylesheet" href="assets/css/animate.min.css">
-      <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-      <link rel="stylesheet" href="assets/css/swiper-bundle.css">
-      <link rel="stylesheet" href="assets/css/backToTop.css">
-      <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-      <link rel="stylesheet" href="assets/css/fontAwesome5Pro.css">
-      <link rel="stylesheet" href="assets/css/elegantFont.css">
-      <link rel="stylesheet" href="assets/css/default.css">
-      <link rel="stylesheet" href="assets/css/style.css">
-      <link rel="stylesheet" href="assets/css/loginStyle.css">
+      <link rel="stylesheet" href="/assets/css/preloader.css">
+      <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/assets/css/meanmenu.css">
+      <link rel="stylesheet" href="/assets/css/animate.min.css">
+      <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="/assets/css/swiper-bundle.css">
+      <link rel="stylesheet" href="/assets/css/backToTop.css">
+      <link rel="stylesheet" href="/assets/css/jquery.fancybox.min.css">
+      <link rel="stylesheet" href="/assets/css/fontAwesome5Pro.css">
+      <link rel="stylesheet" href="/assets/css/elegantFont.css">
+      <link rel="stylesheet" href="/assets/css/default.css">
+      <link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/loginStyle.css">
 
 
    </head>
@@ -41,9 +41,9 @@
          <div id="loading-center">
             <div id="loading-center-absolute">
                <div class="loading-content">
-                  <img class="loading-logo-text" src="assets/img/logo/logo-text-2.png" alt="">
+                  <img class="loading-logo-text" src="/assets/img/logo/logo-text-2.png" alt="">
                   <div class="loading-stroke">
-                     <img class="loading-logo-icon" src="assets/img/logo/logo-icon.png" alt="">
+                     <img class="loading-logo-icon" src="/assets/img/logo/logo-icon.png" alt="">
                   </div>
                </div>
             </div>
@@ -68,7 +68,7 @@
                      <div class="header__left d-flex">
                         <div class="logo">
                            <a href="index">
-                              <img src="assets/img/logo/logo.png" alt="logo">
+                              <img src="/assets/img/logo/logo.png" alt="logo">
                            </a>
                         </div>
                         <div class="header__category d-none d-lg-block">
@@ -189,7 +189,7 @@
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="assets/img/course/sm/cart-1.jpg" alt="">
+                              <img src="/assets/img/course/sm/cart-1.jpg" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
@@ -208,7 +208,7 @@
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="assets/img/course/sm/cart-2.jpg" alt="">
+                              <img src="/assets/img/course/sm/cart-2.jpg" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
@@ -227,7 +227,7 @@
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="assets/img/course/sm/cart-3.jpg" alt="">
+                              <img src="/assets/img/course/sm/cart-3.jpg" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
@@ -274,7 +274,7 @@
             <div class="sidebar__content">
                <div class="logo mb-40">
                   <a href="index">
-                  <img src="assets/img/logo/logo.png" alt="logo">
+                  <img src="/assets/img/logo/logo.png" alt="logo">
                   </a>
                </div>
                <div class="mobile-menu fix"></div>
@@ -308,9 +308,9 @@
 <main>
   <!-- 뒷 배경 그림들-->
   <div class="hero__shape">
-    <img class="hero-1-circle" src="assets/img/shape/hero/hero-1-circle.png" alt="">
-    <img class="hero-1-circle-2" src="assets/img/shape/hero/hero-1-circle-2.png" alt="">
-    <img class="hero-1-dot-2" src="assets/img/shape/hero/hero-1-dot-2.png" alt="">
+    <img class="hero-1-circle" src="/assets/img/shape/hero/hero-1-circle.png" alt="">
+    <img class="hero-1-circle-2" src="/assets/img/shape/hero/hero-1-circle-2.png" alt="">
+    <img class="hero-1-dot-2" src="/assets/img/shape/hero/hero-1-dot-2.png" alt="">
  </div>  
 <div class="add-area mb-100"></div>
 <div class="container1" id="container1" style="">
@@ -324,7 +324,7 @@
 
       </div>
                   
-      <input class="input" id="reg_id" name='memId' type="text" placeholder="아이디"  required="required"/>
+      <input class="input" id="reg_id" name='memIdString' type="text" placeholder="아이디"  required="required"/>
       <br/>
       <input class="input" id="reg_email" name='memEmail' type="email" placeholder="이메일" required="required"/>
 
@@ -355,14 +355,14 @@
   <div class="overlay-container">
     <div class="overlay">
       <div class="overlay-panel overlay-left" >
-        <img src="assets/img/logo/pw3.gif" >
-        <img src="assets/img/logo/logo.png" alt="logo">
+        <img src="/assets/img/logo/pw3.gif" >
+        <img src="/assets/img/logo/logo.png" alt="logo">
         <p class="p">Forgot your ID?</p>
         <button class="button" id="signIn">아이디 찾기</button>
       </div>
       <div class="overlay-panel overlay-right" >
-        <img src="assets/img/logo/pw2.gif" >
-        <img src="assets/img/logo/logo.png" alt="logo">
+        <img src="/assets/img/logo/pw2.gif" >
+        <img src="/assets/img/logo/logo.png" alt="logo">
         <p class="p">Forgot your password?</p>
         <button class="button" id="signUp">비밀번호 찾기</button>
       </div>
@@ -385,7 +385,7 @@
                      <div class="footer__widget-head mb-22">
                         <div class="footer__logo">
                            <a href="index">
-                              <img src="assets/img/logo/logo-2.png" alt="">
+                              <img src="/assets/img/logo/logo-2.png" alt="">
                            </a>
                         </div>
                      </div>
@@ -480,23 +480,23 @@
 </footer>
 <!-- footer area end -->
 <!-- JS here -->
-<script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-<script src="assets/js/vendor/waypoints.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/jquery.meanmenu.js"></script>
-<script src="assets/js/swiper-bundle.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/jquery.fancybox.min.js"></script>
-<script src="assets/js/isotope.pkgd.min.js"></script>
-<script src="assets/js/parallax.min.js"></script>
-<script src="assets/js/backToTop.js"></script>
-<script src="assets/js/jquery.counterup.min.js"></script>
-<script src="assets/js/ajax-form.js"></script>
-<script src="assets/js/wow.min.js"></script>
-<script src="assets/js/imagesloaded.pkgd.min.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/login.js"></script>
-<script src="assets/js/findIdPw.js"></script>
+<script src="/assets/js/vendor/jquery-3.5.1.min.js"></script>
+<script src="/assets/js/vendor/waypoints.min.js"></script>
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/jquery.meanmenu.js"></script>
+<script src="/assets/js/swiper-bundle.min.js"></script>
+<script src="/assets/js/owl.carousel.min.js"></script>
+<script src="/assets/js/jquery.fancybox.min.js"></script>
+<script src="/assets/js/isotope.pkgd.min.js"></script>
+<script src="/assets/js/parallax.min.js"></script>
+<script src="/assets/js/backToTop.js"></script>
+<script src="/assets/js/jquery.counterup.min.js"></script>
+<script src="/assets/js/ajax-form.js"></script>
+<script src="/assets/js/wow.min.js"></script>
+<script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/login.js"></script>
+<script src="/assets/js/findIdPw.js"></script>
 
 <!-- sweet alert창 -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

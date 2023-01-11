@@ -8,20 +8,20 @@
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!-- Place favicon.ico in the root directory -->
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png" />
+        <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png" />
         <!-- CSS here -->
-        <link rel="stylesheet" href="assets/css/preloader.css" />
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="assets/css/meanmenu.css" />
-        <link rel="stylesheet" href="assets/css/animate.min.css" />
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
-        <link rel="stylesheet" href="assets/css/swiper-bundle.css" />
-        <link rel="stylesheet" href="assets/css/backToTop.css" />
-        <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css" />
-        <link rel="stylesheet" href="assets/css/fontAwesome5Pro.css" />
-        <link rel="stylesheet" href="assets/css/elegantFont.css" />
-        <link rel="stylesheet" href="assets/css/default.css" />
-        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="/assets/css/preloader.css" />
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/assets/css/meanmenu.css" />
+        <link rel="stylesheet" href="/assets/css/animate.min.css" />
+        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" />
+        <link rel="stylesheet" href="/assets/css/swiper-bundle.css" />
+        <link rel="stylesheet" href="/assets/css/backToTop.css" />
+        <link rel="stylesheet" href="/assets/css/jquery.fancybox.min.css" />
+        <link rel="stylesheet" href="/assets/css/fontAwesome5Pro.css" />
+        <link rel="stylesheet" href="/assets/css/elegantFont.css" />
+        <link rel="stylesheet" href="/assets/css/default.css" />
+        <link rel="stylesheet" href="/assets/css/style.css" />
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -37,9 +37,9 @@
             <div id="loading-center">
                 <div id="loading-center-absolute">
                     <div class="loading-content">
-                        <img class="loading-logo-text" src="assets/img/logo/logo-text-2.png" alt="" />
+                        <img class="loading-logo-text" src="/assets/img/logo/logo-text-2.png" alt="" />
                         <div class="loading-stroke">
-                            <img class="loading-logo-icon" src="assets/img/logo/logo-icon.gif" alt="" />
+                            <img class="loading-logo-icon" src="/assets/img/logo/logo-icon.gif" alt="" />
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                             <div class="header__left d-flex">
                                 <div class="logo">
                                     <a href="index">
-                                        <img src="assets/img/logo/logo.png" alt="logo" />
+                                        <img src="/assets/img/logo/logo.png" alt="logo" />
                                     </a>
                                 </div>
                                 <div class="header__category d-none d-lg-block">
@@ -206,7 +206,7 @@
                             <li>
                                 <div class="cartmini__thumb">
                                     <a href="#">
-                                        <img src="assets/img/course/sm/cart-1.jpg" alt="" />
+                                        <img src="/assets/img/course/sm/cart-1.jpg" alt="" />
                                     </a>
                                 </div>
                                 <div class="cartmini__content">
@@ -225,7 +225,7 @@
                             <li>
                                 <div class="cartmini__thumb">
                                     <a href="#">
-                                        <img src="assets/img/course/sm/cart-2.jpg" alt="" />
+                                        <img src="/assets/img/course/sm/cart-2.jpg" alt="" />
                                     </a>
                                 </div>
                                 <div class="cartmini__content">
@@ -244,7 +244,7 @@
                             <li>
                                 <div class="cartmini__thumb">
                                     <a href="#">
-                                        <img src="assets/img/course/sm/cart-3.jpg" alt="" />
+                                        <img src="/assets/img/course/sm/cart-3.jpg" alt="" />
                                     </a>
                                 </div>
                                 <div class="cartmini__content">
@@ -290,7 +290,7 @@
                 <div class="sidebar__content">
                     <div class="logo mb-40">
                         <a href="index">
-                            <img src="assets/img/logo/logo.png" alt="logo" />
+                            <img src="/assets/img/logo/logo.png" alt="logo" />
                         </a>
                     </div>
                     <div class="mobile-menu fix"></div>
@@ -324,13 +324,13 @@
             <!-- sign up area start -->
             <section class="signup__area po-rel-z1 pt-100 pb-145">
                 <div class="sign__shape">
-                    <img class="man-1" src="assets/img/icon/sign/man-3.png" alt="" />
-                    <img class="man-2 man-22" src="assets/img/icon/sign/man-2.png" alt="" />
-                    <img class="circle" src="assets/img/icon/sign/circle.png" alt="" />
-                    <img class="zigzag" src="assets/img/icon/sign/zigzag.png" alt="" />
-                    <img class="dot" src="assets/img/icon/sign/dot.png" alt="" />
-                    <img class="bg" src="assets/img/icon/sign/sign-up.png" alt="" />
-                    <img class="flower" src="assets/img/icon/sign/flower.png" alt="" />
+                    <img class="man-1" src="/assets/img/icon/sign/man-3.png" alt="" />
+                    <img class="man-2 man-22" src="/assets/img/icon/sign/man-2.png" alt="" />
+                    <img class="circle" src="/assets/img/icon/sign/circle.png" alt="" />
+                    <img class="zigzag" src="/assets/img/icon/sign/zigzag.png" alt="" />
+                    <img class="dot" src="/assets/img/icon/sign/dot.png" alt="" />
+                    <img class="bg" src="/assets/img/icon/sign/sign-up.png" alt="" />
+                    <img class="flower" src="/assets/img/icon/sign/flower.png" alt="" />
                 </div>
                 <div class="container">
                     <div class="row">
@@ -360,7 +360,7 @@
                                         <div class="sign__input-wrapper mb-25">
                                             <h5>ID</h5>
                                             <div class="sign__input">
-                                                <input type="text" placeholder="ID" id="m_id" name="memId" required/>                                                
+                                                <input type="text" placeholder="ID" id="m_idstring" name="memIdString" required/>                                                
                                                 <i class="fal fa-user"></i>                                                
                                             </div>
                                             <!-- 유효성검사 js 연결(아이디) -->
@@ -476,7 +476,7 @@
                                     <div class="footer__widget-head mb-22">
                                         <div class="footer__logo">
                                             <a href="index">
-                                                <img src="assets/img/logo/logo-2.png" alt="" />
+                                                <img src="/assets/img/logo/logo-2.png" alt="" />
                                             </a>
                                         </div>
                                     </div>
@@ -577,23 +577,23 @@
         </footer>
         <!-- footer area end -->
         <!-- JS here -->
-        <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-        <script src="assets/js/vendor/waypoints.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/jquery.meanmenu.js"></script>
-        <script src="assets/js/swiper-bundle.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/jquery.fancybox.min.js"></script>
-        <script src="assets/js/isotope.pkgd.min.js"></script>
-        <script src="assets/js/parallax.min.js"></script>
-        <script src="assets/js/backToTop.js"></script>
-        <script src="assets/js/jquery.counterup.min.js"></script>
-        <script src="assets/js/ajax-form.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-        <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/jquery-3.6.3.min.js"></script>
-        <script src="assets/js/sign-up.js"></script>
+        <script src="/assets/js/vendor/jquery-3.5.1.min.js"></script>
+        <script src="/assets/js/vendor/waypoints.min.js"></script>
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/jquery.meanmenu.js"></script>
+        <script src="/assets/js/swiper-bundle.min.js"></script>
+        <script src="/assets/js/owl.carousel.min.js"></script>
+        <script src="/assets/js/jquery.fancybox.min.js"></script>
+        <script src="/assets/js/isotope.pkgd.min.js"></script>
+        <script src="/assets/js/parallax.min.js"></script>
+        <script src="/assets/js/backToTop.js"></script>
+        <script src="/assets/js/jquery.counterup.min.js"></script>
+        <script src="/assets/js/ajax-form.js"></script>
+        <script src="/assets/js/wow.min.js"></script>
+        <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/jquery-3.6.3.min.js"></script>
+        <script src="/assets/js/sign-up.js"></script>
         <!-- Address API -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
    

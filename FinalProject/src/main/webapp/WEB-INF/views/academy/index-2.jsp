@@ -10,21 +10,21 @@
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Place favicon.ico in the root directory -->
-      <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
+      <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
       <!-- CSS here -->
-      <link rel="stylesheet" href="../assets/css/preloader.css">
-      <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-      <link rel="stylesheet" href="../assets/css/meanmenu.css">
-      <link rel="stylesheet" href="../assets/css/animate.min.css">
-      <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
-      <link rel="stylesheet" href="../assets/css/swiper-bundle.css">
-      <link rel="stylesheet" href="../assets/css/backToTop.css">
-      <link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css">
-      <link rel="stylesheet" href="../assets/css/fontAwesome5Pro.css">
-      <link rel="stylesheet" href="../assets/css/elegantFont.css">
-      <link rel="stylesheet" href="../assets/css/default.css">
-      <link rel="stylesheet" href="../assets/css/style.css">
-      <link rel="stylesheet" href="../assets/css/quickmenu.css"> <!--퀵메뉴로 인해 추가-->
+      <link rel="stylesheet" href="/assets/css/preloader.css">
+      <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/assets/css/meanmenu.css">
+      <link rel="stylesheet" href="/assets/css/animate.min.css">
+      <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="/assets/css/swiper-bundle.css">
+      <link rel="stylesheet" href="/assets/css/backToTop.css">
+      <link rel="stylesheet" href="/assets/css/jquery.fancybox.min.css">
+      <link rel="stylesheet" href="/assets/css/fontAwesome5Pro.css">
+      <link rel="stylesheet" href="/assets/css/elegantFont.css">
+      <link rel="stylesheet" href="/assets/css/default.css">
+      <link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/quickmenu.css"> <!--퀵메뉴로 인해 추가-->
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -38,7 +38,7 @@
       <div class="quickmenu">
       
          <ul style="text-decoration: none">
-            <li><img src="../assets/img/kakao.png"></li></img>
+            <li><img src="/assets/img/kakao.png"></li></img>
          </ul>
       </div>
 
@@ -48,8 +48,8 @@
          <div id="loading-center">
             <div id="loading-center-absolute">
                <div class="loading-content-2 text-center">
-                  <img class="loading-logo-icon-2" src="../assets/img/logo/logo-icon.png" alt="">
-                  <img class="loading-logo-text-2" src="../assets/img/logo/logo-text-2.png" alt="">
+                  <img class="loading-logo-icon-2" src="/assets/img/logo/logo-icon.gif" alt="">
+                  <img class="loading-logo-text-2" src="/assets/img/logo/logo-text-2.png" alt="">
                </div>
             </div>
          </div>  
@@ -73,13 +73,13 @@
                      <div class="header__left d-flex">
                         <div class="logo">
                            <a href="index-2">
-                              <img src="../assets/img/logo/logo.png" alt="logo">
+                              <img src="/assets/img/logo/logo.png" alt="logo">
                            </a>
                         </div>
                      </div>
                   </div>
                   <c:choose>
-							<c:when test="${empty sessionScope.memId}">
+							<c:when test="${empty sessionScope.memIdInt}">
 
                         <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-7 col-sm-6 col-6">
                            <div class="header__center align-items-center d-flex justify-content-center">
@@ -124,7 +124,7 @@
                         </div>
 
                      </c:when>
-							<c:when test="${not empty sessionScope.memId}">
+							<c:when test="${not empty sessionScope.memIdInt}">
 
                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
                            <div class="header__center align-items-center d-flex justify-content-center">
@@ -159,7 +159,7 @@
                         <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-6 col-sm-5 col-5">
                            <div class="header__center align-items-center d-flex justify-content-end">
                               <div>
-                                 <span>${sessionScope.memId}님 환영합니다!</span>
+                                 <span>${sessionScope.memIdString}님 환영합니다!</span>
                               </div>
                               <!-- 찜하기, 마이페이지 아이콘, 종 히스토리 -->
                               <div class="header__btn header__btn-2 d-none d-sm-block">
@@ -198,7 +198,7 @@
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="../assets/img/course/sm/cart-1.jpg" alt="">
+                              <img src="/assets/img/course/sm/cart-1.jpg" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
@@ -217,7 +217,7 @@
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="../assets/img/course/sm/cart-2.jpg" alt="">
+                              <img src="/assets/img/course/sm/cart-2.jpg" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
@@ -236,7 +236,7 @@
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="../assets/img/course/sm/cart-3.jpg" alt="">
+                              <img src="/assets/img/course/sm/cart-3.jpg" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
@@ -283,7 +283,7 @@
             <div class="sidebar__content">
                <div class="logo mb-40">
                   <a href="index">
-                  <img src="../assets/img/logo/logo.png" alt="logo">
+                  <img src="/assets/img/logo/logo.png" alt="logo">
                   </a>
                </div>
                <div class="mobile-menu fix"></div>
@@ -318,9 +318,9 @@
          <!-- hero area start -->
          <section class="hero__area hero__height hero__height-2 d-flex align-items-center blue-bg-3 p-relative fix">
             <div class="hero__shape">
-               <img class="hero-1-circle" src="../assets/img/shape/hero/hero-1-circle.png" alt="">
-               <img class="hero-1-circle-2" src="../assets/img/shape/hero/hero-1-circle-2.png" alt="">
-               <img class="hero-1-dot-2" src="../assets/img/shape/hero/hero-1-dot-2.png" alt="">
+               <img class="hero-1-circle" src="/assets/img/shape/hero/hero-1-circle.png" alt="">
+               <img class="hero-1-circle-2" src="/assets/img/shape/hero/hero-1-circle-2.png" alt="">
+               <img class="hero-1-dot-2" src="/assets/img/shape/hero/hero-1-dot-2.png" alt="">
             </div>
             <div class="container">
                <div class="hero__content-wrapper mt-90">
@@ -329,7 +329,7 @@
                         <div class="hero__content hero__content-2 p-relative z-index-1">
                            <h3 class="section__title hero__title-2">
                               당신의 IT 교육과정을 <br>
-                              <span class="yellow-shape"> <img src="../assets/img/shape/yellow-bg.png" alt="yellow-shape"> 효율적으로</span> 
+                              <span class="yellow-shape"> <img src="/assets/img/shape/yellow-bg.png" alt="yellow-shape"> 효율적으로</span> 
                               찾을 수 있는
                            </h3>
                            <h2 class="hero__title">Code O' Clock</h2>
@@ -363,8 +363,8 @@
                      <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                         <div class="hero__thumb-wrapper mb--120">
                            <div class="hero__thumb-2 scene">
-                              <img class="hero-big" src="../assets/img/hero/hero-2/hero.png" alt="">
-                              <img class="hero-shape-purple" src="../assets/img/hero/hero-2/hero-shape-purple.png" alt="">
+                              <img class="hero-big" src="/assets/img/hero/hero-2/hero.png" alt="">
+                              <img class="hero-shape-purple" src="/assets/img/hero/hero-2/hero-shape-purple.png" alt="">
 
                               <div class="hero__promotion d-flex white-bg layer" data-depth="0.1">
                                  <div class="hero__promotion-icon inspiration mr-10">
@@ -410,7 +410,7 @@
                               </div>
                               <div class="hero__class d-none d-lg-flex layer" data-depth="0.3">
                                  <div class="hero__class-thumb mr-15">
-                                    <img src="../assets/img/hero/hero-2/hero-sm.jpg" alt="">
+                                    <img src="/assets/img/hero/hero-2/hero-sm.jpg" alt="">
                                  </div>
                                  <div class="hero__class-text">
                                     <h5>User Experience Class</h5>
@@ -454,7 +454,7 @@
                <div class="row">
                   <div class="col-xxl-6 offset-xxl-3 col-xl-6 offset-xl-3">
                      <div class="section__title-wrapper section-padding mb-60 text-center">
-                        <h2 class="section__title"><span class="yellow-bg">2023년 1월 <img src="../assets/img/shape/yellow-bg-2.png" alt=""></span> 부트캠프 랭킹</h2>
+                        <h2 class="section__title"><span class="yellow-bg">2023년 1월 <img src="/assets/img/shape/yellow-bg-2.png" alt=""></span> 부트캠프 랭킹</h2>
                         <!--<p>You don't have to struggle alone, you've got our assistance and help.</p>-->
                      </div>
                   </div>
@@ -552,7 +552,7 @@
                <div class="row align-items-end">
                   <div class="col-xxl-5 col-xl-6 col-lg-6">
                      <div class="section__title-wrapper mb-60">
-                        <h2 class="section__title"><span class="yellow-bg yellow-bg-big">인기<img src="../assets/img/shape/yellow-bg.png" alt=""></span> 교육과정 목록</h2>
+                        <h2 class="section__title"><span class="yellow-bg yellow-bg-big">인기<img src="/assets/img/shape/yellow-bg.png" alt=""></span> 교육과정 목록</h2>
                         <p>You don't have to struggle alone, you've got our assistance and help.</p>
                      </div>
                   </div>
@@ -576,7 +576,7 @@
                      <div class="course__item white-bg mb-30 fix">
                         <div class="course__thumb w-img p-relative fix">
                            <a href="course-details">
-                              <img src="../assets/img/course/course-1.jpg" alt="">
+                              <img src="/assets/img/course/course-1.jpg" alt="">
                            </a>
                            <div class="course__tag">
                               <a href="#">Art & Design</a>
@@ -594,7 +594,7 @@
                            <h3 class="course__title"><a href="course-details">Become a product Manager learn the skills & job.</a></h3>
                            <div class="course__teacher d-flex align-items-center">
                               <div class="course__teacher-thumb mr-15">
-                                 <img src="../assets/img/course/teacher/teacher-1.jpg" alt="">
+                                 <img src="/assets/img/course/teacher/teacher-1.jpg" alt="">
                               </div>
                               <h6><a href="instructor-details">Jim Séchen</a></h6>
                            </div>
@@ -617,7 +617,7 @@
                      <div class="course__item white-bg mb-30 fix">
                         <div class="course__thumb w-img p-relative fix">
                            <a href="course-details">
-                              <img src="../assets/img/course/course-2.jpg" alt="">
+                              <img src="/assets/img/course/course-2.jpg" alt="">
                            </a>
                            <div class="course__tag">
                               <a href="#" class="sky-blue">Mechanical</a>
@@ -635,7 +635,7 @@
                            <h3 class="course__title"><a href="course-details">Fundamentals of music theory Learn new</a></h3>
                            <div class="course__teacher d-flex align-items-center">
                               <div class="course__teacher-thumb mr-15">
-                                 <img src="../assets/img/course/teacher/teacher-2.jpg" alt="">
+                                 <img src="/assets/img/course/teacher/teacher-2.jpg" alt="">
                               </div>
                               <h6><a href="instructor-details">Barry Tone</a></h6>
                            </div>
@@ -659,7 +659,7 @@
                      <div class="course__item white-bg mb-30 fix">
                         <div class="course__thumb w-img p-relative fix">
                            <a href="course-details">
-                              <img src="../assets/img/course/course-3.jpg" alt="">
+                              <img src="/assets/img/course/course-3.jpg" alt="">
                            </a>
                            <div class="course__tag">
                               <a href="#" class="green">Development</a>
@@ -677,7 +677,7 @@
                            <h3 class="course__title"><a href="course-details">Strategy law and organization Foundation</a></h3>
                            <div class="course__teacher d-flex align-items-center">
                               <div class="course__teacher-thumb mr-15">
-                                 <img src="../assets/img/course/teacher/teacher-3.jpg" alt="">
+                                 <img src="/assets/img/course/teacher/teacher-3.jpg" alt="">
                               </div>
                               <h6><a href="instructor-details">Elon Gated</a></h6>
                            </div>
@@ -701,7 +701,7 @@
                      <div class="course__item white-bg mb-30 fix">
                         <div class="course__thumb w-img p-relative fix">
                            <a href="course-details">
-                              <img src="../assets/img/course/course-4.jpg" alt="">
+                              <img src="/assets/img/course/course-4.jpg" alt="">
                            </a>
                            <div class="course__tag">
                               <a href="#" class="blue">Marketing</a>
@@ -719,7 +719,7 @@
                            <h3 class="course__title"><a href="course-details">The business Intelligence analyst Course 2022</a></h3>
                            <div class="course__teacher d-flex align-items-center">
                               <div class="course__teacher-thumb mr-15">
-                                 <img src="../assets/img/course/teacher/teacher-4.jpg" alt="">
+                                 <img src="/assets/img/course/teacher/teacher-4.jpg" alt="">
                               </div>
                               <h6><a href="instructor-details">Eleanor Fant</a></h6>
                            </div>
@@ -743,7 +743,7 @@
                      <div class="course__item white-bg mb-30 fix">
                         <div class="course__thumb w-img p-relative fix">
                            <a href="course-details">
-                              <img src="../assets/img/course/course-5.jpg" alt="">
+                              <img src="/assets/img/course/course-5.jpg" alt="">
                            </a>
                            <div class="course__tag">
                               <a href="#" class="orange">Audio & Music</a>
@@ -761,7 +761,7 @@
                            <h3 class="course__title"><a href="course-details">Build your media and Public presence</a></h3>
                            <div class="course__teacher d-flex align-items-center">
                               <div class="course__teacher-thumb mr-15">
-                                 <img src="../assets/img/course/teacher/teacher-5.jpg" alt="">
+                                 <img src="/assets/img/course/teacher/teacher-5.jpg" alt="">
                               </div>
                               <h6><a href="instructor-details">Pelican Steve</a></h6>
                            </div>
@@ -785,7 +785,7 @@
                      <div class="course__item white-bg mb-30 fix">
                         <div class="course__thumb w-img p-relative fix">
                            <a href="course-details">
-                              <img src="../assets/img/course/course-6.jpg" alt="">
+                              <img src="/assets/img/course/course-6.jpg" alt="">
                            </a>
                            <div class="course__tag">
                               <a href="#" class="pink">UX Design</a>
@@ -803,7 +803,7 @@
                            <h3 class="course__title"><a href="course-details">Creative writing through Storytelling</a></h3>
                            <div class="course__teacher d-flex align-items-center">
                               <div class="course__teacher-thumb mr-15">
-                                 <img src="../assets/img/course/teacher/teacher-6.jpg" alt="">
+                                 <img src="/assets/img/course/teacher/teacher-6.jpg" alt="">
                               </div>
                               <h6><a href="instructor-details">Shahnewaz Sakil</a></h6>
                            </div>
@@ -841,7 +841,7 @@
                               <div class="footer__widget-head mb-22">
                                  <div class="footer__logo">
                                     <a href="index">
-                                       <img src="../assets/img/logo/logo.png" alt="">
+                                       <img src="/assets/img/logo/logo.png" alt="">
                                     </a>
                                  </div>
                               </div>
@@ -936,22 +936,22 @@
          </footer>
          <!-- footer area end -->
       <!-- JS here -->
-      <script src="../assets/js/vendor/jquery-3.5.1.min.js"></script>
-      <script src="../assets/js/vendor/waypoints.min.js"></script>
-      <script src="../assets/js/bootstrap.bundle.min.js"></script>
-      <script src="../assets/js/jquery.meanmenu.js"></script>
-      <script src="../assets/js/swiper-bundle.min.js"></script>
-      <script src="../assets/js/owl.carousel.min.js"></script>
-      <script src="../assets/js/jquery.fancybox.min.js"></script>
-      <script src="../assets/js/isotope.pkgd.min.js"></script>
-      <script src="../assets/js/parallax.min.js"></script>
-      <script src="../assets/js/backToTop.js"></script>
-      <script src="../assets/js/jquery.counterup.min.js"></script>
-      <script src="../assets/js/ajax-form.js"></script>
-      <script src="../assets/js/wow.min.js"></script>
-      <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
-      <script src="../assets/js/main.js"></script>
-      <script src="../assets/js/quickmenu.js"></script> <!--퀵메뉴js-->
+      <script src="/assets/js/vendor/jquery-3.5.1.min.js"></script>
+      <script src="/assets/js/vendor/waypoints.min.js"></script>
+      <script src="/assets/js/bootstrap.bundle.min.js"></script>
+      <script src="/assets/js/jquery.meanmenu.js"></script>
+      <script src="/assets/js/swiper-bundle.min.js"></script>
+      <script src="/assets/js/owl.carousel.min.js"></script>
+      <script src="/assets/js/jquery.fancybox.min.js"></script>
+      <script src="/assets/js/isotope.pkgd.min.js"></script>
+      <script src="/assets/js/parallax.min.js"></script>
+      <script src="/assets/js/backToTop.js"></script>
+      <script src="/assets/js/jquery.counterup.min.js"></script>
+      <script src="/assets/js/ajax-form.js"></script>
+      <script src="/assets/js/wow.min.js"></script>
+      <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+      <script src="/assets/js/main.js"></script>
+      <script src="/assets/js/quickmenu.js"></script> <!--퀵메뉴js-->
    </body>
 </html>
 

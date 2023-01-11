@@ -30,3 +30,33 @@
     border: 2px solid #f3f4f8;
     outline: none;
 }
+
+textarea {
+	overflow:hidden;
+}
+
+.div2 {
+    border: 1px solid;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clicked {
+	color: gold;
+}
+
+.hq-category {
+	-moz-box-align: center;
+    align-items: center;
+    display: -moz-inline-box;
+    display: inline-flex;
+    width: 100%;
+    gap: 8px;
+}
+
+.keyw_out {
+	width:100%;
+}

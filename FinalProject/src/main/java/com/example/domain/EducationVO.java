@@ -35,7 +35,10 @@ public class EducationVO {
    private String ed_addr;
    private Integer ed_price;
    private String ed_intro;
-   private String ed_keyword;
+   //0108 일요일 찬주추가
+   @Column(name="ed_keyword", nullable=false)
+   private String edKeyword;
+   
    private String ed_time;
    private String ed_comm;
    private String ed_curriculum;
@@ -44,4 +47,7 @@ public class EducationVO {
    
    @Column(name="ed_days", nullable=false)
    private Date edDays; //찬주 변경 학원등록날짜
+   
+   //각 교육별 평균 점이 달라야 하기에 추가
+   private Integer avg;
 }

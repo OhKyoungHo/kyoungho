@@ -21,7 +21,7 @@ public class ReviewVO {
    private Integer RId;
    
    @Column(name="m_id")
-   private String MId;
+   private String memId;
    
    
    @Column(name="re_date")
@@ -33,11 +33,11 @@ public class ReviewVO {
    @Column(name="re_content")
    private String reContent; //리뷰작성글
    
-   private Integer vc_id;
-   
    @Column(name="ed_id", nullable=false)
    private Integer edId;
    
+   @Column(name="vc_id", nullable=false)
+   private Integer vcId;
    
    
 

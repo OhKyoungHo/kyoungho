@@ -22,11 +22,11 @@ public class ViewController {
 		return "/admin/"+step;
 	}
 	
-//	@RequestMapping("/lecture/{step}")
-//	public String viewLecture(@PathVariable String step) {
-//		return "/lecture/"+step;
-//	}
-//	
+	@RequestMapping("/lecture/{step}")
+	public String viewLecture(@PathVariable String step) {
+		return "/lecture/"+step;
+	}
+	
 	@RequestMapping("/mypage/{step}")
 	public String viewMyPage(@PathVariable String step) {
 		return "/mypage/"+step;

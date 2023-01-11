@@ -31,8 +31,8 @@ public class WishListServiceImpl implements WishListService {
 		wishRepo.save(wvo);
 	};
 	*/
-	public void insertWish(String memId, Integer edId) {
-		wishRepo.insertWish(memId, edId);
+	public void insertWish(Integer memIdInt, Integer edId) {
+		wishRepo.insertWish(memIdInt, edId);
 	};
 	
 
@@ -42,13 +42,14 @@ public class WishListServiceImpl implements WishListService {
 	};
 
 	//위시리스트 삭제
-	public void deleteWish(Integer wId){
-		wishRepo.deleteById(wId);
+	public void deleteWish(Integer memIdInt, Integer edId){
+		wishRepo.deleteWish(memIdInt, edId);
 	};
 	
-	public WishListVO getWish(Integer wId, String memId) {
+	public WishListVO getWish(Integer memIdInt, Integer edId) {
 		//optional에서 값만 가져와야해서 get써줌
-		return wishRepo.getWish(wId, memId);
+		
+		return wishRepo.getWish(memIdInt, edId);
 	}
 
 }

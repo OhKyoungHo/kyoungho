@@ -1,0 +1,30 @@
+package com.example.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="vchat_class")
+public class LectureVO {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="vc_id", nullable=false)
+	private Integer vcId;
+	//값을 조인컬럼??
+	private Integer t_id;
+	@Column(name="vc_title", nullable=false)
+	private String vcTitle;
+	private String vc_intro;
+	private String vc_content;
+	private String vc_keyword;
+	private String vc_pic;
+
+}

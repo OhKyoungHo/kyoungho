@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
     <typeInfo handle="=FinalProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.example.service{EducationService.java[EducationService" modifiers="513" timestamp="1672994138000"/>
-    <typeInfo handle="=FinalProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.example.service{WishListService.java[WishListService" modifiers="513" timestamp="1673343271405"/>
+    <typeInfo handle="=FinalProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.example.service{WishListService.java[WishListService" modifiers="513" timestamp="1673432860296"/>
+    <typeInfo handle="=FinalProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.example.service{LectureService.java[LectureService" modifiers="513" timestamp="1673423956427"/>
 </typeInfoHistroy>

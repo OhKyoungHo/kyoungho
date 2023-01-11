@@ -39,17 +39,15 @@ public class MypageController {
 //	}
 	
 	@RequestMapping("/insert")
-	public void insertWish(String memId, String edId) {
-		Integer edId2 = Integer.parseInt(edId);
-		System.out.println("memId : " + memId + ", edId : " +edId2);
-		wishService.insertWish(memId, edId2);
+	public void insertWish(Integer memIdint, Integer edId) {
+		System.out.println("memId : " + memIdint + ", edId : " +edId);
+		wishService.insertWish(memIdint, edId);
 	}
 	
 	@RequestMapping("/delete")
-	public void deleteWish(Integer wId) {
-		
-		System.out.println( wId + "삭제완료");
-		wishService.deleteWish(wId);
+	public void deleteWish(Integer memIdint, Integer edId) {
+	
+		wishService.deleteWish(memIdint, edId);
 	};
 
 

@@ -1,10 +1,12 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
-      <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+      
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>Educal – Online Learning and Education HTML5 Template </title>
@@ -25,7 +27,6 @@
       <link rel="stylesheet" href="../assets/css/elegantFont.css">
       <link rel="stylesheet" href="../assets/css/default.css">
       <link rel="stylesheet" href="../assets/css/style.css">
-      <link rel="stylesheet" href="../assets/css/wishlist.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -315,9 +316,7 @@
                <div class="row">
                   <div class="col-xxl-8 col-xl-8 col-lg-8">
                      <div class="course__wrapper">
-                        <form action="/mypage/insert" method="post">
                         <div class="page__title-content mb-25">
-
                            <div class="page__title-breadcrumb">                            
                                <nav aria-label="breadcrumb">
                                  <ol class="breadcrumb">
@@ -327,12 +326,7 @@
                                  </ol>
                                </nav>
                            </div>
-                           
                              <!-- 국비인지 부트인지-->
-                             <input type="hidden" value="${sessionScope.memId}" id="memId">
-                             <input type="text" value="${education.edId}" id="edId">
-                             <input type="text" value="${wish.memId}" id="wId">
-                             <input type="text" value="${wish.wId}" id="wId">
                            <span class="page__title-pre">Development</span>
                              <!-- 교육과정 이름-->
                            <h5 class="page__title-3">${education.edTitle}</h5>
@@ -354,47 +348,52 @@
                                 <!--날짜의 값이 들어가도록 세팅 -->
                               <p><fmt:formatDate value="${education.ed_start_date}" pattern="yyyy.MM.dd" /> ~ <fmt:formatDate value="${education.ed_end_date}" pattern="yyyy.MM.dd" /> </p>
                            </div>
-                           <div class="course__lesson"> <!--0106 좋아요버튼-->
-                              <span>  <a href="#" class="icon heart">
-                                 <img src="../assets/img/course/off.png" alt="찜하기" id="likeImg">
-                            </a><input type="hidden" id="like_check" value="${like}"></span>
-                           </div>
+
+                           
+                         
                                <!--0105 찬주 별점1  평균 부분 나오는 작은부분-->
                            <div class="course__rating-2 mb-20">
                               <h5>별점:</h5>
                               <div class="course__rating-inner d-flex align-items-center">
-                                 <c:if test="${avg == 1}">
+                              <c:forEach var="avg" items="${avg}">  
+                                 <c:if test="${avg[0] == education.edId}" >  
+                                 <c:if test="${avg[1] == 1}">
                                     <img src="../assets/img/star/1s.png">
                               </c:if>
-                              <c:if test="${avg == 2}">
+                              <c:if test="${avg[1]== 2}">
                                     <img src="../assets/img/star/2s.png">
                               </c:if>
-                              <c:if test="${avg == 3}">
+                              <c:if test="${avg[1] == 3}">
                                     <img src="../assets/img/star/3s.png">
                               </c:if>
-                              <c:if test="${avg == 4}">
+                              <c:if test="${avg[1] == 4}">
                                     <img src="../assets/img/star/4s.png">
                               </c:if>
-                              <c:if test="${avg == 5}">
+                              <c:if test="${avg[1] == 5}">
                                     <img src="../assets/img/star/5s.png">
+                              
+                                
                               </c:if>
-                                 <p>${avg}</p>
+                              <p>${avg[1]}</p>
+                              </c:if>
+                              </c:forEach>
+                              
                               </div>
                            </div>
+                           
                         </div>
-
+                       
 
                         
                         <div class="course__tag-2 mb-15">
                            <!--여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
                           <i class="fal fa-tag"></i>
-                          <a>  ${education.ed_keyword}</a>
+                          <a>  ${education.edKeyword}</a>
                        </div>
                         <!--해당 교육과정 이미지-->
                         <div class="course__img w-img mb-30">
                            <img src="../assets/img/course/${education.ed_pic}" alt="" width='770' height='450'>
                         </div>
-                     </form>
                          <!--교육과정 관련 tab부분 -->
                         <div class="course__tab-2 mb-45">
                            <ul class="nav nav-tabs" id="courseTab" role="tablist">
@@ -515,23 +514,27 @@
                                        <div class="row g-0">
                                           <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
                                              <div class="course__review-rating-info grey-bg text-center">
-                                                <h5>${avg}</h5>
-                                                <c:if test="${avg == 1}">
+                                                <c:forEach var="avg" items="${avg}">  
+                                                   <c:if test="${avg[0] == education.edId}" >  
+                                                <h5>${avg[1]}</h5>
+                                                <c:if test="${avg[1] == 1}">
                                                       <img src="../assets/img/star/1s.png">
                                                 </c:if>
-                                                <c:if test="${avg == 2}">
+                                                <c:if test="${avg[1]== 2}">
                                                       <img src="../assets/img/star/2s.png">
                                                 </c:if>
-                                                <c:if test="${avg == 3}">
+                                                <c:if test="${avg[1] == 3}">
                                                       <img src="../assets/img/star/3s.png">
                                                 </c:if>
-                                                <c:if test="${avg == 4}">
+                                                <c:if test="${avg[1] == 4}">
                                                       <img src="../assets/img/star/4s.png">
                                                 </c:if>
-                                                <c:if test="${avg == 5}">
+                                                <c:if test="${avg[1] == 5}">
                                                       <img src="../assets/img/star/5s.png">
                                                 </c:if>
-                                                <p>${avg} Ratings</p>
+                                             <p>${avg[1]} Ratings</p>
+                                             </c:if>
+                                                </c:forEach>
                                              </div>
                                           </div>
                                          
@@ -546,20 +549,22 @@
                             
 
                                  <!-- 0105 찬주 등록된 리뷰확인 -->
-                                    <div class="course__comment mb-75">
+                                    <div class="course__comment mb-75" id="reviewBox">
                                        <h3>리뷰확인</h3>
                                     <!--반복문으로 출력--> 
                                     <c:forEach var="reviewList" items="${reviewList}">  
                                        <ul>
                                           <li>
-                                             <div class="course__comment-box ">
+                                             <div class="course__comment-box " >
                                                 <div class="course__comment-thumb float-start">
                                                    
                                                 </div>
                                                 <div class="course__comment-content">
                                                    <div class="course__comment-wrapper ml-70 fix">
                                                       <div class="course__comment-info float-start">
-                                                         <h4>${reviewList.MId}</h4>
+                                                         <h4>${reviewList.memId}</h4>
+                                                      </div>
+                                                      <div class="course__comment-info float-start">
                                                          <span>${reviewList.reDate}</span>
                                                       </div>
                                                       <div class="course__comment-rating float-start float-sm-end">
@@ -595,6 +600,54 @@
                                     </div>
 
 
+                                    <div class="row">
+                                       <div class="col-xxl-12">
+                                          <div class="basic-pagination wow fadeInUp mt-30" data-wow-delay=".2s">
+                                             <ul class="d-flex align-items-center"> 
+                                     <!-- 페이지 그룹 -->
+                           <!-- 시작블럭을 반복시작 인덱스로 종료블럭을 반복종료 인덱스로 설정  -->
+                           <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
+                              <!-- 현재페이지의 +1이 i랑 같은 경우 다음페이지로 이동하게 설정 -->
+                              <!-- 현재페이지의 +1이 i랑 다른 경우 다음 페이지로 이동하게 설정-->
+                              <c:choose>
+                              <c:when test="${pageNumber+1 == i}">
+                                 <li>
+                                    <a href="course-details?page=${i}&edId=${param.edId}"><span id="a">${i}</span></a>
+                                 </li>
+                              </c:when>
+                              <c:otherwise>
+                                 <li><a href="course-details?page=${i}&edId=${param.edId}"><span id="b">${i}</span></a></li>
+                              </c:otherwise>
+                              </c:choose>
+                              </c:forEach>
+                              <!-- 맨마지막페이지 -->
+                              <!-- last : 해당 페이지가 마지막 페이지인지 여부(true/false로 구분)-->
+                              <!-- 해당페이지가 마지막인 경우에는 아무것도 설정안함-->
+                              <!-- 해당 페이지가 마지막 페이지가 아닌경우-->
+                              <!-- 마지막페이지로 이동 -->
+                              <c:choose>     
+                              <c:when test="${elist.last}"></c:when>
+                              <c:otherwise>
+                                 <li class="next">
+                                    <a href="course-sidebar?page=${totalPages}" class="link-btn">
+                                    Next
+                                    <i class="arrow_right"></i>
+                                    <i class="arrow_right"></i>
+                                    </a>
+                                 </li>
+                              </c:otherwise>
+                              </c:choose>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+   
+
+
+
 
 
 
@@ -604,14 +657,14 @@
                                        <div class="course__form-inner">
 
                                           <!--form의 시작-->
-                                          <form action="insertRV" method="get" name ="cmtfrm">
+                                          <form action="" method="get" id ="cmtfrm" name="cmtfrm">
 
                                              <div class="row">
                                                 <div class="col-xxl-6">
                                                    <div class="course__form-input">
                                                       <!--아이디값 저장 지금은 그냥 임의의 값 넣어줌-->
                                                       <!--참고로 re_id 는 시퀀스라 자동이고 날짜도 자동으로 들어가게 해놓음-->
-                                                      <input type="text" name="MId" value='ckswn' readonly> <!-- "${sessionScope.MId}"-->
+                                                      <input type="text" name="memId" value="${sessionScope.memId}"  id = name> <!-- "${sessionScope.memId}"-->
                                                     
                                                       
                                                    </div>
@@ -629,12 +682,12 @@
                                                          <img id =image4 onmouseover=show(4) onclick=mark(4) onmouseout=noshow(4) src="../assets/img/star/0star.png">
                                                          <img id =image5 onmouseover=show(5) onclick=mark(5) onmouseout=noshow(5) src="../assets/img/star/0star.png">
                                                          <span id=startext></span>
-                                                         <input type="hidden" name="star" > <!--히든넘기기-->
-                                                         <input type="hidden" name="edId" value="333"> <!--히든넘기기--> <!--임의의값임 수정해야함-->
+                                                         <input type="hidden" name="star"  id="star"> <!--히든넘기기-->
+                                                         <input type="hidden" name="edId" value="${param.edId}"> <!--히든넘기기--> <!--임의의값임 수정 완료-->
                                                       </div>
 
                                                      <!--작성글 들어가는 부분!-->
-                                                      <textarea placeholder="리뷰를작성" name="reContent" ></textarea>
+                                                      <textarea placeholder="리뷰를작성" name="reContent"  id="text"></textarea>
                                                    </div>
                                                 </div>
                                             
@@ -643,7 +696,7 @@
                                              <div class="row">
                                                 <div class="col-xxl-12">
                                                    <div class="course__form-btn mt-10 mb-55">
-                                                      <button type="submit" class="e-btn">글 등록</button>
+                                                      <button type="button" class="e-btn" id="btn-e">글 등록</button>
                                                    </div>
                                                 </div>
                                              </div>
@@ -652,454 +705,6 @@
                                        </div>
                                     </div>
                                     <!--0105 리뷰부분 종료 여기까지-->
-
-
-
-
-
-
-
-
-
-
-
-                                    
-
-
-
-
-                              <div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
-                                 <div class="course__member mb-45">
-                                    <div class="course__member-item">
-                                       <div class="row align-items-center">
-                                          <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-6">
-                                             <div class="course__member-thumb d-flex align-items-center">
-                                                <img src="../assets/img/course/instructor/course-instructor-1.jpg" alt="">
-                                                <div class="course__member-name ml-20">
-                                                   <h5>Shahnewaz Sakil</h5>
-                                                   <span>Engineer</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
-                                             <div class="course__member-info pl-45">
-                                                <h5>07</h5>
-                                                <span>Courses</span>
-                                             </div>
-                                          </div>
-                                          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
-                                             <div class="course__member-info pl-70">
-                                                <h5>05</h5>
-                                                <span>Reviw</span>
-                                             </div>
-                                          </div>
-                                          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
-                                             <div class="course__member-info pl-85">
-                                                <h5>3.00</h5>
-                                                <span>Rating</span>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="course__share">
-                                 <h3>Share :</h3>
-                                 <ul>
-                                    <li><a href="#" class="fb" ><i class="social_facebook"></i></a></li>
-                                    <li><a href="#" class="tw" ><i class="social_twitter"></i></a></li>
-                                    <li><a href="#" class="pin" ><i class="social_pinterest"></i></a></li>
-                                 </ul>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="course__related">
-                           <div class="row">
-                              <div class="col-xxl-12">
-                                 <div class="section__title-wrapper mb-40">
-                                    <h2 class="section__title">Related <span class="yellow-bg yellow-bg-big">Course<img src="../assets/img/shape/yellow-bg.png" alt=""></span></h2>
-                                    <p>You don't have to struggle alone, you've got our assistance and help.</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="col-xxl-12">
-                                 <div class="course__slider swiper-container pb-60">
-                                    <div class="swiper-wrapper">
-                                       <div class="course__item course__item-3 swiper-slide white-bg mb-30 fix">
-                                          <div class="course__thumb w-img p-relative fix">
-                                             <a href="course-details">
-                                                <img src="../assets/img/course/course-1.jpg" alt="">
-                                             </a>
-                                             <div class="course__tag">
-                                                <a href="#">Art & Design</a>
-                                             </div>
-                                          </div>
-                                          <div class="course__content">
-                                             <div class="course__meta d-flex align-items-center justify-content-between">
-                                                <div class="course__lesson">
-                                                   <span><i class="far fa-book-alt"></i>43 Lesson</span>
-                                                </div>
-                                                <div class="course__rating">
-                                                   <span><i class="icon_star"></i>4.5 (44)</span>
-                                                </div>
-                                             </div>
-                                             <h3 class="course__title"><a href="course-details">Become a product Manager learn the skills & job.</a></h3>
-                                             <div class="course__teacher d-flex align-items-center">
-                                                <div class="course__teacher-thumb mr-15">
-                                                   <img src="../assets/img/course/teacher/teacher-1.jpg" alt="">
-                                                </div>
-                                                <h6><a href="instructor-details">Jim Séchen</a></h6>
-                                             </div>
-                                          </div>
-                                          <div class="course__more d-flex justify-content-between align-items-center">
-                                             <div class="course__status">
-                                                <span>Free</span>
-                                             </div>
-                                             <div class="course__btn">
-                                                <a href="course-details" class="link-btn">
-                                                   Know Details
-                                                   <i class="far fa-arrow-right"></i>
-                                                   <i class="far fa-arrow-right"></i>
-                                                </a>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="course__item course__item-3 swiper-slide white-bg mb-30 fix">
-                                          <div class="course__thumb w-img p-relative fix">
-                                             <a href="course-details">
-                                                <img src="../assets/img/course/course-2.jpg" alt="">
-                                             </a>
-                                             <div class="course__tag">
-                                                <a href="#" class="sky-blue">Mechanical</a>
-                                             </div>
-                                          </div>
-                                          <div class="course__content">
-                                             <div class="course__meta d-flex align-items-center justify-content-between">
-                                                <div class="course__lesson">
-                                                   <span><i class="far fa-book-alt"></i>72 Lesson</span>
-                                                </div>
-                                                <div class="course__rating">
-                                                   <span><i class="icon_star"></i>4.5 (44)</span>
-                                                </div>
-                                             </div>
-                                             <h3 class="course__title"><a href="course-details">Fundamentals of music theory Learn new</a></h3>
-                                             <div class="course__teacher d-flex align-items-center">
-                                                <div class="course__teacher-thumb mr-15">
-                                                   <img src="../assets/img/course/teacher/teacher-2.jpg" alt="">
-                                                </div>
-                                                <h6><a href="instructor-details">Barry Tone</a></h6>
-                                             </div>
-                                          </div>
-                                          <div class="course__more d-flex justify-content-between align-items-center">
-                                             <div class="course__status d-flex align-items-center">
-                                                <span class="sky-blue">$32.00</span>
-                                                <span class="old-price">$68.00</span>
-                                             </div>
-                                             <div class="course__btn">
-                                                <a href="course-details" class="link-btn">
-                                                   Know Details
-                                                   <i class="far fa-arrow-right"></i>
-                                                   <i class="far fa-arrow-right"></i>
-                                                </a>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="course__item course__item-3 swiper-slide white-bg mb-30 fix">
-                                          <div class="course__thumb w-img p-relative fix">
-                                             <a href="course-details">
-                                                <img src="../assets/img/course/course-3.jpg" alt="">
-                                             </a>
-                                             <div class="course__tag">
-                                                <a href="#" class="green">Development</a>
-                                             </div>
-                                          </div>
-                                          <div class="course__content">
-                                             <div class="course__meta d-flex align-items-center justify-content-between">
-                                                <div class="course__lesson">
-                                                   <span><i class="far fa-book-alt"></i>14 Lesson</span>
-                                                </div>
-                                                <div class="course__rating">
-                                                   <span><i class="icon_star"></i>3.5 (55)</span>
-                                                </div>
-                                             </div>
-                                             <h3 class="course__title"><a href="course-details">Strategy law and organization Foundation</a></h3>
-                                             <div class="course__teacher d-flex align-items-center">
-                                                <div class="course__teacher-thumb mr-15">
-                                                   <img src="../assets/img/course/teacher/teacher-3.jpg" alt="">
-                                                </div>
-                                                <h6><a href="instructor-details">Elon Gated</a></h6>
-                                             </div>
-                                          </div>
-                                          <div class="course__more d-flex justify-content-between align-items-center">
-                                             <div class="course__status d-flex align-items-center">
-                                                <span class="green">$46.00</span>
-                                                <span class="old-price">$68.00</span>
-                                             </div>
-                                             <div class="course__btn">
-                                                <a href="course-details" class="link-btn">
-                                                   Know Details
-                                                   <i class="far fa-arrow-right"></i>
-                                                   <i class="far fa-arrow-right"></i>
-                                                </a>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="course__item course__item-3 swiper-slide white-bg mb-30 fix">
-                                          <div class="course__thumb w-img p-relative fix">
-                                             <a href="course-details">
-                                                <img src="../assets/img/course/course-4.jpg" alt="">
-                                             </a>
-                                             <div class="course__tag">
-                                                <a href="#" class="blue">Marketing</a>
-                                             </div>
-                                          </div>
-                                          <div class="course__content">
-                                             <div class="course__meta d-flex align-items-center justify-content-between">
-                                                <div class="course__lesson">
-                                                   <span><i class="far fa-book-alt"></i>22 Lesson</span>
-                                                </div>
-                                                <div class="course__rating">
-                                                   <span><i class="icon_star"></i>4.5 (42)</span>
-                                                </div>
-                                             </div>
-                                             <h3 class="course__title"><a href="course-details">The business Intelligence analyst Course 2022</a></h3>
-                                             <div class="course__teacher d-flex align-items-center">
-                                                <div class="course__teacher-thumb mr-15">
-                                                   <img src="../assets/img/course/teacher/teacher-4.jpg" alt="">
-                                                </div>
-                                                <h6><a href="instructor-details">Eleanor Fant</a></h6>
-                                             </div>
-                                          </div>
-                                          <div class="course__more d-flex justify-content-between align-items-center">
-                                             <div class="course__status d-flex align-items-center">
-                                                <span class="blue">$62.00</span>
-                                                <span class="old-price">$97.00</span>
-                                             </div>
-                                             <div class="course__btn">
-                                                <a href="course-details" class="link-btn">
-                                                   Know Details
-                                                   <i class="far fa-arrow-right"></i>
-                                                   <i class="far fa-arrow-right"></i>
-                                                </a>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- Add Pagination -->
-                                    <div class="swiper-pagination"></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xxl-4 col-xl-4 col-lg-4">
-                     <div class="course__sidebar pl-70 p-relative">
-                        <div class="course__shape">
-                           <img class="course-dot" src="../assets/img/course/course-dot.png" alt="">
-                        </div>
-                        <div class="course__sidebar-widget-2 white-bg mb-20">
-                           <div class="course__video">
-                              <div class="course__video-thumb w-img mb-25">
-                                 <img src="../assets/img/course/video/course-video.jpg" alt="">
-                                 <div class="course__video-play"> 
-                                    <a href="https://youtu.be/yJg-Y5byMMw" data-fancybox="" class="play-btn"> <i class="fas fa-play"></i> </a>
-                                 </div>
-                              </div>
-                              <div class="course__video-meta mb-25 d-flex align-items-center justify-content-between">
-                                 <div class="course__video-price">
-                                    <h5>$74.<span>00</span> </h5>
-                                    <h5 class="old-price">$129.00</h5>
-                                 </div>
-                                 <div class="course__video-discount">
-                                    <span>68% OFF</span>
-                                 </div>
-                              </div>
-                              <div class="course__video-content mb-35">
-                                 <ul>
-                                    <li class="d-flex align-items-center">
-                                       <div class="course__video-icon">
-                                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
-                                             <path class="st0" d="M2,6l6-4.7L14,6v7.3c0,0.7-0.6,1.3-1.3,1.3H3.3c-0.7,0-1.3-0.6-1.3-1.3V6z"/>
-                                             <polyline class="st0" points="6,14.7 6,8 10,8 10,14.7 "/>
-                                          </svg>
-                                       </div>
-                                       <div class="course__video-info">
-                                          <h5><span>Instructor :</span> Eleanor Fant</h5>
-                                       </div>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                       <div class="course__video-icon">
-                                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
-                                             
-                                             <path class="st0" d="M4,19.5C4,18.1,5.1,17,6.5,17H20"/>
-                                             <path class="st0" d="M6.5,2H20v20H6.5C5.1,22,4,20.9,4,19.5v-15C4,3.1,5.1,2,6.5,2z"/>
-                                          </svg>
-                                       </div>
-                                       <div class="course__video-info">
-                                          <h5><span>Lectures :</span>14</h5>
-                                       </div>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                       <div class="course__video-icon">
-                                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
-                                             <circle class="st0" cx="8" cy="8" r="6.7"/>
-                                             <polyline class="st0" points="8,4 8,8 10.7,9.3 "/>
-                                          </svg>
-                                       </div>
-                                       <div class="course__video-info">
-                                          <h5><span>Duration :</span>6 weeks</h5>
-                                       </div>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                       <div class="course__video-icon">
-                                          <svg>
-                                             <path class="st0" d="M13.3,14v-1.3c0-1.5-1.2-2.7-2.7-2.7H5.3c-1.5,0-2.7,1.2-2.7,2.7V14"/>
-                                             <circle class="st0" cx="8" cy="4.7" r="2.7"/>
-                                          </svg>
-                                       </div>
-                                       <div class="course__video-info">
-                                          <h5><span>Enrolled :</span>20 students</h5>
-                                       </div>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                       <div class="course__video-icon">
-                                          <svg>
-                                             <circle class="st0" cx="8" cy="8" r="6.7"/>
-                                             <line class="st0" x1="1.3" y1="8" x2="14.7" y2="8"/>
-                                             <path class="st0" d="M8,1.3c1.7,1.8,2.6,4.2,2.7,6.7c-0.1,2.5-1,4.8-2.7,6.7C6.3,12.8,5.4,10.5,5.3,8C5.4,5.5,6.3,3.2,8,1.3z"/>
-                                          </svg>
-                                       </div>
-                                       <div class="course__video-info">
-                                          <h5><span>Language :</span>English</h5>
-                                       </div>
-                                    </li>
-                                 </ul>
-                              </div>
-                              <div class="course__payment mb-35">
-                                 <h3>Payment:</h3>
-                                 <a href="#">
-                                    <img src="../assets/img/course/payment/payment-1.png" alt="">
-                                 </a>
-                              </div>
-                              <div class="course__enroll-btn">
-                                 <a href="contact" class="e-btn e-btn-7 w-100">Enroll <i class="far fa-arrow-right"></i></a>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="course__sidebar-widget-2 white-bg mb-20">
-                           <div class="course__sidebar-course">
-                              <h3 class="course__sidebar-title">Related courses</h3>
-                              <ul>
-                                 <li>
-                                    <div class="course__sm d-flex align-items-center mb-30">
-                                       <div class="course__sm-thumb mr-20">
-                                          <a href="#">
-                                             <img src="../assets/img/course/sm/course-sm-1.jpg" alt="">
-                                          </a>
-                                       </div>
-                                       <div class="course__sm-content">
-                                          <div class="course__sm-rating">
-                                             <ul>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                             </ul>
-                                          </div>
-                                          <h5><a href="#">Development</a></h5>
-                                          <div class="course__sm-price">
-                                             <span>$54.00</span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="course__sm d-flex align-items-center mb-30">
-                                       <div class="course__sm-thumb mr-20">
-                                          <a href="#">
-                                             <img src="../assets/img/course/sm/course-sm-2.jpg" alt="">
-                                          </a>
-                                       </div>
-                                       <div class="course__sm-content">
-                                          <div class="course__sm-rating">
-                                             <ul>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                             </ul>
-                                          </div>
-                                          <h5><a href="#">Data Science</a></h5>
-                                          <div class="course__sm-price">
-                                             <span>$72.00</span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="course__sm d-flex align-items-center mb-10">
-                                       <div class="course__sm-thumb mr-20">
-                                          <a href="#">
-                                             <img src="../assets/img/course/sm/course-sm-3.jpg" alt="">
-                                          </a>
-                                       </div>
-                                       <div class="course__sm-content">
-                                          <div class="course__sm-rating">
-                                             <ul>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                             </ul>
-                                          </div>
-                                          <h5><a href="#">UX Design</a></h5>
-                                          <div class="course__sm-price">
-                                             <span>Free</span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <!-- page title area end -->
-
-
-         <!-- cta area start -->
-         <section class="cta__area mb--120">
-            <div class="container">
-               <div class="cta__inner blue-bg fix">
-                  <div class="cta__shape">
-                     <img src="../assets/img/cta/cta-shape.png" alt="">
-                  </div>
-                  <div class="row align-items-center">
-                     <div class="col-xxl-7 col-xl-7 col-lg-8 col-md-8">
-                        <div class="cta__content">
-                           <h3 class="cta__title">You can be your own Guiding star with our help</h3>
-                        </div>
-                     </div>
-                     <div class="col-xxl-5 col-xl-5 col-lg-4 col-md-4">
-                        <div class="cta__more d-md-flex justify-content-end p-relative z-index-1">
-                           <a href="contact" class="e-btn e-btn-white">Get Started</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <!-- cta area end -->
-
-
       </main>
 
          <!-- footer area start -->
@@ -1224,7 +829,7 @@
       <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="../assets/js/main.js"></script>
       <script src="../assets/js/star.js"></script>
-      <script src="../assets/js/wishList.js"></script><!--0106 좋아요 버튼 관련 ajax-->
+      <script src="../assets/js/reviewAjax.js"></script>
+
    </body>
 </html>
-

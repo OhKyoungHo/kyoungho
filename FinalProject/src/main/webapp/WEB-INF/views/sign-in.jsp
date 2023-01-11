@@ -328,7 +328,8 @@
                      <div class="sign__wrapper white-bg">
                         <div class="sign__header mb-35">
                            <div class="sign__in text-center">
-                              <a href="#" class="sign__social text-start mb-15"><i class="fab fa-facebook-f"></i>Sign in with Facebook</a>
+                              <!-- 카카오 로그인 -->
+                              <a href="https://kauth.kakao.com/oauth/authorize?client_id=ed05f17a60ce1cf99ab3e4539248dbbf&redirect_uri=http://localhost:8080/kakaoLogin&response_type=code" class="sign__social text-start mb-15"><i class="fab fa-facebook-f"></i>Sign in with Facebook</a>
                               <p> <span>........</span> Or, <a href="sign-in">sign in</a> with your email<span> ........</span> </p>
                            </div>
                         </div>
@@ -338,7 +339,7 @@
                               <div class="sign__input-wrapper mb-25">
                                  <h5>ID</h5>
                                  <div class="sign__input">
-                                    <input type="text" placeholder="ID" id="m_id" name="memId">
+                                    <input type="text" placeholder="ID" id="m_id" name="memIdString">
                                     <i class="fal fa-user"></i>
                                  </div>
                               </div>

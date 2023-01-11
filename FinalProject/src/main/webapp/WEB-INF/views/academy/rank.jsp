@@ -325,7 +325,7 @@
                <div class="row">
                   <div class="col-xxl-6 offset-xxl-3">
                      <div class="section__title-wrapper text-center mb-60">
-                        <h2 class="section__title">이달의
+                        <h2 class="section__title">
                            <span class="yellow-bg yellow-bg-big">부트캠프 랭킹<img src="/assets/img/shape/yellow-bg.png" alt=""></span>
                         </h2>
                         <p>You don't have to struggle alone, you've got our assistance and help.</p>
@@ -333,96 +333,36 @@
                   </div>
                </div>
                <div class="row">
+                  <c:forEach items="${rank}" var="rank">
                   <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                      <div class="blog__item white-bg mb-30 transition-3 fix">
                         <div class="blog__thumb w-img fix">
                            <a href="blog-details.html">
-                              <img src="/assets/img/blog/blog-1.jpg" alt="" width='100' height='260'>
+                              <!--sql 첫번쨰 인덱스를 출력, 해당 사진 -->
+                              <img src="../assets/img/course/${rank[1]}" alt="" width='100' height='260'>
                            </a>
                         </div>
                         <div class="blog__content">
-                           <div class="blog__tag">
-                              <a href="#">Art &amp; Design</a>
-                           </div>
-                           <h3 class="blog__title"><a href="blog-details.html">The Challenge Of Global Learning In Public Education</a></h3>
-
+                           <!--sql 첫번쨰 인덱스를 출력, 해당 학원이름 -->
+                           <h3 class="blog__title"><a href="blog-details.html">${rank[0]}</a></h3>
                            <div class="blog__meta d-flex align-items-center justify-content-between">
                               <div class="blog__author d-flex align-items-center">
-                                 <div class="blog__author-thumb mr-10">
-                                    <img src="/assets/img/blog/author/author-1.jpg" alt="">
-                                 </div>
-                                 <div class="blog__author-info">
-                                    <h5>Jim Séchen</h5>
-                                 </div>
+                                 <span><i class="icon_star"></i></span>
+                                 <!--sql 첫번쨰 인덱스를 출력, 해당 학원 후기 평균낸 점수 -->
+                                 <div>${rank[3]}</div>
                               </div>
                               <div class="blog__date d-flex align-items-center">
-                                 <i class="fal fa-clock"></i>
-                                 <span>April 02, 2022</span>
+                                 <a href="event-details.html" class="link-btn">
+                                    View More
+                                    <i class="far fa-arrow-right"></i>
+                                    <i class="far fa-arrow-right"></i>
+                                 </a>
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
-                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                     <div class="blog__item white-bg mb-30 transition-3 fix">
-                        <div class="blog__thumb w-img fix">
-                           <a href="blog-details.html">
-                              <img src="/assets/img/blog/blog-2.jpg" alt="" width='100' height='260'>
-                           </a>
-                        </div>
-                        <div class="blog__content">
-                           <div class="blog__tag">
-                              <a href="#" class="purple">Marketing</a>
-                           </div>
-                           <h3 class="blog__title"><a href="blog-details.html">Exactly How Technology Can Make Reading Better</a></h3>
-
-                           <div class="blog__meta d-flex align-items-center justify-content-between">
-                              <div class="blog__author d-flex align-items-center">
-                                 <div class="blog__author-thumb mr-10">
-                                    <img src="/assets/img/blog/author/author-2.jpg" alt="">
-                                 </div>
-                                 <div class="blog__author-info">
-                                    <h5>Barry Tone</h5>
-                                 </div>
-                              </div>
-                              <div class="blog__date d-flex align-items-center">
-                                 <i class="fal fa-clock"></i>
-                                 <span>July 02, 2022</span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                     <div class="blog__item white-bg mb-30 transition-3 fix">
-                        <div class="blog__thumb w-img fix">
-                           <a href="blog-details.html">
-                              <img src="/assets/img/blog/blog-3.jpg" alt="" width='100' height='260'>
-                           </a>
-                        </div>
-                        <div class="blog__content">
-                           <div class="blog__tag">
-                              <a href="#" class="pink">UX Design</a>
-                           </div>
-                           <h3 class="blog__title"><a href="blog-details.html">New Chicago school budget relies on state pension</a></h3>
-
-                           <div class="blog__meta d-flex align-items-center justify-content-between">
-                              <div class="blog__author d-flex align-items-center">
-                                 <div class="blog__author-thumb mr-10">
-                                    <img src="/assets/img/blog/author/author-3.jpg" alt="">
-                                 </div>
-                                 <div class="blog__author-info">
-                                    <h5>Barry Tone</h5>
-                                 </div>
-                              </div>
-                              <div class="blog__date d-flex align-items-center">
-                                 <i class="fal fa-clock"></i>
-                                 <span>July 02, 2022</span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                  </c:forEach>
                </div>
 
                <!-- 4위부터 아래부분 -->
@@ -430,17 +370,19 @@
                <div class="container">
                   
                   <div class="row">
+                     <c:forEach items="${rankOther}" var="rankOther">
                      <div class="col-xxl-10 offset-xxl-1 col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
                         <div class="events__item mb-10 hover__active">
                            <div class="events__item-inner d-sm-flex align-items-center justify-content-between white-bg" style="margin-left: -11%; margin-right: -11%;">
+                              <!-- 나중에 순위 메길것 -->
+                              <span><h4>4</h4></span>
+                              <!--sql 첫번쨰 인덱스를 출력, 해당 학원이름 -->
+                              <h3 class="events__title"><a href="event-details.html">${rankOther[0]}</a></h3>
                               <div class="events__content">
-                                 <h4>4</h4>
                                  <div class="events__meta">
-                                    <span>자바, 파이썬</span>
-                                    <span>1월 6일 ~ 1월 30일</span>
-                                    <span>한국소프트웨어인재개발원</span>
+                                    <!--sql 첫번쨰 인덱스를 출력, 해당 학원 후기 평균낸점수 -->
+                                    <span><i class="icon_star"></i>&nbsp;&nbsp;${rankOther[3]}</span>
                                  </div>
-                                 <h3 class="events__title"><a href="event-details.html">ELK 활용 빅데이터, 자바, Spring 교육</a></h3>
                               </div>
                               <div class="events__more">
                                  <a href="event-details.html" class="link-btn">
@@ -451,7 +393,8 @@
                               </div>
                            </div>
                         </div>
-                     </div>
+                     </div>   
+                     </c:forEach> 
                   </div>
                </div>
             </div>
