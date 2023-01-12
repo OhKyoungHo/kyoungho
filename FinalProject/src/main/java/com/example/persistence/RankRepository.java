@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.example.domain.EducationVO;
-
+import com.example.domain.ReviewVO;
 
 public interface RankRepository extends CrudRepository<EducationVO, Integer> {
 

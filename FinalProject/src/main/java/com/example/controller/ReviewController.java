@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,8 +40,6 @@ public class ReviewController {
            @RequestParam String edId,@PageableDefault(size = 6) Pageable paging,String re) {
         System.out.println("리뷰뷰뷴 : " +   vo);
         
-        vo.setReDate(LocalDateTime.now());
-        
         reviewService.saveRV(vo);
         
        
@@ -60,7 +59,7 @@ public class ReviewController {
             JsonObject object = new JsonObject();
             
             
-            object.addProperty("Mid", String.valueOf(rvo.getMemId()));
+            object.addProperty("Mid", String.valueOf(rvo.getMemIdInt()));
             object.addProperty("star", String.valueOf(rvo.getStar()));
             object.addProperty("reDate", String.valueOf(rvo.getReDate()));
             object.addProperty("reContent", String.valueOf(rvo.getReContent()));

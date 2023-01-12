@@ -27,6 +27,7 @@
       <link rel="stylesheet" href="../assets/css/elegantFont.css">
       <link rel="stylesheet" href="../assets/css/default.css">
       <link rel="stylesheet" href="../assets/css/style.css">
+      <link rel="stylesheet" href="../assets/css/allcss.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -312,7 +313,7 @@
                <img class="page-title-shape-6" src="../assets/img/page-title/page-title-shape-6.png" alt="">
                <img class="page-title-shape-7" src="../assets/img/page-title/page-title-shape-4.png" alt="">
             </div>
-            <div class="container">
+            <div class="container" id = details>
                <div class="row">
                   <div class="col-xxl-8 col-xl-8 col-lg-8">
                      <div class="course__wrapper">
@@ -397,18 +398,19 @@
                          <!--교육과정 관련 tab부분 -->
                         <div class="course__tab-2 mb-45">
                            <ul class="nav nav-tabs" id="courseTab" role="tablist">
+
+                              
                               <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true"> <i class="icon_ribbon_alt"></i> <span>상세설명</span> </button>
                               </li>
                               <li class="nav-item" role="presentation">
-                                <button class="nav-link " id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum" type="button" role="tab" aria-controls="curriculum" aria-selected="false"> <i class="icon_book_alt"></i> <span>교육과정</span> </button>
+                                <button class="nav-link " id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum" type="button" role="tab" aria-controls="curriculum" aria-selected="true"> <i class="icon_book_alt"></i> <span>교육과정</span> </button>
                               </li>
                               <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false"> <i class="icon_star_alt"></i> <span>후기</span> </button>
+                                <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="true"> <i class="icon_star_alt"></i> <span>후기</span> </button>
                               </li>
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="member-tab" data-bs-toggle="tab" data-bs-target="#member" type="button" role="tab" aria-controls="member" aria-selected="false"> <i class="fal fa-user"></i> <span>담당강사님들</span> </button>
-                              </li>
+                              
+                              
                             </ul>
                         </div>
                         <div class="course__tab-content mb-95">
@@ -562,7 +564,7 @@
                                                 <div class="course__comment-content">
                                                    <div class="course__comment-wrapper ml-70 fix">
                                                       <div class="course__comment-info float-start">
-                                                         <h4>${reviewList.memId}</h4>
+                                                         <h4>${reviewList.memIdString}</h4>
                                                       </div>
                                                       <div class="course__comment-info float-start">
                                                          <span>${reviewList.reDate}</span>
@@ -664,8 +666,8 @@
                                                    <div class="course__form-input">
                                                       <!--아이디값 저장 지금은 그냥 임의의 값 넣어줌-->
                                                       <!--참고로 re_id 는 시퀀스라 자동이고 날짜도 자동으로 들어가게 해놓음-->
-                                                      <input type="text" name="memId" value="${sessionScope.memId}"  id = name> <!-- "${sessionScope.memId}"-->
-                                                    
+                                                      <input type="text" name="memIdString" value="bcj0825"  id = memIdString> <!-- "${sessionScope.memIdInt}"-->
+                                                      <input type="hidden" name="memIdInt" value="17"  id = memIdInt> <!-- "${sessionScope.memIdInt}"-->
                                                       
                                                    </div>
                                                 </div>
@@ -684,6 +686,7 @@
                                                          <span id=startext></span>
                                                          <input type="hidden" name="star"  id="star"> <!--히든넘기기-->
                                                          <input type="hidden" name="edId" value="${param.edId}"> <!--히든넘기기--> <!--임의의값임 수정 완료-->
+                                                         
                                                       </div>
 
                                                      <!--작성글 들어가는 부분!-->

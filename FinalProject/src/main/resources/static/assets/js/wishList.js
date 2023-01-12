@@ -1,53 +1,35 @@
-$(function() {
-$(".heart").unbind('click').on('click', function() {
-		
-		$(this).toggleClass('on');
-		
-	if($(this).hasClass('on')){  
-		 $(this).find("img").attr("src", "../assets/img/course/on.png");//행동에 따른 리액션
-		 
-		 let memId1 = $("#memId").val();
-		 let edId1 = $("#edId").val();
-		 let wId1 = $("#wId").attr("value",);
-		 
-		 // 하트를 클릭 시 WishList 테이블에 저장
-		 $.ajax({
-                url: '/mypage/insert',
-                type: 'POST',
-                data: {'memId': memId1, 'edId': edId1, 'wId': wId1},
-                success: function (data) {
-                    console.log(data);
-                }, error: function () {
-                    console.log('오타 찾으세요')
-                }
+//heart 좋아요 클릭시! 하트 뿅
+$(document).ready(function () {
+    var $likeBtn =$('.icon.heart');
+     let likeVal = document.getElementById('like_check').value
+        const boardId = $("#boardId").val();
+        const memberId = $("#memberId").val();
+        console.log(memberId);
+        console.log(likeVal);
+        //const likeImg = document.getElementById("likeBtn")
 
-            });
+        $likeBtn.on("click", function(){
+        $likeBtn.toggleClass('active');
+           $.ajax({
+            url: '/academy/wish',
+                type: 'POST',
+                data: {'해당 학원번호': boardId, '해당사용자번호': memberId},
             
-	}else{
-		$(this).find("img").attr("src", "../assets/img/course/off.png");
-	
-	 
-		 let memId1 = $("#memId").val();
-		 let edId1 = $("#edId").val();
-		 let wId1 = $("#wId").val();
-		
-		 // 하트를 클릭 시 WishList 테이블에 삭제
-		 $.ajax({
-                url: '/mypage/delete',
-                type: 'POST',
-                data: {'memId': memId1, 'edId': edId1, 'wId': wId1},
-                success: function (data) {
-                    console.log(data);
-                }, error: function () {
-                    console.log('오타 찾으세요')
-                }
+         })
 
-            });
-	
-	
-	}
-});
-
-
-
-});
+        if($likeBtn.hasClass('active')){          
+           $(this).find('img').attr({
+              'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+               alt:'찜하기 완료'
+                });
+          
+          
+         }else{
+            $(this).find('i').removeClass('fas').addClass('far')
+           $(this).find('img').attr({
+              'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
+              alt:"찜하기"
+           })
+         }
+     })
+})

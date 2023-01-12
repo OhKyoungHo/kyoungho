@@ -14,41 +14,62 @@ import com.example.domain.ReviewVO;
 
 
 public interface ReviewRepository extends JpaRepository<ReviewVO, Integer> {
+   
+   
+   
+   
+
+   //리뷰가져오기용 + 리뷰페이징
+   @Query(value = "SELECT *"
+         + " FROM review WHERE ed_id=?1",
+          countQuery = "SELECT count(*) FROM review  WHERE ed_id=?1",
+          nativeQuery=true)
+   Page<ReviewVO> getReviewAndPaging(Pageable paging, String temp_ed_id);
+   
+
+   //리뷰가져오기용 + 리뷰페이징
+   @Query(value = "SELECT *"
+         + " FROM review WHERE ed_id=?1",
+          countQuery = "SELECT count(*) FROM review  WHERE ed_id=?1",
+          nativeQuery=true)
+   Page<ReviewVO> getReviewAndPaging2(Pageable paging, String temp_ed_id);
+   
+   
+   
+   //경호형 추가
+   //화상 리뷰가져오기용 + 리뷰페이징
+   @Query(value = "SELECT *"
+         + " FROM review WHERE vc_id=?1",
+         countQuery = "SELECT count(*) FROM review  WHERE vc_id=?1",
+         nativeQuery=true)
+   Page<ReviewVO> getReviewAndPagingvc(Pageable paging, String re);
+
+   
+   
+   
+   //별점평균용
+    @Query(value="SELECT ed_id, (ROUND(AVG(star))) AS avg "
+          + "FROM review "
+          + "GROUP BY ed_id "
+          + "ORDER by avg DESC",  nativeQuery=true)
+    List<Object[]>avgStar();
+    
+    
+    
+    
+    
+    
+    //경호형추가
+  //화상 별점평균용
+     @Query(value="SELECT vc_id, (ROUND(AVG(star))) AS avg "
+           + "FROM review "
+           + "GROUP BY vc_id "
+           + "ORDER by avg DESC",  nativeQuery=true)
+     List<Object[]>avgStarvc();
+     
+     
 
 
-
-
-
-	//리뷰가져오기용 + 리뷰페이징
-	@Query(value = "SELECT *"
-			+ " FROM review WHERE ed_id=?1",
-			countQuery = "SELECT count(*) FROM review  WHERE ed_id=?1",
-			nativeQuery=true)
-	Page<ReviewVO> getReviewAndPaging(Pageable paging, String re);
-
-	//리뷰가져오기용 + 리뷰페이징
-	@Query(value = "SELECT *"
-			+ " FROM review WHERE vc_id=?1",
-			countQuery = "SELECT count(*) FROM review  WHERE vc_id=?1",
-			nativeQuery=true)
-	Page<ReviewVO> getReviewAndPagingvc(Pageable paging, String re);
-
-
-
-
-	//별점평균용
-	@Query(value="SELECT ed_id, (ROUND(AVG(star))) AS avg "
-			+ "FROM review "
-			+ "GROUP BY ed_id "
-			+ "ORDER by avg DESC",  nativeQuery=true)
-	List<Object[]>avgStar();
-
-	//별점평균용
-	@Query(value="SELECT vc_id, (ROUND(AVG(star))) AS avg "
-			+ "FROM review "
-			+ "GROUP BY vc_id "
-			+ "ORDER by avg DESC",  nativeQuery=true)
-	List<Object[]>avgStarvc();
-
-
+    
+    
 }

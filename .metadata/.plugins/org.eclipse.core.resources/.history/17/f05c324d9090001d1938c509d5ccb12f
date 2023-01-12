@@ -1,7 +1,0 @@
-package com.example.service;
-
-public interface WishListService {
-	public int findLike(Integer edId, String menId);
-	public int saveLike(Integer edId, String menId);
-
-}

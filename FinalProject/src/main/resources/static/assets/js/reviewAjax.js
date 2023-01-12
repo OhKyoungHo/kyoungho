@@ -5,7 +5,7 @@ $(document).ready(function () {
     $("#btn-e").click(function(){
       alert("버튼잘눌림");
       
-      var param = $("#cmtfrm").serialize();
+      var param = $("#cmtfrm").serializeObject();
       console.log(param);
       
       var d="";
@@ -14,7 +14,7 @@ $(document).ready(function () {
          url : 'insertRV',
          type: 'get',
          data : param,
-          dataType: "json",
+         dataType: "json",
          
          success : function(data){
             alert("성공 :" + data);
@@ -40,7 +40,7 @@ $(document).ready(function () {
             d+= "<div class='course__comment-content'>";
             d+= "<div class='course__comment-wrapper ml-70 fix'>";
             d+= "<div class='course__comment-info float-start'>";
-            d+= "<h4>" + value.memId + "</h4>";
+            d+= "<h4>" + value.memIdString + "</h4>";
             d+= "</div>";
             d+= "<div class='course__comment-info float-start'>";
             d+= " <span>" + value.reDate + "</span>";
@@ -92,9 +92,29 @@ $(document).ready(function () {
       })//end of aJax
       
    })//end of click
-   
-   
-   
+
+//----------------------------------------------------------------------------------------------------
+   // serialize된 파라미터를 json화 하는 함수
+   jQuery.fn.serializeObject = function() {
+    var obj = null;
+    try {
+        if (this[0].tagName && this[0].tagName.toUpperCase() == "FORM") {
+            var arr = this.serializeArray();
+            if (arr) {
+                obj = {};
+                jQuery.each(arr, function() {
+                    obj[this.name] = this.value;
+                });
+            }//if ( arr ) {
+        }
+    } catch (e) {
+        alert(e.message);
+    } finally {
+    }
+ 
+    return obj;
+	};
+//----------------------------------------------------------------------------------------------------
    
    
    

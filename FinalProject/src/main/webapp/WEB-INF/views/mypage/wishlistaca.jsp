@@ -466,6 +466,7 @@
                                        <tr>
                                           <td class="product-thumbnail"><a href="course-details"><img src="../assets/img/course/${wish[1]}" alt=""></a></td>
                                           <td class="product-name"><a href="course-details">${wish[0]}</a></td>
+                                          <td class="product-price"><span class="amount">${wish[2]}</span></td>
                                           <td class="product-price"><span class="amount">${wish[3]}</span></td>
                                           <td class="product-quantity">
                                              <span class="amount">${wish[4]} ~ ${wish[5]} </span>  

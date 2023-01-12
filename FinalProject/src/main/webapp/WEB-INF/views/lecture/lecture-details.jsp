@@ -558,7 +558,7 @@
                                                 <div class="course__comment-content">
                                                    <div class="course__comment-wrapper ml-70 fix">
                                                       <div class="course__comment-info float-start">
-                                                         <h4>${reviewList.memId}</h4>
+                                                         <h4>${reviewList.memIdString}</h4>
                                                       </div>
                                                       <div class="course__comment-info float-start">
                                                          <span>${reviewList.reDate}</span>
