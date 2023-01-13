@@ -553,10 +553,10 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                         </thead>
                         <tbody>
                             <tr>
-                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">안녕</a></td>
-                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">안녕</a></td>
-                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">안녕</a></td>
-                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">안녕</a></td>
+                              <td>안녕</td>
+                              <td><a href="../mypage/myquestiondetail">안녕</a></td>
+                              <td>안녕</td>
+                              <td>안녕</td>
                             </tr>
                         </tbody>
                       </table>

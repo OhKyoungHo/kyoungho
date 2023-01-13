@@ -20,7 +20,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../admin/css/sb-admin-2.css" rel="stylesheet">
     <style> 
     a:hover {
 	text-decoration: none;
@@ -35,7 +35,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
@@ -67,57 +67,56 @@
 <li class="nav-item"><a class="nav-link collapsed" href="admin/academyList"
     data-toggle="collapse" data-target="#collapseOne"
     aria-expanded="true" aria-controls="collapseOne"> <i
-        class="fas fa-fw fa-cog"></i> <span>학원 관리</span>
+        class="fas  fa-graduation-cap"></i> <span>학원 관리</span>
 </a>
     <div id="collapseOne" class="collapse"
         aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="academyList">학원 목록</a> <a
-                class="collapse-item" href="admin/academyRegister">학원 등록</a>
+         
+            <a class="collapse-item" href="/admin/academyList">학원 목록</a> <a
+                class="collapse-item" href="/admin/academyRegister">학원 등록</a>
         </div>
     </div></li>
-    <li class="nav-item"><a class="nav-link collapsed" href="admin/tutorList"
+    <li class="nav-item"><a class="nav-link collapsed" href="/admin/teacherlist"
         data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo"> <i
-            class="fas fa-fw fa-cog"></i> <span>강사 관리</span>
+            class="fas fa fa-users"></i> <span>강사 관리</span>
     </a>
         <div id="collapseTwo" class="collapse"
             aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="admin/tutorList">강사 목록</a> <a
-                    class="collapse-item" href="admin/tutorRegister.do">강사 등록</a>
+                
+                <a class="collapse-item" href="/admin/teacherlist">강사 목록</a> <a
+                    class="collapse-item" href="/admin/teacherRegister">강사 등록</a>
             </div>
         </div></li>
-        <li class="nav-item"><a class="nav-link collapsed" href="admin/lectureList.do"
+        <li class="nav-item"><a class="nav-link collapsed" href="/admin/lecturelist"
             data-toggle="collapse" data-target="#collapseThree"
             aria-expanded="true" aria-controls="collapseThree"> <i
-                class="fas fa-fw fa-cog"></i> <span>강의 관리</span>
+                class="fa fa-play-circle"></i> <span>강의 관리</span>
         </a>
             <div id="collapseThree" class="collapse"
                 aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="admin/lectureList.do">강의 목록</a> <a
-                        class="collapse-item" href="admin/lectureRegister.do">강의 등록</a>
+              
+                    <a class="collapse-item" href="/admin/lecturelist">강의 목록</a> <a
+                        class="collapse-item" href="/admin/lectureRegister">강의 등록</a>
                 </div>
             </div></li>
 
-            <li class="nav-item"><a class="nav-link" href="admin/member.do">
-                <i class="fas fa-fw fa-table"></i> <span>회원관리</span>
+            <li class="nav-item"><a class="nav-link" href="/admin/memberlist">
+                <i class="fas fa-user"></i> <span>회원관리</span>
         </a></li>    
 
         <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item"><a class="nav-link collapsed" href="admin/faq.do"
     data-toggle="collapse" data-target="#collapseFive"
     aria-expanded="true" aria-controls="collapseFive"> <i
-        class="fas fa-fw fa-cog"></i> <span>게시판관리</span>
+        class="fas fa-file"></i> <span>게시판관리</span>
 </a>
     <div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">홈페이지에 게시된 각종 글 관리</h6>
             <a class="collapse-item" href="admin/faq.do">FAQ 관리</a> <a
                 class="collapse-item" href="admin/qna.do">QnA 관리</a> <a
                 class="collapse-item" href="admin/notice.do">공지사항 관리</a>
@@ -126,23 +125,17 @@
            
 <!-- Nav Item - Charts -->
 <li class="nav-item"><a class="nav-link" href="admin/itemCharts.do">
-        <i class="fas fa-fw fa-chart-area"></i> <span>결제내역관리</span>
+        <i class="fas fa-credit-card"></i> <span>결제내역관리</span>
 </a></li>
 
 <li class="nav-item"><a class="nav-link" href="admin/calCharts.do">
-        <i class="fas fa-fw fa-chart-area"></i> <span>신고관리</span>
+        <i class="fas fa-exclamation-triangle"></i> <span>신고관리</span>
 </a></li>
-
-<!-- Divider -->
-<hr class="sidebar-divider">
-
-<!-- Heading -->
-<div class="sidebar-heading">Interface</div>
 
 
 <!-- Nav Item - Tables -->
 <li class="nav-item"><a class="nav-link" href="admin/orderList.do">
-        <i class="fas fa-fw fa-table"></i> <span>정산관리</span>
+        <i class="fas fa-calculator"></i> <span>정산관리</span>
 </a></li>
 
 
@@ -179,7 +172,7 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-dark type="button">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>

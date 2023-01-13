@@ -228,6 +228,7 @@ th {
 label {
   display: inline-block;
   margin-bottom: 0.5rem;
+  
 }
 
 button {
@@ -9797,7 +9798,7 @@ a:focus {
 }
 
 #wrapper #content-wrapper {
-  background-color: #f8f9fc;
+  background-color: white;
   width: 100%;
   overflow-x: hidden;
 }
@@ -10466,6 +10467,7 @@ a:focus {
 
 .sidebar .sidebar-brand .sidebar-brand-text {
   display: none;
+  font-size: 1rem;
 }
 
 .sidebar hr.sidebar-divider {
@@ -10543,7 +10545,8 @@ a:focus {
     margin-right: 0.25rem;
   }
   .sidebar .nav-item .nav-link span {
-    font-size: 0.85rem;
+    font-size: 1rem;
+    color:white;
     display: inline;
   }
   .sidebar .nav-item .nav-link[data-toggle="collapse"]::after {

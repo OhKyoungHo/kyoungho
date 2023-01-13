@@ -1,7 +1,7 @@
 //heart 좋아요 클릭시! 하트 뿅
 $(document).ready(function () {
     var $likeBtn =$('.icon.heart');
-     let likeVal = document.getElementById('like_check').value
+     let likeVal = $('#like_check').val();
         const boardId = $("#boardId").val();
         const memberId = $("#memberId").val();
         console.log(memberId);

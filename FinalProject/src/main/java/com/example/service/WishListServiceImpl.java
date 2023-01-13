@@ -37,8 +37,11 @@ public class WishListServiceImpl implements WishListService {
 	
 
 	//위시리스트 목록
-	public List<WishListVO> getWishList(WishListVO vo){
-		return wishRepo.getWishList(vo);
+	public List<WishListVO> getWishList(MemberVO mIdInt){
+		WishListVO vo = new WishListVO();
+		List<WishListVO> list = wishRepo.findByMemIdInt(vo.getMemIdInt());
+		System.out.println(vo.getMemIdInt());
+		return list;
 	};
 
 	//위시리스트 삭제
@@ -51,5 +54,7 @@ public class WishListServiceImpl implements WishListService {
 		
 		return wishRepo.getWish(memIdInt, edId);
 	}
+
+
 
 }

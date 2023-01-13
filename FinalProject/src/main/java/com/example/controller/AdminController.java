@@ -23,15 +23,19 @@ public class AdminController {
 	private AnnouncementService announcementService;
 	
 	//경호
-//	//상품등록 페이지로 이동
-//	@RequestMapping("/academyRegister")
-//	public String itemRegister() {	
-//		return "admin/academyRegister";
-//	}
+	//학원등록 페이지로 이동
+	@RequestMapping("/academyRegister")
+	public String academyRegister(EducationVO vo, Model m) {
+		System.out.println("academy Register : " + vo);
+		EducationVO result = eduService.getBoard(vo);
+		System.out.println("result : " + result);
+		m.addAttribute("education", result);
+		return "/admin/academyRegister";
+	}
 	//경호
-	//상품목록 페이지로 이동
+	//학원목록 페이지로 이동
 	@RequestMapping("/academyList")
-	public String itemList(Model m) {	
+	public String academyList(Model m) {	
 		List<EducationVO> list = eduService.selectAllAcademy();
 		m.addAttribute("result", list);
 		return "admin/academyList";

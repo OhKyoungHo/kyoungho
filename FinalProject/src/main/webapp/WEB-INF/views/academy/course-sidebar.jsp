@@ -28,6 +28,8 @@
       <link rel="stylesheet" href="../assets/css/wishlist.css"><!-- 0106 좋아요 버튼 관련 css -->
       <style>
          @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+     
+
          </style>
       
    </head>

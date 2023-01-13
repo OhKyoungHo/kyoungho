@@ -596,6 +596,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
               </div>
               <div class="qnambtn">
                 <input type="button" value="수정하기">
+                <input type="button" value="삭제하기">
             </div><!--/blog-post-area-->
            </div>
           </div>
