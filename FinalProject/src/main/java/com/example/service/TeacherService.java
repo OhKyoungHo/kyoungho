@@ -5,6 +5,12 @@ import java.util.List;
 import com.example.domain.TeacherVO;
 
 public interface TeacherService {
+
 	
-	 public TeacherVO findAll(TeacherVO tvo);
+	
+	 public void insertTeacher(TeacherVO tvo);
+	 
+	 public List<TeacherVO> AllTeacher();
+	 
+	 public void updateTeacher(TeacherVO tvo);
 }

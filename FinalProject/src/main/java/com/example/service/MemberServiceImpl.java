@@ -269,6 +269,15 @@ public class MemberServiceImpl implements MemberService {
 //		}
 //		return null;
 //	}
+		
+		
+		
+		
+	/*** 관리자 페이지 ***/
+   //회원정보 리스트 출력
+   public List<MemberVO> memberList() {
+      return (List<MemberVO>) memberRepository.findAll();
+   };   
 
 }
 

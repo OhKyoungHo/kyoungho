@@ -26,6 +26,26 @@
     <!-- Custom styles for this page -->
     <link href="../admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+        <!-- Custom styles for this template-->
+        <link href="/admin/css/sb-admin-2.css" rel="stylesheet">
+        <style> 
+        a:hover {
+        text-decoration: none;
+    }
+    .admina{
+    
+        font-weight: normal;
+      white-space: nowrap;
+      text-align: left;
+             }
+    .adminb{
+    
+    font-weight: normal;
+    white-space: nowrap;
+    text-align: right;
+         }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -34,111 +54,80 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
                 <div class="sidebar-brand-icon rotate-n-15">
+                    
                 </div>
-                <div class="sidebar-brand-text mx-3"> CODE O'CLOCK Admin</div>
+                <div class="sidebar-brand-text mx-3">CODE O' CLOCK Admin </div>
+            </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-             <!-- 메인페이지로 이동Nav Item - Dashboard -->
-             <li class="nav-item active">
+            <!-- 메인페이지로 이동Nav Item - Dashboard -->
+            <li class="nav-item active">
                 <a class="nav-link" href="index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>User Page</span></a>
             </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Interface
             </div>
 
-            <!-- 관리자페이지 메뉴바 Nav Item - Utilities Collapse Menu -->
-<li class="nav-item"><a class="nav-link collapsed" href="admin/itemList.do"
-    data-toggle="collapse" data-target="#collapseOne"
-    aria-expanded="true" aria-controls="collapseOne"> <i
-        class="fas fa-fw fa-cog"></i> <span>학원 관리</span>
+<!-- Nav Item - Utilities Collapse Menu -->
+<li class="nav-item"><a class="nav-link" href="/admin/academyList">
+    <i class="fas  fa-graduation-cap"></i> <span>학원 관리</span>
 </a>
-    <div id="collapseOne" class="collapse"
-        aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="academyList">학원 목록</a> <a
-                class="collapse-item" href="academyRegister">학원 등록</a>
-        </div>
-    </div></li>
-    <li class="nav-item"><a class="nav-link collapsed" href="admin/itemList.do"
-        data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo"> <i
-            class="fas fa-fw fa-cog"></i> <span>강사 관리</span>
+   </li>
+    <li class="nav-item"><a class="nav-link" href="/admin/teacherlist">
+       <i class="fas fa fa-users"></i> <span>강사 관리</span>
     </a>
-        <div id="collapseTwo" class="collapse"
-            aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="admin/itemList.do">강사 목록</a> <a
-                    class="collapse-item" href="admin/itemRegister.do">강사 등록</a>
-            </div>
-        </div></li>
-        <li class="nav-item"><a class="nav-link collapsed" href="admin/itemList.do"
-            data-toggle="collapse" data-target="#collapseThree"
-            aria-expanded="true" aria-controls="collapseThree"> <i
-                class="fas fa-fw fa-cog"></i> <span>강의 관리</span>
+       </li>
+        <li class="nav-item"><a class="nav-link" href="/admin/lecturelist"> 
+            <i class="fa fa-play-circle"></i> <span>강의 관리</span>
         </a>
-            <div id="collapseThree" class="collapse"
-                aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="admin/itemList.do">강의 목록</a> <a
-                        class="collapse-item" href="admin/itemRegister.do">강의 등록</a>
-                </div>
-            </div></li>
+        </li>
 
-            <li class="nav-item"><a class="nav-link" href="admin/member.do">
-                <i class="fas fa-fw fa-table"></i> <span>회원관리</span>
+         <li class="nav-item"><a class="nav-link" href="/admin/memberlist">
+                <i class="fas fa-user"></i> <span>회원관리</span>
         </a></li>    
 
         <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item"><a class="nav-link collapsed" href="admin/faq.do"
+<li class="nav-item"><a class="nav-link collapsed" href=""
     data-toggle="collapse" data-target="#collapseFive"
     aria-expanded="true" aria-controls="collapseFive"> <i
-        class="fas fa-fw fa-cog"></i> <span>게시판관리</span>
+        class="fas fa-file"></i> <span>게시판관리</span>
 </a>
     <div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">홈페이지에 게시된 각종 글 관리</h6>
-            <a class="collapse-item" href="admin/faq.do">FAQ 관리</a> <a
-                class="collapse-item" href="admin/qna.do">QnA 관리</a> <a
-                class="collapse-item" href="admin/notice.do">공지사항 관리</a>
+            <a class="collapse-item" href="">FAQ 관리</a> 
+            <a class="collapse-item" href="">QnA 관리</a> 
+            <a class="collapse-item" href="/admin/announcement_m">공지사항 관리</a>
         </div>
     </div></li>    
            
 <!-- Nav Item - Charts -->
-<li class="nav-item"><a class="nav-link" href="admin/itemCharts.do">
-        <i class="fas fa-fw fa-chart-area"></i> <span>결제내역관리</span>
+<li class="nav-item"><a class="nav-link" href="">
+        <i class="fas fa-credit-card"></i> <span>결제내역관리</span>
 </a></li>
 
-<li class="nav-item"><a class="nav-link" href="admin/calCharts.do">
-        <i class="fas fa-fw fa-chart-area"></i> <span>신고관리</span>
+<li class="nav-item"><a class="nav-link" href="">
+        <i class="fas fa-exclamation-triangle"></i> <span>신고관리</span>
 </a></li>
-
-<!-- Divider -->
-<hr class="sidebar-divider">
-
-<!-- Heading -->
-<div class="sidebar-heading">Interface</div>
 
 
 <!-- Nav Item - Tables -->
-<li class="nav-item"><a class="nav-link" href="admin/orderList.do">
-        <i class="fas fa-fw fa-table"></i> <span>정산관리</span>
+<li class="nav-item"><a class="nav-link" href="">
+        <i class="fas fa-calculator"></i> <span>정산관리</span>
 </a></li>
 
 
@@ -277,7 +266,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="../admin/img/undraw_profile_1.svg"
+                                        <img class="rounded-circle" src="/admin/img/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -289,7 +278,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="../admin/img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="/admin/img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -301,7 +290,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="../admin/img/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="/admin/img/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -335,7 +324,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                    src="../admin/img/undraw_profile.svg">
+                                    src="/admin/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -401,29 +390,41 @@
                                     </tfoot>
                                     <tbody>
                                         <!--찬주야 여기서는 값 넣어야한다.-->
-                                        <c:forEach var='teacherList' items='${result}'>
+                                        <c:forEach var='teacherlist' items='${teacherlist}'>
                                         <tr>
-                                            <td>${teacherList.tId}</td>
-                                            <td>${teacherList.tName}</td>
-                                        	<td><fmt:formatDate value="${teacherList.tRegdate}" pattern="YYYY.MM.DD" /> </td>
-                                            <td>${teacherList.tKeyword}</td>
-                                        	<td>어떤 상태인지</td>
-                                           
+                                            <td>${teacherlist.teacherId}</td>
+                                            <td>${teacherlist.tcName}</td>
+                                        	<td>${teacherlist.tcKeyword} </td>
+                                            <td><fmt:formatDate value="${teacherlist.tcDate}" pattern="YYYY.MM.DD" /></td>
+
+                                            <td><c:choose>
+                                                <c:when test="${teacherlist.tcTruefalse == null }">
+                                                    <a href="teacherRegister?teacherId=${teacherlist.teacherId}" class="btn btn-secondary btn-icon-split">
+                                                        <span class="icon text-white-50"> <i
+                                                            class="fas fa-arrow-right"></i>
+                                                    </span> <span class="text">승인대기중</span>
+                                                    </a>
+                                                </c:when>
+                                                
                                             
-                                        	<!-- <td style="text-align:center;">
-                                        	
-												<a href="academyModify?ed_id=${vo.ed_id}"
-												class="btn btn-info btn-circle btn-sm">
-													<i class="fas fa-info-circle" aria-hidden="true"></i>
-												</a>
-											</td>-->
-											<!-- 삭제 버튼 클릭시 클릭한 시퀀스에 해당하는 글 삭제 -->
-											<!--<td style="text-align:center;">
-                                                <a href="deleteAcademy?ed_id=${vo.ed_id}" 
-                                                	class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash" aria-hidden="true"></i>
-                                                </a>
-                                            </td>-->
+                                                
+                                                <c:when test="${teacherlist.tcTruefalse == 1}">
+                                                    <a href="#" class="btn btn-success btn-icon-split"> <span
+                                                        class="icon text-white-50"> 
+                                                        <i class="fas fa-check"></i>
+                                                    </span> <span class="text">승인</span>
+                                                    </a>
+                                                </c:when>
+                                                <c:when test="${teacherlist.tcTruefalse == 0 }">
+                                                    <a href="#" class="btn btn-light btn-icon-split">
+                                                        <span class="icon text-gray-600">
+                                                            <i class="fas fa-arrow-right"></i>
+                                                        </span>
+                                                        <span class="text">거절</span>
+                                                    </a>
+                                                </c:when>
+                                            </c:choose></td>
+
                                         </tr>
                                         </c:forEach>
                                     </tbody>
@@ -480,21 +481,23 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../admin/vendor/jquery/jquery.min.js"></script>
-    <script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin/vendor/jquery/jquery.min.js"></script>
+    <script src="/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../admin/js/sb-admin-2.min.js"></script>
+    <script src="/admin/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../admin/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../admin/js/demo/datatables-demo.js"></script>
+    <script src="/admin/js/demo/datatables-demo.js"></script>
+    <script src="/assets/js/refund-custom.js"></script>
+
 
 </body>
 

@@ -14,31 +14,37 @@
 
     <title>CODE O' CLOCK - 관리자페이지</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts for this template -->
+    <link href="../admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="/admin/css/sb-admin-2.css" rel="stylesheet">
-    <style> 
-    a:hover {
-	text-decoration: none;
-}
-.admina{
+    <!-- Custom styles for this template -->
+    <link href="../admin/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- Custom styles for this page -->
+    <link href="../admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="/admin/css/sb-admin-2.css" rel="stylesheet">
+        <style> 
+        a:hover {
+        text-decoration: none;
+    }
+    .admina{
+    
+        font-weight: normal;
+      white-space: nowrap;
+      text-align: left;
+             }
+    .adminb{
+    
     font-weight: normal;
-  white-space: nowrap;
-  text-align: left;
+    white-space: nowrap;
+    text-align: right;
          }
-.adminb{
-
-font-weight: normal;
-white-space: nowrap;
-text-align: right;
-     }
-</style>
+    </style>
 
 </head>
 
@@ -77,52 +83,25 @@ text-align: right;
             </div>
 
 <!-- Nav Item - Utilities Collapse Menu -->
-<li class="nav-item"><a class="nav-link collapsed" href="admin/academyList"
-    data-toggle="collapse" data-target="#collapseOne"
-    aria-expanded="true" aria-controls="collapseOne"> <i
-        class="fas  fa-graduation-cap"></i> <span>학원 관리</span>
+<li class="nav-item"><a class="nav-link" href="/admin/academyList">
+    <i class="fas  fa-graduation-cap"></i> <span>학원 관리</span>
 </a>
-    <div id="collapseOne" class="collapse"
-        aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-         
-            <a class="collapse-item" href="academyList">학원 목록</a> <a
-                class="collapse-item" href="admin/academyRegister">학원 등록</a>
-        </div>
-    </div></li>
-    <li class="nav-item"><a class="nav-link collapsed" href="admin/tutorList"
-        data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo"> <i
-            class="fas fa fa-users"></i> <span>강사 관리</span>
+   </li>
+    <li class="nav-item"><a class="nav-link" href="/admin/teacherlist">
+       <i class="fas fa fa-users"></i> <span>강사 관리</span>
     </a>
-        <div id="collapseTwo" class="collapse"
-            aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                
-                <a class="collapse-item" href="admin/tutorList">강사 목록</a> <a
-                    class="collapse-item" href="admin/tutorRegister.do">강사 등록</a>
-            </div>
-        </div></li>
-        <li class="nav-item"><a class="nav-link collapsed" href="admin/lectureList.do"
-            data-toggle="collapse" data-target="#collapseThree"
-            aria-expanded="true" aria-controls="collapseThree"> <i
-                class="fa fa-play-circle"></i> <span>강의 관리</span>
+       </li>
+        <li class="nav-item"><a class="nav-link" href="/admin/lecturelist"> 
+            <i class="fa fa-play-circle"></i> <span>강의 관리</span>
         </a>
-            <div id="collapseThree" class="collapse"
-                aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-              
-                    <a class="collapse-item" href="admin/lectureList.do">강의 목록</a> <a
-                        class="collapse-item" href="admin/lectureRegister.do">강의 등록</a>
-                </div>
-            </div></li>
+        </li>
 
-            <li class="nav-item"><a class="nav-link" href="admin/member.do">
+         <li class="nav-item"><a class="nav-link" href="/admin/memberlist">
                 <i class="fas fa-user"></i> <span>회원관리</span>
         </a></li>    
 
         <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item"><a class="nav-link collapsed" href="admin/faq.do"
+<li class="nav-item"><a class="nav-link collapsed" href=""
     data-toggle="collapse" data-target="#collapseFive"
     aria-expanded="true" aria-controls="collapseFive"> <i
         class="fas fa-file"></i> <span>게시판관리</span>
@@ -130,24 +109,24 @@ text-align: right;
     <div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="admin/faq.do">FAQ 관리</a> <a
-                class="collapse-item" href="admin/qna.do">QnA 관리</a> <a
-                class="collapse-item" href="admin/notice.do">공지사항 관리</a>
+            <a class="collapse-item" href="">FAQ 관리</a> 
+            <a class="collapse-item" href="">QnA 관리</a> 
+            <a class="collapse-item" href="/admin/announcement_m">공지사항 관리</a>
         </div>
     </div></li>    
            
 <!-- Nav Item - Charts -->
-<li class="nav-item"><a class="nav-link" href="admin/itemCharts.do">
+<li class="nav-item"><a class="nav-link" href="">
         <i class="fas fa-credit-card"></i> <span>결제내역관리</span>
 </a></li>
 
-<li class="nav-item"><a class="nav-link" href="admin/calCharts.do">
+<li class="nav-item"><a class="nav-link" href="">
         <i class="fas fa-exclamation-triangle"></i> <span>신고관리</span>
 </a></li>
 
 
 <!-- Nav Item - Tables -->
-<li class="nav-item"><a class="nav-link" href="admin/orderList.do">
+<li class="nav-item"><a class="nav-link" href="">
         <i class="fas fa-calculator"></i> <span>정산관리</span>
 </a></li>
 
@@ -210,7 +189,7 @@ text-align: right;
                                             placeholder="Search for..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn btn-dark" type="button">
+                                            <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
                                             </button>
                                         </div>
@@ -382,15 +361,16 @@ text-align: right;
                     <h1 class="h3 mb-2 text-gray-800">학원 목록</h1>
                     <p class="mb-4"></p>
 
-                    <!-- 학원 목록 테이블 -->
-                    <div class="card shadow mb-4">
+                 
+                       <!-- 학원 목록 테이블 -->
+                       <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">학원 목록</h6>
+                            <h6 class="m-0 font-weight-bold text-dark">학원 목록</h6>
                         </div>
                         <div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable"  cellspacing="0">
+                                <table class="table table-bordered" id="dataTable" width="100%"   cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>번호</th>
@@ -401,6 +381,7 @@ text-align: right;
                                             <th>카테고리 키워드</th>
                                             <th>상태</th>
                                             <th></th>
+                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -410,8 +391,10 @@ text-align: right;
                                             <th>학원이름</th>
                                             <th>수업개강일</th>
                                             <th>수업종강일</th>
+                                            <th>카테고리 키워드</th>
                                             <th>상태</th>
                                             <th></th>
+                                            
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -433,7 +416,7 @@ text-align: right;
 											</td>
 											<!-- 삭제 버튼 클릭시 클릭한 시퀀스에 해당하는 글 삭제 -->
 											<td style="text-align:center;">
-                                                <a href="deleteAcademy?ed_id=${vo.edId}" 
+                                                <a href="/admin/deleteAcademy?edId=${education.edId}" 
                                                 	class="btn btn-danger btn-circle btn-sm">
                                                     <i class="fas fa-trash" aria-hidden="true"></i>
                                                 </a>
@@ -444,7 +427,6 @@ text-align: right;
                                 </table>
                             </div>
                         </div>
-                    </div>
                     </div>
 
                 </div>

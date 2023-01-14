@@ -28,9 +28,15 @@ public class EducationServiceImpl implements EducationService {
    
    //경호
    //관리자페이지
-   //상품 전체 조회
+   //교육과정 전체 조회
    public List<EducationVO> selectAllAcademy() {
       return (List<EducationVO>) eduRepo.findAll();
    }
-
+   
+   //경호
+   //관리자페이지
+   //교육과정 삭제
+   public void deleteAcademy(EducationVO vo) {
+    eduRepo.deleteById(vo.getEdId());
+   };
 }

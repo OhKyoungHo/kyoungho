@@ -17,4 +17,8 @@ public interface ReviewService {
 
     
     public  List<Object[]> avgStarvc();
+    
+    /*** 관리자 페이지 ***/
+    //리뷰리스트 출력
+    public List<ReviewVO> reviewList();
 }

@@ -9,8 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.AnnouncementVO;
 import com.example.domain.EducationVO;
+import com.example.domain.LectureVO;
+import com.example.domain.MemberVO;
+import com.example.domain.ReviewVO;
 import com.example.service.AnnouncementService;
 import com.example.service.EducationService;
+import com.example.service.LectureService;
+import com.example.service.MemberService;
+import com.example.service.ReviewService;
 
 @Controller
 @RequestMapping("/admin")
@@ -20,17 +26,28 @@ public class AdminController {
 	private EducationService eduService;
 	
 	@Autowired
+	private MemberService memService;
+	
+	@Autowired
 	private AnnouncementService announcementService;
+	
+	@Autowired
+	private ReviewService reviewService;
+	
+	@Autowired
+	private LectureService lectureService;
 	
 	//경호
 	//학원등록 페이지로 이동
 	@RequestMapping("/academyRegister")
 	public String academyRegister(EducationVO vo, Model m) {
 		System.out.println("academy Register : " + vo);
+		//교육과정에 대한 전체값 가져오기
 		EducationVO result = eduService.getBoard(vo);
 		System.out.println("result : " + result);
+		//jsp 파일에 붙이기
 		m.addAttribute("education", result);
-		return "/admin/academyRegister";
+		return "admin/academyRegister";
 	}
 	//경호
 	//학원목록 페이지로 이동
@@ -84,5 +101,49 @@ public class AdminController {
 		announcementService.announcementUpdate(vo);
 		return "redirect:announcement_m";
 	}
+	
+	//경호
+	//회원목록 나오게 하기
+	@RequestMapping("/memberlist")
+	public String memberList(Model m) {
+		List<MemberVO> list = memService.memberList();	
+		m.addAttribute("memberList", list );
+		return "admin/memberlist";
+	}
+	
+	//경호
+	//멤버 상세정보 보기
+	@RequestMapping("/memberDetail")
+	public String memberDetail(Model m, MemberVO vo) {
+		MemberVO result = memService.findByMemIdString(vo);
+		System.out.println(result);
+		m.addAttribute("memberList", result);
+		return "admin/memberDetail";
+	}
 
+	//경호
+	//리뷰리스트 출력
+	@RequestMapping("/reviewList")
+	public String reviewList(Model m) {
+		List<ReviewVO> list = reviewService.reviewList();
+		m.addAttribute("reviewList", list);
+		return "admin/reviewList";
+	}
+	
+	//경호
+	//학원교육과정 삭제하기
+	@RequestMapping("/deleteAcademy")
+	public String deleteAcademy(EducationVO vo) {
+		eduService.deleteAcademy(vo);
+		return "redirect:academyList";
+	}
+	
+	//경호
+	//강의리스트 출력
+	@RequestMapping("/lecturelist")
+	public String lectureList(Model m) {
+		List<LectureVO> list = lectureService.lectureList();
+		m.addAttribute("lectureList", list);
+		return "admin/lecturelist";
+	}
 }

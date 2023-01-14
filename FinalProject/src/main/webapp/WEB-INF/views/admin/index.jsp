@@ -64,52 +64,25 @@
             </div>
 
 <!-- Nav Item - Utilities Collapse Menu -->
-<li class="nav-item"><a class="nav-link collapsed" href="admin/academyList"
-    data-toggle="collapse" data-target="#collapseOne"
-    aria-expanded="true" aria-controls="collapseOne"> <i
-        class="fas  fa-graduation-cap"></i> <span>학원 관리</span>
+<li class="nav-item"><a class="nav-link" href="/admin/academyList">
+    <i class="fas  fa-graduation-cap"></i> <span>학원 관리</span>
 </a>
-    <div id="collapseOne" class="collapse"
-        aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-         
-            <a class="collapse-item" href="/admin/academyList">학원 목록</a> <a
-                class="collapse-item" href="/admin/academyRegister">학원 등록</a>
-        </div>
-    </div></li>
-    <li class="nav-item"><a class="nav-link collapsed" href="/admin/teacherlist"
-        data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo"> <i
-            class="fas fa fa-users"></i> <span>강사 관리</span>
+   </li>
+    <li class="nav-item"><a class="nav-link" href="/admin/teacherlist">
+       <i class="fas fa fa-users"></i> <span>강사 관리</span>
     </a>
-        <div id="collapseTwo" class="collapse"
-            aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                
-                <a class="collapse-item" href="/admin/teacherlist">강사 목록</a> <a
-                    class="collapse-item" href="/admin/teacherRegister">강사 등록</a>
-            </div>
-        </div></li>
-        <li class="nav-item"><a class="nav-link collapsed" href="/admin/lecturelist"
-            data-toggle="collapse" data-target="#collapseThree"
-            aria-expanded="true" aria-controls="collapseThree"> <i
-                class="fa fa-play-circle"></i> <span>강의 관리</span>
+       </li>
+        <li class="nav-item"><a class="nav-link" href="/admin/lecturelist"> 
+            <i class="fa fa-play-circle"></i> <span>강의 관리</span>
         </a>
-            <div id="collapseThree" class="collapse"
-                aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-              
-                    <a class="collapse-item" href="/admin/lecturelist">강의 목록</a> <a
-                        class="collapse-item" href="/admin/lectureRegister">강의 등록</a>
-                </div>
-            </div></li>
+        </li>
 
-            <li class="nav-item"><a class="nav-link" href="/admin/memberlist">
+         <li class="nav-item"><a class="nav-link" href="/admin/memberlist">
                 <i class="fas fa-user"></i> <span>회원관리</span>
         </a></li>    
 
         <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item"><a class="nav-link collapsed" href="admin/faq.do"
+<li class="nav-item"><a class="nav-link collapsed" href=""
     data-toggle="collapse" data-target="#collapseFive"
     aria-expanded="true" aria-controls="collapseFive"> <i
         class="fas fa-file"></i> <span>게시판관리</span>
@@ -117,24 +90,24 @@
     <div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="admin/faq.do">FAQ 관리</a> <a
-                class="collapse-item" href="admin/qna.do">QnA 관리</a> <a
-                class="collapse-item" href="admin/notice.do">공지사항 관리</a>
+            <a class="collapse-item" href="">FAQ 관리</a> 
+            <a class="collapse-item" href="">QnA 관리</a> 
+            <a class="collapse-item" href="/admin/announcement_m">공지사항 관리</a>
         </div>
     </div></li>    
            
 <!-- Nav Item - Charts -->
-<li class="nav-item"><a class="nav-link" href="admin/itemCharts.do">
+<li class="nav-item"><a class="nav-link" href="">
         <i class="fas fa-credit-card"></i> <span>결제내역관리</span>
 </a></li>
 
-<li class="nav-item"><a class="nav-link" href="admin/calCharts.do">
+<li class="nav-item"><a class="nav-link" href="">
         <i class="fas fa-exclamation-triangle"></i> <span>신고관리</span>
 </a></li>
 
 
 <!-- Nav Item - Tables -->
-<li class="nav-item"><a class="nav-link" href="admin/orderList.do">
+<li class="nav-item"><a class="nav-link" href="">
         <i class="fas fa-calculator"></i> <span>정산관리</span>
 </a></li>
 

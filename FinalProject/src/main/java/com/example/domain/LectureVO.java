@@ -20,8 +20,10 @@ public class LectureVO {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="vc_id", nullable=false)
 	private Integer vcId;
-	//값을 조인컬럼??
-	private Integer t_id;
+	
+	@Column(name="t_id", nullable=false)
+	private Integer tcId;
+	
 	@Column(name="vc_title", nullable=false)
 	private String vcTitle;
 	private String vc_intro;

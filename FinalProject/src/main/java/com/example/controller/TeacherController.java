@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,8 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.domain.EducationVO;
+import com.example.domain.LectureVO;
+import com.example.domain.MemberVO;
 import com.example.domain.TeacherVO;
+import com.example.persistence.LectureRepository;
 import com.example.persistence.TeacherRepository;
 import com.example.service.TeacherService;
 
@@ -27,6 +31,9 @@ public class TeacherController {
 	   
 	   @Autowired
 	   private TeacherRepository teacherRepository;
+	   
+	   @Autowired
+	   private LectureRepository lectureRepository;
 	   
 	   
 	   
@@ -59,40 +66,41 @@ public class TeacherController {
 		      m.addAttribute("endBlockPage", endBlockPage);
 		      m.addAttribute("teacherList", tList.getContent());
 		      
+		      //확인용
 		      for(TeacherVO temp :tList.getContent() ) {
 		    	  System.out.println(temp);
 		      }
+		      
 		   return "/lecture/teacher/instructor";
 	   }
 	   
 	   
 	   
 	   
+	   
 	   //선생님 상세페이지
 	   @GetMapping("/instructor-details")
-	   public String getDetailsTeacher(Model m, TeacherVO tvo) {
+	   public String getDetailsTeacher(Model m, Integer teacherId) {
 		   
-		   TeacherVO result = teacherService.findAll(tvo);
+		   
+		   
+		   TeacherVO result = teacherRepository.findByTeacherId(teacherId);
 		   m.addAttribute("tListDetails", result);
 		   
-		   return "/lecture/teacher/instructor-details";
+		   
+		  // TeacherVO result = teacherService.joinTeacher(teacherId);
+		  // m.addAttribute("tListDetails", result);
+		   
+		  List<LectureVO> result2 = lectureRepository.findByTcId(teacherId);
+		  m.addAttribute("lecture", result2);
+		   
+			return "/lecture/teacher/instructor-details";
+
 	   }
 	   
 	   
 	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
+	  
 	   
 	   
 	   

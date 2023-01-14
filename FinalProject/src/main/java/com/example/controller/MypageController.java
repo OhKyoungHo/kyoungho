@@ -1,57 +1,56 @@
 package com.example.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.domain.MemberVO;
-import com.example.domain.WishListVO;
-import com.example.persistence.WishListRepository;
-import com.example.service.WishListServiceImpl;
+import com.example.domain.TeacherVO;
+import com.example.persistence.TeacherRepository;
+import com.example.service.TeacherService;
+
 
 @Controller
 @RequestMapping("/mypage")
 public class MypageController {
 
-	@Autowired
-	private WishListRepository wishRepo;
-	@Autowired
-	private WishListServiceImpl wishService;
+	
+	
+	  @Autowired
+	   private TeacherService teacherService;
+	  
+	  
+	  @Autowired
+	   private TeacherRepository teacherRepository;
 
-	//학원위시리스트
-	@RequestMapping("/wishlistaca")
-	public void wishListaca(Model m, HttpSession session) {
+	   
+	
+
+	  
+	  //등록하기전에 그냥 화면보이기용 등록함수와 이함수를 2개를 둬야함 
+	  @GetMapping("/tutorInsert")
+	  public String tutorPageView() {
+		  return  "/mypage/tutorInsert";
+		  
+	  }
+	  
+	   
+	  
+	  //선생님 등록용
+	   @PostMapping("/tutorInsert")
+		public String insertTeacher(TeacherVO tvo) {
+		System.out.println("인설트 티처 확인" + tvo); 
+		   
+		teacherService.insertTeacher(tvo);
 		
-		MemberVO mId = (MemberVO) session.getAttribute("memIdInt");
-		System.out.println(mId);
-		List<WishListVO> list = wishService.getWishList(mId);
-		System.out.println(list);
-		m.addAttribute("wishList", list);
+		   
+			return "redirect:/mypage/tutorInsert";   
+		}
 
-	}
 
-//	@RequestMapping("/insert")
-//	public void wishInsert(WishListVO vo) {
-//		System.out.println("vo : "+vo);
-//		wishService.wishInsert(vo);
-//	}
+	   
+	   
 	
-	@RequestMapping("/insert")
-	public void insertWish(Integer memIdint, Integer edId) {
-		System.out.println("memId : " + memIdint + ", edId : " +edId);
-		wishService.insertWish(memIdint, edId);
-	}
-	
-	@RequestMapping("/delete")
-	public void deleteWish(Integer memIdint, Integer edId) {
-	
-		wishService.deleteWish(memIdint, edId);
-	};
-
-
 }

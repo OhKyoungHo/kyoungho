@@ -27,4 +27,10 @@ public class LectureServiceImpl implements LectureService {
 
 	}
 
+	/*** 관리자 페이지 ***/
+   //상품전체 조회
+   public List<LectureVO> lectureList(){
+      return (List<LectureVO>) lecRepo.findAll();
+   };
+	
 }

@@ -23,21 +23,29 @@ public class MemberVO {
    @GeneratedValue(strategy = GenerationType.AUTO)
    @Column(name="m_idint")
    private Integer memIdInt;
+   
    @Column(name="m_idstring", unique=true)
    private String memIdString;
+   
    @Column(name="m_pass")
    private String memPass;
+   
    @Column(name="m_name")
    private String memName;
+   
    @Column(name="m_nickname")
    private String memNickname;
+   
    @Column(name="m_tel")
    private String memTel;
+   
    private String m_post;
    private String m_addr;
    private String m_addr_sub;
+   
    @Column(nullable=false, name="m_email")
    private String memEmail;
+   
    private String m_profile;
    
    private LocalDateTime p_end_date;
@@ -47,6 +55,6 @@ public class MemberVO {
    
    @OneToOne
    @JoinColumn(name="t_id")
-   private VchatTeacherVO t_id;
+   private TeacherVO t_id;
    
 }

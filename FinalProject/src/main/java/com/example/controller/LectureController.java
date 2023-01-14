@@ -22,7 +22,7 @@ import com.example.service.LectureService;
 import com.example.service.ReviewService;
 
 @Controller
-@RequestMapping("/lecture")
+@RequestMapping("/lecture/teacher")
 public class LectureController {
 
 	@Autowired
@@ -77,7 +77,7 @@ public class LectureController {
 		m.addAttribute("avg",avg);
 
 		//리턴페이지의 디폴트 값
-		return "lecture/lecture-sidebar";
+		return "lecture/teacher/lecture-sidebar";
 
 	}
 
@@ -124,7 +124,7 @@ public class LectureController {
 		model.addAttribute("endBlockPage", endBlockPage);
 		model.addAttribute("reviewList", reviewList.getContent()); 
 
-		return "lecture/lecture-details";
+		return "lecture/teacher/lecture-details";
 	}//end of getBoard
 
 

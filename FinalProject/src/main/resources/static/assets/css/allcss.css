@@ -10,3 +10,7 @@
 #teacher{
 	padding: 0px 0px 0px 280px;
 }
+
+::placeholder{
+	color : gray;
+}

@@ -13,21 +13,21 @@
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Place favicon.ico in the root directory -->
-      <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
+      <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
       <!-- CSS here -->
-      <link rel="stylesheet" href="../assets/css/preloader.css">
-      <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-      <link rel="stylesheet" href="../assets/css/meanmenu.css">
-      <link rel="stylesheet" href="../assets/css/animate.min.css">
-      <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
-      <link rel="stylesheet" href="../assets/css/swiper-bundle.css">
-      <link rel="stylesheet" href="../assets/css/backToTop.css">
-      <link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css">
-      <link rel="stylesheet" href="../assets/css/fontAwesome5Pro.css">
-      <link rel="stylesheet" href="../assets/css/elegantFont.css">
-      <link rel="stylesheet" href="../assets/css/default.css">
-      <link rel="stylesheet" href="../assets/css/style.css">
-      <link rel="stylesheet" href="../assets/css/allcss.css">
+      <link rel="stylesheet" href="/assets/css/preloader.css">
+      <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/assets/css/meanmenu.css">
+      <link rel="stylesheet" href="/assets/css/animate.min.css">
+      <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="/assets/css/swiper-bundle.css">
+      <link rel="stylesheet" href="/assets/css/backToTop.css">
+      <link rel="stylesheet" href="/assets/css/jquery.fancybox.min.css">
+      <link rel="stylesheet" href="/assets/css/fontAwesome5Pro.css">
+      <link rel="stylesheet" href="/assets/css/elegantFont.css">
+      <link rel="stylesheet" href="/assets/css/default.css">
+      <link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/allcss.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -41,9 +41,9 @@
          <div id="loading-center">
             <div id="loading-center-absolute">
                <div class="loading-content">
-                  <img class="loading-logo-text" src="../assets/img/logo/logo-text-2.png" alt="">
+                  <img class="loading-logo-text" src="/assets/img/logo/logo-text-2.png" alt="">
                   <div class="loading-stroke">
-                     <img class="loading-logo-icon" src="../assets/img/logo/logo-icon.png" alt="">
+                     <img class="loading-logo-icon" src="/assets/img/logo/logo-icon.png" alt="">
                   </div>
                </div>
             </div>
@@ -60,119 +60,195 @@
       <!-- back to top end -->
 
       <!-- header area start -->
-      <header>
-         <div id="header-sticky" class="header__area header__padding-2 header__shadow">
-            <div class="container">
-               <div class="row align-items-center">
-                  <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
-                     <div class="header__left d-flex">
-                        <div class="logo">
-                           <a href="index">
-                              <img src="../assets/img/logo/logo.png" alt="logo">
-                           </a>
-                        </div>
-                        <div class="header__category d-none d-lg-block">
-                           <nav>
-                              <ul>
-                                 <li>
-                                    <a href="course-grid" class="cat-menu d-flex align-items-center">
-                                       <div class="cat-dot-icon d-inline-block">
-                                          <svg viewBox="0 0 276.2 276.2">
-                                             <g>
-                                                <g>
-                                                   <path class="cat-dot" d="M33.1,2.5C15.3,2.5,0.9,17,0.9,34.8s14.5,32.3,32.3,32.3s32.3-14.5,32.3-32.3S51,2.5,33.1,2.5z"/>
-                                                   <path class="cat-dot" d="M137.7,2.5c-17.8,0-32.3,14.5-32.3,32.3s14.5,32.3,32.3,32.3c17.8,0,32.3-14.5,32.3-32.3S155.5,2.5,137.7,2.5    z"/>
-                                                   <path class="cat-dot" d="M243.9,67.1c17.8,0,32.3-14.5,32.3-32.3S261.7,2.5,243.9,2.5S211.6,17,211.6,34.8S226.1,67.1,243.9,67.1z"/>
-                                                   <path class="cat-dot" d="M32.3,170.5c17.8,0,32.3-14.5,32.3-32.3c0-17.8-14.5-32.3-32.3-32.3S0,120.4,0,138.2S14.5,170.5,32.3,170.5z"/>
-                                                   <path class="cat-dot" d="M136.8,170.5c17.8,0,32.3-14.5,32.3-32.3c0-17.8-14.5-32.3-32.3-32.3c-17.8,0-32.3,14.5-32.3,32.3    C104.5,156.1,119,170.5,136.8,170.5z"/>
-                                                   <path class="cat-dot" d="M243,170.5c17.8,0,32.3-14.5,32.3-32.3c0-17.8-14.5-32.3-32.3-32.3s-32.3,14.5-32.3,32.3    C210.7,156.1,225.2,170.5,243,170.5z"/>
-                                                   <path class="cat-dot" d="M33,209.1c-17.8,0-32.3,14.5-32.3,32.3c0,17.8,14.5,32.3,32.3,32.3s32.3-14.5,32.3-32.3S50.8,209.1,33,209.1z    "/>
-                                                   <path class="cat-dot" d="M137.6,209.1c-17.8,0-32.3,14.5-32.3,32.3c0,17.8,14.5,32.3,32.3,32.3c17.8,0,32.3-14.5,32.3-32.3    S155.4,209.1,137.6,209.1z"/>
-                                                   <path class="cat-dot" d="M243.8,209.1c-17.8,0-32.3,14.5-32.3,32.3c0,17.8,14.5,32.3,32.3,32.3c17.8,0,32.3-14.5,32.3-32.3    S261.6,209.1,243.8,209.1z"/>
-                                                </g>
-                                             </g>
-                                          </svg>
-                                       </div>
-                                       <span>Category</span>
-                                    </a>
-                                    <ul class="cat-submenu">
-                                       <li><a href="course-details">English Learning</a></li>
-                                       <li><a href="course-details">Web Development</a></li>
-                                       <li><a href="course-details">Logo Design</a></li>
-                                       <li><a href="course-details">Motion Graphics</a></li>
-                                       <li><a href="course-details">Video Edition</a></li>
-                                    </ul>
-                                 </li>
-                              </ul>
-                           </nav>
-                        </div>
+     <header>
+      <div id="header-sticky" class="header__area header__transparent header__padding header__white">
+         <div class="container-fluid">
+            <div class="row align-items-center">
+
+               <!--로고와 사이트 전환 이미지-->
+               <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
+                  <div class="header__left d-flex">
+                     <div class="logo">
+                        <a href="index">
+                           <img src="/assets/img/logo/logo.png" alt="logo">
+                        </a>
                      </div>
-                  </div>
-                  <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-10 col-sm-8 col-6">
-                     <div class="header__right d-flex justify-content-end align-items-center">
-                        <div class="main-menu main-menu-2">
-                           <nav id="mobile-menu">
-                              <ul>
-                                 <li class="has-dropdown">
-                                    <a href="index">Home</a>
-                                    <ul class="submenu">
-                                       <li><a href="index">Home Style 1</a></li>
-                                       <li><a href="index-2">Home Style 2</a></li>
-                                       <li><a href="index-3">Home Style 3</a></li>
-                                    </ul>
-                                 </li>
-                                 <li class="has-dropdown">
-                                    <a href="course-grid">Courses</a>
-                                    <ul class="submenu">
-                                       <li><a href="course-grid">Courses</a></li>
-                                       <li><a href="course-list">Course List</a></li>
-                                       <li><a href="course-sidebar">Course sidebar</a></li>
-                                       <li><a href="course-details">Course Details</a></li>
-                                    </ul>
-                                 </li>
-                                 <li class="has-dropdown">
-                                    <a href="blog">Blog</a>
-                                    <ul class="submenu">
-                                       <li><a href="blog">Blog</a></li>
-                                       <li><a href="blog-details">Blog Details</a></li>
-                                    </ul>
-                                 </li>
-                                 <li class="has-dropdown">
-                                    <a href="course-grid">Pages</a>
-                                    <ul class="submenu">
-                                       <li><a href="about">About</a></li>
-                                       <li><a href="instructor">Instructor</a></li>
-                                       <li><a href="instructor-details">Instructor Details</a></li>
-                                       <li><a href="event-details">Event Details</a></li>
-                                       <li><a href="cart">My Cart</a></li>
-                                       <li><a href="wishlist">My Wishlist</a></li>
-                                       <li><a href="checkout">checkout</a></li>
-                                       <li><a href="sign-in">Sign In</a></li>
-                                       <li><a href="sign-up">Sign Up</a></li>
-                                       <li><a href="error">Error</a></li>
-                                    </ul>
-                                 </li>
-                                 <li><a href="contact">Contact</a></li>
-                              </ul>
-                           </nav>
-                        </div>
-                        <div class="header__btn header__btn-2 ml-50 d-none d-sm-block">
-                           <a href="sign-up" class="e-btn">Sign up</a>
-                        </div>
-                        <div class="sidebar__menu d-xl-none">
-                           <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
-                               <span class="line"></span>
-                               <span class="line"></span>
-                               <span class="line"></span>
-                           </div>
-                       </div>
+                     <div class="header__category d-none d-lg-block">
+                        <nav>
+                           <ul>
+                              <li>
+                                 <a href="course-grid" class="cat-menu d-flex align-items-center">
+                                    <div class="cat-dot-icon d-inline-block">
+                                     
+                                       <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+
+                                    </div>
+                                
+                                 </a>
+                                 
+                              </li>
+                           </ul>
+                        </nav>
                      </div>
                   </div>
                </div>
+
+               <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
+               <c:choose>
+                  <c:when test="${empty sessionScope.memIdInt}">
+
+                     <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
+                        <div class="eader__center align-items-center d-flex justify-content-center">
+                           <div class="main-menu main-menu-3">
+                              <nav id="mobile-menu">
+                                 <ul>
+                                    <li class="has-dropdown">
+                                       <a>About</a>
+                                       <ul class="submenu">
+                                          <li><a href="/about">소개</a></li>
+                                          <li><a href="/map">지도</a></li>
+                                       </ul>
+                                    </li>
+                                    <li class="has-dropdown">
+                                       <a>학원</a>
+                                       <ul class="submenu">
+                                          <li><a href="/academy/course-sidebar">학원 목록</a></li>
+                                          <li><a href="/academy/rank">학원 랭크</a></li>
+                                       </ul>
+                                    </li>
+                                    <li class="has-dropdown">
+                                       <a>게시판</a>
+                                       <ul class="submenu">
+                                          <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                          <li><a href="/board/codingBoard">코딩 게시판</a></li>
+                                          <li><a href="/board/newsList">뉴스</a></li>
+                                          <li><a href="/board/announcement">공지</a></li>
+                                       </ul>
+                                    </li>
+                                    <li>
+                                       <a href="/chatbot">챗봇</a>
+                                    </li>
+                                 </ul>
+                              </nav>
+                           </div>
+                           <div class="header__search p-relative ml-50 d-none d-md-block">
+                              <form action="#">
+                                 <input type="text" placeholder="Search...">
+                                 <button type="submit"><i class="fad fa-search"></i></button>
+                              </form>
+                              <div class="header__cart">
+                                 <a href="javascript:void(0);" class="cart-toggle-btn">
+                                    <div class="header__cart-icon">
+                                       <svg viewBox="0 0 24 24">
+                                          <circle class="st0" cx="9" cy="21" r="1"/>
+                                          <circle class="st0" cx="20" cy="21" r="1"/>
+                                          <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
+                                       </svg>
+                                    </div>
+                                    <span class="cart-item">2</span>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="header__btn ml-20 d-none d-sm-block">
+                              <a href="/sign-in" class="e-btn">로그인</a>
+                           </div>
+                           <div class="sidebar__menu d-xl-none">
+                              <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
+                                 <span class="line"></span>
+                                 <span class="line"></span>
+                                 <span class="line"></span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                  </c:when>
+                  <c:when test="${not empty sessionScope.memIdInt}">
+
+                     <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
+                        <div class="eader__center align-items-center d-flex justify-content-center">
+                           <div class="main-menu main-menu-3">
+                              <nav id="mobile-menu">
+                                 <ul>
+                                    <li class="has-dropdown">
+                                       <a>About</a>
+                                       <ul class="submenu">
+                                          <li><a href="/about">로고 소개</a></li>
+                                          <li><a href="/map">지도</a></li>
+                                       </ul>
+                                    </li>
+                                    <li class="has-dropdown">
+                                       <a>학원</a>
+                                       <ul class="submenu">
+                                          <li><a href="/academy/course-sidebar">학원 목록</a></li>
+                                          <li><a href="/academy/rank">학원 랭크</a></li>
+                                       </ul>
+                                    </li>
+                                    <li class="has-dropdown">
+                                       <a>게시판</a>
+                                       <ul class="submenu">
+                                          <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                          <li><a href="/board/codingBoard">코딩 게시판</a></li>
+                                          <li><a href="/board/newsList">뉴스</a></li>
+                                          <li><a href="/board/announcement">공지</a></li>
+                                       </ul>
+                                    </li>
+                                    <li>
+                                       <a href="/chatbot">챗봇</a>
+                                    </li>
+                                 </ul>
+                              </nav>
+                           </div>
+                           <!-- 0103 찬주2
+                              메인화면에서의 검색기능과 동일한 부분 
+                           -->
+
+                           <div class="header__search p-relative ml-50 d-none d-md-block">
+
+                              <form id = "main" action=/academy/course-sidebar method="GET">
+                                 <input type="text" name ="keywords"  placeholder="ex)교육과정 및 학원이름 검색">
+                                 <button type="submit"><i class="fad fa-search"></i></button>
+                              </form>
+                              <!-- 검색 끝-->
+
+
+
+
+                              <div class="header__cart">
+                                 <a href="javascript:void(0);" class="cart-toggle-btn">
+                                    <div class="header__cart-icon">
+                                       <svg viewBox="0 0 24 24">
+                                          <circle class="st0" cx="9" cy="21" r="1"/>
+                                          <circle class="st0" cx="20" cy="21" r="1"/>
+                                          <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
+                                       </svg>
+                                    </div>
+                                    <span class="cart-item">2</span>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="header__btn ml-20 d-none d-sm-block">
+                              <a href="logoutMember" class="e-btn">로그아웃</a>
+                           </div>
+                           <div class="sidebar__menu d-xl-none">
+                              <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
+                                 <span class="line"></span>
+                                 <span class="line"></span>
+                                 <span class="line"></span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                  </c:when>
+               </c:choose>
+               <!-- JSTL c:when 끝-->
+
             </div>
          </div>
-      </header>
-      <!-- header area end -->
+      </div>
+   </header>
+   <!-- header area end -->
 
       <!-- cart mini area start -->
       <div class="cartmini__area">
@@ -189,7 +265,7 @@
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="../assets/img/course/sm/cart-1.jpg" alt="">
+                              <img src="/assets/img/course/sm/cart-1.jpg" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
@@ -208,7 +284,7 @@
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="../assets/img/course/sm/cart-2.jpg" alt="">
+                              <img src="/assets/img/course/sm/cart-2.jpg" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
@@ -227,7 +303,7 @@
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="../assets/img/course/sm/cart-3.jpg" alt="">
+                              <img src="/assets/img/course/sm/cart-3.jpg" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
@@ -274,7 +350,7 @@
             <div class="sidebar__content">
                <div class="logo mb-40">
                   <a href="index">
-                  <img src="../assets/img/logo/logo.png" alt="logo">
+                  <img src="/assets/img/logo/logo.png" alt="logo">
                   </a>
                </div>
                <div class="mobile-menu fix"></div>
@@ -309,9 +385,9 @@
          <!-- page title area start -->
          <section class="page__title-area pt-120 pb-90">
             <div class="page__title-shape">
-               <img class="page-title-shape-5 d-none d-sm-block" src="../assets/img/page-title/page-title-shape-1.png" alt="">
-               <img class="page-title-shape-6" src="../assets/img/page-title/page-title-shape-6.png" alt="">
-               <img class="page-title-shape-7" src="../assets/img/page-title/page-title-shape-4.png" alt="">
+               <img class="page-title-shape-5 d-none d-sm-block" src="/assets/img/page-title/page-title-shape-1.png" alt="">
+               <img class="page-title-shape-6" src="/assets/img/page-title/page-title-shape-6.png" alt="">
+               <img class="page-title-shape-7" src="/assets/img/page-title/page-title-shape-4.png" alt="">
             </div>
             <div class="container" id = details>
                <div class="row">
@@ -336,7 +412,7 @@
                            <div class="course__teacher-3 d-flex align-items-center mr-70 mb-20">
                               <div class="course__teacher-thumb-3 mr-15">
                                    <!--학원 상세페이지로 이동 -->
-                                 <img src="../assets/img/course/teacher/teacher-1.jpg" alt="">
+                                 <img src="/assets/img/course/teacher/teacher-1.jpg" alt="">
                               </div>
                               <div class="course__teacher-info-3">
                                  <h5>학원이름</h5>
@@ -359,19 +435,19 @@
                               <c:forEach var="avg" items="${avg}">  
                                  <c:if test="${avg[0] == education.edId}" >  
                                  <c:if test="${avg[1] == 1}">
-                                    <img src="../assets/img/star/1s.png">
+                                    <img src="/assets/img/star/1s.png">
                               </c:if>
                               <c:if test="${avg[1]== 2}">
-                                    <img src="../assets/img/star/2s.png">
+                                    <img src="/assets/img/star/2s.png">
                               </c:if>
                               <c:if test="${avg[1] == 3}">
-                                    <img src="../assets/img/star/3s.png">
+                                    <img src="/assets/img/star/3s.png">
                               </c:if>
                               <c:if test="${avg[1] == 4}">
-                                    <img src="../assets/img/star/4s.png">
+                                    <img src="/assets/img/star/4s.png">
                               </c:if>
                               <c:if test="${avg[1] == 5}">
-                                    <img src="../assets/img/star/5s.png">
+                                    <img src="/assets/img/star/5s.png">
                               
                                 
                               </c:if>
@@ -393,7 +469,7 @@
                        </div>
                         <!--해당 교육과정 이미지-->
                         <div class="course__img w-img mb-30">
-                           <img src="../assets/img/course/${education.ed_pic}" alt="" width='770' height='450'>
+                           <img src="/assets/img/course/${education.ed_pic}" alt="" width='770' height='450'>
                         </div>
                          <!--교육과정 관련 tab부분 -->
                         <div class="course__tab-2 mb-45">
@@ -426,7 +502,7 @@
                                        <h4>What is the Target Audience?</h4>
                                        <ul>
                                           <li> <i class="icon_check"></i> Business's managers, leaders</li>
-                                          <li> <i class="icon_check"></i> Downloadable lectures, code and design ../assets for all projects</li>
+                                          <li> <i class="icon_check"></i> Downloadable lectures, code and design /assets for all projects</li>
                                           <li> <i class="icon_check"></i> Anyone who is finding a chance to get the promotion</li>
                                        </ul>
                                     </div>
@@ -435,7 +511,7 @@
                                        <div class="course__instructor-wrapper d-md-flex align-items-center">
                                           <div class="course__instructor-item d-flex align-items-center mr-70">
                                              <div class="course__instructor-thumb mr-20">
-                                                <img src="../assets/img/course/teacher/teacher-3.jpg" alt="">
+                                                <img src="/assets/img/course/teacher/teacher-3.jpg" alt="">
                                              </div>
                                              <div class="course__instructor-content">
                                                 <h3>Eleanor Fant</h3>
@@ -444,7 +520,7 @@
                                           </div>
                                           <div class="course__instructor-item d-flex align-items-center mr-70">
                                              <div class="course__instructor-thumb mr-20">
-                                                <img src="../assets/img/course/teacher/teacher-2.jpg" alt="">
+                                                <img src="/assets/img/course/teacher/teacher-2.jpg" alt="">
                                              </div>
                                              <div class="course__instructor-content">
                                                 <h3>Lauren Stamps</h3>
@@ -453,7 +529,7 @@
                                           </div>
                                           <div class="course__instructor-item d-flex align-items-center mr-70">
                                              <div class="course__instructor-thumb mr-20">
-                                                <img src="../assets/img/course/teacher/teacher-1.jpg" alt="">
+                                                <img src="/assets/img/course/teacher/teacher-1.jpg" alt="">
                                              </div>
                                              <div class="course__instructor-content">
                                                 <h3>Jonquil Von</h3>
@@ -520,19 +596,19 @@
                                                    <c:if test="${avg[0] == education.edId}" >  
                                                 <h5>${avg[1]}</h5>
                                                 <c:if test="${avg[1] == 1}">
-                                                      <img src="../assets/img/star/1s.png">
+                                                      <img src="/assets/img/star/1s.png">
                                                 </c:if>
                                                 <c:if test="${avg[1]== 2}">
-                                                      <img src="../assets/img/star/2s.png">
+                                                      <img src="/assets/img/star/2s.png">
                                                 </c:if>
                                                 <c:if test="${avg[1] == 3}">
-                                                      <img src="../assets/img/star/3s.png">
+                                                      <img src="/assets/img/star/3s.png">
                                                 </c:if>
                                                 <c:if test="${avg[1] == 4}">
-                                                      <img src="../assets/img/star/4s.png">
+                                                      <img src="/assets/img/star/4s.png">
                                                 </c:if>
                                                 <c:if test="${avg[1] == 5}">
-                                                      <img src="../assets/img/star/5s.png">
+                                                      <img src="/assets/img/star/5s.png">
                                                 </c:if>
                                              <p>${avg[1]} Ratings</p>
                                              </c:if>
@@ -542,7 +618,7 @@
                                          
                                           <!-- 별점 큰부분 옆 이미지 대체-->
                                           <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8">
-                                                <img src="../assets/img/star/re.png "  height="255" width="515">
+                                                <img src="/assets/img/star/re.png "  height="255" width="515">
                                           </div>
                                        </div>
                                     </div>
@@ -573,19 +649,19 @@
                                                          <tr>
                                                             <td>${reviewList.star}
                                                                <c:if test="${reviewList.star ==1}">
-                                                                  <img src="../assets/img/star/1s.png">
+                                                                  <img src="/assets/img/star/1s.png">
                                                                </c:if>
                                                                <c:if test="${reviewList.star ==2}">
-                                                                  <img src="../assets/img/star/2s.png">
+                                                                  <img src="/assets/img/star/2s.png">
                                                                </c:if>
                                                                <c:if test="${reviewList.star ==3}">
-                                                                  <img src="../assets/img/star/3s.png">
+                                                                  <img src="/assets/img/star/3s.png">
                                                                </c:if>
                                                                <c:if test="${reviewList.star ==4}">
-                                                                  <img src="../assets/img/star/4s.png">
+                                                                  <img src="/assets/img/star/4s.png">
                                                                </c:if>
                                                                <c:if test="${reviewList.star ==5}">
-                                                                  <img src="../assets/img/star/5s.png">
+                                                                  <img src="/assets/img/star/5s.png">
                                                                </c:if>
 
                                                             </td>
@@ -678,11 +754,11 @@
                                                    <div class="course__form-input">
                                                       <div class="course__form-rating">
                                                          <span>별점 </span>
-                                                         <img id =image1 onmouseover=show(1) onclick=mark(1) onmouseout=noshow(1) src="../assets/img/star/0star.png">
-                                                         <img id =image2 onmouseover=show(2) onclick=mark(2) onmouseout=noshow(2) src="../assets/img/star/0star.png">
-                                                         <img id =image3 onmouseover=show(3) onclick=mark(3) onmouseout=noshow(3) src="../assets/img/star/0star.png">
-                                                         <img id =image4 onmouseover=show(4) onclick=mark(4) onmouseout=noshow(4) src="../assets/img/star/0star.png">
-                                                         <img id =image5 onmouseover=show(5) onclick=mark(5) onmouseout=noshow(5) src="../assets/img/star/0star.png">
+                                                         <img id =image1 onmouseover=show(1) onclick=mark(1) onmouseout=noshow(1) src="/assets/img/star/0star.png">
+                                                         <img id =image2 onmouseover=show(2) onclick=mark(2) onmouseout=noshow(2) src="/assets/img/star/0star.png">
+                                                         <img id =image3 onmouseover=show(3) onclick=mark(3) onmouseout=noshow(3) src="/assets/img/star/0star.png">
+                                                         <img id =image4 onmouseover=show(4) onclick=mark(4) onmouseout=noshow(4) src="/assets/img/star/0star.png">
+                                                         <img id =image5 onmouseover=show(5) onclick=mark(5) onmouseout=noshow(5) src="/assets/img/star/0star.png">
                                                          <span id=startext></span>
                                                          <input type="hidden" name="star"  id="star"> <!--히든넘기기-->
                                                          <input type="hidden" name="edId" value="${param.edId}"> <!--히든넘기기--> <!--임의의값임 수정 완료-->
@@ -721,7 +797,7 @@
                               <div class="footer__widget-head mb-22">
                                  <div class="footer__logo">
                                     <a href="index">
-                                       <img src="../assets/img/logo/logo-2.png" alt="">
+                                       <img src="/assets/img/logo/logo-2.png" alt="">
                                     </a>
                                  </div>
                               </div>
@@ -816,23 +892,23 @@
          </footer>
          <!-- footer area end -->
       <!-- JS here -->
-      <script src="../assets/js/vendor/jquery-3.5.1.min.js"></script>
-      <script src="../assets/js/vendor/waypoints.min.js"></script>
-      <script src="../assets/js/bootstrap.bundle.min.js"></script>
-      <script src="../assets/js/jquery.meanmenu.js"></script>
-      <script src="../assets/js/swiper-bundle.min.js"></script>
-      <script src="../assets/js/owl.carousel.min.js"></script>
-      <script src="../assets/js/jquery.fancybox.min.js"></script>
-      <script src="../assets/js/isotope.pkgd.min.js"></script>
-      <script src="../assets/js/parallax.min.js"></script>
-      <script src="../assets/js/backToTop.js"></script>
-      <script src="../assets/js/jquery.counterup.min.js"></script>
-      <script src="../assets/js/ajax-form.js"></script>
-      <script src="../assets/js/wow.min.js"></script>
-      <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
-      <script src="../assets/js/main.js"></script>
-      <script src="../assets/js/star.js"></script>
-      <script src="../assets/js/reviewAjax.js"></script>
+      <script src="/assets/js/vendor/jquery-3.5.1.min.js"></script>
+      <script src="/assets/js/vendor/waypoints.min.js"></script>
+      <script src="/assets/js/bootstrap.bundle.min.js"></script>
+      <script src="/assets/js/jquery.meanmenu.js"></script>
+      <script src="/assets/js/swiper-bundle.min.js"></script>
+      <script src="/assets/js/owl.carousel.min.js"></script>
+      <script src="/assets/js/jquery.fancybox.min.js"></script>
+      <script src="/assets/js/isotope.pkgd.min.js"></script>
+      <script src="/assets/js/parallax.min.js"></script>
+      <script src="/assets/js/backToTop.js"></script>
+      <script src="/assets/js/jquery.counterup.min.js"></script>
+      <script src="/assets/js/ajax-form.js"></script>
+      <script src="/assets/js/wow.min.js"></script>
+      <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+      <script src="/assets/js/main.js"></script>
+      <script src="/assets/js/star.js"></script>
+      <script src="/assets/js/reviewAjax.js"></script>
 
    </body>
 </html>
