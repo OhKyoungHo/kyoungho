@@ -26,32 +26,39 @@ public class WishListServiceImpl implements WishListService {
 		WishListVO wvo = new WishListVO();
 		wvo.setMemId(mvo);
 		wvo.setEdId(evo);
-		
-		
+
+
 		wishRepo.save(wvo);
 	};
-	*/
+	 */
 	public void insertWish(Integer memIdInt, Integer edId) {
 		wishRepo.insertWish(memIdInt, edId);
 	};
-	
 
-	//위시리스트 목록
-	public List<WishListVO> getWishList(MemberVO mIdInt){
-		WishListVO vo = new WishListVO();
-		List<WishListVO> list = wishRepo.findByMemIdInt(vo.getMemIdInt());
-		System.out.println(vo.getMemIdInt());
+
+	//위시리스트 목록(교육과정)
+	public List<Object[]> getWishList(Integer mIdInt){
+
+		List<Object[]> list = wishRepo.findByMemIdInt(mIdInt);
+
 		return list;
 	};
+
+//	//위시리스트 목록(강의)
+//	public List<Object[]> getWishListlec(Integer mIdInt){
+//		List<Object[]> list = wishRepo.findByMemIdIntlec(mIdInt);
+//
+//		return list;
+//	};
 
 	//위시리스트 삭제
 	public void deleteWish(Integer memIdInt, Integer edId){
 		wishRepo.deleteWish(memIdInt, edId);
 	};
-	
+
 	public WishListVO getWish(Integer memIdInt, Integer edId) {
 		//optional에서 값만 가져와야해서 get써줌
-		
+
 		return wishRepo.getWish(memIdInt, edId);
 	}
 

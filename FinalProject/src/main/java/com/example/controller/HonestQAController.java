@@ -12,7 +12,7 @@ import com.example.domain.MemberVO;
 import com.example.service.HonestQAService;
 
 @Controller
-@RequestMapping("/academy")
+@RequestMapping("/board")
 public class HonestQAController {
 
 	@Autowired
@@ -24,7 +24,7 @@ public class HonestQAController {
 		System.out.println(vo);
 		
 		honestQAService.insertHQ(vo);
-		return "redirect:honest-review-list2";
+		return "redirect:/board/honestQuestionList";
 	}
 	
 	// 솔직 질문 목록 띄우기

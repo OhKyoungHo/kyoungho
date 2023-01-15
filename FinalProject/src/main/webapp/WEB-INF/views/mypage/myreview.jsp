@@ -24,6 +24,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
     <link rel="stylesheet" href="/assets/css/default.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/wishlist.css" />
+    <link rel="stylesheet" href="/assets/css/onoff.css">
 
     <style>
       #accordionSidebar {
@@ -123,7 +124,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                  <a href="course-grid" class="cat-menu d-flex align-items-center">
                                     <div class="cat-dot-icon d-inline-block">
                                      
-                                       <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                                       <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
 
                                     </div>
                                 
@@ -157,8 +158,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                        <ul class="submenu">
                                           <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                           <li><a href="/academy/rank">학원 랭크</a></li>
-                                          <li><a href="/tutor">선생님</a></li>
-                                          <li><a href="/lecture">강의</a></li>
+                                          <li><a href="/lecture/tutor">선생님</a></li>
+                                          <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
@@ -227,8 +228,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                        <ul class="submenu">
                                           <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                           <li><a href="/academy/rank">학원 랭크</a></li>
-                                          <li><a href="/tutor">선생님</a></li>
-                                          <li><a href="/lecture">강의</a></li>
+                                          <li><a href="/lecture/tutor">선생님</a></li>
+                                          <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
@@ -487,8 +488,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                       data-parent="#accordionSidebar"
                     >
                       <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="academyList">회원정보 수정</a><br />
-                        <a class="collapse-item" href="admin/academyRegister">학원 탈퇴</a>
+                        <a class="collapse-item" href="/mypage/modify">회원정보 수정</a><br />
+                        <a class="collapse-item" href="/mypage/withdrawal">회원 탈퇴</a>
                       </div>
                     </div>
                   </li>
@@ -572,65 +573,104 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
               </div>
             </div>
 
+
+
+
+
+
+
+            <!--내가 작성한 국비/부트에서의 리뷰-->
             <div class="col-sm-9">
               <div class="accounthead mb-25">
-                 <h2 class="section__title "><span class="yellow-bg-sm">My Academy Review<img src="/assets/img/shape/yellow-bg-4.png" style="height:50px;"alt="">  </span></h2>
+                 <h2 class="section__title "><span class="yellow-bg-sm">My Academy Review<img src="../assets/img/shape/yellow-bg-4.png" style="height:50px;"alt="">  </span></h2>
               </div>
-                 <form action="#">
+
+                 <form action="myreview" method="get">
+                  <c:forEach items="${mypageReviewList1}" var="mypageReviewList1">
                     <div class="table-content table-responsive mb-40">
                       <table id="qnaTable" class="reviweTable">
                         <thead>
                           <tr>
-                            <th style="width:10%;">번호</th>
+                            <th style="width:10%;">리뷰번호</th>
                             <th style="width:15%;">해당강의</th>
-                            <th style="width:55%;">제목</th>
+                            <th style="width:55%;">리뷰내용</th>
                             <th style="width:20%;">작성일자</th>
                           </tr>
                         </thead>
                         <tbody>
+                          <!--  <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">안녕</a></td>-->
                             <tr>
-                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">안녕</a></td>
-                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">안녕</a></td>
-                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">안녕</a></td>
-                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">안녕</a></td>
+                           
+                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">${mypageReviewList1.RId}</a></td>
+                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">${mypageReviewList1.edId}</a></td>
+                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">${mypageReviewList1.reContent}</a></td>
+                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">${mypageReviewList1.reDate}</a></td>
+                           
                             </tr>
                         </tbody>
                       </table>
                     </div>
+                   
+                  </c:forEach>
                  </form>
-                 <div class="accounthead mb-25">
-                  <h2 class="section__title "><span class="yellow-bg-sm">My Lecture Review<img src="/assets/img/shape/yellow-bg-4.png" style="height:50px;" alt="">  </span></h2>
-               </div>
-                  <form action="#">
-                     <div class="table-content table-responsive">
-                       <table id="qnaTable" id="qnaTable">
-                         <thead>
-                           <tr>
-                             <th style="width:10%;">번호</th>
-                             <th style="width:15%;">해당강의</th>
-                             <th style="width:55%;">제목</th>
-                             <th style="width:20%;">작성일자</th>
-                           </tr>
-                         </thead>
-                         <tbody>
-                           <c:forEach items="${nList}" var="vo">
-                             <tr>
-                               <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">${vo.notify_seq}</a></td>
-                               <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">${vo.notify_writer}</a></td>
-                               <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">${vo.notify_title}</a></td>
-                               <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">${vo.nDate}</a></td>
-                             </tr>
-                           </c:forEach>
-                         </tbody>
-                       </table>
-                     </div>
-                  </form>
+
+                 
+                 <div class="row">
+                  <div class="col-xxl-12">
+                     <div class="basic-pagination wow fadeInUp mt-30" data-wow-delay=".2s">
+                        <ul class="d-flex align-items-center"> 
+                <!-- 페이지 그룹 -->
+      <!-- 시작블럭을 반복시작 인덱스로 종료블럭을 반복종료 인덱스로 설정  -->
+      <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
+         <!-- 현재페이지의 +1이 i랑 같은 경우 다음페이지로 이동하게 설정 -->
+         <!-- 현재페이지의 +1이 i랑 다른 경우 다음 페이지로 이동하게 설정-->
+         <c:choose>
+         <c:when test="${pageNumber+1 == i}">
+            <li>
+               <a href="myreview?page=${i}&m_idint=${param.m_idint}"><span id="a">${i}</span></a>
+            </li>
+         </c:when>
+         <c:otherwise>
+            <li><a href="myreview?page=${i}&m_idint=${param.m_idint}"><span id="b">${i}</span></a></li>
+         </c:otherwise>
+         </c:choose>
+         </c:forEach>
+         <!-- 맨마지막페이지 -->
+         <!-- last : 해당 페이지가 마지막 페이지인지 여부(true/false로 구분)-->
+         <!-- 해당페이지가 마지막인 경우에는 아무것도 설정안함-->
+         <!-- 해당 페이지가 마지막 페이지가 아닌경우-->
+         <!-- 마지막페이지로 이동 -->
+         <c:choose>     
+         <c:when test="${elist.last}"></c:when>
+         <c:otherwise>
+            <li class="next">
+               <a href="course-sidebar?page=${totalPages}" class="link-btn">
+               Next
+               <i class="arrow_right"></i>
+               <i class="arrow_right"></i>
+               </a>
+            </li>
+         </c:otherwise>
+         </c:choose>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+
+
            </div>
           </div>
         </div>
       </section>
       <!-- Cart Area End-->
     </main>
+
+
+
+
 
     <!-- footer area start -->
     <footer>

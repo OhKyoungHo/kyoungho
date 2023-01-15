@@ -24,6 +24,7 @@
       <link rel="stylesheet" href="/assets/css/elegantFont.css">
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/onoff.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -76,7 +77,7 @@
                                  <a href="course-grid" class="cat-menu d-flex align-items-center">
                                     <div class="cat-dot-icon d-inline-block">
                                      
-                                       <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                                       <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
 
                                     </div>
                                 
@@ -110,8 +111,8 @@
                                        <ul class="submenu">
                                           <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                           <li><a href="/academy/rank">학원 랭크</a></li>
-                                          <li><a href="/tutor">선생님</a></li>
-                                          <li><a href="/lecture">강의</a></li>
+                                          <li><a href="/lecture/tutor">선생님</a></li>
+                                          <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
@@ -180,8 +181,8 @@
                                        <ul class="submenu">
                                           <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                           <li><a href="/academy/rank">학원 랭크</a></li>
-                                          <li><a href="/tutor">선생님</a></li>
-                                          <li><a href="/lecture">강의</a></li>
+                                          <li><a href="/lecture/tutor">선생님</a></li>
+                                          <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
@@ -392,7 +393,7 @@
                         <nav aria-label="breadcrumb">
                            <ol class="breadcrumb">
                               <!--홈으로 이동하기 위해 index-2로 링크-->
-                              <li class="breadcrumb-item"><a href="index-2">main</a></li>
+                              <li class="breadcrumb-item"><a href="/academy/index">main</a></li>
                               <li class="breadcrumb-item active" aria-current="page">뉴스</li>
                            </ol>
                         </nav>

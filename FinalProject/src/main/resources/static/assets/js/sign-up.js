@@ -11,11 +11,11 @@ $(document).ready(function() {
 
 	//회원가입시 아이디 유효성 검사
 
-	$('#m_idstring').keyup(function() {	//keyup -> 버튼을 누를때만 하는게 아니라 글자 하나하나 바뀔 때 마다 극적인 효과는 나오지만 매번 DB와 비교해서 왔다갔다 하기 때문에  선호하지는 않음
+	$('#memIdString').keyup(function() {	//keyup -> 버튼을 누를때만 하는게 아니라 글자 하나하나 바뀔 때 마다 극적인 효과는 나오지만 매번 DB와 비교해서 왔다갔다 하기 때문에  선호되지는 않음
 		
 		$('#chkNotice').html('');
 
-		let memIdString = $('#m_idstring').val();
+		let memIdString = $('#memIdString').val();
 		let memIdCheck = /^[a-z0-9]{4,12}$/
 
 
@@ -24,7 +24,7 @@ $(document).ready(function() {
 		if (!memIdCheck.test(memIdString)) {
 			$("#chkNotice").html('4~12자의 영문 소문자와 숫자만 사용 가능합니다.<br><br>')
 			$("#chkNotice").css('color', '#dc3545');
-			$('#m_id').focus()
+			$('#memIdString').focus()
 			return false
 		}
 

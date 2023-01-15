@@ -22,7 +22,7 @@ public class ReviewVO {
    private Integer RId;
    
    @Column(name="m_idint")
-   private String memIdInt;
+   private Integer memIdInt;
    
    @Column(name="m_idstring")
    private String memIdString;

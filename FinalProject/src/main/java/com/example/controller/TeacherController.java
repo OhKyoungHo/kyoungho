@@ -21,12 +21,12 @@ import com.example.persistence.TeacherRepository;
 import com.example.service.TeacherService;
 
 @Controller
-@RequestMapping("/lecture/teacher")
+@RequestMapping("/lecture")
 public class TeacherController {
 	
 
-	   @Autowired
-	   private TeacherService teacherService;
+	   //@Autowired
+	  // private TeacherService teacherService;
 
 	   
 	   @Autowired
@@ -38,7 +38,7 @@ public class TeacherController {
 	   
 	   
 	   //선생님 리스트 얻어오기 및 페이징
-	   @GetMapping("/instructor")
+	   @GetMapping("/tutor")
 	   public String getTeacherList(Model m ,  
 			   @PageableDefault(size = 3, direction = Sort.Direction.DESC) Pageable paging,
 			   @RequestParam(required = false, defaultValue = "") String keywords) {
@@ -71,7 +71,7 @@ public class TeacherController {
 		    	  System.out.println(temp);
 		      }
 		      
-		   return "/lecture/teacher/instructor";
+		   return "/lecture/tutor";
 	   }
 	   
 	   
@@ -79,7 +79,7 @@ public class TeacherController {
 	   
 	   
 	   //선생님 상세페이지
-	   @GetMapping("/instructor-details")
+	   @GetMapping("/tutor-details")
 	   public String getDetailsTeacher(Model m, Integer teacherId) {
 		   
 		   
@@ -94,18 +94,15 @@ public class TeacherController {
 		  List<LectureVO> result2 = lectureRepository.findByTcId(teacherId);
 		  m.addAttribute("lecture", result2);
 		   
-			return "/lecture/teacher/instructor-details";
+			return "/lecture/tutor-details";
 
 	   }
 	   
 	   
 	   
-	  
 	   
 	   
-	   
-	   
-	   
+
 	   
 	   
 	   

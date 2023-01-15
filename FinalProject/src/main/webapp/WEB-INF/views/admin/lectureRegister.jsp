@@ -109,8 +109,8 @@
     <div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">FAQ 관리</a> 
-            <a class="collapse-item" href="">QnA 관리</a> 
+            <a class="collapse-item" href="/admin/reviewList">리뷰 관리</a> 
+            <a class="collapse-item" href="/admin/honestList">솔직답변 관리</a> 
             <a class="collapse-item" href="/admin/announcement_m">공지사항 관리</a>
         </div>
     </div></li>    
@@ -177,7 +177,7 @@
                 <div class="container-fluid">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">상품 등록</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">강의 등록</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -186,45 +186,36 @@
                                     
 								<tbody id="itemRegisterTbl">
                                         <tr> 
-                                            <td class="tblTitle" colspan="3" style="font-size: 16pt; font-weight: bold;">상품 정보</td> 
+                                            <td class="tblTitle" colspan="3" style="font-size: 16pt; font-weight: bold;">강의 정보</td> 
                                         </tr>
                                         <tr>
-                                            <th scope="row" style="width:20%;">상품명</th>
-                                            <td class="iValue" colspan="2"><input type="text" name="product_name" /></td>
+                                            <th scope="row" style="width:20%;">강의명</th>
+                                            <td class="iValue" colspan="2"><input type="hidden" name="vcTitle"  value="${lectureList.vcTitle}" />${lectureList.vcTitle}</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">재고 수</th>
-                                            <td class="iValue" colspan="2"><input type="text" name="product_stock"/></td>
+                                            <th scope="row">강의번호</th>
+                                            <td class="iValue" colspan="2"><input type="hidden" name="vcId" value="${lectureList.vcId}"/>${lectureList.vcId}</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">상품 번호</th>
-                                            <td class="iValue" colspan="2"><input type="text" name="product_number" readonly/></td>
+                                            <th scope="row">카테고리 키워드</th>
+                                            <td class="iValue" colspan="2"><input type="hidden" name="vcKeyword" value="${lectureList.vcKeyword}"/>${lectureList.vcKeyword}</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">카테고리 코드</th>
-                                            <td class="iValue" colspan="2"><input type="text" name="category_code" /></td>
-                                        </tr>
-                                         <tr>
-                                            <th scope="row" style="vertical-align: middle;">상품 배너</th>
-                                            <td class="iValue" id="addImg"  colspan="2">
-                                               <input type="file" name="file" id="input-file"/></td>
-                                        </tr>
-                                        <tr> <td class="tblTitle" colspan="3" style="font-size: 16pt; font-weight: bold;">판매 정보</td> </tr>
-                                        <tr style="margin-bottom: -5px;">
-                                            <th scope="row" style="vertical-align: middle;" >판매 가격</th>
-                                            <td class="iValue" colspan="2"><input type="text" name="product_price" style="margin-top: 7px"/></td>
+                                            <th scope="row">등록날짜</th>
+                                            <td class="iValue" colspan="2"><input type="hidden" name="vcDays" value="${lectureList.vcDays}"/>${lectureList.vcDays}</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" style="vertical-align: middle;">상세 설명</th>
-                                            <td class="iValue"  colspan="2" id="addImg">
-												<input type="file" name="file1" id="input-file" /></td>
+                                            <th scope="row">강의소개</th>
+                                            <td class="iValue" colspan="2"><input type="hidden" name="vcIntro" value="${lectureList.vc_intro}"/>${lectureList.vc_intro}</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="3"><textarea name="product_desc"></textarea></td>
+                                            <th scope="row">강의상세정보</th>
+                                            <td class="iValue" colspan="2"><input type="hidden" name="vc_content"  value="${lectureList.vc_content}"/>${lectureList.vc_content}</td>
                                         </tr>
                                         <tr>
                                             <td colspan="3" style="text-align: center;" >
-                                                <input type="submit" value="등록" style="background-color : #4e73df; width:70px; height:30px; font-size: 10pt; color: white; border-style: none; border-radius: 3px;" >
+                                                <input type="submit" value="승인" style="background-color : #4e73df; width:70px; height:30px; font-size: 10pt; color: white; border-style: none; border-radius: 3px;" >
+                                                <input type="submit" value="거절" style="background-color : #4e73df; width:70px; height:30px; font-size: 10pt; color: white; border-style: none; border-radius: 3px;" >
                                             </td>
                                         </tr>
                                     </tbody>

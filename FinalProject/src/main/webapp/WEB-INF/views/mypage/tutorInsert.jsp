@@ -25,6 +25,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/wishlist.css" />
     <link rel="stylesheet" href="../assets/css/allcss.css" />
+    <link rel="stylesheet" href="/assets/css/onoff.css">
 
     <style>
       #accordionSidebar {
@@ -113,7 +114,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
                   <div class="header__left d-flex">
                      <div class="logo">
-                        <a href="index">
+                        <a href="/startpage">
                            <img src="/assets/img/logo/logo.png" alt="logo">
                         </a>
                      </div>
@@ -124,7 +125,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                  <a href="course-grid" class="cat-menu d-flex align-items-center">
                                     <div class="cat-dot-icon d-inline-block">
                                      
-                                       <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                                       <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
 
                                     </div>
                                 
@@ -158,8 +159,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                        <ul class="submenu">
                                           <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                           <li><a href="/academy/rank">학원 랭크</a></li>
-                                          <li><a href="/tutor">선생님</a></li>
-                                          <li><a href="/lecture">강의</a></li>
+                                          <li><a href="/lecture/tutor">선생님</a></li>
+                                          <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
@@ -228,8 +229,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                        <ul class="submenu">
                                           <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                           <li><a href="/academy/rank">학원 랭크</a></li>
-                                          <li><a href="/tutor">선생님</a></li>
-                                          <li><a href="/lecture">강의</a></li>
+                                          <li><a href="/lecture/tutor">선생님</a></li>
+                                          <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
@@ -488,8 +489,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                       data-parent="#accordionSidebar"
                     >
                       <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="academyList">회원정보 수정</a><br />
-                        <a class="collapse-item" href="admin/academyRegister">학원 탈퇴</a>
+                        <a class="collapse-item" href="/mypage/modify">회원정보 수정</a><br />
+                        <a class="collapse-item" href="/mypage/withdrawal">회원 탈퇴</a>
                       </div>
                     </div>
                   </li>
@@ -512,11 +513,11 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                       data-parent="#accordionSidebar"
                     >
                       <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="academyList">리뷰관리</a><br />
-                        <a class="collapse-item" href="admin/academyRegister">1:1문의</a><br />
-                        <a class="collapse-item" href="admin/academyRegister">코딩게시판</a><br />
-                        <a class="collapse-item" href="admin/academyRegister">솔직답변</a><br />
-                        <a class="collapse-item" href="admin/academyRegister">학원 탈퇴</a>
+                        <a class="collapse-item" href="/mypage/myreview">리뷰관리</a><br />
+                        <a class="collapse-item" href="">1:1문의</a><br />
+                        <a class="collapse-item" href="">코딩게시판</a><br />
+                        <a class="collapse-item" href="/mypage/myquestion">솔직답변</a><br />
+                        <a class="collapse-item" href="">학원 탈퇴</a>
                       </div>
                     </div>
                   </li>
@@ -533,8 +534,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                     </a>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                       <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">관심학원리스트</a><br/> 
-                        <a class="collapse-item" href="#">관심강의리스트</a>
+                        <a class="collapse-item" href="/mypage/wishlistaca">관심학원리스트</a><br/> 
+                        <a class="collapse-item" href="/mypage/wishlistlec">관심강의리스트</a>
                       </div>
                     </div>
                   </li>
@@ -563,7 +564,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="/admin/member.do">
+                    <a class="nav-link" href="/mypage">
                       <i class="fas fa-fw fa-table"></i> <span>튜터등록</span>
                     </a>
                   </li>

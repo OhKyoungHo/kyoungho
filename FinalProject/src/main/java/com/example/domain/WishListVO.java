@@ -29,7 +29,12 @@ public class WishListVO {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="ed_id")
 	private EducationVO edId;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="vc_id")
+	private EducationVO vcId;
 
+	
 //
 //	public static WishListVO toWishListVO(MemberVO memId, EducationVO edId){
 //		WishListVO wishListVO = new WishListVO();

@@ -7,25 +7,28 @@ import com.example.domain.MemberVO;
 import com.example.domain.WishListVO;
 
 public interface WishListService {
-//	public int findLike(Integer edId, String memId);
-//	public int saveLike(Integer edId, String memId);
+	//	public int findLike(Integer edId, String memId);
+	//	public int saveLike(Integer edId, String memId);
 
-		//위시리스트 추가
-		//public void wishInsert(WishListVO vo);
-		public void insertWish(Integer memIdInt, Integer edId);
-		
-		//위시리스트 목록
-		public List<WishListVO> getWishList(MemberVO mIdInt);
-		
-		//위시리스트 삭제
-		public void deleteWish(Integer memIdInt, Integer edId);
-		
-		public WishListVO getWish(Integer memIdInt, Integer edId) ;
+	//위시리스트 추가
+	//public void wishInsert(WishListVO vo);
+	public void insertWish(Integer memIdInt, Integer edId);
 
-	
-		
-	
-		
+	//위시리스트 목록(교육과정)
+	public List<Object[]> getWishList(Integer mIdInt);
 
-	
+//	//위시리스트 목록(강의)
+//	public List<Object[]> getWishListlec(Integer mIdInt);
+
+	//위시리스트 삭제
+	public void deleteWish(Integer memIdInt, Integer edId);
+
+	public WishListVO getWish(Integer memIdInt, Integer edId) ;
+
+
+
+
+
+
+
 }

@@ -9,7 +9,7 @@
       
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>Educal – Online Learning and Education HTML5 Template </title>
+      <title>국비/부트캠프 상세페이지</title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Place favicon.ico in the root directory -->
@@ -28,6 +28,7 @@
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
       <link rel="stylesheet" href="/assets/css/allcss.css">
+      <link rel="stylesheet" href="/assets/css/onoff.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -77,10 +78,10 @@
                         <nav>
                            <ul>
                               <li>
-                                 <a href="course-grid" class="cat-menu d-flex align-items-center">
+                                 <a href="/lecture/index" class="cat-menu d-flex align-items-center">
                                     <div class="cat-dot-icon d-inline-block">
                                      
-                                       <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                                       <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
 
                                     </div>
                                 
@@ -228,7 +229,7 @@
                               </div>
                            </div>
                            <div class="header__btn ml-20 d-none d-sm-block">
-                              <a href="logoutMember" class="e-btn">로그아웃</a>
+                              <a href="/logoutMember" class="e-btn">로그아웃</a>
                            </div>
                            <div class="sidebar__menu d-xl-none">
                               <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">

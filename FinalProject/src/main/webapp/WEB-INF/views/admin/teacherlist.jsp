@@ -109,8 +109,8 @@
     <div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">FAQ 관리</a> 
-            <a class="collapse-item" href="">QnA 관리</a> 
+            <a class="collapse-item" href="/admin/reviewList">리뷰 관리</a> 
+            <a class="collapse-item" href="/admin/honestList">솔직답변 관리</a> 
             <a class="collapse-item" href="/admin/announcement_m">공지사항 관리</a>
         </div>
     </div></li>    
@@ -165,7 +165,7 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-dark" type="button">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
@@ -190,7 +190,7 @@
                                             placeholder="Search for..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
+                                            <button class="btn btn-dark" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
                                             </button>
                                         </div>
@@ -215,7 +215,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
+                                        <div class="icon-circle bg-dark">
                                             <i class="fas fa-file-alt text-white"></i>
                                         </div>
                                     </div>
@@ -364,7 +364,7 @@
                     <!-- 학원 목록 테이블 -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">선생님 목록</h6>
+                            <h6 class="m-0 font-weight-bold text-dark">선생님 목록</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -474,7 +474,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-dark" href="login.html">Logout</a>
                 </div>
             </div>
         </div>

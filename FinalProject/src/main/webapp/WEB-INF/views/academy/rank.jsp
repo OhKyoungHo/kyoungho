@@ -1,9 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
-      <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>랭킹페이지</title>
@@ -24,6 +24,7 @@
       <link rel="stylesheet" href="/assets/css/elegantFont.css">
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/onoff.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -76,7 +77,7 @@
                                     <a href="course-grid" class="cat-menu d-flex align-items-center">
                                        <div class="cat-dot-icon d-inline-block">
                                         
-                                          <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                                          <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
 
                                        </div>
                                    
@@ -227,7 +228,7 @@
                                  </div>
                               </div>
                               <div class="header__btn ml-20 d-none d-sm-block">
-                                 <a href="logoutMember" class="e-btn">로그아웃</a>
+                                 <a href="/logoutMember" class="e-btn">로그아웃</a>
                               </div>
                               <div class="sidebar__menu d-xl-none">
                                  <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
@@ -398,14 +399,14 @@
                   <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                      <div class="blog__item white-bg mb-30 transition-3 fix">
                         <div class="blog__thumb w-img fix">
-                           <a href="blog-details.html">
+                           <a href="#">
                               <!--sql 첫번쨰 인덱스를 출력, 해당 사진 -->
                               <img src="/assets/img/course/${rank[1]}" alt="" width='100' height='260'>
                            </a>
                         </div>
                         <div class="blog__content">
                            <!--sql 첫번쨰 인덱스를 출력, 해당 학원이름 -->
-                           <h3 class="blog__title"><a href="blog-details.html">${rank[0]}</a></h3>
+                           <h3 class="blog__title"><a href="#">${rank[0]}</a></h3>
                            <div class="blog__meta d-flex align-items-center justify-content-between">
                               <div class="blog__author d-flex align-items-center">
                                  <span><i class="icon_star"></i></span>
@@ -413,7 +414,7 @@
                                  <div>${rank[3]}</div>
                               </div>
                               <div class="blog__date d-flex align-items-center">
-                                 <a href="event-details.html" class="link-btn">
+                                 <a href="#" class="link-btn">
                                     View More
                                     <i class="far fa-arrow-right"></i>
                                     <i class="far fa-arrow-right"></i>
@@ -438,7 +439,7 @@
                               <!-- 나중에 순위 메길것 -->
                               <span><h4>4</h4></span>
                               <!--sql 첫번쨰 인덱스를 출력, 해당 학원이름 -->
-                              <h3 class="events__title"><a href="event-details.html">${rankOther[0]}</a></h3>
+                              <h3 class="events__title"><a href="#">${rankOther[0]}</a></h3>
                               <div class="events__content">
                                  <div class="events__meta">
                                     <!--sql 첫번쨰 인덱스를 출력, 해당 학원 후기 평균낸점수 -->
@@ -446,7 +447,7 @@
                                  </div>
                               </div>
                               <div class="events__more">
-                                 <a href="event-details.html" class="link-btn">
+                                 <a href="#" class="link-btn">
                                     View More
                                     <i class="far fa-arrow-right"></i>
                                     <i class="far fa-arrow-right"></i>

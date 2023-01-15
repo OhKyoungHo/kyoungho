@@ -109,8 +109,8 @@
     <div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">FAQ 관리</a> 
-            <a class="collapse-item" href="">QnA 관리</a> 
+            <a class="collapse-item" href="/admin/reviewList">리뷰 관리</a> 
+            <a class="collapse-item" href="/admin/honestList">솔직답변 관리</a> 
             <a class="collapse-item" href="/admin/announcement_m">공지사항 관리</a>
         </div>
     </div></li>    

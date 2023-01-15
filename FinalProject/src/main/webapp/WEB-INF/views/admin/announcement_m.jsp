@@ -109,8 +109,8 @@
     <div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">FAQ 관리</a> 
-            <a class="collapse-item" href="">QnA 관리</a> 
+            <a class="collapse-item" href="/admin/reviewList">리뷰 관리</a> 
+            <a class="collapse-item" href="/admin/honestList">솔직답변 관리</a> 
             <a class="collapse-item" href="/admin/announcement_m">공지사항 관리</a>
         </div>
     </div></li>    
@@ -180,7 +180,7 @@
                                 <h1 class="h3 mb-2 text-gray-800" style="text-align:center;"><b>공지</b></h1>
                                 <div style="text-align:right; margin-bottom: 10px;">
 
-                                    <a href="announcementInsert" class="btn btn-primary btn-icon-split">
+                                    <a href="announcementInsert" class="btn btn-dark btn-icon-split">
                                         <span class="icon text-white-50">`
                                             <i class="fas fa-flag"></i>
                                         </span>
@@ -191,7 +191,7 @@
                                 <!-- 상품목록 테이블 -->
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">공지사항 게시판 글 관리</h6>
+                                        <h6 class="m-0 font-weight-bold text-dark">공지사항 게시판 글 관리</h6>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
@@ -282,7 +282,7 @@
                             <div class="modal-footer" style="height:75px;">
                                 <button class="btn btn-secondary" type="button" style="border-radius: 10px;"
                                     data-dismiss="modal">취소</button>
-                                <a class="btn btn-primary" href="../logOut.do" style="border-radius: 10px;">로그아웃</a>
+                                <a class="btn btn-dark" href="../logOut.do" style="border-radius: 10px;">로그아웃</a>
                             </div>
                         </div>
                     </div>

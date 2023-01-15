@@ -24,6 +24,7 @@
       <link rel="stylesheet" href="/assets/css/elegantFont.css">
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/onoff.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -76,7 +77,7 @@
                                     <a href="course-grid" class="cat-menu d-flex align-items-center">
                                        <div class="cat-dot-icon d-inline-block">
                                         
-                                          <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                                          <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
 
                                        </div>
                                    
@@ -108,8 +109,8 @@
                                        <li class="has-dropdown">
                                           <a>화상</a>
                                           <ul class="submenu">
-                                             <li><a href="/tutor">선생님</a></li>
-                                             <li><a href="/lecture">강의</a></li>
+                                             <li><a href="/lecture/tutor">선생님</a></li>
+                                             <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                           </ul>
                                        </li>
                                        <li class="has-dropdown">
@@ -127,9 +128,12 @@
                                     </ul>
                                  </nav>
                               </div>
+
+
+
                               <div class="header__search p-relative ml-50 d-none d-md-block">
-                                 <form action="#">
-                                    <input type="text" placeholder="Search...">
+                                 <form action= /lecture/lecture-sidebar method="GET" role="search">
+                                    <input type="text" name ="keywords" placeholder="ex)수업명 검색">
                                     <button type="submit"><i class="fad fa-search"></i></button>
                                  </form>
                                  <div class="header__cart">
@@ -176,8 +180,8 @@
                                        <li class="has-dropdown">
                                           <a>화상</a>
                                           <ul class="submenu">
-                                             <li><a href="/tutor">선생님</a></li>
-                                             <li><a href="/lecture">강의</a></li>
+                                             <li><a href="/lecture/tutor">선생님</a></li>
+                                             <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                           </ul>
                                        </li>
                                        <li class="has-dropdown">
@@ -198,17 +202,7 @@
                               
                               
 
-                              <!-- 0103 찬주2
-                                 메인화면에서의 검색기능과 동일한 부분 
-                              -->
-
-                              <div class="header__search p-relative ml-50 d-none d-md-block">
-
-                                 <form id = "main" action=/academy/course-sidebar method="GET">
-                                    <input type="text" name ="keywords"  placeholder="ex)강의 및 선생님검색">
-                                    <button type="submit"><i class="fad fa-search"></i></button>
-                                 </form>
-                                 <!-- 검색 끝-->
+                              
 
                                  
                                  <div class="header__cart">
@@ -351,13 +345,6 @@
                   </a>
                </div>
                <div class="mobile-menu fix"></div>
-
-               <div class="sidebar__search p-relative mt-40 ">
-                  <form action="#">
-                     <input type="text" placeholder="Search...">
-                     <button type="submit"><i class="fad fa-search"></i></button>
-                  </form>
-               </div>
                <div class="sidebar__cart mt-30">
                   <a href="#">
                      <div class="header__cart-icon">

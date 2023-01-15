@@ -17,7 +17,7 @@ import com.example.persistence.AnnouncementRepository;
 import com.example.service.AnnouncementService;
 
 @Controller
-@RequestMapping("/academy")
+@RequestMapping("/board")
 public class AnnouncementController {
 
 	@Autowired
@@ -64,7 +64,7 @@ public class AnnouncementController {
 		m.addAttribute("startBlockPage", startBlockPage);
 		m.addAttribute("endBlockPage", endBlockPage);
 		m.addAttribute("announcementList", elist.getContent());
-		return "academy/announcement";
+		return "board/announcement";
 	}
 
 }	

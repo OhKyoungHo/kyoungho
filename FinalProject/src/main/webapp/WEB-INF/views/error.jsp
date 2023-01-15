@@ -24,6 +24,7 @@
       <link rel="stylesheet" href="/assets/css/elegantFont.css">
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/onoff.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -56,199 +57,199 @@
       <!-- back to top end -->
 
       <!-- header area start -->
-    <header>
-      <div id="header-sticky" class="header__area header__transparent header__padding header__white">
-         <div class="container-fluid">
-            <div class="row align-items-center">
+      <header>
+         <div id="header-sticky" class="header__area header__transparent header__padding header__white">
+            <div class="container-fluid">
+               <div class="row align-items-center">
 
-               <!--로고와 사이트 전환 이미지-->
-               <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
-                  <div class="header__left d-flex">
-                     <div class="logo">
-                        <a href="index">
-                           <img src="/assets/img/logo/logo.png" alt="logo">
-                        </a>
-                     </div>
-                     <div class="header__category d-none d-lg-block">
-                        <nav>
-                           <ul>
-                              <li>
-                                 <a href="course-grid" class="cat-menu d-flex align-items-center">
-                                    <div class="cat-dot-icon d-inline-block">
-                                     
-                                       <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                  <!--로고와 사이트 전환 이미지-->
+                  <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
+                     <div class="header__left d-flex">
+                        <div class="logo">
+                           <a href="/startpage">
+                              <img src="/assets/img/logo/logo.png" alt="logo">
+                           </a>
+                        </div>
+                        <div class="header__category d-none d-lg-block">
+                           <nav>
+                              <ul>
+                                 <li>
+                                    <a href="course-grid" class="cat-menu d-flex align-items-center">
+                                       <div class="cat-dot-icon d-inline-block">
+                                       
+                                          <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
 
-                                    </div>
-                                
-                                 </a>
+                                       </div>
                                  
-                              </li>
-                           </ul>
-                        </nav>
+                                    </a>
+                                    
+                                 </li>
+                              </ul>
+                           </nav>
+                        </div>
                      </div>
                   </div>
+
+                  <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
+                  <c:choose>
+                  <c:when test="${empty sessionScope.memIdInt}">
+
+                        <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
+                           <div class="eader__center align-items-center d-flex justify-content-center">
+                              <div class="main-menu main-menu-3">
+                                 <nav id="mobile-menu">
+                                    <ul>
+                                       <li class="has-dropdown">
+                                          <a href="/about">About</a>
+                                          <ul class="submenu">
+                                             <li><a href="/about">소개</a></li>
+                                             <li><a href="/map">지도</a></li>
+                                          </ul>
+                                       </li>
+                                       <li class="has-dropdown">
+                                          <a>학원/화상</a>
+                                          <ul class="submenu">
+                                             <li><a href="/academy/course-sidebar">학원 목록</a></li>
+                                             <li><a href="/academy/rank">학원 랭크</a></li>
+                                             <li><a href="/lecture/tutor">선생님</a></li>
+                                             <li><a href="/lecture/lecture-sidebar">강의</a></li>
+                                          </ul>
+                                       </li>
+                                       <li class="has-dropdown">
+                                          <a href="honestAnswer">게시판</a>
+                                          <ul class="submenu">
+                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             <li><a href="/board/codingBoard">코딩 게시판</a></li>
+                                             <li><a href="/board/newsList">뉴스</a></li>
+                                             <li><a href="/board/announcement">공지</a></li>
+                                          </ul>
+                                       </li>
+                                       <li>
+                                          <a href="/chatbot">챗봇</a>
+                                       </li>
+                                    </ul>
+                                 </nav>
+                              </div>
+                              <div class="header__search p-relative ml-50 d-none d-md-block">
+                                 <form action="#">
+                                    <input type="text" placeholder="Search...">
+                                    <button type="submit"><i class="fad fa-search"></i></button>
+                                 </form>
+                                 <div class="header__cart">
+                                    <a href="javascript:void(0);" class="cart-toggle-btn">
+                                       <div class="header__cart-icon">
+                                          <svg viewBox="0 0 24 24">
+                                             <circle class="st0" cx="9" cy="21" r="1"/>
+                                             <circle class="st0" cx="20" cy="21" r="1"/>
+                                             <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
+                                          </svg>
+                                       </div>
+                                       <span class="cart-item">2</span>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="header__btn ml-20 d-none d-sm-block">
+                                 <a href="/sign-in" class="e-btn">로그인</a>
+                              </div>
+                              <div class="sidebar__menu d-xl-none">
+                                 <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </c:when>
+                     <c:when test="${not empty sessionScope.memIdInt}">
+
+                        <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
+                           <div class="eader__center align-items-center d-flex justify-content-center">
+                              <div class="main-menu main-menu-3">
+                                 <nav id="mobile-menu">
+                                    <ul>
+                                       <li class="has-dropdown">
+                                          <a href="/about">About</a>
+                                          <ul class="submenu">
+                                             <li><a href="/about">소개</a></li>
+                                             <li><a href="/map">지도</a></li>
+                                          </ul>
+                                       </li>
+                                       <li class="has-dropdown">
+                                          <a>학원/화상</a>
+                                          <ul class="submenu">
+                                             <li><a href="/academy/course-sidebar">학원 목록</a></li>
+                                             <li><a href="/academy/rank">학원 랭크</a></li>
+                                             <li><a href="/lecture/tutor">선생님</a></li>
+                                             <li><a href="/lecture/lecture-sidebar">강의</a></li>
+                                          </ul>
+                                       </li>
+                                       <li class="has-dropdown">
+                                          <a>게시판</a>
+                                          <ul class="submenu">
+                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             <li><a href="/board/codingBoard">코딩 게시판</a></li>
+                                             <li><a href="/board/newsList">뉴스</a></li>
+                                             <li><a href="/board/announcement">공지</a></li>
+                                          </ul>
+                                       </li>
+                                       <li>
+                                          <a href="/chatbot">챗봇</a>
+                                       </li>
+                                    </ul>
+                                 </nav>
+                              </div>
+                              <!-- 0103 찬주2
+                                 메인화면에서의 검색기능과 동일한 부분 
+                              -->
+
+                              <div class="header__search p-relative ml-50 d-none d-md-block">
+
+                                 <form id = "main" action=/academy/course-sidebar method="GET">
+                                    <input type="text" name ="keywords"  placeholder="ex)교육과정 및 학원이름 검색">
+                                    <button type="submit"><i class="fad fa-search"></i></button>
+                                 </form>
+                                 <!-- 검색 끝-->
+
+
+
+
+                                 <div class="header__cart">
+                                    <a href="javascript:void(0);" class="cart-toggle-btn">
+                                       <div class="header__cart-icon">
+                                          <svg viewBox="0 0 24 24">
+                                             <circle class="st0" cx="9" cy="21" r="1"/>
+                                             <circle class="st0" cx="20" cy="21" r="1"/>
+                                             <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
+                                          </svg>
+                                       </div>
+                                       <span class="cart-item">2</span>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="header__btn ml-20 d-none d-sm-block">
+                                 <a href="logoutMember" class="e-btn">로그아웃</a>
+                              </div>
+                              <div class="sidebar__menu d-xl-none">
+                                 <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </c:when>
+            </c:choose>
+                  <!-- JSTL c:when 끝-->
+
                </div>
-
-               <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
-               <c:choose>
-                <c:when test="${empty sessionScope.memIdInt}">
-
-                     <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
-                        <div class="eader__center align-items-center d-flex justify-content-center">
-                           <div class="main-menu main-menu-3">
-                              <nav id="mobile-menu">
-                                 <ul>
-                                    <li class="has-dropdown">
-                                       <a href="/about">About</a>
-                                       <ul class="submenu">
-                                          <li><a href="/about">소개</a></li>
-                                          <li><a href="/map">지도</a></li>
-                                       </ul>
-                                    </li>
-                                    <li class="has-dropdown">
-                                       <a>학원/화상</a>
-                                       <ul class="submenu">
-                                          <li><a href="/academy/course-sidebar">학원 목록</a></li>
-                                          <li><a href="/academy/rank">학원 랭크</a></li>
-                                          <li><a href="/tutor">선생님</a></li>
-                                          <li><a href="/lecture">강의</a></li>
-                                       </ul>
-                                    </li>
-                                    <li class="has-dropdown">
-                                       <a href="honestAnswer">게시판</a>
-                                       <ul class="submenu">
-                                          <li><a href="/board/honestQuestionList">솔직 답변</a></li>
-                                          <li><a href="/board/codingBoard">코딩 게시판</a></li>
-                                          <li><a href="/board/newsList">뉴스</a></li>
-                                          <li><a href="/board/announcement">공지</a></li>
-                                       </ul>
-                                    </li>
-                                    <li>
-                                       <a href="/chatbot">챗봇</a>
-                                    </li>
-                                 </ul>
-                              </nav>
-                           </div>
-                           <div class="header__search p-relative ml-50 d-none d-md-block">
-                              <form action="#">
-                                 <input type="text" placeholder="Search...">
-                                 <button type="submit"><i class="fad fa-search"></i></button>
-                              </form>
-                              <div class="header__cart">
-                                 <a href="javascript:void(0);" class="cart-toggle-btn">
-                                    <div class="header__cart-icon">
-                                       <svg viewBox="0 0 24 24">
-                                          <circle class="st0" cx="9" cy="21" r="1"/>
-                                          <circle class="st0" cx="20" cy="21" r="1"/>
-                                          <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
-                                       </svg>
-                                    </div>
-                                    <span class="cart-item">2</span>
-                                 </a>
-                              </div>
-                           </div>
-                           <div class="header__btn ml-20 d-none d-sm-block">
-                              <a href="/sign-in" class="e-btn">로그인</a>
-                           </div>
-                           <div class="sidebar__menu d-xl-none">
-                              <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
-                                 <span class="line"></span>
-                                 <span class="line"></span>
-                                 <span class="line"></span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-
-                  </c:when>
-                  <c:when test="${not empty sessionScope.memIdInt}">
-
-                     <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
-                        <div class="eader__center align-items-center d-flex justify-content-center">
-                           <div class="main-menu main-menu-3">
-                              <nav id="mobile-menu">
-                                 <ul>
-                                    <li class="has-dropdown">
-                                       <a href="/about">About</a>
-                                       <ul class="submenu">
-                                          <li><a href="/about">소개</a></li>
-                                          <li><a href="/map">지도</a></li>
-                                       </ul>
-                                    </li>
-                                    <li class="has-dropdown">
-                                       <a>학원/화상</a>
-                                       <ul class="submenu">
-                                          <li><a href="/academy/course-sidebar">학원 목록</a></li>
-                                          <li><a href="/academy/rank">학원 랭크</a></li>
-                                          <li><a href="/tutor">선생님</a></li>
-                                          <li><a href="/lecture">강의</a></li>
-                                       </ul>
-                                    </li>
-                                    <li class="has-dropdown">
-                                       <a>게시판</a>
-                                       <ul class="submenu">
-                                          <li><a href="/board/honestQuestionList">솔직 답변</a></li>
-                                          <li><a href="/board/codingBoard">코딩 게시판</a></li>
-                                          <li><a href="/board/newsList">뉴스</a></li>
-                                          <li><a href="/board/announcement">공지</a></li>
-                                       </ul>
-                                    </li>
-                                    <li>
-                                       <a href="/chatbot">챗봇</a>
-                                    </li>
-                                 </ul>
-                              </nav>
-                           </div>
-                           <!-- 0103 찬주2
-                              메인화면에서의 검색기능과 동일한 부분 
-                           -->
-
-                           <div class="header__search p-relative ml-50 d-none d-md-block">
-
-                              <form id = "main" action=/academy/course-sidebar method="GET">
-                                 <input type="text" name ="keywords"  placeholder="ex)교육과정 및 학원이름 검색">
-                                 <button type="submit"><i class="fad fa-search"></i></button>
-                              </form>
-                              <!-- 검색 끝-->
-
-
-
-
-                              <div class="header__cart">
-                                 <a href="javascript:void(0);" class="cart-toggle-btn">
-                                    <div class="header__cart-icon">
-                                       <svg viewBox="0 0 24 24">
-                                          <circle class="st0" cx="9" cy="21" r="1"/>
-                                          <circle class="st0" cx="20" cy="21" r="1"/>
-                                          <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
-                                       </svg>
-                                    </div>
-                                    <span class="cart-item">2</span>
-                                 </a>
-                              </div>
-                           </div>
-                           <div class="header__btn ml-20 d-none d-sm-block">
-                              <a href="logoutMember" class="e-btn">로그아웃</a>
-                           </div>
-                           <div class="sidebar__menu d-xl-none">
-                              <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
-                                 <span class="line"></span>
-                                 <span class="line"></span>
-                                 <span class="line"></span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-
-                  </c:when>
-         </c:choose>
-               <!-- JSTL c:when 끝-->
-
             </div>
          </div>
-      </div>
-   </header>
-   <!-- header area end -->
+      </header>
+      <!-- header area end -->
 
       <!-- cart mini area start -->
       <div class="cartmini__area">
@@ -394,7 +395,7 @@
                         <div class="error__content">
                            <h3 class="error__title">Page Not Found!</h3>
                            <p>Please try searching for some other page.</p>
-                           <a href="index" class="e-btn e-btn-3 e-btn-4">Back To Home</a>
+                           <button class="e-btn e-btn-3 e-btn-4" onclick="bback()">뒤로가기</button>
                         </div>
                      </div>
                   </div>
@@ -526,6 +527,11 @@
       <script src="/assets/js/wow.min.js"></script>
       <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="/assets/js/main.js"></script>
+      <script>
+         function bback() {
+            history.back();
+         }
+      </script>
    </body>
 </html>
 

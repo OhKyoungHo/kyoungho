@@ -22,7 +22,7 @@ import com.example.service.LectureService;
 import com.example.service.ReviewService;
 
 @Controller
-@RequestMapping("/lecture/teacher")
+@RequestMapping("/lecture")
 public class LectureController {
 
 	@Autowired
@@ -48,10 +48,12 @@ public class LectureController {
 		System.out.println("order 값 확인:"+ order);
 
 		Page<LectureVO> elist = null;
-		if(order.equals("") ) {
+		if(order.equals("")) {
 			elist = lecRepo.AllSearchAndPagingQuery(paging, keywords, order);
 		}else if(order.equals("star")) {
 			elist = lecRepo.starDesc(paging, keywords, order);
+		}else if(order.equals("new")) {
+			elist = lecRepo.AllSearchAndPagingQuery(paging, keywords, order);
 		}
 
 		//현재페이지
@@ -77,7 +79,7 @@ public class LectureController {
 		m.addAttribute("avg",avg);
 
 		//리턴페이지의 디폴트 값
-		return "lecture/teacher/lecture-sidebar";
+		return "lecture/lecture-sidebar";
 
 	}
 
@@ -124,7 +126,7 @@ public class LectureController {
 		model.addAttribute("endBlockPage", endBlockPage);
 		model.addAttribute("reviewList", reviewList.getContent()); 
 
-		return "lecture/teacher/lecture-details";
+		return "lecture/lecture-details";
 	}//end of getBoard
 
 

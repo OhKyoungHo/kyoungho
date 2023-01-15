@@ -11,8 +11,8 @@ $(function() {
 			async: false,
 			success: function(result) {
 				Swal.fire({
-					icon: 'success',
-					title: "임시비밀번호 발송 완료",
+//					icon: 'error',
+//					title: "임시비밀번호 발송 완료",
 					text: result,
 				});
 			},
@@ -25,7 +25,7 @@ $(function() {
 				console.log(err);
 			}
 		})
-		return false;	//return 을 false 로 주지 않을 시, 계속 리다이렉트가 되면서 weet alert가 뜨지 않음
+		return false;	//return 을 false 로 주지 않을 시, 계속 리다이렉트가 되면서 sweet alert가 뜨지 않음
 	})
 
 	$("#findId").click(function() {

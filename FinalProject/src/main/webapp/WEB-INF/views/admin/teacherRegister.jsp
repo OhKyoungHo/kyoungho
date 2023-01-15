@@ -109,8 +109,8 @@
     <div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">FAQ 관리</a> 
-            <a class="collapse-item" href="">QnA 관리</a> 
+            <a class="collapse-item" href="/admin/reviewList">리뷰 관리</a> 
+            <a class="collapse-item" href="/admin/honestList">솔직답변 관리</a> 
             <a class="collapse-item" href="/admin/announcement_m">공지사항 관리</a>
         </div>
     </div></li>    
@@ -174,12 +174,15 @@
                 <!-- End of Topbar -->
 
 
+
+
+                
                 <!-- 수정-->
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">선생님 등록</h6>
+                            <h6 class="m-0 font-weight-bold text-dark">선생님 등록</h6>
                         </div>
 
                         <div class="card-body">
@@ -203,11 +206,6 @@
                                             <input type="hidden" name="tcName" value="${teacherRegister.tcName}">
                                         </tr>
                                         <tr>
-                                            <th scope="row">신청 날짜</th>
-                                            <td class="iValue" colspan="2"> ${teacherRegister.tcDate}</td>
-                                            <input type="date" name="tcDate" value="${teacherRegister.tcDate}">
-                                        </tr>
-                                        <tr>
                                             <th scope="row">강사 경력</th>
                                             <td class="iValue" colspan="2"> ${teacherRegister.tcSpec}</td>
                                             <input type="hidden" name="tcSpec" value="${teacherRegister.tcSpec}">
@@ -224,9 +222,13 @@
                                         </tr>
                                          <tr>
                                             <th scope="row" style="vertical-align: middle;">강사 사진등록</th>
+                                            
+                                            <c:if test = "${teacherRegister.teacherId != null}">
                                             <td class="iValue" id="addImg"  colspan="2">
                                                 <img src="../assets/img/course/${teacherRegister.tcPic}" alt="" width='300' height='300' ></td>
                                                 <input type="hidden" name="tcPic" value="${teacherRegister.tcPic}">
+                                            </c:if>  
+
                                         </tr>
                                         
                                         <!--히든존-->
@@ -235,12 +237,14 @@
 
 
                                         <tr>
+                                            <c:if test = "${teacherRegister.teacherId != null}">
                                             <td colspan="3" style="text-align: center;" >
                                                 <input type="submit" id= "t-btn" value="승인" 
                                                 style="background-color : #4e73df; width:70px; height:30px; font-size: 10pt; color: white; border-style: none; border-radius: 3px;" onclick="teacherBtn()">
                                                 <input type="submit" id= "f-btn" value="거절" 
                                                 style="background-color : #4e73df; width:70px; height:30px; font-size: 10pt; color: white; border-style: none; border-radius: 3px;" onclick="teacherBtn2()" > 
                                             </td>
+                                        </c:if>  
                                         </tr>
                                     </tbody>
 
@@ -257,6 +261,14 @@
 
 
                 <!-- /.container-fluid -->
+
+
+
+
+
+
+
+                
 
             </div>
             <!-- End of Main Content -->
@@ -298,7 +310,7 @@
 				<div class="modal-footer" style="height:75px;">
 					<button class="btn btn-secondary" type="button" style="border-radius: 10px;"
 						data-dismiss="modal">취소</button>
-					<a class="btn btn-primary" href="../logOut.do" style="border-radius: 10px;">로그아웃</a>
+					<a class="btn btn-dark" href="../logOut.do" style="border-radius: 10px;">로그아웃</a>
 				</div>
 			</div>
 		</div>

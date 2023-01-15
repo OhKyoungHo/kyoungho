@@ -15,7 +15,7 @@ import com.example.persistence.NewsRepository;
 import com.example.service.NewsService;
 
 @Controller
-@RequestMapping("/academy")
+@RequestMapping("/board")
 public class NewsController {
 
 	@Autowired
@@ -63,7 +63,7 @@ public class NewsController {
 	      m.addAttribute("startBlockPage", startBlockPage);
 	      m.addAttribute("endBlockPage", endBlockPage);
 	      m.addAttribute("newsList", elist.getContent());
-	      return "academy/newsList";
+	      return "board/newsList";
 	   }
 	   
 	

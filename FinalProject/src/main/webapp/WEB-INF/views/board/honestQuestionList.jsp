@@ -25,6 +25,7 @@
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
       <link rel="stylesheet" href="/assets/css/honest-review-list.css">
+      <link rel="stylesheet" href="/assets/css/onoff.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -77,7 +78,7 @@
                                  <a href="course-grid" class="cat-menu d-flex align-items-center">
                                     <div class="cat-dot-icon d-inline-block">
                                      
-                                       <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                                       <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
 
                                     </div>
                                 
@@ -111,12 +112,12 @@
                                        <ul class="submenu">
                                           <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                           <li><a href="/academy/rank">학원 랭크</a></li>
-                                          <li><a href="/tutor">선생님</a></li>
-                                          <li><a href="/lecture">강의</a></li>
+                                          <li><a href="/lecture/tutor">선생님</a></li>
+                                          <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
-                                       <a href="honestAnswer">게시판</a>
+                                       <a>게시판</a>
                                        <ul class="submenu">
                                           <li><a href="/board/honestQuestionList">솔직 답변</a></li>
                                           <li><a href="/board/codingBoard">코딩 게시판</a></li>
@@ -181,8 +182,8 @@
                                        <ul class="submenu">
                                           <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                           <li><a href="/academy/rank">학원 랭크</a></li>
-                                          <li><a href="/tutor">선생님</a></li>
-                                          <li><a href="/lecture">강의</a></li>
+                                          <li><a href="/lecture/tutor">선생님</a></li>
+                                          <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
@@ -392,7 +393,7 @@
                         <h3 class="page__title">Courses</h3>                         
                         <nav aria-label="breadcrumb">
                            <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="index">Home</a></li>
+                              <li class="breadcrumb-item"><a href="/academy/index">Home</a></li>
                               <li class="breadcrumb-item active" aria-current="page">Courses</li>
                            </ol>
                         </nav>

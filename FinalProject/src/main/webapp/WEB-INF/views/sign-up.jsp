@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
     <head>
+        <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <title>Educal – Online Learning and Education HTML5 Template</title>
@@ -24,6 +23,7 @@
         <link rel="stylesheet" href="/assets/css/elegantFont.css" />
         <link rel="stylesheet" href="/assets/css/default.css" />
         <link rel="stylesheet" href="/assets/css/style.css" />
+        <link rel="stylesheet" href="/assets/css/onoff.css">
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -58,16 +58,16 @@
         <!-- back to top end -->
 
         <!-- header area start -->
-    <header>
+      <header>
         <div id="header-sticky" class="header__area header__transparent header__padding header__white">
            <div class="container-fluid">
               <div class="row align-items-center">
-  
+
                  <!--로고와 사이트 전환 이미지-->
                  <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
                     <div class="header__left d-flex">
                        <div class="logo">
-                          <a href="index">
+                          <a href="/startpage">
                              <img src="/assets/img/logo/logo.png" alt="logo">
                           </a>
                        </div>
@@ -77,11 +77,11 @@
                                 <li>
                                    <a href="course-grid" class="cat-menu d-flex align-items-center">
                                       <div class="cat-dot-icon d-inline-block">
-                                       
-                                         <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
-  
+                                      
+                                         <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
+
                                       </div>
-                                  
+                                
                                    </a>
                                    
                                 </li>
@@ -90,11 +90,11 @@
                        </div>
                     </div>
                  </div>
-  
+
                  <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
                  <c:choose>
-                  <c:when test="${empty sessionScope.memIdInt}">
-  
+                 <c:when test="${empty sessionScope.memIdInt}">
+
                        <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
                           <div class="eader__center align-items-center d-flex justify-content-center">
                              <div class="main-menu main-menu-3">
@@ -112,8 +112,8 @@
                                          <ul class="submenu">
                                             <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                             <li><a href="/academy/rank">학원 랭크</a></li>
-                                            <li><a href="/tutor">선생님</a></li>
-                                            <li><a href="/lecture">강의</a></li>
+                                            <li><a href="/lecture/tutor">선생님</a></li>
+                                            <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                          </ul>
                                       </li>
                                       <li class="has-dropdown">
@@ -161,10 +161,10 @@
                              </div>
                           </div>
                        </div>
-  
+
                     </c:when>
                     <c:when test="${not empty sessionScope.memIdInt}">
-  
+
                        <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
                           <div class="eader__center align-items-center d-flex justify-content-center">
                              <div class="main-menu main-menu-3">
@@ -182,8 +182,8 @@
                                          <ul class="submenu">
                                             <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                             <li><a href="/academy/rank">학원 랭크</a></li>
-                                            <li><a href="/tutor">선생님</a></li>
-                                            <li><a href="/lecture">강의</a></li>
+                                            <li><a href="/lecture/tutor">선생님</a></li>
+                                            <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                          </ul>
                                       </li>
                                       <li class="has-dropdown">
@@ -204,18 +204,18 @@
                              <!-- 0103 찬주2
                                 메인화면에서의 검색기능과 동일한 부분 
                              -->
-  
+
                              <div class="header__search p-relative ml-50 d-none d-md-block">
-  
+
                                 <form id = "main" action=/academy/course-sidebar method="GET">
                                    <input type="text" name ="keywords"  placeholder="ex)교육과정 및 학원이름 검색">
                                    <button type="submit"><i class="fad fa-search"></i></button>
                                 </form>
                                 <!-- 검색 끝-->
-  
-  
-  
-  
+
+
+
+
                                 <div class="header__cart">
                                    <a href="javascript:void(0);" class="cart-toggle-btn">
                                       <div class="header__cart-icon">
@@ -241,11 +241,11 @@
                              </div>
                           </div>
                        </div>
-  
+
                     </c:when>
            </c:choose>
                  <!-- JSTL c:when 끝-->
-  
+
               </div>
            </div>
         </div>
@@ -408,12 +408,7 @@
                     <div class="row">
                         <div class="col-xxl-6 offset-xxl-3 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
                             <div class="sign__wrapper white-bg">
-                                <div class="sign__header mb-35">
-                                    <div class="sign__in text-center">
-                                        <a href="#" class="sign__social g-plus text-start mb-15"><i class="fab fa-google-plus-g"></i>Sign Up with Google</a>
-                                        <p><span>........</span> Or, <a href="sign-up">sign up</a> with your account<span> ........</span></p>
-                                    </div>
-                                </div>
+                                
                                 
                                 <div class="sign__form">
                                     <!-- bk 회원가입 버튼 액션-->
@@ -421,7 +416,7 @@
                                         <div class="sign__input-wrapper mb-25">
                                             <h5>ID</h5>
                                             <div class="sign__input">
-                                                <input type="text" placeholder="ID" id="m_idstring" name="memIdString" required/>                                                
+                                                <input type="text" placeholder="ID" id="memIdString" name="memIdString" required/>                                                
                                                 <i class="fal fa-user"></i>                                                
                                             </div>
                                             <!-- 유효성검사 js 연결(아이디) -->
@@ -655,7 +650,8 @@
         <script src="/assets/js/main.js"></script>
         <script src="/assets/js/jquery-3.6.3.min.js"></script>
         <script src="/assets/js/sign-up.js"></script>
-        <!-- Address API -->
+        
+        <!-- 카카오 주소 Address API -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
    
    <script type="text/javascript">

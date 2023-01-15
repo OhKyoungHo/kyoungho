@@ -54,10 +54,7 @@ public interface ReviewRepository extends JpaRepository<ReviewVO, Integer> {
           + "ORDER by avg DESC",  nativeQuery=true)
     List<Object[]>avgStar();
     
-    
-    
-    
-    
+
     
     //경호형추가
   //화상 별점평균용
@@ -71,5 +68,14 @@ public interface ReviewRepository extends JpaRepository<ReviewVO, Integer> {
 
 
     
+     //마이페이지에 내가 쓴 리뷰 가져오기 !
+     @Query(value = " SELECT * "
+             + " FROM review "
+             + " WHERE m_idint= 1339 ",
+              countQuery = " SELECT count(*) "
+                      + " FROM review "
+                      + " WHERE m_idint= 1339 ", 
+                      nativeQuery=true)
+     Page<ReviewVO> getMyReview1(Pageable paging, String temp_m_idint);
     
 }

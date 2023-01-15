@@ -62,6 +62,8 @@ public class EducationController {
        elist = eduRepo.AllSearchAndPagingQuery(paging, keywords, order);
       }else if(order.equals("star")) {
        elist = eduRepo.starDesc(paging, keywords, order);
+      }else if(order.equals("new")) {
+    	  elist = eduRepo.AllSearchAndPagingQuery(paging, keywords, order);
       }
       
       //현재페이지
@@ -87,7 +89,7 @@ public class EducationController {
       m.addAttribute("avg",avg);
 
       //리턴페이지의 디폴트 값
-      return "academy/course-sidebar";
+      return "/academy/course-sidebar";
    }//end of getAcademyList
    
 

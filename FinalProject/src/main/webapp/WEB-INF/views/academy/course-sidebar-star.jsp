@@ -6,7 +6,7 @@
       
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>Educal – Online Learning and Education HTML5 Template </title>
+      <title>국비/부트캠프 교육과정 목록 페이지  </title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Place favicon.ico in the root directory -->
@@ -25,6 +25,7 @@
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
       <link rel="stylesheet" href="/assets/css/wishlist.css"><!-- 0106 좋아요 버튼 관련 css -->
+      <link rel="stylesheet" href="/assets/css/onoff.css">
       <style>
          @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
          </style>
@@ -80,7 +81,7 @@
                                  <a href="course-grid" class="cat-menu d-flex align-items-center">
                                     <div class="cat-dot-icon d-inline-block">
                                      
-                                       <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                                       <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
 
                                     </div>
                                 
@@ -220,7 +221,7 @@
                               </div>
                            </div>
                            <div class="header__btn ml-20 d-none d-sm-block">
-                              <a href="logoutMember" class="e-btn">로그아웃</a>
+                              <a href="/logoutMember" class="e-btn">로그아웃</a>
                            </div>
                            <div class="sidebar__menu d-xl-none">
                               <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
@@ -506,7 +507,7 @@
                                              <div class="course__teacher-thumb mr-15">
                                                 <img src="/assets/img/course/charity.png" alt="">
                                              </div>
-                                             <h6><a href="instructor-details">${education.edName}</a></h6>
+                                             <h6><a href="#">${education.edName}</a></h6>
                                           </div>
                                           <div class="course__tag-2 mt-15">
                                              <!--0106 여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
@@ -540,7 +541,7 @@
                                        <div class="row gx-0">
                                           <div class="col-xxl-4 col-xl-4 col-lg-4">
                                              <div class="course__thumb course__thumb-list w-img p-relative fix">
-                                                <a href="course-details">
+                                                <a href="course-details?edId=${education.edId}">
                                                    <!--해당 교육과정 관련 이미지 저장 경로 지정-->
                                                    <img src="/assets/img/course/${education.ed_pic}" alt="" width='370' height='220' />
                                                 </a>
@@ -570,13 +571,13 @@
 
                                                    </div>
                                                    <h3 class="course__title">
-                                                      <a href="course-details">${education.edTitle}</a>
+                                                      <a href="course-details?edId=${education.edId}">${education.edTitle}</a>
                                                    </h3>
                                                    <div class="course__teacher d-flex align-items-center">
                                                       <div class="course__teacher-thumb mr-15">
                                                          <img src="/assets/img/course/charity.png" alt="">
                                                       </div>
-                                                      <h6><a href="instructor-details">${education.edName}</a></h6>
+                                                      <h6><a href="">${education.edName}</a></h6>
                                                    </div>
                                                    <div class="course__tag-2 mt">
                                                       <!--여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
@@ -589,7 +590,7 @@
                                                       <span>${education.ed_price}원</span>
                                                    </div>
                                                    <div class="course__btn">
-                                                      <a href="course-details" class="link-btn">
+                                                      <a href="course-details?edId=${education.edId}" class="link-btn">
                                                          상세보기
                                                          <i class="far fa-arrow-right"></i>
                                                          <i class="far fa-arrow-right"></i>

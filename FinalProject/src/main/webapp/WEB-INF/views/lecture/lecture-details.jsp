@@ -27,6 +27,7 @@
       <link rel="stylesheet" href="/assets/css/elegantFont.css">
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/onoff.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -79,7 +80,7 @@
                                     <a href="course-grid" class="cat-menu d-flex align-items-center">
                                        <div class="cat-dot-icon d-inline-block">
                                         
-                                          <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                                          <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
 
                                        </div>
                                    
@@ -689,7 +690,7 @@
                                  </li>
                               </c:when>
                               <c:otherwise>
-                                 <li><a href="lecture-details?page=${i}&edId=${param.vcId}"><span id="b">${i}</span></a></li>
+                                 <li><a href="lecture-details?page=${i}&vcId=${param.vcId}"><span id="b">${i}</span></a></li>
                               </c:otherwise>
                               </c:choose>
                               </c:forEach>
