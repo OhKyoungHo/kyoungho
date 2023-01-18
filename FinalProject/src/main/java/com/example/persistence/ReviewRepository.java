@@ -68,14 +68,27 @@ public interface ReviewRepository extends JpaRepository<ReviewVO, Integer> {
 
 
     
-     //마이페이지에 내가 쓴 리뷰 가져오기 !
+     //마이페이지에 국비부트에서 쓴 리뷰 가져오기 !
      @Query(value = " SELECT * "
              + " FROM review "
-             + " WHERE m_idint= 1339 ",
+             + " WHERE m_idint= ?1 AND ed_id IS NOT NULL ",
               countQuery = " SELECT count(*) "
                       + " FROM review "
-                      + " WHERE m_idint= 1339 ", 
+                      + " WHERE m_idint= ?1 AND ed_id IS NOT NULL ", 
                       nativeQuery=true)
      Page<ReviewVO> getMyReview1(Pageable paging, String temp_m_idint);
+     
+     
+     
+     //마이페이지에 국비부트에서 쓴 리뷰 가져오기 !
+     @Query(value = " SELECT * "
+             + " FROM review "
+             + " WHERE m_idint= ?1 AND vc_id IS NOT NULL ",
+              countQuery = " SELECT count(*) "
+                      + " FROM review "
+                      + " WHERE m_idint= ?1 AND vc_id IS NOT NULL ", 
+                      nativeQuery=true)
+     Page<ReviewVO> getMyReview2(Pageable paging, String temp_m_idint);
+    
     
 }

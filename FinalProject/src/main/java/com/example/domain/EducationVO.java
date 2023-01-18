@@ -29,24 +29,46 @@ public class EducationVO {
    @Column(name="ed_name", nullable=false)
    private String edName;
    
-   private Date ed_enlist_date;
-   private Date ed_start_date;
-   private Date ed_end_date;
-   private String ed_addr;
-   private Integer ed_price;
-   private String ed_intro;
+   @Column(name="ed_enlist_date", nullable=false)
+   private String edEnlistDate;
+   
+   @Column(name="ed_start_date", nullable=false)
+   private String edStartDate;
+   
+   @Column(name="ed_end_date", nullable=false)
+   private String edEndDate;
+   
+   @Column(name="ed_addr", nullable=false)
+   private String edAddr;
+   
+   @Column(name="ed_price", nullable=false)
+   private String edPrice; //수강비
+   
+   @Column(name="ed_intro", nullable=false)
+   private String edIntro;
+   
    //0108 일요일 찬주추가
+   
    @Column(name="ed_keyword", nullable=false)
    private String edKeyword;
    
-   private String ed_time;
-   private String ed_comm;
-   private String ed_curriculum;
-   private Boolean ed_tf;
-   private String ed_pic;
+   @Column(name="ed_time", nullable=false)
+   private String edTime;
+   
+   @Column(name="ed_comm", nullable=false)
+   private String edComm;
+   
+   @Column(name="ed_curriculum", nullable=false)
+   private String edCurriculum;
+   
+   @Column(name="ed_tf")
+   private Boolean edTf;
+   
+   @Column(name="ed_pic", nullable=false)
+   private String edPic;
    
    @Column(name="ed_days", nullable=false)
-   private Date edDays; //찬주 변경 학원등록날짜
+   private String edDays; //찬주 변경 학원등록날짜
    
    //각 교육별 평균 점이 달라야 하기에 추가
    private Integer avg;

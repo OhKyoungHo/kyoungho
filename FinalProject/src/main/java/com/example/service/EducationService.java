@@ -21,5 +21,10 @@ public interface EducationService {
    //교육과정 삭제
    void deleteAcademy(EducationVO vo);
    
+   
+   //찬주
+   //교육등록
+   void insertEducation(EducationVO vo);
+   
 
 }

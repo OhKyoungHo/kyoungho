@@ -26,6 +26,9 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
     <link rel="stylesheet" href="../assets/css/wishlist.css" />
     <link rel="stylesheet" href="../assets/css/allcss.css" />
     <link rel="stylesheet" href="/assets/css/onoff.css">
+    <!--섬머노트용 css-->
+    <link rel="stylesheet" href="/assets/css/summernote/summernote-lite.css">
+    
 
     <style>
       #accordionSidebar {
@@ -564,8 +567,14 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="/mypage">
+                    <a class="nav-link" href="/mypage/tutorInsert">
                       <i class="fas fa-fw fa-table"></i> <span>튜터등록</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="/mypage/educationInsert">
+                      <i class="fas fa-fw fa-table"></i> <span>학원등록</span>
                     </a>
                   </li>
 
@@ -603,23 +612,33 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                         
                                             <!-- readonly 넣으면 값을 못바꿈 회원가입했을때 이름가져오게 한다음 고정시킬까?-->
                                               <th scope="row" style="width:20%;">강사 이름</th>
-                                              <td class="iValue" colspan="2"><input type="text" name="tcName"  id = "tcName"  /></td>
+                                              <td class="iValue" colspan="2"><input type="text" name="tcName"  id = "tcName"  /><span style="font-size: 9pt; color: red; " >(필수조건)</span></td>
                                           </tr>
                                           <tr>
                                               <th scope="row">강사 경력</th>
                                               <td class="iValue" colspan="2"><input type="text" 
-                                                name="tcSpec"  id = "tcSpec" style = "width:500px;"  placeholder="ex) 00대학교 학사 / (주)00근무 / 00학원강사" ></td>
+                                                name="tcSpec"  id = "tcSpec" style = "width:500px;"  placeholder="ex) 00대학교 학사 / (주)00근무 / 00학원강사" ><span style="font-size: 9pt; color: red; " >(필수조건)</span></td>
                                           </tr>
                                           <tr>
                                               <th scope="row">수업 키워드</th>
                                               <td class="iValue" colspan="2"><input type="text" 
-                                                name="tcKeyword"  id = "tcKeyword" style = "width:500px;" placeholder="ex) javascript / 비동기처리 / JAVA"/></td>
+                                                name="tcKeyword"  id = "tcKeyword" style = "width:500px;" placeholder="ex) javascript / 비동기처리 / JAVA"/><span style="font-size: 9pt; color: red; " >(필수조건)</span></td>
                                           </tr>
+
+                                          
+
+                                           <!-- 섬머노트 들어갈 자리-->
                                           <tr>
                                               <th scope="row">강사 소개글</th>
-                                              <td class="iValue" colspan="2"><textarea type="text" 
-                                                name="tcIntro"  id = "tcIntro" style = "width:500px;height:200px"></textarea></td>
+                                              <td >
+                                                <form method="post">
+                                                <textarea type="text"  name="tcIntro"  id = "summernote" ></textarea>
+                                                </form>
+                                              </td>
                                           </tr>
+
+
+                                         
                                            <tr>
                                               <th scope="row" style="vertical-align: middle;">강사 사진등록</th>
                                               <td class="iValue" id="addImg"  colspan="2">
@@ -673,8 +692,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                     <div class="div2">강사 이름 > 필수</div>
                     <div class="div2">강사 경력 > 필수</div>
                     <div class="div2">수업 키워드 > 필수</div>
-                    <div class="div2">선생님 소개글  > 필수</div>
-                    <div class="div2">사진파일  > 필수</div>
+                    <div class="div2">선생님 소개글  > 선택</div>
+                    <div class="div2">사진파일  > 선택</div>
                  </div>
                  <input type="hidden" id="hq_cat" name="hq_category">
               </div>
@@ -829,5 +848,9 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
     <!--0106 좋아요 버튼 관련 ajax-->
     <!-- Bootstrap core JavaScript-->
     <script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!--서머노트용 js-->
+    <script src="../assets/js/summernote/summernote-lite.js"></script>
+    <script src="../assets/js/summernote/summ.js"></script>
+    <script src="../assets/js/summernote/lang/summernote-ko-KR.js"></script>
   </body>
 </html>

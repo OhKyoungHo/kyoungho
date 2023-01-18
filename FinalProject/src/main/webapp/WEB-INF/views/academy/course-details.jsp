@@ -424,10 +424,14 @@
                            <div class="course__update mr-80 mb-20">
                               <h5>교육과정 기간</h5>
                                 <!--날짜의 값이 들어가도록 세팅 -->
-                              <p><fmt:formatDate value="${education.ed_start_date}" pattern="yyyy.MM.dd" /> ~ <fmt:formatDate value="${education.ed_end_date}" pattern="yyyy.MM.dd" /> </p>
+                              <p>${education.edStartDate} ~ ${education.edEndDate} </p>
                            </div>
 
-                           
+                           <div class="course__lesson"> <!--0106 좋아요버튼-->
+                              <span> <a href="/mypage/wishInsert?memIdInt=${sessionScope.memIdInt}&edId=${education.edId}">
+                                 <input type="image" style="width:10px;" class="icon.heart" src="/assets/img/course/off.png" alt="찜하기" id="likeImg">
+                            </a></span>
+                           </div>
                          
                                <!--0105 찬주 별점1  평균 부분 나오는 작은부분-->
                            <div class="course__rating-2 mb-20">
@@ -470,7 +474,7 @@
                        </div>
                         <!--해당 교육과정 이미지-->
                         <div class="course__img w-img mb-30">
-                           <img src="/assets/img/course/${education.ed_pic}" alt="" width='770' height='450'>
+                           <img src="/assets/img/course/${education.edPic}" alt="" width='770' height='450'>
                         </div>
                          <!--교육과정 관련 tab부분 -->
                         <div class="course__tab-2 mb-45">
@@ -496,7 +500,7 @@
                                  <div class="course__description">
                                     <h3>${education.edTitle}</h3>
                                      <!--상세내용(크롤링해서 넣기)-->
-                                    <p>${education.ed_intro}</p>
+                                    <p>${education.edIntro}</p>
 
                                     
                                     <div class="course__description-list mb-45">
@@ -743,7 +747,7 @@
                                                    <div class="course__form-input">
                                                       <!--아이디값 저장 지금은 그냥 임의의 값 넣어줌-->
                                                       <!--참고로 re_id 는 시퀀스라 자동이고 날짜도 자동으로 들어가게 해놓음-->
-                                                      <input type="text" name="memIdString" value="bcj0825"  id = memIdString> <!-- "${sessionScope.memIdInt}"-->
+                                                      <input type="text" name="memIdString" value="${sessionScope.memIdString}"  id = memIdString> <!-- "${sessionScope.memIdString}"-->
                                                       <input type="hidden" name="memIdInt" value="17"  id = memIdInt> <!-- "${sessionScope.memIdInt}"-->
                                                       
                                                    </div>

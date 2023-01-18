@@ -18,36 +18,24 @@ public interface WishListRepository extends CrudRepository<WishListVO, Integer>{
 			+ "e.ed_start_date as ed_start_date,\n"
 			+ "e.ed_end_date as ed_end_date\n"
 			+ "FROM wishlist w, education e\n"
-			+ "WHERE  e.ed_id = w.ed_id AND w.m_idint=?", nativeQuery=true)
+			+ "WHERE  e.ed_id = w.ed_id AND w.m_idint=?\n"
+			+ "ORDER BY w.w_id DESC"
+			, nativeQuery=true)
 	List<Object[]> findByMemIdInt(Integer memIdInt);
-	
-//	@Query(value="SELECT v.vc_title as vc_title,\n"
-//			+ "w.w_id AS w_id, w.m_idint AS m_idint,\n"
-//			+ "	v.vc_pic as vc_pic,\n"
-//			+ "	v.vc__id as vc_id,\n"
-//			+ "v.vc_days as vc_days\n"
-//			+ "FROM wishlist w, vchat_class v\n"
-//			+ "WHERE  v.vc_id = w.vc_id AND w.m_idint=?", nativeQuery=true)
-//	List<Object[]> findByMemIdIntlec(Integer memIdInt);
-//	
 
 
 	//Optional<WishListVO> findByMemId(MemberVO memId);
-	
-	
+
+	//위시리스트 입력
 	@Query(value="INSERT INTO wishlist (w_id, m_idint, ed_id) VALUES(nextval(w_id_seq), ?1, ?2)", nativeQuery=true)
 	void insertWish(Integer memIdInt, Integer edId);
-	
-	@Query(value="DELETE FROM wishlist WHERE m_idint=?1 AND e_id=?2", nativeQuery=true)
-	void deleteWish(Integer memIdInt, Integer edId);
+
+	//위시리스트 삭제
+	@Query(value="DELETE FROM wishlist WHERE m_idint=?1 AND w_id=?2", nativeQuery=true)
+	void deleteWish(Integer memIdInt, Integer wId);
 
 	@Query(value="SELECT * FROM wishlist WHERE m_idint =?1 AND ed_id =?2", nativeQuery=true)
 	WishListVO getWish(Integer memIdInt, Integer edId);
 
 
-	
-	
-//	void  deleteByEdIdAndMemId(Integer edId, String memId);
-//		
-	
 }

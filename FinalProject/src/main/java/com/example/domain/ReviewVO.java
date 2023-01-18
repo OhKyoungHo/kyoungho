@@ -36,9 +36,10 @@ public class ReviewVO {
    @Column(name="re_content")
    private String reContent; //리뷰작성글
    
-   private Integer vc_id;
+   @Column(name="vc_id")
+   private Integer vcId;
    
-   @Column(name="ed_id", nullable=false)
+   @Column(name="ed_id")
    private Integer edId;
    
    @PrePersist

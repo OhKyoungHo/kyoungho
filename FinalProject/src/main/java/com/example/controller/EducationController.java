@@ -104,7 +104,7 @@ public class EducationController {
 
       //기본 학원디테일 정보
       EducationVO result = eduService.getBoard(vo);
-      String[] a = result.getEd_curriculum().split("\\+");
+      String[] a = result.getEdCurriculum().split("\\+");
       model.addAttribute("title", a);
       model.addAttribute("education", result); // Model 정보 저장    
       System.out.println("re 값 확인:"+ edId);

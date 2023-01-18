@@ -98,7 +98,7 @@
 
                   <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
                   <c:choose>
-							<c:when test="${empty sessionScope.memIdInt}">
+                     <c:when test="${empty sessionScope.memIdInt}">
 
                         <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
                            <div class="eader__center align-items-center d-flex justify-content-center">
@@ -166,7 +166,7 @@
                         </div>
 
                      </c:when>
-							<c:when test="${not empty sessionScope.memIdInt}">
+                     <c:when test="${not empty sessionScope.memIdInt}">
 
                         <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
                            <div class="eader__center align-items-center d-flex justify-content-center">
@@ -244,7 +244,7 @@
                         </div>
 
                      </c:when>
-						</c:choose>
+                  </c:choose>
                   <!-- JSTL c:when 끝-->
 
                </div>
@@ -485,7 +485,7 @@
                                           <a href="course-details?edId=${education.edId}">
                                          
                                              <!--해당 교육과정 관련 이미지 저장 경로 지정-->
-                                             <img src="/assets/img/course/${education.ed_pic}" alt="" width='370' height='260' >
+                                             <img src="/assets/img/course/${education.edPic}" alt="" width='370' height='260' >
                                           </a>
                                           <div class="course__tag">
                                              <!-- 국비/ 부트캠프 인지-->
@@ -521,7 +521,7 @@
                                              </div>
                                              <h6><a href="#">${education.edName}</a></h6>
                                           </div>
-                                          <div class="course__tag-2 mt-15">30
+                                          <div class="course__tag-2 mt-15">
                                              <!--0106 여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
                                            <span><i class="fal fa-tag"></i>
                                             ${education.edKeyword}</span>
@@ -529,7 +529,7 @@
                                        </div>
                                        <div class="course__more d-flex justify-content-between align-items-center">
                                           <div class="course__status">
-                                             <span>${education.ed_price}원</span>
+                                             <span>${education.edPrice}</span>
                                           </div>
                                           <div class="course__btn">
                                              <a href="course-details?edId=${education.edId}" class="link-btn">
@@ -555,7 +555,7 @@
                                              <div class="course__thumb course__thumb-list w-img p-relative fix">
                                                 <a href="course-details?edId=${education.edId}">
                                                    <!--해당 교육과정 관련 이미지 저장 경로 지정-->
-                                                   <img src="/assets/img/course/${education.ed_pic}" alt="" width='370' height='220' />
+                                                   <img src="/assets/img/course/${education.edPic}" alt="" width='370' height='220' />
                                                 </a>
                                                 <div class="course__tag">
                                                    <a href="#">국비인지 부트인지</a>
@@ -599,7 +599,7 @@
                                                 </div>
                                                 <div class="course__more course__more-2 course__more-3 d-flex justify-content-between align-items-center">
                                                    <div class="course__status">
-                                                      <span>${education.ed_price}원</span>
+                                                      <span>${education.edPrice}원</span>
                                                    </div>
                                                    <div class="course__btn">
                                                       <a href="course-details?edId=${education.edId}" class="link-btn">

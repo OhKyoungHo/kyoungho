@@ -6,9 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.domain.EducationVO;
-import com.example.domain.MemberVO;
 import com.example.domain.WishListVO;
+import com.example.persistence.JjimRepository;
 import com.example.persistence.WishListRepository;
 
 @Service
@@ -16,6 +15,9 @@ public class WishListServiceImpl implements WishListService {
 
 	@Autowired
 	private WishListRepository wishRepo;
+	
+	@Autowired
+	private JjimRepository jjimRepo;
 
 	/*
 	//위시리스트 추가
@@ -31,6 +33,7 @@ public class WishListServiceImpl implements WishListService {
 		wishRepo.save(wvo);
 	};
 	 */
+	//위시리스트 추가
 	public void insertWish(Integer memIdInt, Integer edId) {
 		wishRepo.insertWish(memIdInt, edId);
 	};
@@ -44,24 +47,34 @@ public class WishListServiceImpl implements WishListService {
 		return list;
 	};
 
-//	//위시리스트 목록(강의)
-//	public List<Object[]> getWishListlec(Integer mIdInt){
-//		List<Object[]> list = wishRepo.findByMemIdIntlec(mIdInt);
-//
-//		return list;
-//	};
+	//위시리스트 목록(강의)
+	public List<Object[]> getWishListlec(Integer mIdInt){
+		List<Object[]> list = jjimRepo.findByMemIdIntlec(mIdInt);
+
+		return list;
+	};
 
 	//위시리스트 삭제
-	public void deleteWish(Integer memIdInt, Integer edId){
-		wishRepo.deleteWish(memIdInt, edId);
+	public void deleteWish(Integer memIdInt, Integer wId){
+		wishRepo.deleteWish(memIdInt, wId);
 	};
 
 	public WishListVO getWish(Integer memIdInt, Integer edId) {
 		//optional에서 값만 가져와야해서 get써줌
 
 		return wishRepo.getWish(memIdInt, edId);
-	}
+	};
 
+
+	//찜리스트 추가
+	public void insertJjim(Integer memIdInt, Integer vcId) {
+		jjimRepo.insertJjim(memIdInt, vcId);
+	};
+
+	//찜리스트 삭제
+	public void deleteJjim(Integer memIdInt, Integer jjId){
+		jjimRepo.deleteJjim(memIdInt, jjId);
+	};
 
 
 }

@@ -84,6 +84,7 @@ public class MemberController {
    // 로그아웃
    @RequestMapping("logoutMember")
    public String logoutMember(HttpSession session) {
+	   System.out.println("로그아웃");
       session.removeAttribute("memIdInt");
       session.removeAttribute("memIdString");
       return "redirect:/academy/index";

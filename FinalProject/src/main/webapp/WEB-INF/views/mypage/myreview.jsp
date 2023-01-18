@@ -512,11 +512,9 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                       data-parent="#accordionSidebar"
                     >
                       <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="academyList">리뷰관리</a><br />
-                        <a class="collapse-item" href="admin/academyRegister">1:1문의</a><br />
-                        <a class="collapse-item" href="admin/academyRegister">코딩게시판</a><br />
+                        <a class="collapse-item" href="myreview">국비/부트 리뷰관리</a><br />
+                        <a class="collapse-item" href="myreview2">화상/학원 리뷰관리</a><br />
                         <a class="collapse-item" href="admin/academyRegister">솔직답변</a><br />
-                        <a class="collapse-item" href="admin/academyRegister">학원 탈퇴</a>
                       </div>
                     </div>
                   </li>
@@ -583,7 +581,9 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
             <div class="col-sm-9">
               <div class="accounthead mb-25">
                  <h2 class="section__title "><span class="yellow-bg-sm">My Academy Review<img src="../assets/img/shape/yellow-bg-4.png" style="height:50px;"alt="">  </span></h2>
+                 
               </div>
+              <h6><학원번호 클릭시 해당 학원으로 넘어갑니다></h6>
 
                  <form action="myreview" method="get">
                   <c:forEach items="${mypageReviewList1}" var="mypageReviewList1">
@@ -592,7 +592,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                         <thead>
                           <tr>
                             <th style="width:10%;">리뷰번호</th>
-                            <th style="width:15%;">해당강의</th>
+                            <th style="width:15%;">학원번호</th>
                             <th style="width:55%;">리뷰내용</th>
                             <th style="width:20%;">작성일자</th>
                           </tr>
@@ -601,10 +601,10 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                           <!--  <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">안녕</a></td>-->
                             <tr>
                            
-                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">${mypageReviewList1.RId}</a></td>
-                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">${mypageReviewList1.edId}</a></td>
-                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">${mypageReviewList1.reContent}</a></td>
-                              <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">${mypageReviewList1.reDate}</a></td>
+                              <td>${mypageReviewList1.RId}</a></td>
+                              <td><a href="/academy/course-details?edId=${mypageReviewList1.edId}">${mypageReviewList1.edId}</a></td>
+                              <td>${mypageReviewList1.reContent}</a></td>
+                              <td>${mypageReviewList1.reDate}</a></td>
                            
                             </tr>
                         </tbody>
@@ -615,50 +615,75 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                  </form>
 
                  
-                 <div class="row">
-                  <div class="col-xxl-12">
-                     <div class="basic-pagination wow fadeInUp mt-30" data-wow-delay=".2s">
-                        <ul class="d-flex align-items-center"> 
-                <!-- 페이지 그룹 -->
-      <!-- 시작블럭을 반복시작 인덱스로 종료블럭을 반복종료 인덱스로 설정  -->
-      <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
-         <!-- 현재페이지의 +1이 i랑 같은 경우 다음페이지로 이동하게 설정 -->
-         <!-- 현재페이지의 +1이 i랑 다른 경우 다음 페이지로 이동하게 설정-->
-         <c:choose>
-         <c:when test="${pageNumber+1 == i}">
-            <li>
-               <a href="myreview?page=${i}&m_idint=${param.m_idint}"><span id="a">${i}</span></a>
-            </li>
-         </c:when>
-         <c:otherwise>
-            <li><a href="myreview?page=${i}&m_idint=${param.m_idint}"><span id="b">${i}</span></a></li>
-         </c:otherwise>
-         </c:choose>
-         </c:forEach>
-         <!-- 맨마지막페이지 -->
-         <!-- last : 해당 페이지가 마지막 페이지인지 여부(true/false로 구분)-->
-         <!-- 해당페이지가 마지막인 경우에는 아무것도 설정안함-->
-         <!-- 해당 페이지가 마지막 페이지가 아닌경우-->
-         <!-- 마지막페이지로 이동 -->
-         <c:choose>     
-         <c:when test="${elist.last}"></c:when>
-         <c:otherwise>
-            <li class="next">
-               <a href="course-sidebar?page=${totalPages}" class="link-btn">
-               Next
-               <i class="arrow_right"></i>
-               <i class="arrow_right"></i>
-               </a>
-            </li>
-         </c:otherwise>
-         </c:choose>
-               </ul>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-</div>
+
+                 
+                             <!-- 페이징 영역 시작  경호형꺼 받음 0104-->
+                         
+                             <div class="row">
+                              <div class="col-xxl-12">
+                                 <div class="basic-pagination wow fadeInUp mt-30" data-wow-delay=".2s">
+                                    <ul class="d-flex align-items-center"> 
+                                       
+                                       <!-- first : 해당 페이지가 첫번째 페이지인지 여부(true/false로 구분)-->
+                                       <!-- 해당페이지가 첫번째인 경우에는 아무것도 설정안함-->
+                                       <!-- 해당 페이지가 첫번째 페이지가 아닌경우-->
+                                       <!-- 맨처음페이지로 이동 -->
+                                       <c:choose>
+                                       <c:when test="${elist.first}"></c:when>
+                                       
+                                       <c:otherwise>
+                                       <li class="prev">
+                                          <a href="myreview?page=1" class="link-btn link-prev">
+                                             Prev
+                                             <i class="arrow_left"></i>
+                                             <i class="arrow_left"></i>
+                                          </a>
+                                       </li>
+                                    </c:otherwise>
+                                 </c:choose>
+   
+                              <!-- 페이지 그룹 -->
+                              <!-- 시작블럭을 반복시작 인덱스로 종료블럭을 반복종료 인덱스로 설정  -->
+                              <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
+                              <!-- 현재페이지의 +1이 i랑 같은 경우 다음페이지로 이동하게 설정 -->
+                              <!-- 현재페이지의 +1이 i랑 다른 경우 다음 페이지로 이동하게 설정-->
+                              <c:choose>
+                              <c:when test="${pageNumber+1 == i}">
+                                 <li>
+                                    <a href="myreview?page=${i}&m_idint=${param.m_idint}"><span>${i}</span></a>
+                                 </li>
+                              </c:when>
+                              <c:otherwise>
+                                 <li><a href="myreview?page=${i}&m_idint=${param.m_idint}"><span>${i}</span></a></li>
+                              </c:otherwise>
+                              </c:choose>
+                              </c:forEach>
+                              <!-- 맨마지막페이지 -->
+                              <!-- last : 해당 페이지가 마지막 페이지인지 여부(true/false로 구분)-->
+                              <!-- 해당페이지가 마지막인 경우에는 아무것도 설정안함-->
+                              <!-- 해당 페이지가 마지막 페이지가 아닌경우-->
+                              <!-- 마지막페이지로 이동 -->
+                              <c:choose>     
+                              <c:when test="${elist.last}"></c:when>
+                              <c:otherwise>
+                                 <li class="next">
+                                    <a href="myreview?page=${i}&m_idint=${totalPages}" class="link-btn">
+                                    Next
+                                    <i class="arrow_right"></i>
+                                    <i class="arrow_right"></i>
+                                    </a>
+                                 </li>
+                              </c:otherwise>
+                              </c:choose>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+   
+   
+   
 
 
            </div>
