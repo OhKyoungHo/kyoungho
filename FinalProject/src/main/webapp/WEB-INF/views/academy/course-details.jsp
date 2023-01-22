@@ -490,7 +490,9 @@
                               <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="true"> <i class="icon_star_alt"></i> <span>후기</span> </button>
                               </li>
-                              
+                              <li class="nav-item" role="presentation">
+                                 <button class="nav-link" id="member-tab" data-bs-toggle="tab" data-bs-target="#member" type="button" role="tab" aria-controls="member" aria-selected="false"> <i class="fal fa-user"></i> <span>Members</span> </button>
+                               </li>
                               
                             </ul>
                         </div>
