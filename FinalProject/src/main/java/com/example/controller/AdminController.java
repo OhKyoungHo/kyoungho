@@ -209,5 +209,8 @@ public class AdminController {
 		m.addAttribute("lectureList", result);
 		return "/admin/lectureRegister";
 	}
+	//---------------------------
+	//차트 출력
+	
 
 }

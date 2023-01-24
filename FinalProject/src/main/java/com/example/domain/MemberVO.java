@@ -46,7 +46,7 @@ public class MemberVO {
    private String memEmail;
    
    private String m_profile;
-   private String m_delete;
+
    
    private Date p_end_date;
    private Integer p_daysperweek;

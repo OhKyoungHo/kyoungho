@@ -272,8 +272,8 @@
                <div class="cartmini__close">
                   <button type="button" class="cartmini__close-btn"><i class="fal fa-times"></i></button>
                </div>
-               <div class="cartmini__widget">
-                  <div class="cartmini__inner">
+               <div class="cartmini__widget ">
+                  <div class="cartmini__inner" style="overflow-x:hidden;">
                      <ul>
                         <c:forEach items="${wishList}" var="wish">
                         <li>
@@ -296,7 +296,35 @@
                      </ul>
                   </div>
                   <div class="cartmini__checkout">
-                  
+        
+                     <div class="cartmini__checkout-btn">
+                        <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
+                     </div>
+                  </div>
+                  <div class="cartmini__inner ">
+                     <ul>
+                        <c:forEach items="${wishList}" var="wish">
+                        <li>
+                           <div class="cartmini__thumb">
+                              <a href="#">
+                                 <img src="/assets/img/course/${wish[4]}" alt="">
+                              </a>
+                           </div>
+                           <div class="cartmini__content">
+                              <h5><a href="#">${wish[0]} </a></h5>
+                              <div class="product-quantity mt-10 mb-10">
+                              </div>
+                              <div class="product__sm-price-wrapper">
+                                 <span class="product__sm-price">${wish[3]}</span>
+                              </div>
+                           </div>
+                           <a href="/mypage/deleteWish?memIdInt=${wish[2]}&wId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
+                        </li>
+                        </c:forEach>
+                     </ul>
+                  </div>
+                  <div class="cartmini__checkout">
+        
                      <div class="cartmini__checkout-btn">
                         <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
                      </div>
