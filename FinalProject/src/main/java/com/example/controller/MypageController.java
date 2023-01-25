@@ -1,7 +1,12 @@
 package com.example.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +20,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.example.domain.CalendarVO;
 import com.example.domain.EducationVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.TeacherVO;
+import com.example.persistence.CalendarRepository;
 import com.example.persistence.JjimRepository;
 import com.example.persistence.ReviewRepository;
 import com.example.persistence.WishListRepository;
@@ -51,6 +60,9 @@ public class MypageController {
 	
 	@Autowired
 	private JjimRepository jjimRepo;
+	
+	@Autowired
+	private CalendarRepository calRepo;
 
 
 
@@ -198,49 +210,103 @@ public class MypageController {
 	// 경호의 메소드
 	
 	//위시리스트 교육과정용
-		@RequestMapping("/wishlist")
-		public void wishList(Model m, Integer memIdInt) {
-			List<Object[]> list = wishRepo.findByMemIdInt(memIdInt);
-			System.out.println(list);
-			m.addAttribute("wishList", list);
+	@RequestMapping("/wishlist")
+	public void wishList(Model m, Integer memIdInt) {
+		List<Object[]> list = wishRepo.findByMemIdInt(memIdInt);
+		System.out.println(list);
+		m.addAttribute("wishList", list);
+	}
+
+	//위시리스트 강의용
+	@RequestMapping("/jjimlist")
+	public void jjimList(Model m, Integer memIdInt) {
+		List<Object[]> list = jjimRepo.findByMemIdIntlec(memIdInt);
+		System.out.println(list);
+		m.addAttribute("jjimList", list);
+	}
+
+	//위시리스트 삭제
+	@RequestMapping("/deleteWish")
+	public String deletewish(Integer memIdInt, Integer wId) {
+		wishService.deleteWish(memIdInt, wId);
+		return "redirect:/mypage/wishlist?memIdInt="+ memIdInt;
+	}
+
+	//위시리스트 등록
+	@RequestMapping("/wishInsert")
+	public String wishInsert(Integer memIdInt, Integer edId ) {
+		wishService.insertWish(memIdInt, edId);
+		return "redirect:/academy/course-details?edId="+ edId;
+	}
+
+	//찜리스트 등록
+	@RequestMapping("/jjimInsert")
+	public String jjimInsert(Integer memIdInt, Integer vcId ) {
+		wishService.insertJjim(memIdInt, vcId);
+		return "redirect:/lecture/lecture-details?vcId="+ vcId;
+	}
+
+	//찜리스트 삭제
+	@RequestMapping("/deleteJjim")
+	public String jjimDelete(Integer memIdInt, Integer jjId ) {
+		wishService.deleteJjim(memIdInt, jjId);
+		return "redirect:/mypage/jjimlist?memIdInt="+ memIdInt;
+	}
+
+
+	// mypage에 있는 회원의 예약 달력과 예약한 방 출력
+	@RequestMapping(value = "/lessonreserve", method = RequestMethod.GET)
+	//ModelAndView를 이용하여 구현
+	public ModelAndView getMemberCalendarList(HttpServletRequest request, HttpSession session) {
+		
+		Integer memIdInt = (Integer) session.getAttribute("memIdInt");
+		
+		String viewpage = "/mypage/lessonreserve";
+		List<Map<String, Object>> calendarTemp = null;
+		try {
+			calendarTemp = calRepo.MemberCalendarSearch(memIdInt);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
-		//위시리스트 강의용
-		@RequestMapping("/jjimlist")
-		public void jjimList(Model m, Integer memIdInt) {
-			List<Object[]> list = jjimRepo.findByMemIdIntlec(memIdInt);
-			System.out.println(list);
-			m.addAttribute("jjimList", list);
+		
+		// 새로운 리스트를 준비
+		List<HashMap<String, Object>> calendar = new ArrayList<HashMap<String, Object>>();
+		
+		// 새로운 HashMap을 생성하고 차례대로 값을 집어넣기
+		for(Map<String, Object> m : calendarTemp) {
+			System.out.println("calid : " + m.get("calid"));
+			
+			HashMap<String, Object> HashTemp = new HashMap<String, Object> ();
+			HashTemp.put("calid", m.get("calid"));
+			HashTemp.put("caltitle", m.get("caltitle"));
+			HashTemp.put("calstart", m.get("calstart"));
+			HashTemp.put("calreserve", m.get("calreserve"));
+			HashTemp.put("calend", m.get("calend"));
+			HashTemp.put("memidint", m.get("memidint"));
+			HashTemp.put("roomid", m.get("roomid"));
+			HashTemp.put("tid", m.get("tid"));
+			HashTemp.put("vctitle", m.get("vctitle"));
+			HashTemp.put("tcpic", m.get("tcpic"));
+			HashTemp.put("tcname", m.get("tcname"));
+			
+			//원하는 데이터 포맷 지정
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일 a h:mm"); 
+			String dateTemp = simpleDateFormat.format(m.get("calstart"));
+			System.out.println("date format : " + dateTemp);
+			// 새로운 형식의 날짜를 HashMap에 추가
+			HashTemp.put("calstartSTR", dateTemp);
+			
+			calendar.add(HashTemp);
 		}
-
-		//위시리스트 삭제
-		@RequestMapping("/deleteWish")
-		public String deletewish(Integer memIdInt, Integer wId) {
-			wishService.deleteWish(memIdInt, wId);
-			return "redirect:/mypage/wishlist?memIdInt="+ memIdInt;
-		}
-
-		//위시리스트 등록
-		@RequestMapping("/wishInsert")
-		public String wishInsert(Integer memIdInt, Integer edId ) {
-			wishService.insertWish(memIdInt, edId);
-			return "redirect:/academy/course-details?edId="+ edId;
-		}
-
-		//찜리스트 등록
-		@RequestMapping("/jjimInsert")
-		public String jjimInsert(Integer memIdInt, Integer vcId ) {
-			wishService.insertJjim(memIdInt, vcId);
-			return "redirect:/lecture/lecture-details?vcId="+ vcId;
-		}
-
-		//찜리스트 삭제
-		@RequestMapping("/deleteJjim")
-		public String jjimDelete(Integer memIdInt, Integer jjId ) {
-			wishService.deleteJjim(memIdInt, jjId);
-			return "redirect:/mypage/jjimlist?memIdInt="+ memIdInt;
-		}
-
-
+		
+		request.setAttribute("calendarList", calendar);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(viewpage);
+		return mv;
+	}
+	
+	
 
 }

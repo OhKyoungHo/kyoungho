@@ -15,10 +15,10 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="honest_question")
-public class HonestQuestionVO {
+public class HonestQuestionVO {									// 솔직질문
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="hq_id")
 	private Integer hqId;
 	

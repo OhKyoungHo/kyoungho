@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.domain.LectureVO;
 import com.example.domain.ReviewVO;
+import com.example.domain.TeacherVO;
 import com.example.persistence.LectureRepository;
 import com.example.persistence.ReviewRepository;
+import com.example.persistence.TeacherRepository;
 import com.example.service.LectureService;
 import com.example.service.ReviewService;
 
@@ -35,6 +37,9 @@ public class LectureController {
 
 	@Autowired
 	private ReviewRepository reviewRepository;
+	
+	@Autowired
+	private TeacherRepository teacherRepository;
 
 	@GetMapping("/lecture-sidebar")
 	public String getLectureList(Model m, 
@@ -87,14 +92,21 @@ public class LectureController {
 	@GetMapping("/lecture-details")
 	public String getBoard(LectureVO vo, Model model,
 			@RequestParam(required = false, defaultValue = "") String vcId,
-			@PageableDefault(size = 4, direction = Sort.Direction.DESC) Pageable paging){
+			@PageableDefault(size = 4, direction = Sort.Direction.DESC) Pageable paging,
+			Integer teacherId){
 
 		//기본 학원디테일 정보
 		LectureVO result = lectureService.getBoard(vo);
 		String[] a = result.getVc_content().split("\\+");
 		model.addAttribute("title", a);
-		model.addAttribute("lecture", result); // Model 정보 저장    
+		model.addAttribute("lecture", result); // Model 정보 저장   
+		model.addAttribute("vcPic", result.getVc_pic());
 		System.out.println("re 값 확인:"+ vcId);
+		
+		
+		//이교육의 선생님 정보를 출력하기 위함으로 추가함
+		TeacherVO result2 = teacherRepository.findByTeacherId(teacherId);
+		model.addAttribute("tListDetails", result2);
 
 		String temp_vc_id = String.valueOf(vo.getVcId());
 		System.out.println(temp_vc_id);
@@ -123,6 +135,7 @@ public class LectureController {
 		//각 값들을 jsp 파일에 붙이기
 		model.addAttribute("pageNumber", pageNumber);
 		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("startBlockPage", startBlockPage);
 		model.addAttribute("endBlockPage", endBlockPage);
 		model.addAttribute("reviewList", reviewList.getContent()); 
 

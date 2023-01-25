@@ -37,7 +37,7 @@ public class ReviewController {
      @GetMapping("/insertRV")
      @ResponseBody //ajax 쓰려고 리퀘스트 바디
      public String insertRV(ReviewVO vo, 
-           @RequestParam String edId,@PageableDefault(size = 6) Pageable paging,String re) {
+           @RequestParam String edId,@PageableDefault(size = 3) Pageable paging,String re) {
         System.out.println("리뷰뷰뷴 : " +   vo);
         
         reviewService.saveRV(vo);
@@ -59,7 +59,7 @@ public class ReviewController {
             JsonObject object = new JsonObject();
             
             
-            object.addProperty("Mid", String.valueOf(rvo.getMemIdInt()));
+            object.addProperty("memIdString", String.valueOf(rvo.getMemIdString()));
             object.addProperty("star", String.valueOf(rvo.getStar()));
             object.addProperty("reDate", String.valueOf(rvo.getReDate()));
             object.addProperty("reContent", String.valueOf(rvo.getReContent()));

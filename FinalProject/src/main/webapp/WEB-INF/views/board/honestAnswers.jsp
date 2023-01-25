@@ -230,7 +230,7 @@
                               </div>
                            </div>
                            <div class="header__btn ml-20 d-none d-sm-block">
-                              <a href="logoutMember" class="e-btn">로그아웃</a>
+                              <a href="/logoutMember" class="e-btn">로그아웃</a>
                            </div>
                            <div class="sidebar__menu d-xl-none">
                               <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">

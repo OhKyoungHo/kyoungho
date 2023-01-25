@@ -15,32 +15,31 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="review")
-public class ReviewVO {
+public class ReviewVO {										//리뷰
    @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name="re_id")
-   private Integer RId;
+   private Integer ReId;									//리뷰번호
    
    @Column(name="m_idint")
-   private Integer memIdInt;
+   private Integer memIdInt;								//회원아이디
    
    @Column(name="m_idstring")
-   private String memIdString;
+   private String memIdString;								//회원문자아이디
    
    @Column(name="re_date")
-   private Date reDate; 
+   private Date reDate; 									//작성날짜
    
    
-   private Integer star; //별점
+   private Integer star; 									//별점
    
    @Column(name="re_content")
-   private String reContent; //리뷰작성글
+   private String reContent; 								//리뷰작성글
    
-   @Column(name="vc_id")
-   private Integer vcId;
+   private Integer vc_id;									//화상수업번호
    
    @Column(name="ed_id")
-   private Integer edId;
+   private Integer edId;									//교육과정번호
    
    @PrePersist
 	public void beforeCreate() {

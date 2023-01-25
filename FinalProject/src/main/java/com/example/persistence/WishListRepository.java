@@ -27,7 +27,7 @@ public interface WishListRepository extends CrudRepository<WishListVO, Integer>{
 	//Optional<WishListVO> findByMemId(MemberVO memId);
 
 	//위시리스트 입력
-	@Query(value="INSERT INTO wishlist (w_id, m_idint, ed_id) VALUES(nextval(w_id_seq), ?1, ?2)", nativeQuery=true)
+	@Query(value="INSERT INTO wishlist (m_idint, ed_id) VALUES(?1, ?2)", nativeQuery=true)
 	void insertWish(Integer memIdInt, Integer edId);
 
 	//위시리스트 삭제

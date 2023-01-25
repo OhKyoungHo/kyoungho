@@ -25,6 +25,7 @@
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
       <link rel="stylesheet" href="/assets/css/onoff.css">
+      <link rel="stylesheet" href="/assets/css/rank.css">
    </head>
    <body>
       <!--[if lte IE 9]>

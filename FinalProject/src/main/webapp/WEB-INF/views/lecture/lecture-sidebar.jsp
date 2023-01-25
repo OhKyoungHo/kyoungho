@@ -222,7 +222,7 @@
                                  </div>
                               </div>
                               <div class="header__btn ml-20 d-none d-sm-block">
-                                 <a href="logoutMember" class="e-btn">로그아웃</a>
+                                 <a href="/logoutMember" class="e-btn">로그아웃</a>
                               </div>
                               <div class="sidebar__menu d-xl-none">
                                  <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
@@ -469,7 +469,7 @@
                                           <a href="lecture-details?vcId=${lecture.vcId}">
                                          
                                              <!--해당 교육과정 관련 이미지 저장 경로 지정-->
-                                             <img src="/assets/img/course/${lecture.vc_pic}" alt="" width='370' height='260' >
+                                             <img src="/assets/img/lecture/${lecture.vc_pic}" alt="" width='370' height='260' >
                                           </a>
                                           <div class="course__tag">
                                              <!-- 국비/ 부트캠프 인지-->
@@ -537,7 +537,7 @@
                                              <div class="course__thumb course__thumb-list w-img p-relative fix">
                                                 <a href="lecture-details">
                                                    <!--해당 교육과정 관련 이미지 저장 경로 지정-->
-                                                   <img src="/assets/img/course/${lecture.vc_pic}" alt="" width='370' height='220' />
+                                                   <img src="/assets/img/lecture/${lecture.vc_pic}" alt="" width='370' height='220' />
                                                 </a>
                                                 <div class="course__tag">
                                                    <a href="#">국비인지 부트인지</a>
@@ -650,6 +650,7 @@
                            <c:choose>     
                            <c:when test="${elist.last}"></c:when>
                            <c:otherwise>
+                              <li class="nxt-btn"><a href="lecture-sidebar?page=${pageNumber+2}&order=${param.order}&keywords=${param.keywords}">&rarr;</a></li>
                               <li class="next">
                                  <a href="lecture-sidebar?page=${totalPages}" class="link-btn">
                                  Next

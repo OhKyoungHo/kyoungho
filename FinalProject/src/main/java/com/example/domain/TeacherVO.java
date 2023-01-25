@@ -20,8 +20,8 @@ public class TeacherVO {
 	//모두 컬럼 변경해놓음 
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="t_id", nullable=false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="t_id")
 	private Integer teacherId;
 	
 	

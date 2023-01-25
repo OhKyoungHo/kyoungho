@@ -49,5 +49,17 @@ public class EducationServiceImpl implements EducationService {
 	   eduRepo.save(vo);
    }
    
+   
+
+	//찬주 국비/부트 가져오기
+	public List<EducationVO> AllEducation(){
+		return (List<EducationVO>) eduRepo.findAll();
+	}
+   
+	//국비/부트에서 승인여부 0 1주기 위함
+	public void updateEducation(EducationVO evo) {
+		
+		eduRepo.save(evo);
+	}
  
 }

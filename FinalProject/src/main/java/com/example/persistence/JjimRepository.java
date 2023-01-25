@@ -25,6 +25,6 @@ public interface JjimRepository extends CrudRepository<JjimVO, Integer> {
 
 
 	//찜리스트 입력
-	@Query(value="INSERT INTO jjim (jj_id, m_idint, vc_id) VALUES(nextval(jj_id_seq), ?1, ?2)", nativeQuery=true)
+	@Query(value="INSERT INTO jjim (m_idint, vc_id) VALUES(?1, ?2)", nativeQuery=true)
 	void insertJjim(Integer memIdInt, Integer vcId);	
 }

@@ -230,7 +230,7 @@
                                             </c:if>  
 
                                         </tr>
-                                        
+                                         <!--승인 여부를 위한 js 와연동-->
                                         <!--히든존-->
                                         <input type="hidden" id = "tcTruefalse" name="tcTruefalse" value="">
                                         

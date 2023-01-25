@@ -9,14 +9,14 @@
      cb.checked = false;
         })
      element.checked = true;
-         alert(element.value); 확인용
+         //alert(element.value); 확인용
      }//end of checkOnlyOne
 
 
 
     //키워드 벨류 값으로 검색을 위한 js   
     function sub(element){
-    alert('1'); 확인용
+    //alert('1'); 확인용
     
        const a = document.getElementsByName("keywords");
    }//end of sub

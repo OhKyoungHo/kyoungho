@@ -229,7 +229,7 @@
                               </div>
                            </div>
                            <div class="header__btn ml-20 d-none d-sm-block">
-                              <a href="logoutMember" class="e-btn">로그아웃</a>
+                              <a href="/logoutMember" class="e-btn">로그아웃</a>
                            </div>
                            <div class="sidebar__menu d-xl-none">
                               <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
@@ -403,7 +403,7 @@
                   
                   <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                      <div class="teacher__details-thumb p-relative w-img pr-30">
-                        <img src="/assets/img/course/${tListDetails.tcPic}" alt="" width='340' height='400'>
+                        <img src="/assets/img/teacher/${tListDetails.tcPic}" alt="" width='340' height='400'>
                         <div class="teacher__details-shape">
                            <img class="teacher-details-shape-1" src="/assets/img/teacher/details/shape/shape-1.png" alt="">
                            <img class="teacher-details-shape-2" src="/assets/img/teacher/details/shape/shape-2.png" alt="">
@@ -437,12 +437,12 @@
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="course__item white-bg mb-30 fix">
                                        <div class="course__thumb w-img p-relative fix">
-                                          <!--그 선생님의 수업으로 넘어갈 수 있게-->
+                                           <!--그 선생님의 수업으로 넘어갈 수 있게-->
                                          <!--order=${param.order}--> 
                                     
                                          <a href="lecture-details?vcId=${lecture.vcId}">
-                                             <img src="/assets/img/course/${lecture.vc_pic}" alt=""> 
-                                          </a>
+                                          <img src="/assets/img/lecture/${lecture.vc_pic}" alt=""> 
+                                       </a>
                                           
 
                                           <div class="course__tag">
@@ -469,7 +469,7 @@
                                              <span>Free</span>
                                           </div>
                                           <div class="course__btn">
-                                             <a href="course-details" class="link-btn">
+                                             <a href="lecture-details?vcId=${lecture.vcId}" class="link-btn">
                                                 Know Details
                                                 <i class="far fa-arrow-right"></i>
                                                 <i class="far fa-arrow-right"></i>
@@ -640,4 +640,3 @@
       <script src="/assets/js/main.js"></script>
    </body>
 </html>
-

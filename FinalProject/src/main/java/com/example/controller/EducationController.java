@@ -63,7 +63,7 @@ public class EducationController {
       }else if(order.equals("star")) {
        elist = eduRepo.starDesc(paging, keywords, order);
       }else if(order.equals("new")) {
-    	  elist = eduRepo.AllSearchAndPagingQuery(paging, keywords, order);
+         elist = eduRepo.AllSearchAndPagingQuery(paging, keywords, order);
       }
       
       //현재페이지
@@ -82,7 +82,7 @@ public class EducationController {
       m.addAttribute("startBlockPage", startBlockPage);
       m.addAttribute("endBlockPage", endBlockPage);
       m.addAttribute("academyList", elist.getContent());
-
+      m.addAttribute("getTotalElements",elist.getTotalElements());
       //찬주 리스트 별점평균용
       List<Object[]> avg = reviewService.avgStar();
       System.out.println("list.size():" + avg.size());   
@@ -100,14 +100,16 @@ public class EducationController {
    @GetMapping("/course-details")
    public String getBoard(EducationVO vo, Model model,
          @RequestParam(required = false, defaultValue = "") String edId,
-         @PageableDefault(size = 4, direction = Sort.Direction.DESC) Pageable paging){
+         @PageableDefault(size = 3, direction = Sort.Direction.DESC) Pageable paging){
 
       //기본 학원디테일 정보
       EducationVO result = eduService.getBoard(vo);
       String[] a = result.getEdCurriculum().split("\\+");
       model.addAttribute("title", a);
-      model.addAttribute("education", result); // Model 정보 저장    
+      model.addAttribute("education", result); // Model 정보 저장  
+      model.addAttribute("edPic", result.getEdPic());
       System.out.println("re 값 확인:"+ edId);
+      System.out.println("사진이름:" + result.getEdPic());
 
        String temp_ed_id = String.valueOf(vo.getEdId());
         System.out.println(temp_ed_id);
@@ -136,6 +138,7 @@ public class EducationController {
       //각 값들을 jsp 파일에 붙이기
       model.addAttribute("pageNumber", pageNumber);
       model.addAttribute("totalPages", totalPages);
+      model.addAttribute("startBlockPage", startBlockPage);
       model.addAttribute("endBlockPage", endBlockPage);
       model.addAttribute("reviewList", reviewList.getContent()); 
 

@@ -275,11 +275,11 @@
                <div class="cartmini__widget ">
                   <div class="cartmini__inner" style="overflow-x:hidden;">
                      <ul>
-                        <c:forEach items="${wishList}" var="wish">
+                        <c:forEach items="${jjimList}" var="wish">
                         <li>
                            <div class="cartmini__thumb">
                               <a href="#">
-                                 <img src="/assets/img/course/${wish[4]}" alt="">
+                                 <img src="/assets/img/lecture/${wish[3]}" alt="">
                               </a>
                            </div>
                            <div class="cartmini__content">
@@ -290,7 +290,7 @@
                                  <span class="product__sm-price">${wish[3]}</span>
                               </div>
                            </div>
-                           <a href="/mypage/deleteWish?memIdInt=${wish[2]}&wId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
+                           <a href="/mypage/deleteJjim?memIdInt=${wish[2]}&jjId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
                         </li>
                         </c:forEach>
                      </ul>
@@ -533,6 +533,10 @@
                         <div class="section__title-wrapper section-padding mb-60 text-center">
                            <span>memIdInt : ${sessionScope.memIdInt}</span> <br/>
                            <span>memIdString : ${sessionScope.memIdString}</span>
+
+                           <!-- 채팅방연동할라고 찬주가 추가해놓은 히든값-->
+                           <input id="memberId" type="hidden" value="${sessionScope.memIdString}"> 
+                           
                            <h2 class="section__title"><span class="yellow-bg">2023년 1월 <img
                                     src="/assets/img/shape/yellow-bg-2.png" alt=""></span> 부트캠프 랭킹</h2>
                            <!--<p>You don't have to struggle alone, you've got our assistance and help.</p>-->

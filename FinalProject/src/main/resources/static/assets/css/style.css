@@ -46,6 +46,7 @@
 /*----------------------------------------*/
 /*  01. Theme default CSS
 /*----------------------------------------*/
+
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap");
 * {
   margin: 0;
@@ -813,6 +814,8 @@ p {
 /*----------------------------------------*/
 /*  02. HEADER CSS START
 /*----------------------------------------*/
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+
 .header__padding {
   padding-left: 245px;
   padding-right: 245px;
@@ -886,7 +889,7 @@ p {
   left: 0;
   width: 100%;
   background: #ffffff;
-  z-index: 99;
+  z-index: 100000;
   animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
   -webkit-animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
   display: block;
@@ -963,7 +966,7 @@ p {
   background: rgba(255, 255, 255, 0.2);
 }
 .header__white .main-menu ul li a {
-  color: #ffffff;
+  color: black;
 }
 .header__white .sidebar-toggle-btn .line {
   background-color: #ffffff;
@@ -1050,7 +1053,7 @@ p {
   border-radius: 4px;
   background: #ffffff;
   outline: none;
-  border: 1px solid #ffffff;
+  border: 1px solid #2B4EFF;
   font-size: 16px;
   padding: 25px 65px 20px 55px;
 }
@@ -1286,6 +1289,144 @@ p {
   background: transparent;
   color: #0e1133;
 }
+div.usercontainer{
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.usercontainer .usernav{
+  display: flex;
+  align-items: center;
+}
+.usercontainer .usernav h3{
+  position: relative;
+  margin-right: 30px;
+  font-size: 16px;
+  color: #434343;
+}
+.usercontainer .usernav h3::after{
+  position: absolute;
+  content: "";
+  top: 0;
+  right: -15px;
+  height: 100%;
+  width: 2px;
+  background: #43434348;
+}
+.usercontainer .usernav .drop{
+  position: relative;
+  height: 100%;
+  width: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 5px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.usercontainer img{
+  height: 30px;
+  width: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  user-select: none;
+}
+.usercontainer .usernav .drop i{
+  transition: 0.3s;
+}
+.usercontainer .usernav .drop i.active{
+  transform: rotate(180deg);
+}
+.usercontainer .usernav .drop .online{
+  position: absolute;
+  bottom: 7px;
+  right: 28px;
+  display: block;
+  height: 5px;
+  width: 5px;
+  background: #50D030;
+  border-radius: 50%;
+}
+.drop-box{
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.drop-box .user-details{
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #434343
+}
+.drop-box .user-details::after{
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: #43434348;
+}
+.usermenu ul{
+  width: 100%;
+  line-height: 2;
+}
+.usermenu ul li a{
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: #5B5B5B;
+}
+.usermenu ul li a i{
+  margin: auto 0;
+  display: block;
+  font-size: 16px;
+  padding-right: 10px;
+}
+.usermenu ul li:nth-child(3),
+.usermenu ul li:nth-child(4){
+  position: relative;
+  margin-bottom: 20px;
+}
+.usermenu ul li:nth-child(3)::after,
+.usermenu ul li:nth-child(4)::after{
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: #43434348;
+}
+.usermenu ul li a:hover{
+  color: #000;
+}
+.usermenu ul li:last-child a i{
+  color: #FF585A;
+}
+.drop-box.active{
+  animation: dropDown 0.5s both;
+}
+@keyframes dropDown {
+  0%{
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  100%{
+      opacity: 1;
+      transform: translateY(0px);
+  }
+}
 
 .logo-black {
   display: none;
@@ -1505,13 +1646,13 @@ p {
   background: #ffffff;
 }
 .main-menu-3 ul li.has-dropdown a::after {
-  color: #ffffff;
+  color: black;
 }
 .main-menu-3 ul li .submenu li a::after {
   color: #0e1133;
 }
 .main-menu-3 ul li:hover a {
-  color: #ffffff;
+  color: #2b4eff;
 }
 .main-menu-3 ul li:hover a::before {
   width: 100%;

@@ -78,6 +78,30 @@ function teacherBtn2(){
 
 
 
+	
+//국비/부트 등록 승인여부용1	
+function eduBtn(){
+	
+	$("#edTf").val(1);
+	
+	$("#upEduForm").submit();
+	
+	
+}
+//국비/부트 등록 승인여부용2
+function eduBtn2(){
+	
+	$("#edTf").val(0);
+	
+	$("#upEduForm").submit();
+	
+}
+
+
+
+
+
+
 
 
 

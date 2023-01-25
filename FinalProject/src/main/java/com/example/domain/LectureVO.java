@@ -17,22 +17,26 @@ import lombok.Data;
 public class LectureVO {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="vc_id", nullable=false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="vc_id")
 	private Integer vcId;
 	
-	@Column(name="t_id", nullable=false)
+	@Column(name="t_id")
 	private Integer tcId;
 	
-	@Column(name="vc_title", nullable=false)
+	@Column(name="vc_title")
 	private String vcTitle;
+	
 	private String vc_intro;
+	
 	private String vc_content;
-	@Column(name="vc_keyword", nullable=false)
+	
+	@Column(name="vc_keyword")
 	private String vcKeyword;
+	
 	private String vc_pic;
 
-	@Column(name="vc_days", nullable=false)
+	@Column(name="vc_days")
 	private Date vcDays; //찬주 변경 교육등록날짜
 
 	//각 교육별 평균 점이 달라야 하기에 추가

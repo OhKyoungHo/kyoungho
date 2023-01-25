@@ -25,6 +25,13 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/wishlist.css" />
     <link rel="stylesheet" href="/assets/css/onoff.css">
+    
+    <link rel="stylesheet" href="/assets/css/lessonbox.css">
+
+    <!--테이블용 css-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/assets/css/dataTable.css">
 
     <style>
       #accordionSidebar {
@@ -276,7 +283,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                               </div>
                            </div>
                            <div class="header__btn ml-20 d-none d-sm-block">
-                              <a href="logoutMember" class="e-btn">로그아웃</a>
+                              <a href="/logoutMember" class="e-btn">로그아웃</a>
                            </div>
                            <div class="sidebar__menu d-xl-none">
                               <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
@@ -560,7 +567,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="/mypage">
+                    <a class="nav-link" href="/mypage/tutorInsert">
                       <i class="fas fa-fw fa-table"></i> <span>튜터등록</span>
                     </a>
                   </li>
@@ -573,102 +580,112 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
 
             <div class="col-sm-9">
               
-              <form class="myaccount" action="#">
-                <div class="form-group col-md-12">
-                 <p
-                    id="customerid"
-                    style="float: left; margin-top: 6px; font-family: 'Noto Sans KR', sans-serif"
-                  ><i class="fas fa-check-square"></i>
-                    아이디
-                  </p>
-                  <input
-                    type="text"
-                    readonly="readonly"
-                    name="user_id"
-                    class="form-control"
-                    required="required"
-                    style="width: 40%; margin-left: 115px"
-                    value="${userInfo.user_id }"
-                  />
-                </div>
-                <hr />
-                <div class="form-group col-md-12">
-                  <p
-                    id="customerEmail"
-                    style="float: left; margin-top: 6px; font-family: 'Noto Sans KR', sans-serif"
-                  ><i class="fas fa-check-square"></i>
-                    이름
-                  </p>
-                  <input
-                    type="text"
-                    name="subject"
-                    readonly="readonly"
-                    class="form-control"
-                    required="required"
-                    value="${userInfo.user_name }"
-                    style="width: 40%; margin-left: 115px"
-                  />
-                </div>
-                <hr />
-                <div class="form-group col-md-12">
-                  <p
-                    id="customerEmail"
-                    style="float: left; font-family: 'Noto Sans KR', sans-serif; margin-top: 6px"
-                  ><i class="fas fa-check-square"></i>
-                    E-Mail
-                  </p>
-                  <input
-                    type="text"
-                    name="subject"
-                    readonly="readonly"
-                    class="form-control"
-                    required="required"
-                    value="${userInfo.user_email }"
-                    style="width: 83%; margin-left: 115px"
-                  />
-                </div>
-                <hr />
-                <div class="form-group col-md-12">
-                  <p
-                    id="customerEmail"
-                    style="float: left; font-family: 'Noto Sans KR', sans-serif; margin-top: 6px"
-                  ><i class="fas fa-check-square"></i>
-                    휴대전화
-                  </p>
-                  <input
-                    type="text"
-                    name="subject"
-                    readonly="readonly"
-                    class="form-control"
-                    required="required"
-                    value="${userInfo.user_phone }"
-                    style="width: 40%; margin-left: 115px"
-                  />
-                </div>
-                <hr />
-                <div class="form-group col-md-12" style="display: f">
-                  <p
-                    id="customerEmail"
-                    style="float: left; font-family: 'Noto Sans KR', sans-serif; margin-top: 6px"
-                  ><i class="fas fa-check-square"></i>
-                    주소
-                  </p>
-                  <div>
-                    <input
-                      type="text"
-                      name="subject"
-                      class="form-control"
-                      readonly="readonly"
-                      required="required"
-                      value="${userInfo.user_address1 }"
-                      style="width: 83%; margin-left: 115px; margin-top: 5px"
-                    />
-                  </div>
-                  <hr />
-                </div>
-              </form>
+              
+
             </div>
           </div>
+
+          <div class="row">
+
+            <!-- 테이블 시작 -->
+            <section class="ftco-section">
+               <div class="container">
+                  <div class="row">
+                     <span class="col-md-12 mb-1">
+
+                        <form action="/mypage/lessonSearch" class="float-right">
+                           <select id="search-opt" name="column">
+                              <option value="제목">제목</option>
+                              <option value="선생님">선생님</option>
+                              <option value="파일">파일</option>
+                           </select>
+                           <input type="text" name="search" class="search-data-input" placeholder="검색...">
+                           <button type="submit" class="d-btn">검색하기</button>
+                        </form>
+
+                     </span>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div>
+                           <table class="table">
+                             <thead class="thead-dark">
+                               <tr>
+                                 <th>날짜</th>
+                                 <th>선생님</th>
+                                 <th>강의제목</th>
+                                 <th>녹화본</th>
+                                 <th>자료</th>
+                               </tr>
+                             </thead>
+                             <tbody>
+                               <tr class="alert" role="alert">
+                                 <th scope="row">2023-01-27 오전 10시</th>
+                                 <td>강의섭</td>
+                                 <td>강의 이름, 강의 이름, 강의 이름</td>
+                                 <td>
+                                    "230127-01" <br/>
+                                    "230127-02" <br/>
+                                 </td>
+                                 <td>
+                                    <a href="/outside/www.naver.com">www.naver.com</a>
+                                </td>
+                               </tr>
+                               <tr class="alert" role="alert">
+                                 <th scope="row">002</th>
+                                 <td>Jacob</td>
+                                 <td>Thornton</td>
+                                 <td>jacobthornton@email.com</td>
+                                 <td>
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                  </a>
+                                </td>
+                               </tr>
+                               <tr class="alert" role="alert">
+                                 <th scope="row">003</th>
+                                 <td>Larry</td>
+                                 <td>the Bird</td>
+                                 <td>larrybird@email.com</td>
+                                 <td>
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                  </a>
+                                </td>
+                               </tr>
+                               <tr class="alert" role="alert">
+                                 <th scope="row">004</th>
+                                 <td>John</td>
+                                 <td>Doe</td>
+                                 <td>johndoe@email.com</td>
+                                 <td>
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                  </a>
+                                </td>
+                               </tr>
+                               <tr class="alert" role="alert">
+                                 <th scope="row">005</th>
+                                 <td>Gary</td>
+                                 <td>Bird</td>
+                                 <td>garybird@email.com</td>
+                                 <td>
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                  </a>
+                                </td>
+                               </tr>
+                             </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- 테이블 끝 -->
+
+          </div>
+
         </div>
       </section>
       <!-- Cart Area End-->
@@ -811,6 +828,10 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
     <script src="/assets/js/wishList.js"></script>
     <!--0106 좋아요 버튼 관련 ajax-->
     <!-- Bootstrap core JavaScript-->
-    <script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  </body>
+    <script src="/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 테이블용 js -->
+   <script src="/assets/js/dataTablePopper.js"></script>
+   <script src="/assets/js/dataTable.js"></script>
+   </body>
 </html>

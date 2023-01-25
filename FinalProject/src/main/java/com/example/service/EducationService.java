@@ -26,5 +26,14 @@ public interface EducationService {
    //교육등록
    void insertEducation(EducationVO vo);
    
+   
+   
+   //찬주어드민 국비/부트 리스트 가져오기
+   public List<EducationVO> AllEducation();
+   
+   
+   //국비/부트에서 승인여부 0 1주기 위함
+   public void updateEducation(EducationVO evo);
+   
 
 }

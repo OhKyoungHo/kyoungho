@@ -376,8 +376,7 @@
                                             <th>번호</th>
                                             <th>교육과정제목</th>
                                             <th>학원이름</th>
-                                            <th>수업개강일</th>
-                                            <th>수업종강일</th>
+                                            <th>등록날짜</th>
                                             <th>카테고리 키워드</th>
                                             <th>상태</th>
                                             <th></th>
@@ -389,8 +388,7 @@
                                             <th>번호</th>
                                             <th>교육과정제목</th>
                                             <th>학원이름</th>
-                                            <th>수업개강일</th>
-                                            <th>수업종강일</th>
+                                            <th>등록날짜</th>
                                             <th>카테고리 키워드</th>
                                             <th>상태</th>
                                             <th></th>
@@ -398,29 +396,44 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <c:forEach var='education' items='${result}'>
+                                       <!--찬주야 여기서는 값 넣어야한다.-->
+                                       <c:forEach var='academyList' items='${academyList}'>
                                         <tr>
-                                        	<td>${education.edId}</td>
-                                        	<td class="edutd"><a href="/admin/academyRegister?edId=${education.edId}">${education.edTitle}</a></td>
-                                        	<td>${education.edName}</td>
-                                        	<td><fmt:formatDate value="${education.ed_start_date}" pattern="YYYY.MM.DD"/> </td>
-                                        	<td><fmt:formatDate value="${education.ed_end_date}" pattern="YYYY.MM.DD" /></td>
-                                            <td>${education.edKeyword}</td>
+                                            <td>${academyList.edId}</td>
+                                            <td>${academyList.edTitle}</td>
+                                            <td>${academyList.edName}</td>
+                                            <td>${academyList.edDays}</td>
+                                            <td>${academyList.edKeyword} </td>
+                                          
+
+                                            <td><c:choose>
+                                                <c:when test="${academyList.edTf == null }">
+                                                    <a href="academyRegister?edId=${academyList.edId}" class="btn btn-secondary btn-icon-split">
+                                                        <span class="icon text-white-50"> <i
+                                                            class="fas fa-arrow-right"></i>
+                                                    </span> <span class="text">승인대기중</span>
+                                                    </a>
+                                                </c:when>
+                                                
                                             
-                                        	 <td style="text-align:center;">
-                                        	
-												<a href="수정하기"
-												class="btn btn-info btn-circle btn-sm">
-													<i class="fas fa-info-circle" aria-hidden="true"></i>
-												</a>
-											</td>
-											<!-- 삭제 버튼 클릭시 클릭한 시퀀스에 해당하는 글 삭제 -->
-											<td style="text-align:center;">
-                                                <a href="/admin/deleteAcademy?edId=${education.edId}" 
-                                                	class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash" aria-hidden="true"></i>
-                                                </a>
-                                            </td>
+                                                
+                                                <c:when test="${academyList.edTf == 1}">
+                                                    <a href="#" class="btn btn-success btn-icon-split"> <span
+                                                        class="icon text-white-50"> 
+                                                        <i class="fas fa-check"></i>
+                                                    </span> <span class="text">승인</span>
+                                                    </a>
+                                                </c:when>
+                                                <c:when test="${academyList.edTf == 0 }">
+                                                    <a href="#" class="btn btn-light btn-icon-split">
+                                                        <span class="icon text-gray-600">
+                                                            <i class="fas fa-arrow-right"></i>
+                                                        </span>
+                                                        <span class="text">거절</span>
+                                                    </a>
+                                                </c:when>
+                                            </c:choose></td>
+
                                         </tr>
                                         </c:forEach>
                                     </tbody>

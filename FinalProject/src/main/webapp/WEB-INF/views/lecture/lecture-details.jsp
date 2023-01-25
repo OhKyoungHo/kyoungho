@@ -15,7 +15,7 @@
       <!-- Place favicon.ico in the root directory -->
       <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
       <!-- CSS here -->
-      <link rel="stylesheet" href="/assets/css/preloader.css">
+     <link rel="stylesheet" href="/assets/css/preloader.css">
       <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
       <link rel="stylesheet" href="/assets/css/meanmenu.css">
       <link rel="stylesheet" href="/assets/css/animate.min.css">
@@ -27,7 +27,9 @@
       <link rel="stylesheet" href="/assets/css/elegantFont.css">
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/allcss.css">
       <link rel="stylesheet" href="/assets/css/onoff.css">
+      <link rel="stylesheet" href="/assets/css/allcss.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -95,7 +97,7 @@
 
                   <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
                   <c:choose>
-							<c:when test="${empty sessionScope.memIdInt}">
+                     <c:when test="${empty sessionScope.memIdInt}">
 
                         <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
                            <div class="eader__center align-items-center d-flex justify-content-center">
@@ -132,10 +134,13 @@
                                  </nav>
                               </div>
                               <div class="header__search p-relative ml-50 d-none d-md-block">
-                                 <form action="#">
-                                    <input type="text" placeholder="Search...">
+                                  <!-- 검색-->
+                                 <form id = "main" action=/lecture/lecture-sidebar method="GET">
+                                    <input type="text" name ="keywords"  placeholder="ex)교육과정 및 학원이름 검색">
                                     <button type="submit"><i class="fad fa-search"></i></button>
                                  </form>
+
+
                                  <div class="header__cart">
                                     <a href="javascript:void(0);" class="cart-toggle-btn">
                                        <div class="header__cart-icon">
@@ -163,7 +168,7 @@
                         </div>
 
                      </c:when>
-							<c:when test="${not empty sessionScope.memIdInt}">
+                     <c:when test="${not empty sessionScope.memIdInt}">
 
                         <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
                            <div class="eader__center align-items-center d-flex justify-content-center">
@@ -202,18 +207,6 @@
                               
                               
 
-                              <!-- 0103 찬주2
-                                 메인화면에서의 검색기능과 동일한 부분 
-                              -->
-
-                              <div class="header__search p-relative ml-50 d-none d-md-block">
-
-                                 <form id = "main" action=/academy/course-sidebar method="GET">
-                                    <input type="text" name ="keywords"  placeholder="ex)강의 및 선생님검색">
-                                    <button type="submit"><i class="fad fa-search"></i></button>
-                                 </form>
-                                 <!-- 검색 끝-->
-
                                  
                                  <div class="header__cart">
                                     <a href="javascript:void(0);" class="cart-toggle-btn">
@@ -229,7 +222,7 @@
                                  </div>
                               </div>
                               <div class="header__btn ml-20 d-none d-sm-block">
-                                 <a href="logoutMember" class="e-btn">로그아웃</a>
+                                 <a href="/logoutMember" class="e-btn">로그아웃</a>
                               </div>
                               <div class="sidebar__menu d-xl-none">
                                  <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
@@ -242,7 +235,7 @@
                         </div>
 
                      </c:when>
-						</c:choose>
+                  </c:choose>
                   <!-- JSTL c:when 끝-->
 
                </div>
@@ -356,12 +349,16 @@
                </div>
                <div class="mobile-menu fix"></div>
 
+               
                <div class="sidebar__search p-relative mt-40 ">
                   <form action="#">
                      <input type="text" placeholder="Search...">
                      <button type="submit"><i class="fad fa-search"></i></button>
                   </form>
                </div>
+
+
+
                <div class="sidebar__cart mt-30">
                   <a href="#">
                      <div class="header__cart-icon">
@@ -405,7 +402,7 @@
                                </nav>
                            </div>
                              <!-- 국비인지 부트인지-->
-                           <span class="page__title-pre">Development</span>
+                           <span class="page__title-pre">화상교육</span>
                              <!-- 교육과정 이름-->
                            <h5 class="page__title-3">${lecture.vcTitle}</h5>
                         </div>
@@ -413,15 +410,22 @@
                            <div class="course__teacher-3 d-flex align-items-center mr-70 mb-20">
                               <div class="course__teacher-thumb-3 mr-15">
                                    <!--학원 상세페이지로 이동 -->
-                                 <img src="/assets/img/course/teacher/teacher-1.jpg" alt="">
+                                 <img src="/assets/img/lecture/${vcPic}" >
                               </div>
                               <div class="course__teacher-info-3">
+                             
                                  <h5>선생님이름</h5>
                                    <!--누르면 학원 상세페이지로 이동 -->
-                                 <p><a href="#">선생님이름</a></p>
+                                 <p><a href="#">몰겠음</a></p>
+                              
                               </div>
                            </div>
-                           
+
+                             <div class="course__lesson"> <!--0106 좋아요버튼-->
+                              <span> <a href="/mypage/jjimInsert?memIdInt=${sessionScope.memIdInt}&vcId=${lecture.vcId}">
+                                 <input type="image" style="width:10px;" class="icon.heart" src="/assets/img/course/off.png" alt="찜하기" id="likeImg">
+                            </a></span>
+                           </div>
 
                            
                          
@@ -456,330 +460,486 @@
                            </div>
                            
                         </div>
-                       
+                        
+                                         
+                         <!--옆에 사이드바 추가 -->
+   <div class="col-xxl-4 col-xl-4 col-lg-4">
+      <div class="course__sidebar pl-70 p-relative"  id="side">
+         <div class="course__shape">
+            <img class="course-dot" src="assets/img/course/course-dot.png" alt="">
+         </div>
+         <div class="course__sidebar-widget-2 white-bg mb-20">
+            <div class="course__video">
+               <div class="course__video-thumb w-img mb-25">
+                  <img src="assets/img/course/video/course-video.jpg" alt="">
+                  <div class="course__video-play"> 
+                     <a href="https://youtu.be/yJg-Y5byMMw" data-fancybox="" class="play-btn"> <i class="fas fa-play"></i> </a>
+                  </div>
+               </div>
+               <div class="course__video-meta mb-25 d-flex align-items-center justify-content-between">
+                  <div class="course__video-price">
+                     <h5>${lecture.vcTitle}</h5>
+                     
+                  </div>
+                  <div class="course__video-discount">
+                     <span>화상교육!</span>
+                  </div>
+               </div>
+               <div class="course__video-content mb-35">
+                  <ul>
+                     <li class="d-flex align-items-center">
+                        <div class="course__video-icon">
+                           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+                              <path class="st0" d="M2,6l6-4.7L14,6v7.3c0,0.7-0.6,1.3-1.3,1.3H3.3c-0.7,0-1.3-0.6-1.3-1.3V6z"/>
+                              <polyline class="st0" points="6,14.7 6,8 10,8 10,14.7 "/>
+                           </svg>
+                        </div>
+                        <div class="course__video-info">
+                           <h5><span>위치 :</span>온라인 교육 / 별도공지 예정</h5>
+                        </div>
+                     </li>
+                    
+                     <li class="d-flex align-items-center">
+                        <div class="course__video-icon">
+                           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+                              <circle class="st0" cx="8" cy="8" r="6.7"/>
+                              <polyline class="st0" points="8,4 8,8 10.7,9.3 "/>
+                           </svg>
+                        </div>
+                        <div class="course__video-info">
+                           <h5><span>수업시간 :</span>결제/예약후 마이페이지에서 확인해주세요!</h5>
+                        </div>
+                     </li>
+                     <li class="d-flex align-items-center">
+                        <div class="course__video-icon">
+                           <svg>
+                              <path class="st0" d="M13.3,14v-1.3c0-1.5-1.2-2.7-2.7-2.7H5.3c-1.5,0-2.7,1.2-2.7,2.7V14"/>
+                              <circle class="st0" cx="8" cy="4.7" r="2.7"/>
+                           </svg>
+                        </div>
+                        <div class="course__video-info">
+                           <h5><span>접속정보 :</span>${sessionScope.memIdString}</h5>
+                        </div>
+                     </li>
+                     <li class="d-flex align-items-center">
+                        <div class="course__video-icon">
+                           <svg>
+                              <circle class="st0" cx="8" cy="8" r="6.7"/>
+                              <line class="st0" x1="1.3" y1="8" x2="14.7" y2="8"/>
+                              <path class="st0" d="M8,1.3c1.7,1.8,2.6,4.2,2.7,6.7c-0.1,2.5-1,4.8-2.7,6.7C6.3,12.8,5.4,10.5,5.3,8C5.4,5.5,6.3,3.2,8,1.3z"/>
+                           </svg>
+                        </div>
+                        <div class="course__video-info">
+                           <h5><span>Language :</span>Korea</h5>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+               
+               <div class="course__enroll-btn">
+                  <!-- 누르면 이확원이 등록했던 걸 키워드 검색 파라미터로 넘겨 학원 정보를 더 확인할 수 있다-->
+                  <a href="/lecture/lecture-sidebar?keywords=${lecture.vcTitle}" class="e-btn e-btn-7 w-100">강의 더보기! <i class="far fa-arrow-right"></i></a>
+               </div>
+            </div>
+         </div>
+
+         <div class="course__sidebar-widget-2 white-bg mb-20">
+            <div class="course__sidebar-course">
+               <h3 class="course__sidebar-title">Recommend</h3>
+               <ul>
+                  <li>
+                     <div class="course__sm d-flex align-items-center mb-30">
+
+                        <div class="course__sm-thumb mr-20">
+                           <a href="/lecture/lecture-details?vcId=${lecture.vcId=100}">
+                              <img src="/assets/img/course/${lecture.vc_pic='132.PNG'}" alt=""> 
+                           </a>
+                        </div>
+
+                        <div class="course__sm-content">
+                         
+                           <h5>수정하자</h5>
+                           <div class="course__sm-price">
+                              <span>${lecture.vcTitle}</span>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="course__sm d-flex align-items-center mb-30">
+
+                        <div class="course__sm-thumb mr-20">
+                           <a href="/lecture/lecture-details?vcId=${lecture.vcId=101}">
+                              <img src="/assets/img/course/${lecture.vc_pic='132.PNG'}" alt="">
+                           </a>
+                        </div>
+
+                        <div class="course__sm-content">
+                         
+                           <h5>수정하자</h5>
+                           <div class="course__sm-price">
+                              <span>${lecture.vcTitle}</span>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="course__sm d-flex align-items-center mb-30">
+
+                        <div class="course__sm-thumb mr-20">
+                           <a href="/lecture/lecture-details?vcId=${lecture.vcId=102}">
+                              <img src="/assets/img/course/${lecture.vc_pic='132.PNG'}" alt="">
+                           </a>
+                        </div>
+
+                        <div class="course__sm-content">
+                         
+                           <h5>수정하자</h5>
+                           <div class="course__sm-price">
+                              <span>${lecture.vcTitle}</span>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+
+             <!--해당 교육과정 이미지-->
+             <div class="course__img w-img mb-30">
+               <img src="/assets/img/lecture/${vcPic}" alt="" width='770' height='450'>
+            </div>
+             <!--교육과정 관련 tab부분 -->
+            <div class="course__tab-2 mb-45">
+               <ul class="nav nav-tabs" id="courseTab" role="tablist">
+
+                  
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true"> <i class="icon_ribbon_alt"></i> <span>상세설명</span> </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link " id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum" type="button" role="tab" aria-controls="curriculum" aria-selected="false"> <i class="icon_book_alt"></i> <span>교육과정</span> </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false"> <i class="icon_star_alt"></i> <span>후기</span> </button>
+                  </li>
+                  
+                  
+                </ul>
+            </div>
+
+
+
+
+            <!--안에 내용들 시작-->
+            <div class="course__tab-content mb-95">
+               <div class="tab-content" id="courseTabContent">
+
+                  <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                     <div class="course__description">
+                        <h3>${education.edTitle}</h3>
+                         <!--상세내용(크롤링해서 넣기)-->
+                         <p>${lecture.vc_intro}</p>
 
                         
-                        <div class="course__tag-2 mb-15">
-                           <!--여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
-                          <i class="fal fa-tag"></i>
-                          <a>  ${lecture.vcKeyword}</a>
-                       </div>
-                        <!--해당 교육과정 이미지-->
-                        <div class="course__img w-img mb-30">
-                           <img src="/assets/img/course/${lecture.vc_pic}" alt="" width='770' height='450'>
+                        <div class="course__description-list mb-45">
+                           <h4>Code a clock을 즐기시는법!</h4>
+                           <ul>
+                              <li> <i class="icon_check"></i> 1) Code a clock만의 상세한 실시간 정보</li>
+                              <li> <i class="icon_check"></i> 2) 한눈에 볼수 있는 교육과정</li>
+                              <li> <i class="icon_check"></i> 3) 실시간 리뷰로 편하게 비교하세요</li>
+                           </ul>
                         </div>
-                         <!--교육과정 관련 tab부분 -->
-                        <div class="course__tab-2 mb-45">
-                           <ul class="nav nav-tabs" id="courseTab" role="tablist">
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true"> <i class="icon_ribbon_alt"></i> <span>상세설명</span> </button>
-                              </li>
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link " id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum" type="button" role="tab" aria-controls="curriculum" aria-selected="false"> <i class="icon_book_alt"></i> <span>교육과정</span> </button>
-                              </li>
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false"> <i class="icon_star_alt"></i> <span>후기</span> </button>
-                              </li>
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="member-tab" data-bs-toggle="tab" data-bs-target="#member" type="button" role="tab" aria-controls="member" aria-selected="false"> <i class="fal fa-user"></i> <span>담당강사님들</span> </button>
-                              </li>
-                            </ul>
-                        </div>
-                        <div class="course__tab-content mb-95">
-                           <div class="tab-content" id="courseTabContent">
-                              <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                                 <div class="course__description">
-                                    <h3>${lecture.vcTitle}</h3>
-                                     <!--상세내용(크롤링해서 넣기)-->
-                                    <p>${lecture.vc_intro}</p>
+                        <div class="course__instructor mb-45">
+                           <h3>Code a clock 추천학원</h3>
+                           <div class="course__instructor-wrapper d-md-flex align-items-center">
 
-                                    
-                                    <div class="course__description-list mb-45">
-                                       <h4>What is the Target Audience?</h4>
-                                       <ul>
-                                          <li> <i class="icon_check"></i> Business's managers, leaders</li>
-                                          <li> <i class="icon_check"></i> Downloadable lectures, code and design /assets for all projects</li>
-                                          <li> <i class="icon_check"></i> Anyone who is finding a chance to get the promotion</li>
-                                       </ul>
-                                    </div>
-                                    <div class="course__instructor mb-45">
-                                       <h3>Other Instructors</h3>
-                                       <div class="course__instructor-wrapper d-md-flex align-items-center">
-                                          <div class="course__instructor-item d-flex align-items-center mr-70">
-                                             <div class="course__instructor-thumb mr-20">
-                                                <img src="/assets/img/course/teacher/teacher-3.jpg" alt="">
-                                             </div>
-                                             <div class="course__instructor-content">
-                                                <h3>Eleanor Fant</h3>
-                                                <p>Instructor</p>
-                                             </div>
-                                          </div>
-                                          <div class="course__instructor-item d-flex align-items-center mr-70">
-                                             <div class="course__instructor-thumb mr-20">
-                                                <img src="/assets/img/course/teacher/teacher-2.jpg" alt="">
-                                             </div>
-                                             <div class="course__instructor-content">
-                                                <h3>Lauren Stamps</h3>
-                                                <p>Teacher</p>
-                                             </div>
-                                          </div>
-                                          <div class="course__instructor-item d-flex align-items-center mr-70">
-                                             <div class="course__instructor-thumb mr-20">
-                                                <img src="/assets/img/course/teacher/teacher-1.jpg" alt="">
-                                             </div>
-                                             <div class="course__instructor-content">
-                                                <h3>Jonquil Von</h3>
-                                                <p>Associate</p>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
 
-                              <!--커리큘럼-->
-                              <div class="tab-pane fade" id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
-                                 <div class="course__curriculum">
-                                    <c:forEach items="${title}" var="i" step="3" varStatus="status" >
-                                    <div class="accordion" id="course__accordion">
-                                          <div class="accordion-item mb-20">
-                                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#${title[status.index-3]}-content" aria-expanded="true"
-                                                aria-controls="${title[status.index-3]}-content">
-                                                ${i}
-                                             </button>
-                                             </h2>
-                                             <div id="${title[status.index-3]}-content" class="accordion-collapse collapse show"
-                                                aria-labelledby="${title[status.index-3]}" data-bs-parent="#course__accordion">
-                                                <div class="accordion-body">
-                                                   <div
-                                                      class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                                      <div class="course__curriculum-info">
-
-                                                         <svg class="document" viewBox="0 0 24 24">
-
-                                                            <path class="st0"
-                                                               d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z" />
-                                                            <polyline class="st0" points="14,2 14,8 20,8 " />
-                                                            <line class="st0" x1="16" y1="13" x2="8" y2="13" />
-                                                            <line class="st0" x1="16" y1="17" x2="8" y2="17" />
-                                                            <polyline class="st0" points="10,9 9,9 8,9 " />
-                                                         </svg>
-                                                         <h3><span> ${title[status.index+1]}: </span>
-                                                            ${title[status.index+2]}</h3>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </c:forEach>
-                                 </div>
-                              </div>
-
-                              <!----------------------------------------------------------------------------------------------------------------->
-                              <!--0105 찬주 별점2  평균 부분 나오는 큰부분 -->
-                              <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-                                 <div class="course__review">
-                                    
-                                    <h3>평균 별점</h3>
-                                    <p>평균 별점으로 확실히 확인하세요!</p>
-
-                                    <div class="course__review-rating mb-50">
-                                       <div class="row g-0">
-                                          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                                             <div class="course__review-rating-info grey-bg text-center">
-                                                <c:forEach var="avg" items="${avg}">  
-                                                   <c:if test="${avg[0] == lecture.vcId}" >  
-                                                <h5>${avg[1]}</h5>
-                                                <c:if test="${avg[1] == 1}">
-                                                      <img src="/assets/img/star/1s.png">
-                                                </c:if>
-                                                <c:if test="${avg[1]== 2}">
-                                                      <img src="/assets/img/star/2s.png">
-                                                </c:if>
-                                                <c:if test="${avg[1] == 3}">
-                                                      <img src="/assets/img/star/3s.png">
-                                                </c:if>
-                                                <c:if test="${avg[1] == 4}">
-                                                      <img src="/assets/img/star/4s.png">
-                                                </c:if>
-                                                <c:if test="${avg[1] == 5}">
-                                                      <img src="/assets/img/star/5s.png">
-                                                </c:if>
-                                             <p>${avg[1]} Ratings</p>
-                                             </c:if>
-                                                </c:forEach>
-                                             </div>
-                                          </div>
-                                         
-                                          <!-- 별점 큰부분 옆 이미지 대체-->
-                                          <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8">
-                                                <img src="/assets/img/star/re.png "  height="255" width="515">
-                                          </div>
-                                       </div>
-                                    </div>
-                                  
+                              <div class="course__instructor-item d-flex align-items-center mr-70">
+                                 <div class="course__instructor-thumb mr-20">
                                    
-                            
+                                    <!-- 우리가 추천하는 수업 넣어주면 됌-->
+                                    <a href="/lecture/lecture-details?vcId=${lecture.vcId=100}">
+                                       <img src="/assets/img/course/${lecture.vc_pic='132.PNG'}" alt="">
+                                     </a>
 
-                                 <!-- 0105 찬주 등록된 리뷰확인 -->
-                                    <div class="course__comment mb-75" id="reviewBox">
-                                       <h3>리뷰확인</h3>
-                                    <!--반복문으로 출력--> 
-                                    <c:forEach var="reviewList" items="${reviewList}">  
-                                       <ul>
-                                          <li>
-                                             <div class="course__comment-box " >
-                                                <div class="course__comment-thumb float-start">
-                                                   
-                                                </div>
-                                                <div class="course__comment-content">
-                                                   <div class="course__comment-wrapper ml-70 fix">
-                                                      <div class="course__comment-info float-start">
-                                                         <h4>${reviewList.memIdString}</h4>
-                                                      </div>
-                                                      <div class="course__comment-info float-start">
-                                                         <span>${reviewList.reDate}</span>
-                                                      </div>
-                                                      <div class="course__comment-rating float-start float-sm-end">
-                                                         <tr>
-                                                            <td>${reviewList.star}
-                                                               <c:if test="${reviewList.star ==1}">
-                                                                  <img src="/assets/img/star/1s.png">
-                                                               </c:if>
-                                                               <c:if test="${reviewList.star ==2}">
-                                                                  <img src="/assets/img/star/2s.png">
-                                                               </c:if>
-                                                               <c:if test="${reviewList.star ==3}">
-                                                                  <img src="/assets/img/star/3s.png">
-                                                               </c:if>
-                                                               <c:if test="${reviewList.star ==4}">
-                                                                  <img src="/assets/img/star/4s.png">
-                                                               </c:if>
-                                                               <c:if test="${reviewList.star ==5}">
-                                                                  <img src="/assets/img/star/5s.png">
-                                                               </c:if>
-
-                                                            </td>
-                                                         </tr>
-                                                      </div>
-                                                   </div>
-                                                   <div class="course__comment-text ml-70">
-                                                      <p>${reviewList.reContent}</p>
-                                                </div>
-                                             </div>
-                                          </li>
-                                       </ul>
-                                    </c:forEach>
-                                    </div>
+                                 </div>
+                                 <div class="course__instructor-content">
+                                    <h6>수정하자</h6>
+                                    <p>수정하자</p>
+                                 </div>
+                              </div>
 
 
-                                    <div class="row">
-                                       <div class="col-xxl-12">
-                                          <div class="basic-pagination wow fadeInUp mt-30" data-wow-delay=".2s">
-                                             <ul class="d-flex align-items-center"> 
-                                     <!-- 페이지 그룹 -->
-                           <!-- 시작블럭을 반복시작 인덱스로 종료블럭을 반복종료 인덱스로 설정  -->
-                           <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
-                              <!-- 현재페이지의 +1이 i랑 같은 경우 다음페이지로 이동하게 설정 -->
-                              <!-- 현재페이지의 +1이 i랑 다른 경우 다음 페이지로 이동하게 설정-->
-                              <c:choose>
-                              <c:when test="${pageNumber+1 == i}">
-                                 <li>
-                                    <a href="lecture-details?page=${i}&vcId=${param.vcId}"><span id="a">${i}</span></a>
-                                 </li>
-                              </c:when>
-                              <c:otherwise>
-                                 <li><a href="lecture-details?page=${i}&vcId=${param.vcId}"><span id="b">${i}</span></a></li>
-                              </c:otherwise>
-                              </c:choose>
-                              </c:forEach>
-                              <!-- 맨마지막페이지 -->
-                              <!-- last : 해당 페이지가 마지막 페이지인지 여부(true/false로 구분)-->
-                              <!-- 해당페이지가 마지막인 경우에는 아무것도 설정안함-->
-                              <!-- 해당 페이지가 마지막 페이지가 아닌경우-->
-                              <!-- 마지막페이지로 이동 -->
-                              <c:choose>     
-                              <c:when test="${elist.last}"></c:when>
-                              <c:otherwise>
-                                 <li class="next">
-                                    <a href="lecture-sidebar?page=${totalPages}" class="link-btn">
-                                    Next
-                                    <i class="arrow_right"></i>
-                                    <i class="arrow_right"></i>
-                                    </a>
-                                 </li>
-                              </c:otherwise>
-                              </c:choose>
-                                    </ul>
+                              <div class="course__instructor-item d-flex align-items-center mr-70">
+                                 <div class="course__instructor-thumb mr-20">
+                                   
+                                   <!-- 우리가 추천하는 수업 넣어주면 됌-->
+                                   <a href="/lecture/lecture-details?vcId=${lecture.vcId=101}">
+                                    <img src="/assets/img/course/${lecture.vc_pic='132.PNG'}" alt="">
+                                  </a>
+
+                                 </div>
+                                 <div class="course__instructor-content">
+                                    <h6>수정하자</h6>
+                                    <p>수정하자</p>
+                                 </div>
+                              </div>
+
+
+                              <div class="course__instructor-item d-flex align-items-center mr-70">
+                                 <div class="course__instructor-thumb mr-20">
+                                   
+                                    <!-- 우리가 추천하는 수업 넣어주면 됌-->
+                                    <a href="/lecture/lecture-details?vcId=${lecture.vcId=102}">
+                                       <img src="/assets/img/course/${lecture.vc_pic='132.PNG'}" alt="">
+                                     </a>
+
+                                 </div>
+                                 <div class="course__instructor-content">
+                                    <h6>수정하자</h6>
+                                    <p>수정하자</p>
                                  </div>
                               </div>
                            </div>
                         </div>
                      </div>
+             </div><!--1번 내용 div 끝-->
+
+
+
+                 <!--커리큘럼 부분-->
+            <div class="tab-pane fade" id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
+               <div class="course__curriculum">
+
+                        <c:forEach items="${title}" var="i" step="3" varStatus="status" ><!--forEach-->
+                  <div class="accordion" id="course__accordion">
+                        <div class="accordion-item mb-50">
+                          <h2 class="accordion-header" id="week-01">
+                           <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                 data-bs-target="#${title[status.index-3]}-content" aria-expanded="true"
+                                 aria-controls="${title[status.index-3]}-content">
+                                 ${i}
+                              </button>
+                          </h2>
+
+                          <div id="${title[status.index-3]}-content" class="accordion-collapse collapse show" aria-labelledby="${title[status.index-3]}" data-bs-parent="#course__accordion">
+                            <div class="accordion-body">
+                              <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
+                                 <div class="course__curriculum-info">
+                                 
+                                    <h3> <span>${title[status.index+1]}: </span> ${title[status.index+2]}</h3>
+                                 </div>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                     </div>
+                     <div class="accordion" id="course__accordion-2">
+                     </div>
+                   </c:forEach>
                   </div>
-   
+            </div>
+                  <!----------------------------------------------------------------------------------------------------------------->
+                  <!--0105 찬주 별점2  평균 부분 나오는 큰부분 -->
+            <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+               <div class="course__review">
+                        
+                        <h3>평균 별점</h3>
+                        <p>평균 별점으로 확실히 확인하세요!</p>
 
-
-
-
-
-
-                                    <!-- 0104 찬주 리뷰등록 -->
-                                    <div class="course__form">
-                                       <h3>리뷰작성</h3>
-                                       <div class="course__form-inner">
-
-                                          <!--form의 시작-->
-                                          <form action="" method="get" id ="cmtfrm" name="cmtfrm">
-
-                                             <div class="row">
-                                                <div class="col-xxl-6">
-                                                   <div class="course__form-input">
-                                                      <!--아이디값 저장 지금은 그냥 임의의 값 넣어줌-->
-                                                      <!--참고로 re_id 는 시퀀스라 자동이고 날짜도 자동으로 들어가게 해놓음-->
-                                                      <input type="text" name="memId" value="${sessionScope.memId}"  id = name> <!-- "${sessionScope.memId}"-->
-                                                    
+                        <div class="course__review-rating mb-50">
+                           <div class="row g-0">
+                              <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                                 <div class="course__review-rating-info grey-bg text-center">
+                                    <c:forEach var="avg" items="${avg}">  
+                                       <c:if test="${avg[0] == lecture.vcId}" >  
+                                    <h5>${avg[1]}</h5>
+                                    <c:if test="${avg[1] == 1}">
+                                          <img src="/assets/img/star/1s.png">
+                                    </c:if>
+                                    <c:if test="${avg[1]== 2}">
+                                          <img src="/assets/img/star/2s.png">
+                                    </c:if>
+                                    <c:if test="${avg[1] == 3}">
+                                          <img src="/assets/img/star/3s.png">
+                                    </c:if>
+                                    <c:if test="${avg[1] == 4}">
+                                          <img src="/assets/img/star/4s.png">
+                                    </c:if>
+                                    <c:if test="${avg[1] == 5}">
+                                          <img src="/assets/img/star/5s.png">
+                                    </c:if>
+                                 <p>${avg[1]} Ratings</p>
+                                 </c:if>
+                                    </c:forEach>
+                                 </div>
+                              </div>
+                             
+                              <!-- 별점 큰부분 옆 이미지 대체-->
+                              <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                                    <img src="/assets/img/star/re.png "  height="255" width="440">
+                              </div>
+                     </div>
+                </div>
+                                    <!-- 0105 찬주 등록된 리뷰확인 -->
+                                       <div class="course__comment mb-75" id="reviewBox">
+                                           <h3>리뷰확인</h3>
+                                             <!--반복문으로 출력--> 
+                                           <c:forEach var="reviewList" items="${reviewList}">  
+                                          <ul>
+                                             <li>
+                                                <div class="course__comment-box " >
+                                                   <div class="course__comment-thumb float-start">
                                                       
                                                    </div>
-                                                </div>
-                                                
-                              
-                                                <!--별점 체크 부분-->
-                                                <div class="col-xxl-12">
-                                                   <div class="course__form-input">
-                                                      <div class="course__form-rating">
-                                                         <span>별점 </span>
-                                                         <img id =image1 onmouseover=show(1) onclick=mark(1) onmouseout=noshow(1) src="/assets/img/star/0star.png">
-                                                         <img id =image2 onmouseover=show(2) onclick=mark(2) onmouseout=noshow(2) src="/assets/img/star/0star.png">
-                                                         <img id =image3 onmouseover=show(3) onclick=mark(3) onmouseout=noshow(3) src="/assets/img/star/0star.png">
-                                                         <img id =image4 onmouseover=show(4) onclick=mark(4) onmouseout=noshow(4) src="/assets/img/star/0star.png">
-                                                         <img id =image5 onmouseover=show(5) onclick=mark(5) onmouseout=noshow(5) src="/assets/img/star/0star.png">
-                                                         <span id=startext></span>
-                                                         <input type="hidden" name="star"  id="star"> <!--히든넘기기-->
-                                                         <input type="hidden" name="vcId" value="${param.vcId}"> <!--히든넘기기--> <!--임의의값임 수정 완료-->
+                                                   <div class="course__comment-content">
+                                                      <div class="course__comment-wrapper ml-70 fix">
+                                                         <div class="course__comment-info float-start">
+                                                            <h4>${reviewList.memIdString}</h4>
+                                                         </div>
+                                                         <div class="course__comment-info float-start">
+                                                            <span>${reviewList.reDate}</span>
+                                                         </div>
+                                                         <div class="course__comment-rating float-start float-sm-end">
+                                                            <tr>
+                                                               <td>${reviewList.star}
+                                                                  <c:if test="${reviewList.star ==1}">
+                                                                     <img src="/assets/img/star/1s.png">
+                                                                  </c:if>
+                                                                  <c:if test="${reviewList.star ==2}">
+                                                                     <img src="/assets/img/star/2s.png">
+                                                                  </c:if>
+                                                                  <c:if test="${reviewList.star ==3}">
+                                                                     <img src="/assets/img/star/3s.png">
+                                                                  </c:if>
+                                                                  <c:if test="${reviewList.star ==4}">
+                                                                     <img src="/assets/img/star/4s.png">
+                                                                  </c:if>
+                                                                  <c:if test="${reviewList.star ==5}">
+                                                                     <img src="/assets/img/star/5s.png">
+                                                                  </c:if>
+
+                                                               </td>
+                                                            </tr>
+                                                         </div>
                                                       </div>
-
-                                                     <!--작성글 들어가는 부분!-->
-                                                      <textarea placeholder="리뷰를작성" name="reContent"  id="text"></textarea>
+                                                      <div class="course__comment-text ml-70">
+                                                         <p>${reviewList.reContent}</p>
                                                    </div>
                                                 </div>
-                                            
-
-                                             </div>
-                                             <div class="row">
-                                                <div class="col-xxl-12">
-                                                   <div class="course__form-btn mt-10 mb-55">
-                                                      <button type="button" class="e-btn" id="btn-e">글 등록</button>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                         
-                                          </form>
+                                             </li>
+                                          </ul>
+                                       </c:forEach>
                                        </div>
+                                                            <div class="row">
+                                                               <div class="col-xxl-12">
+                                                                  <div class="basic-pagination wow fadeInUp mt-30" data-wow-delay=".2s">
+                                                                     <ul class="d-flex align-items-center"> 
+                                                                                 <!-- 페이지 그룹 -->
+                                                                        <!-- 시작블럭을 반복시작 인덱스로 종료블럭을 반복종료 인덱스로 설정  -->
+                                                                        <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
+                                                                           <!-- 현재페이지의 +1이 i랑 같은 경우 다음페이지로 이동하게 설정 -->
+                                                                           <!-- 현재페이지의 +1이 i랑 다른 경우 다음 페이지로 이동하게 설정-->
+                                                                           <c:choose>
+                                                                           <c:when test="${pageNumber+1 == i}">
+                                                                              <li>
+                                                                                 <a href="lecture-details?page=${i}&vcId=${param.vcId}"><span id="a">${i}</span></a>
+                                                                              </li>
+                                                                           </c:when>
+                                                                           <c:otherwise>
+                                                                              <li><a href="lecture-details?page=${i}&vcId=${param.vcId}"><span id="b">${i}</span></a></li>
+                                                                           </c:otherwise>
+                                                                           </c:choose>
+                                                                           </c:forEach>
+                                                                           <!-- 맨마지막페이지 -->
+                                                                           <!-- last : 해당 페이지가 마지막 페이지인지 여부(true/false로 구분)-->
+                                                                           <!-- 해당페이지가 마지막인 경우에는 아무것도 설정안함-->
+                                                                           <!-- 해당 페이지가 마지막 페이지가 아닌경우-->
+                                                                           <!-- 마지막페이지로 이동 -->
+                                                                           <c:choose>     
+                                                                           <c:when test="${elist.last}"></c:when>
+                                                                           <c:otherwise>
+                                                                              <li class="next">
+                                                                                 <a href="lecture-sidebar?page=${totalPages}" class="link-btn">
+                                                                                 Next
+                                                                                 <i class="arrow_right"></i>
+                                                                                 <i class="arrow_right"></i>
+                                                                                 </a>
+                                                                              </li>
+                                                                           </c:otherwise>
+                                                                           </c:choose>
+                                                                        </ul>
+                                                               </div>
+                                                            </div>
+                                                      </div>
+                                       <!-- 0104 찬주 리뷰등록 -->
+                                       <div class="course__form">
+                                          <h3>리뷰작성</h3>
+                                          <div class="course__form-inner">
+
+                                             <!--form의 시작-->
+                                             <form action="" method="get" id ="cmtfrm" name="cmtfrm">
+
+                                                <div class="row">
+                                                   <div class="col-xxl-6">
+                                                      <div class="course__form-input">
+                                                         <!--아이디값 저장 지금은 그냥 임의의 값 넣어줌-->
+                                                         <!--참고로 re_id 는 시퀀스라 자동이고 날짜도 자동으로 들어가게 해놓음-->
+                                                         <input type="text" name="memIdString" value="${sessionScope.memIdString}"  id = memIdString> <!-- "${sessionScope.memIdString}"-->
+                                                         <input type="hidden" name="memIdInt" value="17"  id = memIdInt> <!-- "${sessionScope.memIdInt}"-->
+                                                         
+                                                      </div>
+                                                   </div>
+                                                   
+                                 
+                                                   <!--별점 체크 부분-->
+                                                   <div class="col-xxl-12">
+                                                      <div class="course__form-input">
+                                                         <div class="course__form-rating">
+                                                            <span>별점 </span>
+                                                            <img id =image1 onmouseover=show(1) onclick=mark(1) onmouseout=noshow(1) src="/assets/img/star/0star.png">
+                                                            <img id =image2 onmouseover=show(2) onclick=mark(2) onmouseout=noshow(2) src="/assets/img/star/0star.png">
+                                                            <img id =image3 onmouseover=show(3) onclick=mark(3) onmouseout=noshow(3) src="/assets/img/star/0star.png">
+                                                            <img id =image4 onmouseover=show(4) onclick=mark(4) onmouseout=noshow(4) src="/assets/img/star/0star.png">
+                                                            <img id =image5 onmouseover=show(5) onclick=mark(5) onmouseout=noshow(5) src="/assets/img/star/0star.png">
+                                                            <span id=startext></span>
+                                                            <input type="hidden" name="star"  id="star" value="${param.star}"> <!--히든넘기기-->
+                                                            <input type="hidden" name="edId" value="${param.edId}"> <!--히든넘기기--> <!--임의의값임 수정 완료-->
+                                                            
+                                                         </div>
+
+                                                      <!--작성글 들어가는 부분!-->
+                                                         <textarea placeholder="리뷰를작성" name="reContent"  id="text"></textarea>
+                                                      </div>
+                                                   </div>
+                                             
+
+                                                </div>
+                                                <div class="row">
+                                                   <div class="col-xxl-12">
+                                                      <div class="course__form-btn mt-10 mb-55">
+                                                         <button type="button" class="e-btn" id="btn-e">글 등록</button>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                          
+                                             </form>
+                                          </div>
+                                       </div>
+                                       <!--0105 리뷰부분 종료 여기까지-->
+                                          
                                     </div>
-                                    <!--0105 리뷰부분 종료 여기까지-->
-      </main>
+                                 </div>
+                              </div>         
+</main>
+</div>
+
+
+                        
 
          <!-- footer area start -->
          <footer>

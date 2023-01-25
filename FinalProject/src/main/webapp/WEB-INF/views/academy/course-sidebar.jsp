@@ -27,6 +27,7 @@
       <link rel="stylesheet" href="/assets/css/style.css">
       <link rel="stylesheet" href="/assets/css/wishlist.css"><!-- 0106 좋아요 버튼 관련 css -->
       <link rel="stylesheet" href="/assets/css/onoff.css">
+      <link rel="stylesheet" href="/assets/css/allcss.css">
       <style>
          @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
          </style>
@@ -489,7 +490,7 @@
                                           </a>
                                           <div class="course__tag">
                                              <!-- 국비/ 부트캠프 인지-->
-                                             <a href="#">국비 or 부트캠프</a>
+                                             <a href="course-details?edId=${education.edId}">국비 or 부트캠프</a>
                                           </div>
                                        </div>
                                        <div class="course__content">
@@ -599,7 +600,7 @@
                                                 </div>
                                                 <div class="course__more course__more-2 course__more-3 d-flex justify-content-between align-items-center">
                                                    <div class="course__status">
-                                                      <span>${education.edPrice}원</span>
+                                                      <span>${education.edPrice}</span>
                                                    </div>
                                                    <div class="course__btn">
                                                       <a href="course-details?edId=${education.edId}" class="link-btn">
@@ -668,6 +669,7 @@
                            <c:choose>     
                            <c:when test="${elist.last}"></c:when>
                            <c:otherwise>
+                                 <li class="nxt-btn"><a href="course-sidebar?page=${pageNumber+2}&order=${param.order}&keywords=${param.keywords}">&rarr;</a></li>
                               <li class="next">
                                  <a href="course-sidebar?page=${totalPages}" class="link-btn">
                                  Next
@@ -707,26 +709,37 @@
                               <!-- 찬주3
                                   0103 카테고리별 검색 form태그-->
                                   <form id="detailsForm" action=/academy/course-sidebar method="GET">
+                                    <h5><인기 과목></h5> 
                               <ul>
                                  <li>
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
                                        <input class="m-check-input" type="checkbox" 
                                              id="m-all" name ="keywords" value="JAVA"  onclick='checkOnlyOne(this)'>
-                                       <label class="m-check-label" for="m-eng">JAVA</label>
+                                       <label class="m-check-label" for="m-eng">JAVA / 자바</label>
                                     </div>
                                  </li>
                                  <li>
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
                                        <input class="m-check-input" type="checkbox" 
                                           id="m-all" name ="keywords" value="Python"  onclick='checkOnlyOne(this)'>
-                                       <label class="m-check-label" for="m-eng">Python</label>
+                                       <label class="m-check-label" for="m-eng">Python / 파이썬</label>
                                     </div>
                                  </li>
                                  <li>
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
                                        <input class="m-check-input" type="checkbox" 
                                           id="m-all" name ="keywords"  value="JavaScript" onclick='checkOnlyOne(this)'>
-                                       <label class="m-check-label" for="m-eng">JavaScript</label>
+                                       <label class="m-check-label" for="m-eng">JavaScript / 자바스크립트</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                     
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                      <h5><추가 과목></h5> 
                                     </div>
                                  </li>
                                  <li>
@@ -786,8 +799,9 @@
                         <div class="course__sidebar-widget grey-bg">
                            <div class="course__sidebar-course">
                               <h5 class="course__sidebar-title">키워드별 검색</h5>
-                                 <input type="submit" value="검색" onclick='sub(this)'>
-                                 <button></button>  
+                              <button >
+                                 <input type="submit"  id = "sBtn" class="e-btn" value="검색" onclick='sub(this)'>
+                                </button>  
                            </div>
                         </div>
                      </form>

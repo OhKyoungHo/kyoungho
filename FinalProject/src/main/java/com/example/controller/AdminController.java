@@ -15,6 +15,7 @@ import com.example.domain.LectureVO;
 import com.example.domain.MemberVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.TeacherVO;
+import com.example.persistence.EducationRepository;
 import com.example.persistence.TeacherRepository;
 import com.example.service.AnnouncementService;
 import com.example.service.EducationService;
@@ -29,6 +30,9 @@ public class AdminController {
 
 	@Autowired
 	private EducationService eduService;
+	
+	@Autowired
+	private EducationRepository educationRepository;
 
 	@Autowired
 	private AnnouncementService announcementService;
@@ -147,11 +151,53 @@ public class AdminController {
 	@PostMapping("/teacherUpdate")
 	public String teacherUpdate(TeacherVO tvo) {
 		
-		System.out.println("수정대상 : "+tvo);
+		System.out.println("선생 승인 수정대상 : "+tvo);
 		teacherService.updateTeacher(tvo);
 		
 		return "redirect:/admin/teacherlist";
 	}
+	
+	
+	
+	
+	
+	
+	//찬주 국비/부트 리스트 가져오기 
+		@GetMapping("/academyList")
+		public String getEducation(Model m) {
+			List<EducationVO> result2 =  eduService.AllEducation();
+			m.addAttribute("academyList", result2);
+
+			return "/admin/academyList";
+		}//end of getTeacher
+		
+		
+		
+
+		//찬주 국비부트 승인여부 페이지 아이디값 가져와 나오게하기
+		//국비/부트 상세페이지
+		@GetMapping("/academyRegister")
+		public String getEducationRegister(Model m, Integer edId) {
+
+			//아이디 값 기준으로 등록한 선생님정보 가져오기 위함
+			EducationVO result2 = educationRepository.findByedId(edId);
+			m.addAttribute("academyRegister", result2);
+
+			return "/admin/academyRegister";
+
+		}// end of getTeacherRegister
+
+		
+		
+		//국비/부트 승인여부 수정
+		@PostMapping("/educationUpdate")
+		public String educationUpdate(EducationVO evo) {
+			
+			System.out.println("국비/부트 수정대상 : "+evo);
+			eduService.updateEducation(evo);
+			
+			return "redirect:/admin/academyList";
+		}
 	
 //----------------------------------------------------------------------------------------------
 	
@@ -209,8 +255,5 @@ public class AdminController {
 		m.addAttribute("lectureList", result);
 		return "/admin/lectureRegister";
 	}
-	//---------------------------
-	//차트 출력
-	
 
 }
