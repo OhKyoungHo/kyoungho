@@ -59,7 +59,7 @@ public class MemberController {
          System.out.println("로그인 성공**** : " + result);
          session.setAttribute("memIdInt", result.getMemIdInt());
          session.setAttribute("memIdString", result.getMemIdString());
-         
+         session.setAttribute("teacherId", result.getT_id());
          return "redirect:/academy/index";
       }else{ // 로그인 실패
          return "redirect:/sign-in";
@@ -87,6 +87,7 @@ public class MemberController {
 	   System.out.println("로그아웃");
       session.removeAttribute("memIdInt");
       session.removeAttribute("memIdString");
+      session.removeAttribute("teacherId");
       return "redirect:/academy/index";
    }
 

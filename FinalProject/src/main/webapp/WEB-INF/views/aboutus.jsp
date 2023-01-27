@@ -252,10 +252,9 @@
                                                 <li><h4 style="margin-left: 10px;">${sessionScope.memIdString}님</h4></li>
                                                 <li class="sy" style="margin-left: 10px">${sessionScope.memEmail}</li>
                                                 <hr>
-                                                <li><a href="../mypage/modify">마이페이지</a></li>
-                                                <li><a href="course-details">나의강의</a></li>
-                                                <li><a href="course-details">bk바보</a></li>
-                                                <li><a href="course-details">바보바보</a></li>
+                                                <li><a href="/mypage/modify">마이페이지</a></li>
+                                                <li><a href="/mypage/myreview">작성글 관리</a></li>
+                                                <li><a href="/mypage/lessonreserve">예약 현황</a></li>
                                                 <li><a href="/logoutMember">로그아웃</a></li>
                                              </ul>
                                           </li>
@@ -299,76 +298,61 @@
             <div class="cartmini__close">
                <button type="button" class="cartmini__close-btn"><i class="fal fa-times"></i></button>
             </div>
-            <div class="cartmini__widget">
-               <div class="cartmini__inner">
+            <div class="cartmini__widget ">
+               <div class="cartmini__inner" style="overflow-x:hidden;">
                   <ul>
+                     <c:forEach items="${jjimList}" var="wish">
                      <li>
                         <div class="cartmini__thumb">
                            <a href="#">
-                              <img src="/assets/img/course/sm/cart-1.jpg" alt="">
+                              <img src="/assets/img/lecture/${wish[3]}" alt="">
                            </a>
                         </div>
                         <div class="cartmini__content">
-                           <h5><a href="#">Strategy law and organization Foundation </a></h5>
+                           <h5><a href="#">${wish[0]} </a></h5>
                            <div class="product-quantity mt-10 mb-10">
-                              <span class="cart-minus">-</span>
-                              <input class="cart-input" type="text" value="1"/>
-                              <span class="cart-plus">+</span>
                            </div>
                            <div class="product__sm-price-wrapper">
-                              <span class="product__sm-price">$46.00</span>
+                              <span class="product__sm-price">${wish[3]}</span>
                            </div>
                         </div>
-                        <a href="#" class="cartmini__del"><i class="fal fa-times"></i></a>
+                        <a href="/mypage/deleteJjim?memIdInt=${wish[2]}&jjId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
                      </li>
-                     <li>
-                        <div class="cartmini__thumb">
-                           <a href="#">
-                              <img src="/assets/img/course/sm/cart-2.jpg" alt="">
-                           </a>
-                        </div>
-                        <div class="cartmini__content">
-                           <h5><a href="#">Fundamentals of music theory Learn new</a></h5>
-                           <div class="product-quantity mt-10 mb-10">
-                              <span class="cart-minus">-</span>
-                              <input class="cart-input" type="text" value="1"/>
-                              <span class="cart-plus">+</span>
-                           </div>
-                           <div class="product__sm-price-wrapper">
-                              <span class="product__sm-price">$32.00</span>
-                           </div>
-                        </div>
-                        <a href="#" class="cartmini__del"><i class="fal fa-times"></i></a>
-                     </li>
-                     <li>
-                        <div class="cartmini__thumb">
-                           <a href="#">
-                              <img src="/assets/img/course/sm/cart-3.jpg" alt="">
-                           </a>
-                        </div>
-                        <div class="cartmini__content">
-                           <h5><a href="#">Strategy law and organization Foundation </a></h5>
-                           <div class="product-quantity mt-10 mb-10">
-                              <span class="cart-minus">-</span>
-                              <input class="cart-input" type="text" value="1"/>
-                              <span class="cart-plus">+</span>
-                           </div>
-                           <div class="product__sm-price-wrapper">
-                              <span class="product__sm-price">$62.00</span>
-                           </div>
-                        </div>
-                        <a href="#" class="cartmini__del"><i class="fal fa-times"></i></a>
-                     </li>
+                     </c:forEach>
                   </ul>
                </div>
                <div class="cartmini__checkout">
-                  <div class="cartmini__checkout-title mb-30">
-                     <h4>Subtotal:</h4>
-                     <span>$113.00</span>
-                  </div>
+     
                   <div class="cartmini__checkout-btn">
-                     <a href="cart" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
-                     <a href="checkout" class="e-btn w-100"> <span></span> checkout</a>
+                     <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
+                  </div>
+               </div>
+               <div class="cartmini__inner ">
+                  <ul>
+                     <c:forEach items="${wishList}" var="wish">
+                     <li>
+                        <div class="cartmini__thumb">
+                           <a href="#">
+                              <img src="/assets/img/course/${wish[4]}" alt="">
+                           </a>
+                        </div>
+                        <div class="cartmini__content">
+                           <h5><a href="#">${wish[0]} </a></h5>
+                           <div class="product-quantity mt-10 mb-10">
+                           </div>
+                           <div class="product__sm-price-wrapper">
+                              <span class="product__sm-price">${wish[3]}</span>
+                           </div>
+                        </div>
+                        <a href="/mypage/deleteWish?memIdInt=${wish[2]}&wId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
+                     </li>
+                     </c:forEach>
+                  </ul>
+               </div>
+               <div class="cartmini__checkout">
+     
+                  <div class="cartmini__checkout-btn">
+                     <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
                   </div>
                </div>
             </div>
@@ -444,7 +428,7 @@
                 <div><a href="#about" class="btn-get-started scrollto">Get Started</a></div>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 hero-img">
-                <img src="assets/img/main.gif" style="width: 600px; height: 450px;"  alt="main">
+                <img src="/assets/img/main.gif" style="width: 600px; height: 450px;"  alt="main">
               </div>
             </div>
           </div>
@@ -535,7 +519,7 @@
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                   <div class="member">
                     <div class="member-img">
-                      <img src="assets/img/team/YB.jpg" class="img-fluid" alt="">
+                      <img src="/assets/img/team/YB.jpg" class="img-fluid" alt="">
                       <div class="social">
                         <a href=""><i class="fab fa-facebook"></i></a>
                         <a href=""><i class="fab fa-instagram"></i></a>
@@ -552,7 +536,7 @@
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                   <div class="member">
                     <div class="member-img">
-                      <img src="assets/img/team/CJ.jpg" class="img-fluid" alt="">
+                      <img src="/assets/img/team/CJ.jpg" class="img-fluid" alt="">
                       <div class="social">
                         <a href=""><i class="fab fa-facebook"></i></a>
                         <a href=""><i class="fab fa-instagram"></i></a>
@@ -570,7 +554,7 @@
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                   <div class="member">
                     <div class="member-img">
-                      <img src="assets/img/team/GH.jpg" class="img-fluid" alt="">
+                      <img src="/assets/img/team/GH.jpg" class="img-fluid" alt="">
                       <div class="social">
                         <a href=""><i class="fab fa-facebook"></i></a>
                         <a href=""><i class="fab fa-instagram"></i></a>
@@ -587,7 +571,7 @@
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                   <div class="member">
                     <div class="member-img">
-                      <img src="assets/img/team/GJ.jpg" class="img-fluid" alt="">
+                      <img src="/assets/img/team/GJ.jpg" class="img-fluid" alt="">
                       <div class="social">
                         <a href=""><i class="fab fa-facebook"></i></a>
                         <a href=""><i class="fab fa-instagram"></i></a>
@@ -604,7 +588,7 @@
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                   <div class="member">
                     <div class="member-img">
-                      <img src="assets/img/team/BK.jpg" class="img-fluid" alt="">
+                      <img src="/assets/img/team/BK.jpg" class="img-fluid" alt="">
                       <div class="social">
                         <a href=""><i class="fab fa-facebook"></i></a>
                         <a href=""><i class="fab fa-instagram"></i></a>
@@ -621,7 +605,7 @@
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                   <div class="member">
                     <div class="member-img">
-                      <img src="assets/img/team/GH2.jpg" class="img-fluid" alt="">
+                      <img src="/assets/img/team/GH2.jpg" class="img-fluid" alt="">
                       <div class="social">
                         <a href=""><i class="fab fa-facebook"></i></a>
                         <a href=""><i class="fab fa-instagram"></i></a>
@@ -657,49 +641,49 @@
                
                          <div class="col-lg-3 col-md-4 col-6">
                            <div class="client-logo">
-                             <img src="assets/img/tools/java.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
+                             <img src="/assets/img/tools/java.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
                            </div>
                          </div>
                
                          <div class="col-lg-3 col-md-4 col-6">
                            <div class="client-logo">
-                             <img src="assets/img/tools/python.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
+                             <img src="/assets/img/tools/python.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
                            </div>
                          </div>
                
                          <div class="col-lg-3 col-md-4 col-6">
                            <div class="client-logo">
-                             <img src="assets/img/tools/springboot.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
+                             <img src="/assets/img/tools/springboot.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
                            </div>
                          </div>
                
                          <div class="col-lg-3 col-md-4 col-6">
                            <div class="client-logo">
-                             <img src="assets/img/tools/elk.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
+                             <img src="/assets/img/tools/elk.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
                            </div>
                          </div>
                
                          <div class="col-lg-3 col-md-4 col-6">
                            <div class="client-logo">
-                             <img src="assets/img/tools/jpa.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
+                             <img src="/assets/img/tools/jpa.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
                            </div>
                          </div>
                
                          <div class="col-lg-3 col-md-4 col-6">
                            <div class="client-logo">
-                             <img src="assets/img/tools/nodejs.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
+                             <img src="/assets/img/tools/nodejs.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
                            </div>
                          </div>
                
                          <div class="col-lg-3 col-md-4 col-6">
                            <div class="client-logo">
-                             <img src="assets/img/tools/aws.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
+                             <img src="/assets/img/tools/aws.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
                            </div>
                          </div>
                
                          <div class="col-lg-3 col-md-4 col-6">
                            <div class="client-logo">
-                             <img src="assets/img/tools/mariadb.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
+                             <img src="/assets/img/tools/mariadb.png" style="width: 161.81px; height: 90px;" class="img-fluid" alt="">
                            </div>
                          </div>
                
@@ -802,15 +786,15 @@
       
       
         <!-- Vendor JS Files -->
-        <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+        <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="/assets/vendor/php-email-form/validate.js"></script>
       
         <!-- Template Main JS File -->
-        <script src="assets/js/main.js"></script>
+        <script src="/assets/js/main.js"></script>
       
       </body>
       

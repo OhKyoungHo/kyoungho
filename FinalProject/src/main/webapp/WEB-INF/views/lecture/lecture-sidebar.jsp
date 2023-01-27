@@ -499,9 +499,9 @@
                                           <h3 class="course__title"><a href="lecture-details?vcId=${lecture.vcId}">${lecture.vcTitle}</a></h3>
                                           <div class="course__teacher d-flex align-items-center">
                                              <div class="course__teacher-thumb mr-15">
-                                                <img src="/assets/img/course/charity.png" alt="">
+                                                <img src="/assets/img/teacher/${lecture.teacherPic}" alt="">
                                              </div>
-                                             <h6><a href="instructor-details">선생님이름</a></h6>
+                                             <h6><a href="/lecture/tutor?keywords=${lecture.teacherName}">${lecture.teacherName}T</a></h6>
                                           </div>
                                           <div class="course__tag-2 mt-15">
                                              <!--0106 여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
@@ -565,13 +565,13 @@
 
                                                    </div>
                                                    <h3 class="course__title">
-                                                      <a href="lecture-details">${lecture.vcTitle}</a>
+                                                      <a href="lecture-details?vcId=${lecture.vcId}">${lecture.vcTitle}</a>
                                                    </h3>
                                                    <div class="course__teacher d-flex align-items-center">
                                                       <div class="course__teacher-thumb mr-15">
                                                          <img src="/assets/img/course/charity.png" alt="">
                                                       </div>
-                                                      <h6><a href="instructor-details">선생님이름</a></h6>
+                                                      <h6><a href="lecture-details?vcId=${lecture.vcId}">선생님이름</a></h6>
                                                    </div>
                                                    <div class="course__tag-2 mt">
                                                       <!--여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
@@ -584,7 +584,7 @@
                                                       <span></span>
                                                    </div>
                                                    <div class="course__btn">
-                                                      <a href="lecture-details" class="link-btn">
+                                                      <a href="lecture-details?vcId=${lecture.vcId}" class="link-btn">
                                                          상세보기
                                                          <i class="far fa-arrow-right"></i>
                                                          <i class="far fa-arrow-right"></i>
@@ -683,7 +683,7 @@
                      <div class="course__sidebar pl-70">
                         <div class="course__sidebar-widget grey-bg">
                            <div class="course__sidebar-info">
-                              <h3 class="course__sidebar-title">All Curriculum</h3>
+                              <h3 class="course__sidebar-title">화상 Keywords</h3>
 
 
 
@@ -695,21 +695,31 @@
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
                                        <input class="m-check-input" type="checkbox" 
                                              id="m-all" name ="keywords" value="JAVA"  onclick='checkOnlyOne(this)'>
-                                       <label class="m-check-label" for="m-eng">JAVA</label>
+                                       <label class="m-check-label" for="m-eng">JAVA / 자바</label>
                                     </div>
                                  </li>
                                  <li>
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
                                        <input class="m-check-input" type="checkbox" 
                                           id="m-all" name ="keywords" value="Python"  onclick='checkOnlyOne(this)'>
-                                       <label class="m-check-label" for="m-eng">Python</label>
+                                       <label class="m-check-label" for="m-eng">Python / 파이썬</label>
                                     </div>
                                  </li>
                                  <li>
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
                                        <input class="m-check-input" type="checkbox" 
                                           id="m-all" name ="keywords"  value="JavaScript" onclick='checkOnlyOne(this)'>
-                                       <label class="m-check-label" for="m-eng">JavaScript</label>
+                                       <label class="m-check-label" for="m-eng">JavaScript / 자바스크립트</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                     
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                      <h5><추가 과목></h5> 
                                     </div>
                                  </li>
                                  <li>
@@ -761,16 +771,103 @@
                                        <label class="m-check-label" for="m-eng">딥러닝</label>
                                     </div>
                                  </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                     
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                      <h5><요즘 추세></h5> 
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="MVP" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">MVP</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="UI" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">UI</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="React " onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">React </label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="Node" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">Node</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="자연어처리" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">자연어처리</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="데이터 분석" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">데이터 분석</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="그로프로세스" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">그로프로세스</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="아이데이션" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">아이데이션</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="알고리즘" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">알고리즘</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="시각화" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">시각화</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords"  value="기초통계" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">기초통계</label>
+                                    </div>
+                                 </li>
                               </ul>
-                          
                            </div>
                         </div>
                         <!--카테고리 선택후 전송버튼-->
                         <div class="course__sidebar-widget grey-bg">
                            <div class="course__sidebar-course">
                               <h5 class="course__sidebar-title">키워드별 검색</h5>
-                                 <input type="submit" value="검색" onclick='sub(this)'>
-                                 <button></button>  
+                              <button >
+                                 <input type="submit"  id = "sBtn" class="e-btn" value="검색" onclick='sub(this)'>
+                                </button>  
                            </div>
                         </div>
                      </form>

@@ -28,11 +28,16 @@ import com.example.domain.CalendarVO;
 import com.example.domain.EducationVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.TeacherVO;
+import com.example.domain.VchatFileVO;
+import com.example.domain.VchatRecordVO;
 import com.example.persistence.CalendarRepository;
 import com.example.persistence.JjimRepository;
 import com.example.persistence.ReviewRepository;
+import com.example.persistence.VchatFileRepository;
+import com.example.persistence.VchatRecordRepository;
 import com.example.persistence.WishListRepository;
 import com.example.service.EducationService;
+import com.example.service.MyPageService;
 import com.example.service.TeacherService;
 import com.example.service.WishListService;
 
@@ -63,6 +68,12 @@ public class MypageController {
 	
 	@Autowired
 	private CalendarRepository calRepo;
+	
+	@Autowired
+	private VchatRecordRepository vchatRecordRepo;
+	
+	@Autowired
+	private VchatFileRepository vchatFileRepo;
 
 
 
@@ -253,6 +264,9 @@ public class MypageController {
 		return "redirect:/mypage/jjimlist?memIdInt="+ memIdInt;
 	}
 
+//--------------------------------------------------------------------------------------------------------------------------------------
+	
+	// 작성자: 임유빈
 
 	// mypage에 있는 회원의 예약 달력과 예약한 방 출력
 	@RequestMapping(value = "/lessonreserve", method = RequestMethod.GET)
@@ -305,6 +319,92 @@ public class MypageController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(viewpage);
 		return mv;
+	}
+	
+	
+	// 선생님의 수업함
+	@GetMapping("/tutorBox")
+	public String getTutorBox(Model model, HttpSession session,
+			@PageableDefault(size = 7) Pageable paging) {
+
+		//세션에 저장된 값으로 넘겨버리기
+		Integer tempTeacherId = (Integer) session.getAttribute("teacherId");
+		System.out.println("teacherId : "+tempTeacherId);
+		Page<Map<String, Object>> tutorBoxTemp = calRepo.getTutorBox(paging, tempTeacherId);
+		
+		List<VchatRecordVO> tutorBoxRecord = vchatRecordRepo.findByTeacherId(tempTeacherId);
+		List<VchatFileVO> tutorBoxFile = vchatFileRepo.findByTeacherId(tempTeacherId);
+		
+		for (VchatRecordVO vo : tutorBoxRecord) {
+			System.out.println("OrigRecName : " + vo.getOrigRecName());
+			System.out.println("CalId : " + vo.getCalId());
+		}
+		
+		for (VchatFileVO vo : tutorBoxFile) {
+			System.out.println("OrigFileName : " + vo.getOrigFileName());
+			System.out.println("CalId : " + vo.getCalId());
+		}
+		
+		/*
+		List<HashMap<String, Object>> hashTempList = new ArrayList<HashMap<String, Object>>();
+		
+		for(Map<String, Object> temp : tutorBoxTemp.getContent()) {
+			
+			HashMap<String, Object> hashTemp = new HashMap<String, Object>();
+			
+			System.out.println("cal_id : " + temp.get("cal_id"));
+			System.out.println("cal_start : " + temp.get("cal_start"));
+			System.out.println("tcname : " + temp.get("tcname"));
+			System.out.println("vctitle : " + temp.get("vctitle"));
+			
+			hashTemp.put("cal_start", temp.get("cal_start"));
+			hashTemp.put("tcname", temp.get("tcname"));
+			hashTemp.put("vctitle", temp.get("vctitle"));
+			
+			Integer calId = (Integer)temp.get("cal_id");
+			
+			List<VchatRecordVO> recTemp = vchatRecordRepo.findByCalId(calId);
+			for (VchatRecordVO vo : recTemp) {
+				System.out.println("OrigRecName : " + vo.getOrigRecName());
+			}
+			
+			List<VchatFileVO> fileTemp = vchatFileRepo.findByCalId(calId);
+			for (VchatFileVO vo : fileTemp) {
+				System.out.println("OrigFileName : " + vo.getOrigFileName());
+			}
+			
+			hashTemp.put("tutorRecord", recTemp);
+			hashTemp.put("tutorFile", fileTemp);
+			
+			hashTempList.add(hashTemp);
+			
+		}
+		*/
+
+
+		//현재페이지
+		int pageNumber=((Slice<Map<String, Object>>) tutorBoxTemp).getPageable().getPageNumber();
+		//총페이지수
+		int totalPages=((Page<Map<String, Object>>) tutorBoxTemp).getTotalPages(); //검색에따라 10개면 10개..
+		int pageBlock = 5; //블럭의 수 1, 2, 3, 4, 5   
+		//시작하는 블록
+		int startBlockPage = ((pageNumber)/pageBlock)*pageBlock+1; //현재 페이지가 7이라면 1*5+1=6
+		//끝나는 블록
+		int endBlockPage = startBlockPage+pageBlock-1; //6+5-1=10. 6,7,8,9,10해서 10.
+		endBlockPage= totalPages<endBlockPage? totalPages:endBlockPage;
+
+		// System.out.println("TutorBoxList : " + mypageTutorBoxList.getContent());
+
+		//각 값들을 jsp 파일에 붙이기
+		model.addAttribute("pageNumber", pageNumber);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("endBlockPage", endBlockPage);
+		model.addAttribute("startBlockPage", startBlockPage);
+		model.addAttribute("mypageTutorBoxList", tutorBoxTemp.getContent()); 
+		model.addAttribute("tutorRecord", tutorBoxRecord); 
+		model.addAttribute("tutorFile", tutorBoxFile); 
+
+		return "mypage/tutorBox";
 	}
 	
 	

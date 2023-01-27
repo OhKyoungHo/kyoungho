@@ -580,7 +580,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
             <!--내가 작성한 국비/부트에서의 리뷰-->
             <div class="col-sm-9">
               <div class="accounthead mb-25">
-                 <h2 class="section__title "><span class="yellow-bg-sm">My Academy Review<img src="../assets/img/shape/yellow-bg-4.png" style="height:50px;"alt="">  </span></h2>
+                 <h2 class="section__title "><span class="yellow-bg-sm">My Academy Review<img src="/assets/img/shape/yellow-bg-4.png" style="height:50px;"alt="">  </span></h2>
                  
               </div>
               <h6><강의번호 클릭시 해당 학원으로 넘어갑니다></h6>

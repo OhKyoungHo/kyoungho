@@ -410,13 +410,13 @@
                            <div class="course__teacher-3 d-flex align-items-center mr-70 mb-20">
                               <div class="course__teacher-thumb-3 mr-15">
                                    <!--학원 상세페이지로 이동 -->
-                                 <img src="/assets/img/lecture/${vcPic}" >
+                                 <img src="/assets/img/teacher/${lecture.teacherPic}" >
                               </div>
                               <div class="course__teacher-info-3">
                              
-                                 <h5>선생님이름</h5>
+                                 <h5>강사</h5>
                                    <!--누르면 학원 상세페이지로 이동 -->
-                                 <p><a href="#">몰겠음</a></p>
+                                 <p><a href="/lecture/tutor?keywords=${lecture.teacherName}">${lecture.teacherName}T</a></p>
                               
                               </div>
                            </div>
@@ -470,12 +470,7 @@
          </div>
          <div class="course__sidebar-widget-2 white-bg mb-20">
             <div class="course__video">
-               <div class="course__video-thumb w-img mb-25">
-                  <img src="assets/img/course/video/course-video.jpg" alt="">
-                  <div class="course__video-play"> 
-                     <a href="https://youtu.be/yJg-Y5byMMw" data-fancybox="" class="play-btn"> <i class="fas fa-play"></i> </a>
-                  </div>
-               </div>
+               
                <div class="course__video-meta mb-25 d-flex align-items-center justify-content-between">
                   <div class="course__video-price">
                      <h5>${lecture.vcTitle}</h5>
@@ -616,15 +611,19 @@
                <ul class="nav nav-tabs" id="courseTab" role="tablist">
 
                   
+                    
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true"> <i class="icon_ribbon_alt"></i> <span>상세설명</span> </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link " id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum" type="button" role="tab" aria-controls="curriculum" aria-selected="false"> <i class="icon_book_alt"></i> <span>교육과정</span> </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false"> <i class="icon_star_alt"></i> <span>후기</span> </button>
-                  </li>
+                     <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true"> <i class="icon_ribbon_alt"></i> <span>상세설명</span> </button>
+                   </li>
+                   <li class="nav-item" role="presentation">
+                     <button class="nav-link " id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum" type="button" role="tab" aria-controls="curriculum" aria-selected="false"> <i class="icon_book_alt"></i> <span>교육과정</span> </button>
+                   </li>
+                   <li class="nav-item" role="presentation">
+                     <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false"> <i class="icon_star_alt"></i> <span>후기</span> </button>
+                   </li>
+                   <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="member-tab" data-bs-toggle="tab" data-bs-target="#member" type="button" role="tab" aria-controls="member" aria-selected="false"> <i class="fal fa-user"></i> <span>위치</span> </button>
+                    </li>
                   
                   
                 </ul>
@@ -710,39 +709,40 @@
 
 
 
-                 <!--커리큘럼 부분-->
-            <div class="tab-pane fade" id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
-               <div class="course__curriculum">
-
-                        <c:forEach items="${title}" var="i" step="3" varStatus="status" ><!--forEach-->
-                  <div class="accordion" id="course__accordion">
-                        <div class="accordion-item mb-50">
-                          <h2 class="accordion-header" id="week-01">
-                           <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                 data-bs-target="#${title[status.index-3]}-content" aria-expanded="true"
-                                 aria-controls="${title[status.index-3]}-content">
-                                 ${i}
-                              </button>
-                          </h2>
-
-                          <div id="${title[status.index-3]}-content" class="accordion-collapse collapse show" aria-labelledby="${title[status.index-3]}" data-bs-parent="#course__accordion">
-                            <div class="accordion-body">
-                              <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                 <div class="course__curriculum-info">
-                                 
-                                    <h3> <span>${title[status.index+1]}: </span> ${title[status.index+2]}</h3>
+              
+                             <!--커리큘럼 부분-->
+                             <div class="tab-pane fade" id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
+                              <div class="course__curriculum">
+   
+                                       <c:forEach items="${title}" var="i" step="3" varStatus="status" ><!--forEach-->
+                                 <div class="accordion" id="course__accordion">
+                                       <div class="accordion-item mb-50">
+                                         <h2 class="accordion-header" id="week-01">
+                                          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#${title[status.index-3]}-content" aria-expanded="true"
+                                                aria-controls="${title[status.index-3]}-content">
+                                                ${i}
+                                             </button>
+                                         </h2>
+   
+                                         <div id="${title[status.index-3]}-content" class="accordion-collapse collapse show" aria-labelledby="${title[status.index-3]}" data-bs-parent="#course__accordion">
+                                           <div class="accordion-body">
+                                             <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
+                                                <div class="course__curriculum-info">
+                                                
+                                                   <h3> <span>${title[status.index+1]}: </span> ${title[status.index+2]}</h3>
+                                                </div>
+                                               
+                                             </div>
+                                           </div>
+                                         </div>
+                                       </div>
+                                    </div>
+                                    <div class="accordion" id="course__accordion-2">
+                                    </div>
+                                  </c:forEach>
                                  </div>
-                                
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                     </div>
-                     <div class="accordion" id="course__accordion-2">
-                     </div>
-                   </c:forEach>
-                  </div>
-            </div>
+                           </div>
                   <!----------------------------------------------------------------------------------------------------------------->
                   <!--0105 찬주 별점2  평균 부분 나오는 큰부분 -->
             <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
@@ -908,7 +908,7 @@
                                                             <img id =image5 onmouseover=show(5) onclick=mark(5) onmouseout=noshow(5) src="/assets/img/star/0star.png">
                                                             <span id=startext></span>
                                                             <input type="hidden" name="star"  id="star" value="${param.star}"> <!--히든넘기기-->
-                                                            <input type="hidden" name="edId" value="${param.edId}"> <!--히든넘기기--> <!--임의의값임 수정 완료-->
+                                                            <input type="hidden" name="vcId" value="${param.vcId}"> <!--히든넘기기--> <!--임의의값임 수정 완료-->
                                                             
                                                          </div>
 
@@ -934,6 +934,99 @@
                                           
                                     </div>
                                  </div>
+
+                                       <!--지도API부분-->      
+                              <div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
+                                 <div class="course__member mb-45">
+                                    
+                                     <!-- ======= Contact Section ======= -->
+          <section id="contact" class="contact">
+            <div class="container">
+      
+              <div class="section-title">
+                <h2>Contact</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+              </div>
+      
+              <div>
+                <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.307986091269!2d126.8774806147173!3d37.47705787981479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b619785e31b51%3A0xbd94c111ed53f41e!2z7ZWc6528IOybkOyVpOybkCDtg4Dsm4wg7KeA7Iud7IKw7JeF7IS87YSw!5e0!3m2!1sko!2skr!4v1674467651565!5m2!1sko!2skr" frameborder="0" allowfullscreen></iframe>
+              </div>
+      
+              <div class="row mt-5">
+      
+                  <div class="col-lg-4">
+                     <div class="info">
+
+         
+                       <div class="email">
+                        <i class="fal fa-location"></i>
+                         <h4>Location:</h4>
+                         <p>서울 금천구 가산디지털2로 101 
+                         </p>
+                       </div>
+         
+
+         
+                     </div>
+         
+                   </div>     
+      
+                
+      
+                  <div class="col-lg-4">
+                     <div class="info">
+
+         
+                       <div class="email">
+                        <i class="fal fa-envelope"></i>
+                         <h4>Email:</h4>
+                         <p>skquddnr9709@gmail.com</p>
+                       </div>
+         
+
+         
+                     </div>
+         
+                   </div>                 
+                   
+      
+                
+
+                
+      
+                  <div class="col-lg-4">
+                     <div class="info">
+
+         
+                       <div class="phone">
+                        <i class="fal fa-phone"></i>
+                         <h4>Call:</h4>
+                         <p>+82 10 6585 9709</p>
+                       </div>
+         
+                     </div>                     
+         
+                   </div>  
+                   
+                   
+                   
+      
+                
+      
+
+                
+              </div> <!--end of row mt-5-->
+      
+
+              
+            </div>
+
+            
+          </section><!-- End Contact Section -->
+      
+
+
+
                               </div>         
 </main>
 </div>

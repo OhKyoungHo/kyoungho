@@ -9,22 +9,22 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png" />
     <!-- CSS here -->
-    <link rel="stylesheet" href="../assets/css/preloader.css" />
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../assets/css/meanmenu.css" />
-    <link rel="stylesheet" href="../assets/css/animate.min.css" />
-    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="../assets/css/swiper-bundle.css" />
-    <link rel="stylesheet" href="../assets/css/backToTop.css" />
-    <link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css" />
-    <link rel="stylesheet" href="../assets/css/fontAwesome5Pro.css" />
-    <link rel="stylesheet" href="../assets/css/elegantFont.css" />
-    <link rel="stylesheet" href="../assets/css/default.css" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/css/wishlist.css" />
-    <link rel="stylesheet" href="../assets/css/allcss.css" />
+    <link rel="stylesheet" href="/assets/css/preloader.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/meanmenu.css" />
+    <link rel="stylesheet" href="/assets/css/animate.min.css" />
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.css" />
+    <link rel="stylesheet" href="/assets/css/backToTop.css" />
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="/assets/css/fontAwesome5Pro.css" />
+    <link rel="stylesheet" href="/assets/css/elegantFont.css" />
+    <link rel="stylesheet" href="/assets/css/default.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/wishlist.css" />
+    <link rel="stylesheet" href="/assets/css/allcss.css" />
     <link rel="stylesheet" href="/assets/css/onoff.css">
     <!--섬머노트용 css-->
     <link rel="stylesheet" href="/assets/css/summernote/summernote-lite.css">
@@ -89,9 +89,9 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
       <div id="loading-center">
         <div id="loading-center-absolute">
           <div class="loading-content">
-            <img class="loading-logo-text" src="../assets/img/logo/logo-text-2.png" alt="" />
+            <img class="loading-logo-text" src="/assets/img/logo/logo-text-2.png" alt="" />
             <div class="loading-stroke">
-              <img class="loading-logo-icon" src="../assets/img/logo/logo-icon.png" alt="" />
+              <img class="loading-logo-icon" src="/assets/img/logo/logo-icon.png" alt="" />
             </div>
           </div>
         </div>
@@ -317,7 +317,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
               <li>
                 <div class="cartmini__thumb">
                   <a href="#">
-                    <img src="../assets/img/course/sm/cart-1.jpg" alt="" />
+                    <img src="/assets/img/course/sm/cart-1.jpg" alt="" />
                   </a>
                 </div>
                 <div class="cartmini__content">
@@ -336,7 +336,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
               <li>
                 <div class="cartmini__thumb">
                   <a href="#">
-                    <img src="../assets/img/course/sm/cart-2.jpg" alt="" />
+                    <img src="/assets/img/course/sm/cart-2.jpg" alt="" />
                   </a>
                 </div>
                 <div class="cartmini__content">
@@ -355,7 +355,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
               <li>
                 <div class="cartmini__thumb">
                   <a href="#">
-                    <img src="../assets/img/course/sm/cart-3.jpg" alt="" />
+                    <img src="/assets/img/course/sm/cart-3.jpg" alt="" />
                   </a>
                 </div>
                 <div class="cartmini__content">
@@ -401,7 +401,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
         <div class="sidebar__content">
           <div class="logo mb-40">
             <a href="index">
-              <img src="../assets/img/logo/logo.png" alt="logo" />
+              <img src="/assets/img/logo/logo.png" alt="logo" />
             </a>
           </div>
           <div class="mobile-menu fix"></div>
@@ -438,7 +438,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
       <!-- page title area start -->
       <section
         class="page__title-area page__title-height page__title-overlay d-flex align-items-center"
-        data-background="../assets/img/page-title/page-title-2.jpg"
+        data-background="/assets/img/page-title/page-title-2.jpg"
       >
         <div class="container">
           <div class="row">
@@ -719,7 +719,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                   <div class="footer__widget-head mb-22">
                     <div class="footer__logo">
                       <a href="index">
-                        <img src="../assets/img/logo/logo-2.png" alt="" />
+                        <img src="/assets/img/logo/logo-2.png" alt="" />
                       </a>
                     </div>
                   </div>
@@ -827,30 +827,30 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
     </footer>
     <!-- footer area end -->
     <!-- JS here -->
-    <script src="../assets/js/vendor/jquery-3.5.1.min.js"></script>
-    <script src="../assets/js/vendor/waypoints.min.js"></script>
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/jquery.meanmenu.js"></script>
-    <script src="../assets/js/swiper-bundle.min.js"></script>
-    <script src="../assets/js/owl.carousel.min.js"></script>
-    <script src="../assets/js/jquery.fancybox.min.js"></script>
-    <script src="../assets/js/isotope.pkgd.min.js"></script>
-    <script src="../assets/js/parallax.min.js"></script>
-    <script src="../assets/js/backToTop.js"></script>
-    <script src="../assets/js/jquery.counterup.min.js"></script>
-    <script src="../assets/js/ajax-form.js"></script>
-    <script src="../assets/js/wow.min.js"></script>
-    <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/wishList.js"></script>
-    <script src="../assets/js/alljs.js"></script> <!--찬주 추가 모달 버튼용-->
+    <script src="/assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/js/vendor/waypoints.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/jquery.meanmenu.js"></script>
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/jquery.fancybox.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/parallax.min.js"></script>
+    <script src="/assets/js/backToTop.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/ajax-form.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/wishList.js"></script>
+    <script src="/assets/js/alljs.js"></script> <!--찬주 추가 모달 버튼용-->
     
     <!--0106 좋아요 버튼 관련 ajax-->
     <!-- Bootstrap core JavaScript-->
     <script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!--서머노트용 js-->
-    <script src="../assets/js/summernote/summernote-lite.js"></script>
-    <script src="../assets/js/summernote/summ.js"></script>
-    <script src="../assets/js/summernote/lang/summernote-ko-KR.js"></script>
+    <script src="/assets/js/summernote/summernote-lite.js"></script>
+    <script src="/assets/js/summernote/summ.js"></script>
+    <script src="/assets/js/summernote/lang/summernote-ko-KR.js"></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 package com.example.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,8 +20,14 @@ public class VchatFileVO {
 	
 	private Integer calId;
 	
+	@Column(name="t_id")
+    private Integer teacherId;
+    
+    @Column(name="m_idint")
+	private Integer memIdInt;
+	
 	private String origFileName;
-	private String FileName;
-	private String FilePath;
+	private String fileName;
+	private String filePath;
 
 }

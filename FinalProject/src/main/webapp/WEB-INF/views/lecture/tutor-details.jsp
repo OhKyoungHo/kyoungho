@@ -440,7 +440,7 @@
                                            <!--그 선생님의 수업으로 넘어갈 수 있게-->
                                          <!--order=${param.order}--> 
                                     
-                                         <a href="lecture-details?vcId=${lecture.vcId}">
+                                         <a href="/lecture/lecture-details?vcId=${lecture.vcId}">
                                           <img src="/assets/img/lecture/${lecture.vc_pic}" alt=""> 
                                        </a>
                                           
@@ -456,7 +456,7 @@
                                                 <span><i class="icon_star"></i>${lecture.avg}</span>
                                              </div>
                                           </div>
-                                          <h3 class="course__title"><a href="lecture-details?vcId=${lecture.vcId}"></a>${lecture.vcTitle}</h3>
+                                          <h3 class="course__title"><a href="course-details"></a>${lecture.vcTitle}</h3>
                                           <div class="course__teacher d-flex align-items-center">
                                              <div class="course__teacher-thumb mr-15">
                                                 <img src="/assets/img/course/teacher/teacher-1.jpg" alt="">

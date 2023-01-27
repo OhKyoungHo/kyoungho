@@ -481,12 +481,7 @@
          </div>
          <div class="course__sidebar-widget-2 white-bg mb-20">
             <div class="course__video">
-               <div class="course__video-thumb w-img mb-25">
-                  <img src="assets/img/course/video/course-video.jpg" alt="">
-                  <div class="course__video-play"> 
-                     <a href="https://youtu.be/yJg-Y5byMMw" data-fancybox="" class="play-btn"> <i class="fas fa-play"></i> </a>
-                  </div>
-               </div>
+             
                <div class="course__video-meta mb-25 d-flex align-items-center justify-content-between">
                   <div class="course__video-price">
                      <h5>${education.edName}</h5>
@@ -636,6 +631,9 @@
                               <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false"> <i class="icon_star_alt"></i> <span>후기</span> </button>
                               </li>
+                              <li class="nav-item" role="presentation">
+                                 <button class="nav-link" id="member-tab" data-bs-toggle="tab" data-bs-target="#member" type="button" role="tab" aria-controls="member" aria-selected="false"> <i class="fal fa-user"></i> <span>위치</span> </button>
+                               </li>
                               
                               
                             </ul>
@@ -794,7 +792,7 @@
                                           <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8">
                                                 <img src="/assets/img/star/re.png "  height="255" width="440">
                                           </div>
-                                 </div>
+                                    </div>
                             </div>
                                                 <!-- 0105 찬주 등록된 리뷰확인 -->
                                                    <div class="course__comment mb-75" id="reviewBox">
@@ -942,9 +940,112 @@
                                                       </div>
                                                    </div>
                                                    <!--0105 리뷰부분 종료 여기까지-->
+
+                                                   
                                                       
                                                 </div>
                                              </div>
+
+                                       <!--지도API부분-->      
+                              <div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
+                                 <div class="course__member mb-45">
+                                    
+                                     <!-- ======= Contact Section ======= -->
+          <section id="contact" class="contact">
+            <div class="container">
+      
+              <div class="section-title">
+                <h2>Contact</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+              </div>
+      
+              <div>
+                <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.307986091269!2d126.8774806147173!3d37.47705787981479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b619785e31b51%3A0xbd94c111ed53f41e!2z7ZWc6528IOybkOyVpOybkCDtg4Dsm4wg7KeA7Iud7IKw7JeF7IS87YSw!5e0!3m2!1sko!2skr!4v1674467651565!5m2!1sko!2skr" frameborder="0" allowfullscreen></iframe>
+              </div>
+      
+              <div class="row mt-5">
+      
+                  <div class="col-lg-4">
+                     <div class="info">
+
+         
+                       <div class="email">
+                        <i class="fal fa-location"></i>
+                         <h4>Location:</h4>
+                         <p>서울 금천구 가산디지털2로 101 
+                         </p>
+                       </div>
+         
+
+         
+                     </div>
+         
+                   </div>     
+      
+                
+      
+                  <div class="col-lg-4">
+                     <div class="info">
+
+         
+                       <div class="email">
+                        <i class="fal fa-envelope"></i>
+                         <h4>Email:</h4>
+                         <p>skquddnr9709@gmail.com</p>
+                       </div>
+         
+
+         
+                     </div>
+         
+                   </div>                 
+                   
+      
+                
+
+                
+      
+                  <div class="col-lg-4">
+                     <div class="info">
+
+         
+                       <div class="phone">
+                        <i class="fal fa-phone"></i>
+                         <h4>Call:</h4>
+                         <p>+82 10 6585 9709</p>
+                       </div>
+         
+                     </div>                     
+         
+                   </div>  
+                   
+                   
+                   
+      
+                
+      
+
+                
+              </div> <!--end of row mt-5-->
+      
+
+              
+            </div>
+
+            
+          </section><!-- End Contact Section -->
+      
+
+
+
+                                 </div>
+                              </div>
+
+
+
+
+
+
                                           </div>         
       </main>
    </div>

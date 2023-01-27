@@ -470,7 +470,7 @@
                                           <!-- 이미지를 누를때 PK값에 맞게 해당페이지로 연결-->
                                           <a href="tutor-details?teacherId=${teacherVO.teacherId}"> 
                                              <!-- 해당하는 이미지띄우기-->
-                                             <img src="/assets/img/course/${teacherVO.tcPic}" alt="" width='370' height='220'>
+                                             <img src="/assets/img/teacher/${teacherVO.tcPic}" alt="" width='370' height='220'>
                                           </a>
 
                                        </div>
@@ -594,23 +594,22 @@
                                  </c:otherwise>
                                  </c:choose>
                               </c:forEach>
-                               <!-- 맨마지막페이지 -->
-                           <!-- last : 해당 페이지가 마지막 페이지인지 여부(true/false로 구분)-->
-                           <!-- 해당페이지가 마지막인 경우에는 아무것도 설정안함-->
-                           <!-- 해당 페이지가 마지막 페이지가 아닌경우-->
-                           <!-- 마지막페이지로 이동 -->
-                           <c:choose>     
-                              <c:when test="${elist.last}"></c:when>
-                              <c:otherwise>
-                                 <li class="nxt-btn"><a href="tutor?page=${pageNumber+2}&order=${param.order}&keywords=${param.keywords}">&rarr;</a></li>
-                                 <li class="next">
-                                    <a href="tutor?page=${totalPages}" class="link-btn">
-                                    Next
-                                    <i class="arrow_right"></i>
-                                    <i class="arrow_right"></i>
-                                    </a>
-                                 </li>
-                              </c:otherwise>
+                              <!-- 맨마지막페이지 -->
+                              <!-- last : 해당 페이지가 마지막 페이지인지 여부(true/false로 구분)-->
+                              <!-- 해당페이지가 마지막인 경우에는 아무것도 설정안함-->
+                              <!-- 해당 페이지가 마지막 페이지가 아닌경우-->
+                              <!-- 마지막페이지로 이동 -->
+                              <c:choose>     
+                                 <c:when test="${elist.last}"></c:when>
+                                 <c:otherwise>
+                                    <li class="next">
+                                       <a href="tutor?page=${totalPages}" class="link-btn">
+                                       Next
+                                       <i class="arrow_right"></i>
+                                       <i class="arrow_right"></i>
+                                       </a>
+                                    </li>
+                                 </c:otherwise>
                               </c:choose>
                         </ul>
                      </div>

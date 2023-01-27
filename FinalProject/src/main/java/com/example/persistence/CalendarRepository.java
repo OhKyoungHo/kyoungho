@@ -1,14 +1,17 @@
 package com.example.persistence;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.example.domain.CalendarVO;
+import com.example.domain.VchatFileVO;
+import com.example.domain.VchatRecordVO;
 
 public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> {
 
@@ -26,13 +29,26 @@ public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> 
 	@Query(value="UPDATE calendar SET cal_reserve = 1 WHERE cal_id = ?1", nativeQuery = true)
 	Integer reservation(Integer calId);
 	
-	
-	// 회원 달력 list
+	// 회원 예약 현황
 	@Query(value="SELECT c.cal_id calid, c.cal_title caltitle, c.cal_start calstart, c.cal_reserve calreserve, "
-			+ "c. cal_end calend, c.m_idint memidint, c.room_id roomid, c.t_id tid, v.vc_title vctitle, t.t_pic tcpic, t.t_name tcname\r\n"
-			+ "FROM calendar c left outer join vchat_class v ON c.vc_id = v.vc_id\r\n"
-			+ "left outer join vchat_teacher t ON c.t_id = t.t_id\r\n"
+			+ "c. cal_end calend, c.m_idint memidint, c.room_id roomid, c.t_id tid, v.vc_title vctitle, t.t_pic tcpic, t.t_name tcname "
+			+ "FROM calendar c left outer join vchat_class v ON c.vc_id = v.vc_id "
+			+ "left outer join vchat_teacher t ON c.t_id = t.t_id "
 			+ "WHERE c.m_idint =?1", nativeQuery=true)
 	List<Map<String, Object>> MemberCalendarSearch(Integer memIdInt);
+	
+	// 선생님 수업함 (CalendarVO)
+	@Query(value="SELECT c.*, v.vc_title vctitle, t.t_name tcname "
+			+ " FROM calendar c left outer join vchat_class v ON c.vc_id = v.vc_id "
+			+ " left outer join vchat_teacher t ON c.t_id = t.t_id "
+			+ " WHERE c.t_id=?1 "
+			+ " ORDER BY cal_start DESC",
+			countQuery = "SELECT count(*) "
+					+ " FROM calendar c left outer join vchat_class v ON c.vc_id = v.vc_id "
+					+ " left outer join vchat_teacher t ON c.t_id = t.t_id "
+					+ " WHERE c.t_id=?1 "
+					+ " ORDER BY cal_start DESC",
+			nativeQuery=true)
+	Page<Map<String, Object>> getTutorBox(Pageable paging, Integer teacherId);
 	
 }

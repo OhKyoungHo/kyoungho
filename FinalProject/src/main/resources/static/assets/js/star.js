@@ -66,6 +66,6 @@
 
                                        function mark(star){
                                           lock(star);
-                                          alert("별점선택"+star);
+                                          //alert("별점선택"+star);
                                           document.cmtfrm.star.value= star;
                                        }

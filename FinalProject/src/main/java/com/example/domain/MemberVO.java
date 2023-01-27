@@ -46,18 +46,10 @@ public class MemberVO {											//회원가입
    
    private String m_profile;
    
-   private Date p_end_date;							      		// 종료 날짜
-   private Integer p_daysperweek;								// 주차별 일수
-   private Integer p_minute;									// 남은 시간(분)
-   private Integer p_days_left;									// 실제 일수
-   
    private Integer t_id;									   	// 선생님 번호
    // @Column(name="t_id")
    // private Integer teacherId;
    
-   @PrePersist
-	public void beforeCreate() {
-	   p_end_date = new Date();
-	}
+
    
 }

@@ -702,7 +702,7 @@
                      <div class="course__sidebar pl-70">
                         <div class="course__sidebar-widget grey-bg">
                            <div class="course__sidebar-info">
-                              <h3 class="course__sidebar-title">Keyword 검색</h3>
+                              <h3 class="course__sidebar-title">국비/부트 Keywords</h3>
 
 
 
@@ -789,6 +789,93 @@
                                        <input class="m-check-input" type="checkbox" 
                                           id="m-all" name ="keywords" value="딥러닝" onclick='checkOnlyOne(this)'>
                                        <label class="m-check-label" for="m-eng">딥러닝</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                     
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                      <h5><요즘 추세></h5> 
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="MVP" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">MVP</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="UI" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">UI</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="React " onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">React </label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="Node" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">Node</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="자연어처리" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">자연어처리</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="데이터 분석" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">데이터 분석</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="그로프로세스" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">그로프로세스</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="아이데이션" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">아이데이션</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="알고리즘" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">알고리즘</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="시각화" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">시각화</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords"  value="기초통계" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">기초통계</label>
                                     </div>
                                  </li>
                               </ul>

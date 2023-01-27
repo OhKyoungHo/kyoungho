@@ -24,8 +24,16 @@ public class LectureVO {
 	@Column(name="t_id")
 	private Integer tcId;
 	
+	@Column(name="t_name") //찬주추가함
+	private String teacherName;
+	
+	@Column(name="t_pic") //찬주추가함
+	private String teacherPic;
+	
 	@Column(name="vc_title")
 	private String vcTitle;
+	
+	
 	
 	private String vc_intro;
 	

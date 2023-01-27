@@ -611,24 +611,24 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                            <table class="table">
                              <thead class="thead-dark">
                                <tr>
-                                 <th>날짜</th>
-                                 <th>선생님</th>
-                                 <th>강의제목</th>
-                                 <th>녹화본</th>
-                                 <th>자료</th>
+                                 <th class="tb-centered">날짜</th>
+                                 <th class="tb-centered">선생님</th>
+                                 <th class="tb-centered">강의제목</th>
+                                 <th class="tb-centered">녹화본</th>
+                                 <th class="tb-centered">자료</th>
                                </tr>
                              </thead>
                              <tbody>
                                <tr class="alert" role="alert">
-                                 <th scope="row">2023-01-27 오전 10시</th>
-                                 <td>강의섭</td>
-                                 <td>강의 이름, 강의 이름, 강의 이름</td>
-                                 <td>
+                                 <th scope="row" class="tb-middle">2023-01-27 오전 10시</th>
+                                 <td class="tb-middle">강의섭</td>
+                                 <td class="tb-middle">강의 이름, 강의 이름, 강의 이름</td>
+                                 <td class="tb-middle">
                                     "230127-01" <br/>
                                     "230127-02" <br/>
                                  </td>
-                                 <td>
-                                    <a href="/outside/www.naver.com">www.naver.com</a>
+                                 <td class="tb-middle">
+                                    <a href="filepath" download="filename">filename</a>
                                 </td>
                                </tr>
                                <tr class="alert" role="alert">

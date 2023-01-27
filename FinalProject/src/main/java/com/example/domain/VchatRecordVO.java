@@ -22,8 +22,14 @@ public class VchatRecordVO {						//화상 수업 기록
     
     private Integer calId;
     
+    @Column(name="t_id")
+    private Integer teacherId;
+    
+    @Column(name="m_idint")
+	private Integer memIdInt;
+    
     private String origRecName;
-	private String RecName;
-	private String RecPath;
+	private String recName;
+	private String recPath;
 
 }
