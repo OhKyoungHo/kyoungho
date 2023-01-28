@@ -35,5 +35,8 @@ public interface EducationService {
    //국비/부트에서 승인여부 0 1주기 위함
    public void updateEducation(EducationVO evo);
    
+   //검색어 넣기
+   public void insertSearch(String keywords, Integer mIdInt);
+   
 
 }

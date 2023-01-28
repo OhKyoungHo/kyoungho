@@ -2,6 +2,9 @@ package com.example.controller;
 
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
@@ -47,11 +50,16 @@ public class EducationController {
    @GetMapping("/course-sidebar")
    //한페이지에 들어가는 수는 6개
    //@RequestParam 으로  order, keywords 받아와 사용가능
-   public String getAcademyList(Model m, 
+   public String getAcademyList(Model m, HttpSession session,
          @PageableDefault(size = 4, direction = Sort.Direction.DESC) Pageable paging, 
          @RequestParam(required = false, defaultValue = "") String order,
          @RequestParam(required = false, defaultValue = "") String keywords){
       
+	   // service에 <<검색 시 검색 시간+키워드 저장>>
+	   // DB에 검색어 테이블 만들기 -> 자바 기초 / 자바 국비
+	   Integer mIdInt = (Integer) session.getAttribute("memIdInt");
+	   eduService.insertSearch(keywords, mIdInt );
+	   
       //keywords 값 잘넘어옵니다 확인완료
       System.out.println("keywords 값 확인 : " + keywords);
       //order 값 잘 넘어옵니다 확인완료

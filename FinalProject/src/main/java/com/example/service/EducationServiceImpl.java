@@ -6,14 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.domain.EducationVO;
-import com.example.domain.TeacherVO;
 import com.example.persistence.EducationRepository;
+import com.example.persistence.SearchRepository;
 
 @Service
 public class EducationServiceImpl implements EducationService {
    
    @Autowired
    private EducationRepository eduRepo;
+   
+   @Autowired
+   private SearchRepository searchRepo;
 
    @Override
    public List<EducationVO> getBoardList(EducationVO vo) {
@@ -60,6 +63,11 @@ public class EducationServiceImpl implements EducationService {
 	public void updateEducation(EducationVO evo) {
 		
 		eduRepo.save(evo);
+	}
+	
+	//검색어 넣기
+	public void insertSearch(String keywords, Integer mIdInt) {
+		searchRepo.insertSearch(keywords, mIdInt);
 	}
  
 }

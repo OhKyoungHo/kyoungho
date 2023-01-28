@@ -24,12 +24,7 @@ public class SearchVO {
 
 	private String keywords;
 
-	private Date s_time;
-
-	//JPA에서 DB로 자동으로 DATE에 오늘 날짜 쓰기!
-	@PrePersist
-	public void beforeCreate() {
-		s_time = new Date();
-	}
+	@Column(name="m_idint")
+	private Integer mIdInt;
 
 }

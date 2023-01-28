@@ -342,16 +342,15 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">교육과정 관련 Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">검색관련 DashBoard</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
-                        <iframe src="http://192.168.0.26:5601/goto/cd0357bcf8fba968742904519b63ddc3" height="1000" width="2400" style="border:none"></iframe>
                         <!-- Earnings (Monthly) Card Example -->
-                       
+                        <iframe src="http://192.168.0.26:5601/goto/0b274f42988e18c61463e970adc18bd3" height="1000" width="2400" style="border:none;"></iframe>
 
                         <!-- Earnings (Monthly) Card Example -->
                        
