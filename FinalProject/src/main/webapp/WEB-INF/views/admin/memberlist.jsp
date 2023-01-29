@@ -71,7 +71,10 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>User Page</span></a>
+                    <span>Education DashBoard</span></a>
+                <a class="nav-link" href="index-member">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Member DashBoard</span></a>
             </li>
 
             <!-- Divider -->
@@ -116,18 +119,8 @@
     </div></li>    
            
 <!-- Nav Item - Charts -->
-<li class="nav-item"><a class="nav-link" href="">
+<li class="nav-item"><a class="nav-link" href="/admin/checkout">
         <i class="fas fa-credit-card"></i> <span>결제내역관리</span>
-</a></li>
-
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-exclamation-triangle"></i> <span>신고관리</span>
-</a></li>
-
-
-<!-- Nav Item - Tables -->
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-calculator"></i> <span>정산관리</span>
 </a></li>
 
 
@@ -372,22 +365,22 @@
                                     <thead>
                                         <tr>
                                             <th>회원고유번호</th>
-                                            <th>회원이름</th>
                                             <th>회원아이디</th>
+                                            <th>회원이름</th>
                                             <th>전화번호</th>
                                             <th>이메일</th>
-                                            <th>상태??</th>
+                                            <th>상태</th>
                                             
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>회원고유번호</th>
-                                            <th>회원이름</th>
                                             <th>회원아이디</th>
+                                            <th>회원이름</th>
                                             <th>전화번호</th>
                                             <th>이메일</th>
-                                            <th>상태??</th>
+                                            <th>상태</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -395,11 +388,18 @@
                                         <c:forEach var='memberList' items='${memberList}'>
                                         <tr>
                                             <td>${memberList.memIdInt}</td>
-                                            <td><a href="/admin/memberDetail?memIdString=${memberList.memIdString}">${memberList.memName}</a></td>
-                                        	<td>${memberList.memIdString}</td>
+                                            <td><a href="/admin/memberDetail?memIdString=${memberList.memIdString}">${memberList.memIdString}</a></td>
+                                            <td>${memberList.memName}</a></td>
                                             <td>${memberList.memTel}</td>
                                             <td>${memberList.memEmail}</td>
-                                        	<td>어떤 상태인지</td>
+                                            <td><c:choose>
+                                                <c:when test="${memberList.t_id == null }">
+                                                   사용자
+                                                </c:when>
+                                                <c:when test="${memberList.t_id != null }">
+                                                   선생님
+                                                </c:when>
+                                            </c:choose></td>
                                            
                                             
                                         	<!-- <td style="text-align:center;">

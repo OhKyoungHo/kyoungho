@@ -116,18 +116,8 @@
     </div></li>    
            
 <!-- Nav Item - Charts -->
-<li class="nav-item"><a class="nav-link" href="">
+<li class="nav-item"><a class="nav-link" href="/admin/checkout">
         <i class="fas fa-credit-card"></i> <span>결제내역관리</span>
-</a></li>
-
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-exclamation-triangle"></i> <span>신고관리</span>
-</a></li>
-
-
-<!-- Nav Item - Tables -->
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-calculator"></i> <span>정산관리</span>
 </a></li>
 
 

@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,9 +24,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.domain.CalendarVO;
 import com.example.domain.EducationVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.TeacherVO;
@@ -37,9 +39,9 @@ import com.example.persistence.VchatFileRepository;
 import com.example.persistence.VchatRecordRepository;
 import com.example.persistence.WishListRepository;
 import com.example.service.EducationService;
-import com.example.service.MyPageService;
 import com.example.service.TeacherService;
 import com.example.service.WishListService;
+import com.example.util.MD5Generator;
 
 
 @Controller
@@ -278,7 +280,7 @@ public class MypageController {
 		String viewpage = "/mypage/lessonreserve";
 		List<Map<String, Object>> calendarTemp = null;
 		try {
-			calendarTemp = calRepo.MemberCalendarSearch(memIdInt);
+			calendarTemp = calRepo.memberCalendarSearch(memIdInt);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -321,16 +323,172 @@ public class MypageController {
 		return mv;
 	}
 	
+	// 선생님의 수업함
+	@GetMapping("/lessonbox")
+	public String getLessonBox(Model model, HttpSession session,
+		@PageableDefault(size = 7) Pageable paging, 
+		@RequestParam(required = false, defaultValue = "제목") String type,
+        @RequestParam(required = false, defaultValue = "") String searchword) {
+		
+		//keywords 값 잘넘어옵니다 확인완료
+		System.out.println("searchword 값 확인 : " + searchword);
+		//order 값 잘 넘어옵니다 확인완료
+		System.out.println("type 값 확인 : " + type);
+		
+		//세션에 저장된 값으로 넘겨버리기
+		Integer tempmemIdInt = (Integer) session.getAttribute("memIdInt");
+		System.out.println("memIdInt : "+tempmemIdInt);
+		Page<Map<String, Object>> lessonBoxTemp = null;
+      
+		if(searchword.equals("") ) {
+			lessonBoxTemp = calRepo.getLessonBox(paging, tempmemIdInt);
+		} else if(type.equals("vc_title")) {
+			System.out.println("vc_title 검색");
+			lessonBoxTemp = calRepo.getLessonBoxVctitle(paging, tempmemIdInt, searchword);
+		} else if(type.equals("cal_start")) {
+			System.out.println("cal_start 검색");
+			lessonBoxTemp = calRepo.getLessonBoxCalstart(paging, tempmemIdInt, searchword);
+		} else if(type.equals("t_name")) {
+			System.out.println("t_name 검색");
+			lessonBoxTemp = calRepo.getLessonBoxTcname(paging, tempmemIdInt, searchword);
+		}
+		
+		for (Map<String, Object> a : lessonBoxTemp.getContent()) {
+			System.out.println("cal_start : " + a.get("cal_start"));
+			System.out.println("vctitle : " + a.get("vctitle"));
+			System.out.println("tcname : " + a.get("tcname"));
+		}
+		
+		List<VchatRecordVO> tutorBoxRecord = vchatRecordRepo.findByTeacherId(tempmemIdInt);
+		List<VchatFileVO> tutorBoxFile = vchatFileRepo.findByTeacherId(tempmemIdInt);
+		
+		for (VchatRecordVO vo : tutorBoxRecord) {
+			System.out.println("OrigRecName : " + vo.getOrigRecName());
+			System.out.println("CalId : " + vo.getCalId());
+		}
+		
+		for (VchatFileVO vo : tutorBoxFile) {
+			System.out.println("OrigFileName : " + vo.getOrigFileName());
+			System.out.println("CalId : " + vo.getCalId());
+		}
+
+		//현재페이지
+		int pageNumber=((Slice<Map<String, Object>>) lessonBoxTemp).getPageable().getPageNumber();
+		//총페이지수
+		int totalPages=((Page<Map<String, Object>>) lessonBoxTemp).getTotalPages(); //검색에따라 10개면 10개..
+		int pageBlock = 5; //블럭의 수 1, 2, 3, 4, 5   
+		//시작하는 블록
+		int startBlockPage = ((pageNumber)/pageBlock)*pageBlock+1; //현재 페이지가 7이라면 1*5+1=6
+		//끝나는 블록
+		int endBlockPage = startBlockPage+pageBlock-1; //6+5-1=10. 6,7,8,9,10해서 10.
+		endBlockPage= totalPages<endBlockPage? totalPages:endBlockPage;
+
+		// System.out.println("TutorBoxList : " + mypageTutorBoxList.getContent());
+
+		//각 값들을 jsp 파일에 붙이기
+		model.addAttribute("pageNumber", pageNumber);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("endBlockPage", endBlockPage);
+		model.addAttribute("startBlockPage", startBlockPage);
+		model.addAttribute("mypageTutorBoxList", lessonBoxTemp.getContent()); 
+		model.addAttribute("tutorRecord", tutorBoxRecord); 
+		model.addAttribute("tutorFile", tutorBoxFile); 
+
+		return "mypage/lessonbox";
+	}
+	
+//-------------------------------------------------------------------------------------------------------------------------------
+	
+	// mypage에 있는 회원의 예약 달력과 예약한 방 출력
+	@RequestMapping(value = "/tutorReserve", method = RequestMethod.GET)
+	//ModelAndView를 이용하여 구현
+	public ModelAndView getTeacherCalendarList(HttpServletRequest request, HttpSession session) {
+		
+		Integer teacherId = (Integer) session.getAttribute("teacherId");
+		
+		String viewpage = "/mypage/tutorReserve";
+		List<Map<String, Object>> calendarTemp = null;
+		try {
+			calendarTemp = calRepo.teacherCalendarSearch(teacherId);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		// 새로운 리스트를 준비
+		List<HashMap<String, Object>> calendar = new ArrayList<HashMap<String, Object>>();
+		
+		// 새로운 HashMap을 생성하고 차례대로 값을 집어넣기
+		for(Map<String, Object> m : calendarTemp) {
+			System.out.println("calid : " + m.get("calid"));
+			
+			HashMap<String, Object> HashTemp = new HashMap<String, Object> ();
+			HashTemp.put("calid", m.get("calid"));
+			HashTemp.put("caltitle", m.get("caltitle"));
+			HashTemp.put("calstart", m.get("calstart"));
+			HashTemp.put("calreserve", m.get("calreserve"));
+			HashTemp.put("calend", m.get("calend"));
+			HashTemp.put("memidint", m.get("memidint"));
+			HashTemp.put("roomid", m.get("roomid"));
+			HashTemp.put("tid", m.get("tid"));
+			HashTemp.put("vctitle", m.get("vctitle"));
+			HashTemp.put("tcpic", m.get("tcpic"));
+			HashTemp.put("tcname", m.get("tcname"));
+			HashTemp.put("memprofile", m.get("memprofile"));
+			HashTemp.put("memidstring", m.get("memidstring"));
+			
+			//원하는 데이터 포맷 지정
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일 a h:mm"); 
+			String dateTemp = simpleDateFormat.format(m.get("calstart"));
+			System.out.println("date format : " + dateTemp);
+			// 새로운 형식의 날짜를 HashMap에 추가
+			HashTemp.put("calstartSTR", dateTemp);
+			
+			calendar.add(HashTemp);
+		}
+		
+		request.setAttribute("calendarList", calendar);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(viewpage);
+		return mv;
+	}
 	
 	// 선생님의 수업함
 	@GetMapping("/tutorBox")
 	public String getTutorBox(Model model, HttpSession session,
-			@PageableDefault(size = 7) Pageable paging) {
-
+		@PageableDefault(size = 7) Pageable paging, 
+		@RequestParam(required = false, defaultValue = "제목") String type,
+        @RequestParam(required = false, defaultValue = "") String searchword) {
+		
+		//keywords 값 잘넘어옵니다 확인완료
+		System.out.println("searchword 값 확인 : " + searchword);
+		//order 값 잘 넘어옵니다 확인완료
+		System.out.println("type 값 확인 : " + type);
+		
 		//세션에 저장된 값으로 넘겨버리기
 		Integer tempTeacherId = (Integer) session.getAttribute("teacherId");
 		System.out.println("teacherId : "+tempTeacherId);
-		Page<Map<String, Object>> tutorBoxTemp = calRepo.getTutorBox(paging, tempTeacherId);
+		Page<Map<String, Object>> tutorBoxTemp = null;
+      
+		if(searchword.equals("") ) {
+			tutorBoxTemp = calRepo.getTutorBox(paging, tempTeacherId);
+		} else if(type.equals("vc_title")) {
+			System.out.println("vc_title 검색");
+			tutorBoxTemp = calRepo.getTutorBoxVctitle(paging, tempTeacherId, searchword);
+		} else if(type.equals("cal_start")) {
+			System.out.println("cal_start 검색");
+			tutorBoxTemp = calRepo.getTutorBoxCalstart(paging, tempTeacherId, searchword);
+		} else if(type.equals("t_name")) {
+			System.out.println("t_name 검색");
+			tutorBoxTemp = calRepo.getTutorBoxTcname(paging, tempTeacherId, searchword);
+		}
+		
+		for (Map<String, Object> a : tutorBoxTemp.getContent()) {
+			System.out.println("cal_start : " + a.get("cal_start"));
+			System.out.println("vctitle : " + a.get("vctitle"));
+			System.out.println("tcname : " + a.get("tcname"));
+		}
 		
 		List<VchatRecordVO> tutorBoxRecord = vchatRecordRepo.findByTeacherId(tempTeacherId);
 		List<VchatFileVO> tutorBoxFile = vchatFileRepo.findByTeacherId(tempTeacherId);
@@ -344,43 +502,6 @@ public class MypageController {
 			System.out.println("OrigFileName : " + vo.getOrigFileName());
 			System.out.println("CalId : " + vo.getCalId());
 		}
-		
-		/*
-		List<HashMap<String, Object>> hashTempList = new ArrayList<HashMap<String, Object>>();
-		
-		for(Map<String, Object> temp : tutorBoxTemp.getContent()) {
-			
-			HashMap<String, Object> hashTemp = new HashMap<String, Object>();
-			
-			System.out.println("cal_id : " + temp.get("cal_id"));
-			System.out.println("cal_start : " + temp.get("cal_start"));
-			System.out.println("tcname : " + temp.get("tcname"));
-			System.out.println("vctitle : " + temp.get("vctitle"));
-			
-			hashTemp.put("cal_start", temp.get("cal_start"));
-			hashTemp.put("tcname", temp.get("tcname"));
-			hashTemp.put("vctitle", temp.get("vctitle"));
-			
-			Integer calId = (Integer)temp.get("cal_id");
-			
-			List<VchatRecordVO> recTemp = vchatRecordRepo.findByCalId(calId);
-			for (VchatRecordVO vo : recTemp) {
-				System.out.println("OrigRecName : " + vo.getOrigRecName());
-			}
-			
-			List<VchatFileVO> fileTemp = vchatFileRepo.findByCalId(calId);
-			for (VchatFileVO vo : fileTemp) {
-				System.out.println("OrigFileName : " + vo.getOrigFileName());
-			}
-			
-			hashTemp.put("tutorRecord", recTemp);
-			hashTemp.put("tutorFile", fileTemp);
-			
-			hashTempList.add(hashTemp);
-			
-		}
-		*/
-
 
 		//현재페이지
 		int pageNumber=((Slice<Map<String, Object>>) tutorBoxTemp).getPageable().getPageNumber();
@@ -407,6 +528,86 @@ public class MypageController {
 		return "mypage/tutorBox";
 	}
 	
+	// 자료 파일 업로드
+	@RequestMapping("/uploadFile")
+	public String insertFile(@RequestParam("file") List<MultipartFile> files, VchatFileVO dto) throws IOException {
+		
+		try {
+			System.out.println("insertFile 요청");
+			System.out.println("VchatFileVO : " + dto);
+			
+			for (MultipartFile file :files) {
+				String origFilename = file.getOriginalFilename();
+				System.out.println("origFilename : " + origFilename);
+				
+				// 파일첨부를한경우에만
+				if( origFilename != null && !origFilename.equals(""))
+				{   	
+
+					String filename = new MD5Generator(origFilename).toString();
+					/* 실행되는위치의 'files' 폴더에파일이저장됩니다. */
+					String savePath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\assets\\files\\files";
+					/* 파일이저장되는폴더가없으면폴더를생성합니다. */
+					if (!new File(savePath).exists()) {
+						try {
+							new File(savePath).mkdir();
+						}
+						catch(Exception e) {
+							e.getStackTrace();
+						}
+					}
+					String filepath = savePath + "\\" + filename;
+					System.out.println("filepath : "+filepath);
+
+					file.transferTo(new File(filepath));
+
+					VchatFileVO vo = new VchatFileVO();
+					
+					vo.setOrigFileName(origFilename);
+					vo.setFileName(filename);
+					vo.setFilePath(filepath);
+					vo.setCalId(dto.getCalId());
+					vo.setMemIdInt(dto.getMemIdInt());
+					vo.setTeacherId(dto.getTeacherId());
+
+					vchatFileRepo.save(vo);
+					System.out.println("파일첨부인경우");
+				}else {
+					System.out.println("파일첨부가아닌경우");
+				}
+			
+			}
+			
+		} catch(Exception e) {
+			System.out.println("파일업로드실패:" + e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return"redirect:/mypage/tutorBox";
+
+	}
 	
+	// 녹화 영상 보여주는 창을 띄울 때 사용
+	@RequestMapping("/video")
+	public void showVideo(String loc, Model m) {
+		System.out.println("loc : " + loc);
+		m.addAttribute("loc", loc);
+	}
+	
+	// 예약 취소 (회원)
+	@RequestMapping("/memberDeleteReservation")
+	public String deleteMemberReservation(Integer calId) {
+		calRepo.deleteReservation(calId);
+		// 추후에 마이페이지로 리턴값수정해야함
+		return "redirect:/mypage/lessonreserve";
+	}
+	
+	// 예약 취소 (선생님)
+	@RequestMapping("/teacherDeleteReservation")
+	public String deleteTeacherReservation(Integer calId) {
+		calRepo.deleteReservation(calId);
+		// 추후에 마이페이지로 리턴값수정해야함
+		return "redirect:/mypage/tutorReserve";
+	}
 
 }

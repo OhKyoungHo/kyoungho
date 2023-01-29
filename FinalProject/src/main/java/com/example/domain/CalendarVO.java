@@ -23,7 +23,7 @@ public class CalendarVO {
 	
 	private Date calStart;
 	private Date calEnd;
-	private String calTitle;
+	
 	
 	@Column(name="t_id")
 	private Integer teacherId;
@@ -36,6 +36,12 @@ public class CalendarVO {
 	private Integer memIdInt;
 	
 	private String roomId;
+	
+	private Date checkoutDate;
+	
+	private String checkoutName;	
+	
+	private Integer price;
 
 
 }

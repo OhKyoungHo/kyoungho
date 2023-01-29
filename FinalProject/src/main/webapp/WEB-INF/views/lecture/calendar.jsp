@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	locale : 'ko', // 한국어 설정
 	headerToolbar : {
 		 left: 'prev,next today', //왼쪽부분에 이전달, 다음달, 오늘 설정
-		  center: 'title'   ,       // 가운데에 title 설정
+		  center: 'title',       // 가운데에 title 설정
 		  end : 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'   // 오른쪽부분에 나올것 설정
 		  },
 		  height: '700px', // calendar 높이 설정
@@ -72,27 +72,25 @@ document.addEventListener('DOMContentLoaded', function() {
 		 slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
 		 navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
 		 nowIndicator: true, // 현재 시간 마크
-	   selectable : true, // 선택가능 서렂ㅇ
-	   droppable : true,  
-	   eventLimit : true, 
-	   backgroundColor: '#378006',
-	   display: 'background', 
-	   events : [ 
-			   <% List<CalendarVO> calendarList = (List<CalendarVO>) request.getAttribute("calendarList"); %>
-				<% if (calendarList != null) {%>
-				<% for (CalendarVO vo : calendarList) {%>
-				{
-				   id :'<%=vo.getCalId()%>',
-				   title : '<%=vo.getCalTitle()%>',
-					start : '<%=vo.getCalStart()%>',
-					end : '<%=vo.getCalEnd()%>',
-					
-					
-				 },
-		  <% }
-	   } %>
-			 ], // 달력에 나오는 일정들 db통해 설정
-		eventClick: function(test) {
+	   	 selectable : true, // 선택가능 서렂ㅇ
+	   	 droppable : true,  
+	   	 //eventLimit : true, 
+	   	 //backgroundColor: '#378006',
+	   	 //display: 'background', 
+	   	 events : [ 
+				   <% List<CalendarVO> calendarList = (List<CalendarVO>) request.getAttribute("calendarList"); %>
+					<% if (calendarList != null) {%>
+					<% for (CalendarVO vo : calendarList) {%>
+					{
+					   id :'<%=vo.getCalId()%>',
+					   title : '<%=vo.getCalTitle()%>',
+					   start : '<%=vo.getCalStart()%>',
+					   end : '<%=vo.getCalEnd()%>'
+					 },
+			  <% }
+		   } %>
+			 	   ], // 달력에 나오는 일정들 db통해 설정
+		 eventClick: function(test) {
 			  Swal.fire({
 				icon: 'success',
 				text: test.event.start.getFullYear()+"년 "+test.event.start.getMonth()+1+"월 "+test.event.start.getDate()+"일 "+test.event.start.getHours()+"시 "+test.event.start.getMinutes()+"분의 강의를 예약하시겠습니까?",
@@ -103,8 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			 }).then((result) => {
 				if (result.isConfirmed) {
-				   //alert("1>"+test.event.id);
-				   x(test.event.id);
+				   x(test.event.id, test.event.title, test.event.start, test.event.end);
 				   //window.location.href="reservation?calId="+test.event.id;
 				}
 			 })
@@ -118,32 +115,29 @@ document.addEventListener('DOMContentLoaded', function() {
 	IMP.init("imp58188004"); // 예: imp00000000
 
 	
-	var x = function(test_id){
-	  
-		  alert("2>"+test_id);
-
-
+	var x = function(test_id, test_title, test_start, test_end){
+	
+		//alert( Math.trunc((Number(test_end) - Number(test_start))/1000/60/60) );
 		  IMP.request_pay({
 			 pg : 'html5_inicis',
 			 pay_method : 'card', //생략 가능
 			 merchant_uid: "CODE_O_CLOCK"+ new Date().getTime(), // 상점에서 관리하는 주문 번호 
-			 name : '테스트', // 상품이름 및 갯수
-			 amount : 1000, //결제 금액 
+			 name : test_title, // 상품이름 및 갯수
+			 amount : Math.trunc((Number(test_end) - Number(test_start))/1000/60/60)*10000, //결제 금액 
 			 buyer_email : 'support@kosmo.com', 
-			 buyer_name : '최기태', 
+			 buyer_name : 'JBK', 
 			 buyer_tel : '+00 111 222 3333',
 			 buyer_addr : 'Seoul, Geumcheon-gu, Gasan digital 2-ro, 123 building2) 4th-floor (suite.413) World Meridian',
 			 buyer_postcode : '123-456'
 		  }, function(rsp) { 
-			 console.log(rsp);
 			 if ( rsp.success ) {
 			 var msg = '결제가 완료되었습니다.';
 			 msg += '고유ID : ' + rsp.imp_uid;
 			 msg += '상점 거래ID : ' + rsp.merchant_uid;
 			 msg += '결제 금액 : ' + rsp.paid_amount;
 			 msg += '카드 승인번호 : ' + rsp.apply_num;
-		  window.location.href="reservation?calId="+test_id;
-		   
+		  	 window.location.href="reservation?calId="+test_id;
+		     
 			 } 
 		  });
 	}

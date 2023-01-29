@@ -53,9 +53,9 @@
                 <a class="nav-link" href="index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Education DashBoard</span></a>
-                <a class="nav-link" href="index-search">
+                <a class="nav-link" href="index-member">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Search DashBoard</span></a>
+                    <span>Member DashBoard</span></a>
             </li>
 
             <!-- Divider -->
@@ -100,18 +100,8 @@
     </div></li>    
            
 <!-- Nav Item - Charts -->
-<li class="nav-item"><a class="nav-link" href="">
+<li class="nav-item"><a class="nav-link" href="/admin/checkout">
         <i class="fas fa-credit-card"></i> <span>결제내역관리</span>
-</a></li>
-
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-exclamation-triangle"></i> <span>신고관리</span>
-</a></li>
-
-
-<!-- Nav Item - Tables -->
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-calculator"></i> <span>정산관리</span>
 </a></li>
 
 
@@ -349,7 +339,7 @@
 
                     <!-- Content Row -->
                     <div class="row">
-                        <iframe src="http://192.168.0.26:5601/goto/cd0357bcf8fba968742904519b63ddc3" height="1000" width="2400" style="border:none"></iframe>
+                        <iframe src="http://192.168.0.26:5601/goto/cd0357bcf8fba968742904519b63ddc3" height="1100" width="2400" style="border:none"></iframe>
                         <!-- Earnings (Monthly) Card Example -->
                        
 

@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.example.domain.EducationVO;
 import com.example.persistence.RankRepository;
 
 @Controller
@@ -26,5 +24,4 @@ public class RankController {
 		m.addAttribute("rankOther", rankRepo.rankQueryOther());
 		
 	}
-	
 }

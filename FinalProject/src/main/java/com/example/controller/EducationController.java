@@ -6,16 +6,13 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
-
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.domain.EducationVO;
 import com.example.domain.ReviewVO;
 import com.example.persistence.EducationRepository;
+import com.example.persistence.RankRepository;
 import com.example.persistence.ReviewRepository;
 import com.example.service.EducationService;
 import com.example.service.ReviewService;
@@ -44,8 +42,64 @@ public class EducationController {
    @Autowired
    private ReviewRepository reviewRepository;
 
+   @Autowired
+   private RankRepository rankRepo;
+   
+   
+   
+
+   
+   //0128
+   //인덱스에서최신등록순
+   @GetMapping("/index")
+ 
+   public String getNewIndex(Model m, 
+      @PageableDefault(size = 6, direction = Sort.Direction.DESC) Pageable paging, 
+      @RequestParam(required = false, defaultValue = "") String order,
+      @RequestParam(required = false, defaultValue = "") String keywords){
+      
+      //keywords 값 잘넘어옵니다 확인완료
+      System.out.println("keywords 값 확인 : " + keywords);
+      //order 값 잘 넘어옵니다 확인완료
+      System.out.println("order 값 확인:"+ order);
+      
+      Page<EducationVO> elist = null;
+      
+      elist = eduRepo.getNewIndex(paging, keywords, order);
+     
+      
+     
+      //각 값들을 jsp 파일에 붙이기
+   
+      m.addAttribute("academyList", elist.getContent());
+      
+      //찬주 리스트 별점평균용
+      List<Object[]> avg = reviewService.avgStar();
+      System.out.println("list.size():" + avg.size());   
+      m.addAttribute("avg",avg);
+      
+      //학원랭킹 1~3위(경주)
+      //1위
+      m.addAttribute("rankFirst", rankRepo.rankQueryFirst());
+      //2위
+      m.addAttribute("rankSecond", rankRepo.rankQuerySecond());
+      //3위
+      m.addAttribute("rankThird", rankRepo.rankQueryThird());
+    
+
+      //리턴페이지의 디폴트 값
+      return "/academy/index";
+   }//end of getAcademyList
+   
+   
 
 
+   
+   
+  
+
+   
+   
    //0106 학원리스트 출력 & 모든 검색부분 페이징 까지 완료 (경호+찬주)
    @GetMapping("/course-sidebar")
    //한페이지에 들어가는 수는 6개
@@ -55,11 +109,11 @@ public class EducationController {
          @RequestParam(required = false, defaultValue = "") String order,
          @RequestParam(required = false, defaultValue = "") String keywords){
       
-	   // service에 <<검색 시 검색 시간+키워드 저장>>
-	   // DB에 검색어 테이블 만들기 -> 자바 기초 / 자바 국비
-	   Integer mIdInt = (Integer) session.getAttribute("memIdInt");
-	   eduService.insertSearch(keywords, mIdInt );
-	   
+      // service에 <<검색 시 검색 시간+키워드 저장>>
+      // DB에 검색어 테이블 만들기 -> 자바 기초 / 자바 국비
+      Integer mIdInt = (Integer) session.getAttribute("memIdInt");
+      eduService.insertSearch(keywords, mIdInt );
+      
       //keywords 값 잘넘어옵니다 확인완료
       System.out.println("keywords 값 확인 : " + keywords);
       //order 값 잘 넘어옵니다 확인완료

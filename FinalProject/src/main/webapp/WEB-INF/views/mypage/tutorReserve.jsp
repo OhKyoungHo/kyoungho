@@ -696,7 +696,7 @@
               </div>
            </div>
 
-          <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
+          <!-- 예약사항을 카드와 입장하기 버튼으로 구현 -->
           <c:forEach items="${calendarList}" var="CL">
 
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4">
@@ -706,12 +706,12 @@
                 </div>
                 <div class="teacher__content teacher__lecture">
                   <div class="teacher__thumb w-img fix">
-                    <a href="/lecture/tutor-details?teacherId=${CL.tid}">
-                        <img src="/assets/img/teacher/${CL.tcpic}" style="height: 200px; width: 200px;" class="pt-15">
+                    <a>
+                        <img src="/assets/img/profile-pic/${CL.memprofile}" style="height: 180px; width: 180px;" class="pt-15">
                     </a>
                   </div>
                 
-                  <h3 class="teacher__title2"><a href="/lecture/tutor-details?teacherId=${CL.tid}">${CL.tcname}</a></h3>
+                  <h3 class="teacher__title2">${CL.memidstring}</h3>
                   <div class="pb-15 mb-20">
                     <div class="teacher__lecture__name">${CL.vctitle}</div>
                   </div>
@@ -738,123 +738,96 @@
   </main>
 
     <!-- footer area start -->
-    <footer>
-      <div class="footer__area footer-bg">
-        <div class="footer__top pt-90 pb-40">
-          <div class="container">
-            <div class="row">
-              <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                <div class="footer__widget mb-50">
-                  <div class="footer__widget-head mb-22">
-                    <div class="footer__logo">
-                      <a href="index">
-                        <img src="/assets/img/logo/logo-2.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                  <div class="footer__widget-body">
-                    <p>
-                      Great lesson ideas and lesson plans for ESL teachers! Educators can customize
-                      lesson plans to best.
-                    </p>
+         <footer>
+            <div class="footer__area grey-bg-2">
+               <div class="footer__top pt-20 pb-0">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                           <div class="footer__widget mb-50">
+                              <div class="footer__widget-head mb-22">
+                                 <img src="/assets/img/logo/logo.png" alt="">
+                              </div>
+                              <div class="footer__widget-body footer__widget-body-2">
+                                 
 
-                    <div class="footer__social">
-                      <ul>
-                        <li>
-                          <a href="#"><i class="social_facebook"></i></a>
-                        </li>
-                        <li>
-                          <a href="#" class="tw"><i class="social_twitter"></i></a>
-                        </li>
-                        <li>
-                          <a href="#" class="pin"><i class="social_pinterest"></i></a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1"
-              >
-                <div class="footer__widget mb-50">
-                  <div class="footer__widget-head mb-22">
-                    <h3 class="footer__widget-title">Company</h3>
-                  </div>
-                  <div class="footer__widget-body">
-                    <div class="footer__link">
-                      <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Courses</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Instructor</a></li>
-                        <li><a href="#">Career</a></li>
-                        <li><a href="#">Become a Teacher</a></li>
-                        <li><a href="#">Contact</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xxl-2 col-xl-2 col-lg-2 offset-lg-0 col-md-3 offset-md-1 col-sm-6">
-                <div class="footer__widget mb-50">
-                  <div class="footer__widget-head mb-22">
-                    <h3 class="footer__widget-title">Platform</h3>
-                  </div>
-                  <div class="footer__widget-body">
-                    <div class="footer__link">
-                      <ul>
-                        <li><a href="#">Browse Library</a></li>
-                        <li><a href="#">Library</a></li>
-                        <li><a href="#">Partners</a></li>
-                        <li><a href="#">News & Blogs</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Tutorials</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-6">
-                <div class="footer__widget footer__pl-70 mb-50">
-                  <div class="footer__widget-head mb-22">
-                    <h3 class="footer__widget-title">Subscribe</h3>
-                  </div>
-                  <div class="footer__widget-body">
-                    <div class="footer__subscribe">
-                      <form action="#">
-                        <div class="footer__subscribe-input mb-15">
-                          <input type="email" placeholder="Your email address" />
-                          <button type="submit">
-                            <i class="far fa-arrow-right"></i>
-                            <i class="far fa-arrow-right"></i>
-                          </button>
+                                 
+                              </div>
+                           </div>
                         </div>
-                      </form>
-                      <p>Get the latest news and updates right at your inbox.</p>
-                    </div>
+                        <div
+                           class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
+                           <div class="footer__widget mb-50">
+                              <div class="footer__widget-head mb-22">
+                                 
+                              </div>
+                              <div class="footer__widget-body">
+                                 <div class="footer__link footer__link-2">
+                                    <div class="footer__logo">
+                                       <a href="index">
+
+                                       </a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-xxl-2 col-xl-2 col-lg-2 offset-lg-0 col-md-3 offset-md-1 col-sm-6">
+                           <div class="footer__widget mb-50">
+                              <div class="footer__widget-head mb-22">
+                                 
+                              </div>
+                              <div class="footer__widget-body">
+                                 <div class="footer__link footer__link-2">
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-6">
+                           <div class="footer__widget footer__pl-70 mb-50">
+                              <div class="footer__widget-head mb-22">
+                                 
+                              </div>
+                              <div class="footer__widget-body">
+                                 <div class="footer__subscribe footer__subscribe-2">
+                                    <form action="#">
+                                       <div class="footer__subscribe-input mb-15">
+                                          
+                                          <div class="footer__social" style="margin-left: 100px;">
+                                             <ul>
+                                                <li><a href="#"><i class="social_facebook"></i></a></li>
+                                                <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
+                                                <li><a href="#" class="pin"><i class="social_pinterest"></i></a></li>
+                                             </ul>
+                                          </div>
+                                          
+                                       </div>
+                                       
+                                    </form>
+                                    
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                </div>
-              </div>
+               </div>
+               <div class="footer__bottom footer__bottom-2">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-xxl-12">
+                           <div class="footer__copyright footer__copyright-2 text-center">
+                              <p>Shout out to Soyun Kim <a href="">By BK jeon</a></p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-          </div>
-        </div>
-        <div class="footer__bottom">
-          <div class="container">
-            <div class="row">
-              <div class="col-xxl-12">
-                <div class="footer__copyright text-center">
-                  <p>
-                    © 2022 Educal, All Rights Reserved. Design By <a href="index">Theme Pure</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- footer area end -->
+         </footer>
+         <!-- footer area end -->
     <!-- JS here -->
     <!-- <script src="/assets/js/vendor/jquery-3.5.1.min.js"></script> -->
 
@@ -934,16 +907,16 @@
            eventClick: function(test) {
                 Swal.fire({
                 icon: 'success',
-                text: test.event.start.getFullYear()+"년 "+test.event.start.getMonth()+1+"월 "+test.event.start.getDate()+"일 "+test.event.start.getHours()+"시 "+test.event.start.getMinutes()+"분의 강의를 예약하시겠습니까?",
+                text: test.event.start.getFullYear()+"년 "+test.event.start.getMonth()+1+"월 "+test.event.start.getDate()+"일 "+test.event.start.getHours()+"시 "+test.event.start.getMinutes()+"분의 강의를 취소하시겠습니까?",
                 showCancelButton: true,
                 focusConfirm: true,
-                confirmButtonText: '예약',
-                cancelButtonText: '취소'
+                confirmButtonText: '예약 취소',
+                cancelButtonText: '나가기'
     
               }).then((result) => {
                 if (result.isConfirmed) {
                 
-                window.location.href="reservation?calId="+test.event.id;
+                window.location.href="teacherDeleteReservation?calId="+test.event.id;
                 }
               })
               

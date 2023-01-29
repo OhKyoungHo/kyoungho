@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import java.time.LocalDateTime;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,7 @@ public class ReviewVcController {
      @GetMapping("/insertRV")
      @ResponseBody //ajax 쓰려고 리퀘스트 바디
      public String insertRV(ReviewVO vo, 
-           @RequestParam String edId,@PageableDefault(size = 3) Pageable paging,String re) {
+           @RequestParam String vcId,@PageableDefault(size = 3) Pageable paging,String re) {
         System.out.println("리뷰뷰뷴 : " +   vo);
         
         reviewService.saveRV(vo);
@@ -47,7 +47,7 @@ public class ReviewVcController {
         //가져오는거 넣기
         String temp_vc_id = String.valueOf(vo.getVcId());
         System.out.println(temp_vc_id);
-        Page<ReviewVO> list = reviewRepository.getReviewAndPaging(paging,temp_vc_id );
+        Page<ReviewVO> list = reviewRepository.getReviewAndPagingvc(paging,temp_vc_id );
         List<ReviewVO> reviewList = list.getContent();
         Gson gson = new Gson();
         JsonArray jArray = new JsonArray();

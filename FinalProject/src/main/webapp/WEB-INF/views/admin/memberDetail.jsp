@@ -70,7 +70,10 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>User Page</span></a>
+                    <span>Education DashBoard</span></a>
+                <a class="nav-link" href="index-member">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Member DashBoard</span></a>
             </li>
 
             <!-- Divider -->
@@ -115,18 +118,8 @@
     </div></li>    
            
 <!-- Nav Item - Charts -->
-<li class="nav-item"><a class="nav-link" href="">
+<li class="nav-item"><a class="nav-link" href="/admin/checkout">
         <i class="fas fa-credit-card"></i> <span>결제내역관리</span>
-</a></li>
-
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-exclamation-triangle"></i> <span>신고관리</span>
-</a></li>
-
-
-<!-- Nav Item - Tables -->
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-calculator"></i> <span>정산관리</span>
 </a></li>
 
 
@@ -222,72 +215,29 @@
                             <div class="card-body">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                    <tr>
-                                        <td>사진</td>
-                                    	<td>강의 상세 번호</td>
-                                    	<td>강의 이름</td>
-                                        <td>구매 일자</td>
-                                        <td>비고</td>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items='${oList }' var='list1'>
-                                        	<tr>
-                                        		<td>${list1.order_detail_number }</td>
-                                        		<td>${list1.product_name }</td>
-                                        		<td>${list1.order_detail_status }</td>
-                                        		<td>${list1.order_date }</td>
-                                        	</tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-dark">강의리뷰내역</h6>
-                        </div>
-                            <div class="card-body">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                    <tr>
-                                    	<td>강의 이름</td>
-                                    	<td>리뷰 내용</td>
-                                    	<td>작성 일자</td>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items='${rList}' var='list2'>
-                                       		 <tr>
-                                        		<td>${list2.product_name}</td>
-                                        		<td>${list2.review_content}</td>
-                                        		<td>${list2.review_date}</td>
-                                        	</tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-dark">교육과정리뷰내역</h6>
-                            </div>
-                                <div class="card-body">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
                                         <tr>
-                                            <td>교육과정 이름</td>
-                                            <td>리뷰 내용</td>
-                                            <td>작성 일자</td>
+                                            <th>예약 번호</th>
+                                            <th>결제자</th>
+                                            <th>결제 내용</th>
+                                            <th>결제금액</th>
+                                            <th>결제일</th>
                                         </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach items='${rList}' var='list2'>
-                                                    <tr>
-                                                    <td>${list2.product_name}</td>
-                                                    <td>${list2.review_content}</td>
-                                                    <td>${list2.review_date}</td>
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items='${checkoutList}' var='checkout'>
+                                            <tr>
+                                                <td>${checkout.calId}</td>
+                                                <td>${checkout.checkoutName}</td>
+                                                <td></td>
+                                                <td>${checkout.price}</td>
+                                                <td><fmt:formatDate value="${checkout.checkoutDate}" pattern="YYYY.MM.DD" /></td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                  
+                   
                     </div>
 
                 </div>

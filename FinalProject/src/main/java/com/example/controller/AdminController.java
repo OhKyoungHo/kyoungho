@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,12 +11,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.AnnouncementVO;
+import com.example.domain.CalendarVO;
 import com.example.domain.EducationVO;
 import com.example.domain.LectureVO;
 import com.example.domain.MemberVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.TeacherVO;
+import com.example.persistence.CalendarRepository;
 import com.example.persistence.EducationRepository;
+import com.example.persistence.ReviewRepository;
 import com.example.persistence.TeacherRepository;
 import com.example.service.AnnouncementService;
 import com.example.service.EducationService;
@@ -51,6 +55,13 @@ public class AdminController {
 	
 	@Autowired
 	private MemberService memService;
+	
+	@Autowired
+	private CalendarRepository calRepo;
+	
+	@Autowired
+	private ReviewRepository reviewRepo;
+	
 
 	//경호
    //학원등록 페이지로 이동
@@ -213,10 +224,17 @@ public class AdminController {
 	//경호
 	//멤버 상세정보 보기
 	@RequestMapping("/memberDetail")
-	public String memberDetail(Model m, MemberVO vo) {
-		MemberVO result = memService.findByMemIdString(vo);
-		System.out.println(result);
+	public String memberDetail(Model m, MemberVO mvo, CalendarVO cvo) {
+		//회원정보 호출
+		MemberVO result = memService.findByMemIdString(mvo);
+		//결제정보 호출
+		List<CalendarVO> clist = calRepo.CheckoutInfom(cvo);
+
+		//회원정보 붙이기
 		m.addAttribute("memberList", result);
+		//결제내역 붙이기
+		m.addAttribute("checkoutList",clist);
+
 		return "admin/memberDetail";
 	}
 
@@ -254,6 +272,15 @@ public class AdminController {
 		System.out.println(result);
 		m.addAttribute("lectureList", result);
 		return "/admin/lectureRegister";
+	}
+	
+	//경주
+	//결제내역 보기
+	@RequestMapping("/checkout")
+	public String checkout(Model m, CalendarVO vo) {
+		List<CalendarVO> list = calRepo.CheckoutInfom(vo);
+		m.addAttribute("checkoutList",list);
+		return "/admin/checkout";
 	}
 
 }

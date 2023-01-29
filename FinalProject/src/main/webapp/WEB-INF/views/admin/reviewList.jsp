@@ -71,7 +71,10 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>User Page</span></a>
+                    <span>Education DashBoard</span></a>
+                <a class="nav-link" href="index-member">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Member DashBoard</span></a>
             </li>
 
             <!-- Divider -->
@@ -116,18 +119,8 @@
     </div></li>    
            
 <!-- Nav Item - Charts -->
-<li class="nav-item"><a class="nav-link" href="">
+<li class="nav-item"><a class="nav-link" href="/admin/checkout">
         <i class="fas fa-credit-card"></i> <span>결제내역관리</span>
-</a></li>
-
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-exclamation-triangle"></i> <span>신고관리</span>
-</a></li>
-
-
-<!-- Nav Item - Tables -->
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-calculator"></i> <span>정산관리</span>
 </a></li>
 
 

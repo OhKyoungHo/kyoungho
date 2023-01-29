@@ -62,7 +62,7 @@ public class EducationVO {								      	//테이블:국비/부트 교육과정
    private String edCurriculum;
    
    @Column(name="ed_tf")
-   private Boolean edTf;
+   private long edTf;
    
    @Column(name="ed_pic")
    private String edPic;

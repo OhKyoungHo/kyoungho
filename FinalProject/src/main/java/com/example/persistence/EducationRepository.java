@@ -50,7 +50,7 @@ public interface EducationRepository extends CrudRepository<EducationVO, Integer
       
       
       
-      
+      //별점높은순 출력을 위해!
       @Query(value=" SELECT *  "
               + " FROM education "
               + " WHERE (lower(ed_title) LIKE CONCAT('%',?1,'%')"
@@ -76,6 +76,22 @@ public interface EducationRepository extends CrudRepository<EducationVO, Integer
       //어드민 국비/부트 상세페이지용
       EducationVO findByedId(Integer edId);
     
+      
+      //----메인페이지 ~ 순 출력을위해---------------------------
+      
+      
+      
+      //인덱스페이지에서 별점 높은 녀석만 출력
+      @Query(value= " SELECT *  "
+              + " FROM education "
+              + " WHERE (lower(ed_title) LIKE CONCAT('%',?1,'%')"
+              + " OR lower(ed_name) LIKE CONCAT('%',?1,'%')"
+              + " OR lower(ed_keyword) LIKE CONCAT('%',?1,'%')) " 
+              + " AND ed_tf = 1"
+              + " ORDER BY avg DESC", nativeQuery=true)
+      Page<EducationVO> getNewIndex (Pageable paging, String keywords, String order);
+      
+      
       
       
 

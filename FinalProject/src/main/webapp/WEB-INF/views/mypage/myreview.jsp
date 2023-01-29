@@ -454,136 +454,186 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
       </section>
       <!-- page title area end -->
 
-      <!-- 위시리스트 Strat-->
+
+
+
+      
+      <!-- 왼쪽 메뉴 표 Strat-->
       
       <section class="cart-area pt-100 pb-100">
-         <div class="accounthead">
-            
-         </div>
-        <div class="container">
-         
-          <div class="row">
-            
-            <div class="col-sm-3">
-              <div class="left-sidebar">
-                <ul
-                  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-                  id="accordionSidebar"
-                >
-                  <li class="nav-item">
-                    <a
-                      class="nav-link collapsed"
-                      href="admin/academyList"
-                      data-toggle="collapse"
-                      data-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      <i class="fas fa-fw fa-address-card"></i> <span>회원 정보 관리</span>
-                    </a>
-                    <div
-                      id="collapseOne"
-                      class="collapse"
-                      aria-labelledby="headingUtilities"
-                      data-parent="#accordionSidebar"
-                    >
-                      <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/mypage/modify">회원정보 수정</a><br />
-                        <a class="collapse-item" href="/mypage/withdrawal">회원 탈퇴</a>
-                      </div>
-                    </div>
-                  </li>
+        <div class="accounthead">
+           <h4>국비 / 부트 리뷰관리</h4>
+        </div>
+       <div class="container">
+        
+         <div class="row">
+           <div class="col-sm-3">
+             <div class="left-sidebar">
+               <ul
+                 class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+                 id="accordionSidebar"
+               >
 
-                  <li class="nav-item">
-                    <a
-                      class="nav-link collapsed"
-                      href="admin/tutorList"
-                      data-toggle="collapse"
-                      data-target="#collapseTwo"
-                      aria-expanded="true"
-                      aria-controls="collapseTwo"
-                    >
-                      <i class="fas fa-fw fa-pencil"></i> <span>작성글 관리</span>
-                    </a>
-                    <div
-                      id="collapseTwo"
-                      class="collapse"
-                      aria-labelledby="headingUtilities"
-                      data-parent="#accordionSidebar"
-                    >
-                      <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="myreview">국비/부트 리뷰관리</a><br />
-                        <a class="collapse-item" href="myreview2">화상/학원 리뷰관리</a><br />
-                        <a class="collapse-item" href="admin/academyRegister">솔직답변</a><br />
-                      </div>
-                    </div>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link collapsed"
-                      href="admin/tutorList"
-                      data-toggle="collapse"
-                      data-target="#collapseThree"
-                      aria-expanded="true"
-                      aria-controls="collapseThree"
-                    >
-                      <i class="fas fa-heart"></i> <span>WishList</span>
-                    </a>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                      <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">관심학원리스트</a><br/> 
-                        <a class="collapse-item" href="#">관심강의리스트</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link collapsed"
-                      href="admin/lectureList.do"
-                      data-toggle="collapse"
-                      data-target="#collapseFour"
-                      aria-expanded="true"
-                      aria-controls="collapseFour"
-                    >
-                      <i class="fas fa-fw fa-desktop"></i> <span>나의 학습</span>
-                    </a>
-                    <div
-                      id="collapseFour"
-                      class="collapse"
-                      aria-labelledby="headingUtilities"
-                      data-parent="#accordionSidebar"
-                    >
-                      <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/mypage/lessonreserve">예약 현황</a><br />
-                        <a class="collapse-item" href="/mypage/lessonbox">수업함</a>
-                      </div>
-                    </div>
-                  </li>
+                 <li class="nav-item">
+                   <a
+                     class="nav-link collapsed"
+                     href="admin/academyList"
+                     data-toggle="collapse"
+                     data-target="#collapseOne"
+                     aria-expanded="true"
+                     aria-controls="collapseOne"
+                   >
+                     <i class="fas fa-fw fa-address-card"></i> <span>회원 정보 관리</span>
+                   </a>
+                   <div
+                     id="collapseOne"
+                     class="collapse"
+                     aria-labelledby="headingUtilities"
+                     data-parent="#accordionSidebar"
+                   >
+                     <div class="bg-white py-2 collapse-inner rounded">
+                       <a class="collapse-item" href="/mypage/modify">회원정보 수정</a><br />
+                       <a class="collapse-item" href="/mypage/withdrawal">회원 탈퇴</a>
+                     </div>
+                   </div>
+                 </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="/admin/member.do">
-                      <i class="fas fa-fw fa-table"></i> <span>튜터등록</span>
-                    </a>
-                  </li>
+                 <li class="nav-item">
+                   <a
+                     class="nav-link collapsed"
+                     href="admin/tutorList"
+                     data-toggle="collapse"
+                     data-target="#collapseTwo"
+                     aria-expanded="true"
+                     aria-controls="collapseTwo"
+                   >
+                     <i class="fas fa-fw fa-pencil"></i> <span>작성글 관리</span>
+                   </a>
+                   <div
+                     id="collapseTwo"
+                     class="collapse"
+                     aria-labelledby="headingUtilities"
+                     data-parent="#accordionSidebar"
+                   >
+                     <div class="bg-white py-2 collapse-inner rounded">
+                       <a class="collapse-item" href="/mypage/myreview">국비/부트 리뷰</a><br />
+                       <a class="collapse-item" href="/mypage/myreview2">화상/교육 리뷰</a><br />
+                       <a class="collapse-item" href="/mypage/honestAnswer">솔직 답변</a>
+                     </div>
+                   </div>
+                 </li>
 
-                  <!-- Nav Item - Pages Collapse Menu -->
-                </ul>
-              </div>
-            </div>
+                 <li class="nav-item">
+                   <a
+                     class="nav-link collapsed"
+                     href="admin/tutorList"
+                     data-toggle="collapse"
+                     data-target="#collapseThree"
+                     aria-expanded="true"
+                     aria-controls="collapseThree"
+                   >
+                     <i class="fas fa-heart"></i> <span>WishList</span>
+                   </a>
+                   <div id="collapseThree" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                     <div class="bg-white py-2 collapse-inner rounded">
+                       <a class="collapse-item" href="/mypage/wishlistaca">관심학원리스트</a><br/> 
+                       <a class="collapse-item" href="/mypage/wishlistlec">관심강의리스트</a>
+                     </div>
+                   </div>
+                 </li>
+
+                 <li class="nav-item">
+                   <a
+                     class="nav-link collapsed"
+                     href="admin/lectureList.do"
+                     data-toggle="collapse"
+                     data-target="#collapseFour"
+                     aria-expanded="true"
+                     aria-controls="collapseFour"
+                   >
+                     <i class="fas fa-fw fa-desktop"></i> <span>화상 내역</span>
+                   </a>
+                   <div
+                     id="collapseFour"
+                     class="collapse"
+                     aria-labelledby="headingUtilities"
+                     data-parent="#accordionSidebar"
+                   >
+                     <div class="bg-white py-2 collapse-inner rounded">
+                       <a class="collapse-item" href="/mypage/lessonreserve">예약 현황</a><br />
+                       <a class="collapse-item" href="/mypage/lessonbox">수업함</a>
+                     </div>
+                   </div>
+                 </li>
 
 
 
+                 <li class="nav-item">
+                   <a 
+                   class="nav-link collapsed"
+                     href="admin/lectureList.do"
+                     data-toggle="collapse"
+                     data-target="#collapseFour2"
+                     aria-expanded="true"
+                     aria-controls="collapseFour2">
+                     <i class="fas fa-fw fa-table"></i> <span>등록관리</span>
+                   </a>
+                  
+                   <div
+                   id="collapseFour2"
+                   class="collapse"
+                   aria-labelledby="headingUtilities"
+                   data-parent="#accordionSidebar"
+                 >
+                 <div class="bg-white py-2 collapse-inner rounded">
+                   <a class="collapse-item" href="/mypage/tutorInsert">선생님 등록</a><br />
+                   <a class="collapse-item" href="/mypage/educationInsert">학원 등록</a><br />
+                 </div>
+               </div>
+                 </li>
+                
 
 
+
+                 
+                 <li class="nav-item">
+                   <a
+                     class="nav-link collapsed"
+                     href="admin/lectureList.do"
+                     data-toggle="collapse"
+                     data-target="#collapseFive"
+                     aria-expanded="true"
+                     aria-controls="collapseFive"
+                   >
+                     <i class="fas fa-fw fa-desktop"></i> <span>튜터의 화상 내역</span>
+                   </a>
+                   <div
+                     id="collapseFive"
+                     class="collapse"
+                     aria-labelledby="headingUtilities"
+                     data-parent="#accordionSidebar"
+                   >
+                     <div class="bg-white py-2 collapse-inner rounded give-border">
+                       <a class="collapse-item" href="/mypage/tutorReserve">예약 현황</a><br />
+                       <a class="collapse-item" href="/mypage/tutorBox">수업함</a>
+                     </div>
+                   </div>
+                 </li>
+
+                 <!-- Nav Item - Pages Collapse Menu -->
+               </ul>
+             </div>
+           </div>
 
 
             <!--내가 작성한 국비/부트에서의 리뷰-->
             <div class="col-sm-9">
               <div class="accounthead mb-25">
-                 <h2 class="section__title "><span class="yellow-bg-sm">My Academy Review<img src="/assets/img/shape/yellow-bg-4.png" style="height:50px;"alt="">  </span></h2>
+                 <h2 class="section__title "><span class="yellow-bg-sm">Review List<img src="../assets/img/shape/yellow-bg-4.png" style="height:50px;"alt="">  </span></h2>
                  
               </div>
               <h6><학원번호 클릭시 해당 학원으로 넘어갑니다></h6>
+
 
                  <form action="myreview" method="get">
                   <c:forEach items="${mypageReviewList1}" var="mypageReviewList1">
@@ -600,8 +650,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                         <tbody>
                           <!--  <td><a href="noticeDetail.do?notify_seq=${vo.notify_seq }">안녕</a></td>-->
                             <tr>
-                           
-                              <td>${mypageReviewList1.RId}</a></td>
+                          
+                              <td>${mypageReviewList1.reId}</a></td>
                               <td><a href="/academy/course-details?edId=${mypageReviewList1.edId}">${mypageReviewList1.edId}</a></td>
                               <td>${mypageReviewList1.reContent}</a></td>
                               <td>${mypageReviewList1.reDate}</a></td>
@@ -617,9 +667,9 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                  
 
                  
-                            <!-- 페이징 영역 시작  경호형꺼 받음 0104-->
+                             <!-- 페이징 영역 시작  경호형꺼 받음 0104-->
                          
-                            <div class="row">
+                             <div class="row">
                               <div class="col-xxl-12">
                                  <div class="basic-pagination wow fadeInUp mt-30" data-wow-delay=".2s">
                                     <ul class="d-flex align-items-center"> 
@@ -679,7 +729,6 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                  </div>
                               </div>
                            </div>
-
                         </div>
                      </div>
    
@@ -699,123 +748,96 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
 
 
     <!-- footer area start -->
-    <footer>
-      <div class="footer__area footer-bg">
-        <div class="footer__top pt-90 pb-40">
-          <div class="container">
-            <div class="row">
-              <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                <div class="footer__widget mb-50">
-                  <div class="footer__widget-head mb-22">
-                    <div class="footer__logo">
-                      <a href="index">
-                        <img src="/assets/img/logo/logo-2.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                  <div class="footer__widget-body">
-                    <p>
-                      Great lesson ideas and lesson plans for ESL teachers! Educators can customize
-                      lesson plans to best.
-                    </p>
+         <footer>
+            <div class="footer__area grey-bg-2">
+               <div class="footer__top pt-20 pb-0">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                           <div class="footer__widget mb-50">
+                              <div class="footer__widget-head mb-22">
+                                 <img src="/assets/img/logo/logo.png" alt="">
+                              </div>
+                              <div class="footer__widget-body footer__widget-body-2">
+                                 
 
-                    <div class="footer__social">
-                      <ul>
-                        <li>
-                          <a href="#"><i class="social_facebook"></i></a>
-                        </li>
-                        <li>
-                          <a href="#" class="tw"><i class="social_twitter"></i></a>
-                        </li>
-                        <li>
-                          <a href="#" class="pin"><i class="social_pinterest"></i></a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1"
-              >
-                <div class="footer__widget mb-50">
-                  <div class="footer__widget-head mb-22">
-                    <h3 class="footer__widget-title">Company</h3>
-                  </div>
-                  <div class="footer__widget-body">
-                    <div class="footer__link">
-                      <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Courses</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Instructor</a></li>
-                        <li><a href="#">Career</a></li>
-                        <li><a href="#">Become a Teacher</a></li>
-                        <li><a href="#">Contact</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xxl-2 col-xl-2 col-lg-2 offset-lg-0 col-md-3 offset-md-1 col-sm-6">
-                <div class="footer__widget mb-50">
-                  <div class="footer__widget-head mb-22">
-                    <h3 class="footer__widget-title">Platform</h3>
-                  </div>
-                  <div class="footer__widget-body">
-                    <div class="footer__link">
-                      <ul>
-                        <li><a href="#">Browse Library</a></li>
-                        <li><a href="#">Library</a></li>
-                        <li><a href="#">Partners</a></li>
-                        <li><a href="#">News & Blogs</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Tutorials</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-6">
-                <div class="footer__widget footer__pl-70 mb-50">
-                  <div class="footer__widget-head mb-22">
-                    <h3 class="footer__widget-title">Subscribe</h3>
-                  </div>
-                  <div class="footer__widget-body">
-                    <div class="footer__subscribe">
-                      <form action="#">
-                        <div class="footer__subscribe-input mb-15">
-                          <input type="email" placeholder="Your email address" />
-                          <button type="submit">
-                            <i class="far fa-arrow-right"></i>
-                            <i class="far fa-arrow-right"></i>
-                          </button>
+                                 
+                              </div>
+                           </div>
                         </div>
-                      </form>
-                      <p>Get the latest news and updates right at your inbox.</p>
-                    </div>
+                        <div
+                           class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
+                           <div class="footer__widget mb-50">
+                              <div class="footer__widget-head mb-22">
+                                 
+                              </div>
+                              <div class="footer__widget-body">
+                                 <div class="footer__link footer__link-2">
+                                    <div class="footer__logo">
+                                       <a href="index">
+
+                                       </a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-xxl-2 col-xl-2 col-lg-2 offset-lg-0 col-md-3 offset-md-1 col-sm-6">
+                           <div class="footer__widget mb-50">
+                              <div class="footer__widget-head mb-22">
+                                 
+                              </div>
+                              <div class="footer__widget-body">
+                                 <div class="footer__link footer__link-2">
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-6">
+                           <div class="footer__widget footer__pl-70 mb-50">
+                              <div class="footer__widget-head mb-22">
+                                 
+                              </div>
+                              <div class="footer__widget-body">
+                                 <div class="footer__subscribe footer__subscribe-2">
+                                    <form action="#">
+                                       <div class="footer__subscribe-input mb-15">
+                                          
+                                          <div class="footer__social" style="margin-left: 100px;">
+                                             <ul>
+                                                <li><a href="#"><i class="social_facebook"></i></a></li>
+                                                <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
+                                                <li><a href="#" class="pin"><i class="social_pinterest"></i></a></li>
+                                             </ul>
+                                          </div>
+                                          
+                                       </div>
+                                       
+                                    </form>
+                                    
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                </div>
-              </div>
+               </div>
+               <div class="footer__bottom footer__bottom-2">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-xxl-12">
+                           <div class="footer__copyright footer__copyright-2 text-center">
+                              <p>Shout out to Soyun Kim <a href="">By BK jeon</a></p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-          </div>
-        </div>
-        <div class="footer__bottom">
-          <div class="container">
-            <div class="row">
-              <div class="col-xxl-12">
-                <div class="footer__copyright text-center">
-                  <p>
-                    © 2022 Educal, All Rights Reserved. Design By <a href="index">Theme Pure</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- footer area end -->
+         </footer>
+         <!-- footer area end -->
     <!-- JS here -->
     <script src="/assets/js/vendor/jquery-3.5.1.min.js"></script>
     <script src="/assets/js/vendor/waypoints.min.js"></script>

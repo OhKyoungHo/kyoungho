@@ -402,7 +402,7 @@
                                </nav>
                            </div>
                              <!-- 국비인지 부트인지-->
-                           <span class="page__title-pre">화상교육</span>
+                           <span class="page__title-pre">화상 교육</span>
                              <!-- 교육과정 이름-->
                            <h5 class="page__title-3">${lecture.vcTitle}</h5>
                         </div>
@@ -421,6 +421,22 @@
                               </div>
                            </div>
 
+                           
+
+                           <div class="course__update mr-80 mb-20">
+                              <h5>선생님 강의등록 시간</h5>
+                                <!--날짜의 값이 들어가도록 세팅 -->
+                                <p> <fmt:formatDate value="${lecture.vcDays}" pattern="yyyy년 MM월 dd일 "/> </p>
+                             
+                           </div>
+
+                           <div class="course__update mr-80 mb-20">
+                              <h5>마감일</h5>
+                                <!--날짜의 값이 들어가도록 세팅 -->
+                              <p>2023년 02월 05일   </p>
+                           </div>
+                         
+                       
                              <div class="course__lesson"> <!--0106 좋아요버튼-->
                               <span> <a href="/mypage/jjimInsert?memIdInt=${sessionScope.memIdInt}&vcId=${lecture.vcId}">
                                  <input type="image" style="width:10px;" class="icon.heart" src="/assets/img/course/off.png" alt="찜하기" id="likeImg">
@@ -430,7 +446,7 @@
                            
                          
                                <!--0105 찬주 별점1  평균 부분 나오는 작은부분-->
-                           <div class="course__rating-2 mb-20">
+                           <div class="course__rating-2 mb-20" >
                               <h5>별점:</h5>
                               <div class="course__rating-inner d-flex align-items-center">
                               <c:forEach var="avg" items="${avg}">  
@@ -458,6 +474,7 @@
                               
                               </div>
                            </div>
+                      
                            
                         </div>
                         
@@ -538,64 +555,58 @@
             </div>
          </div>
 
+
+
+
          <div class="course__sidebar-widget-2 white-bg mb-20">
             <div class="course__sidebar-course">
-               <h3 class="course__sidebar-title">Recommend</h3>
+               <h3 class="course__sidebar-title">Recommend Teacher</h3>
                <ul>
                   <li>
                      <div class="course__sm d-flex align-items-center mb-30">
 
                         <div class="course__sm-thumb mr-20">
-                           <a href="/lecture/lecture-details?vcId=${lecture.vcId=100}">
-                              <img src="/assets/img/course/${lecture.vc_pic='132.PNG'}" alt=""> 
+                           <a href="/lecture/tutor?keywords=${lecture.teacherName}">
+                              <img src="/assets/img/teacher/${lecture.teacherPic}" alt=""> 
                            </a>
                         </div>
+                        
 
                         <div class="course__sm-content">
                          
-                           <h5>수정하자</h5>
+                           <h5>${lecture.teacherName}T</h5>
                            <div class="course__sm-price">
-                              <span>${lecture.vcTitle}</span>
+                              <span>이 선생님이 더 궁금해?!</span>
+                             
                            </div>
                         </div>
                      </div>
-                  </li>
+                  </li> 
+
+
                   <li>
-                     <div class="course__sm d-flex align-items-center mb-30">
-
-                        <div class="course__sm-thumb mr-20">
-                           <a href="/lecture/lecture-details?vcId=${lecture.vcId=101}">
-                              <img src="/assets/img/course/${lecture.vc_pic='132.PNG'}" alt="">
-                           </a>
-                        </div>
-
-                        <div class="course__sm-content">
-                         
-                           <h5>수정하자</h5>
-                           <div class="course__sm-price">
-                              <span>${lecture.vcTitle}</span>
-                           </div>
-                        </div>
-                     </div>
+                     <h3 class="course__sidebar-title">Event</h3>
                   </li>
+
+
                   <li>
-                     <div class="course__sm d-flex align-items-center mb-30">
-
-                        <div class="course__sm-thumb mr-20">
-                           <a href="/lecture/lecture-details?vcId=${lecture.vcId=102}">
-                              <img src="/assets/img/course/${lecture.vc_pic='132.PNG'}" alt="">
-                           </a>
-                        </div>
-
-                        <div class="course__sm-content">
+                     <div class="course__sm-content">
                          
-                           <h5>수정하자</h5>
-                           <div class="course__sm-price">
-                              <span>${lecture.vcTitle}</span>
-                           </div>
+                      
+                        <div class="course__sm-price">
+                          
+                           <h3>코클에서 쉽게확인하기!</h3>
+                             
+                          
                         </div>
                      </div>
+
+
+                     <img src="/assets/img/event.png" alt=""> 
+
+                     
                   </li>
+                  
                </ul>
             </div>
          </div>
@@ -651,59 +662,17 @@
                               <li> <i class="icon_check"></i> 3) 실시간 리뷰로 편하게 비교하세요</li>
                            </ul>
                         </div>
-                        <div class="course__instructor mb-45">
-                           <h3>Code a clock 추천학원</h3>
-                           <div class="course__instructor-wrapper d-md-flex align-items-center">
-
-
-                              <div class="course__instructor-item d-flex align-items-center mr-70">
-                                 <div class="course__instructor-thumb mr-20">
-                                   
-                                    <!-- 우리가 추천하는 수업 넣어주면 됌-->
-                                    <a href="/lecture/lecture-details?vcId=${lecture.vcId=100}">
-                                       <img src="/assets/img/course/${lecture.vc_pic='132.PNG'}" alt="">
-                                     </a>
-
-                                 </div>
-                                 <div class="course__instructor-content">
-                                    <h6>수정하자</h6>
-                                    <p>수정하자</p>
-                                 </div>
-                              </div>
-
-
-                              <div class="course__instructor-item d-flex align-items-center mr-70">
-                                 <div class="course__instructor-thumb mr-20">
-                                   
-                                   <!-- 우리가 추천하는 수업 넣어주면 됌-->
-                                   <a href="/lecture/lecture-details?vcId=${lecture.vcId=101}">
-                                    <img src="/assets/img/course/${lecture.vc_pic='132.PNG'}" alt="">
-                                  </a>
-
-                                 </div>
-                                 <div class="course__instructor-content">
-                                    <h6>수정하자</h6>
-                                    <p>수정하자</p>
-                                 </div>
-                              </div>
-
-
-                              <div class="course__instructor-item d-flex align-items-center mr-70">
-                                 <div class="course__instructor-thumb mr-20">
-                                   
-                                    <!-- 우리가 추천하는 수업 넣어주면 됌-->
-                                    <a href="/lecture/lecture-details?vcId=${lecture.vcId=102}">
-                                       <img src="/assets/img/course/${lecture.vc_pic='132.PNG'}" alt="">
-                                     </a>
-
-                                 </div>
-                                 <div class="course__instructor-content">
-                                    <h6>수정하자</h6>
-                                    <p>수정하자</p>
-                                 </div>
-                              </div>
-                           </div>
+                        <div class="course__description-list mb-45">
+                           <h4>Code a clock은 이런분들을 원해요!</h4>
+                           <ul>
+                              <li> <i class="icon_check"></i> 1) 실무에서 배우지 못한부분을 더 배우고 싶으신분!<li>
+                              <li> <i class="icon_check"></i> 2) 실시간으로 변화하는 코딩없무를 빠르게 캐치하고 싶으신분!</li>
+                              <li> <i class="icon_check"></i> 3) 저렴한 가격으로 수업받고 싶으신분!</li>
+                           </ul>
                         </div>
+                      
+
+
                      </div>
              </div><!--1번 내용 div 끝-->
 
@@ -755,8 +724,11 @@
                            <div class="row g-0">
                               <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
                                  <div class="course__review-rating-info grey-bg text-center">
+
                                     <c:forEach var="avg" items="${avg}">  
+                                     
                                        <c:if test="${avg[0] == lecture.vcId}" >  
+                                          
                                     <h5>${avg[1]}</h5>
                                     <c:if test="${avg[1] == 1}">
                                           <img src="/assets/img/star/1s.png">
@@ -776,6 +748,7 @@
                                  <p>${avg[1]} Ratings</p>
                                  </c:if>
                                     </c:forEach>
+
                                  </div>
                               </div>
                              
@@ -802,7 +775,7 @@
                                                             <h4>${reviewList.memIdString}</h4>
                                                          </div>
                                                          <div class="course__comment-info float-start">
-                                                            <span>${reviewList.reDate}</span>
+                                                            <fmt:formatDate value="${reviewList.reDate}" pattern="yyyy년 MM월 dd일 "/>    
                                                          </div>
                                                          <div class="course__comment-rating float-start float-sm-end">
                                                             <tr>
@@ -890,7 +863,7 @@
                                                          <!--아이디값 저장 지금은 그냥 임의의 값 넣어줌-->
                                                          <!--참고로 re_id 는 시퀀스라 자동이고 날짜도 자동으로 들어가게 해놓음-->
                                                          <input type="text" name="memIdString" value="${sessionScope.memIdString}"  id = memIdString> <!-- "${sessionScope.memIdString}"-->
-                                                         <input type="hidden" name="memIdInt" value="17"  id = memIdInt> <!-- "${sessionScope.memIdInt}"-->
+                                                         <input type="hidden" name="memIdInt" value="${sessionScope.memIdInt}"  id = memIdInt> <!-- "${sessionScope.memIdInt}"-->
                                                          
                                                       </div>
                                                    </div>
@@ -1036,48 +1009,35 @@
 
          <!-- footer area start -->
          <footer>
-            <div class="footer__area footer-bg">
-               <div class="footer__top pt-190 pb-40">
+            <div class="footer__area grey-bg-2">
+               <div class="footer__top pt-20 pb-0">
                   <div class="container">
                      <div class="row">
                         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                            <div class="footer__widget mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <div class="footer__logo">
-                                    <a href="index">
-                                       <img src="/assets/img/logo/logo-2.png" alt="">
-                                    </a>
-                                 </div>
+                                 <img src="/assets/img/logo/logo.png" alt="">
                               </div>
-                              <div class="footer__widget-body">
-                                 <p>Great lesson ideas and lesson plans for ESL teachers! Educators can customize lesson plans to best.</p>
+                              <div class="footer__widget-body footer__widget-body-2">
+                                 
 
-                                 <div class="footer__social">
-                                    <ul>
-                                       <li><a href="#"><i class="social_facebook"></i></a></li>
-                                       <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
-                                       <li><a href="#" class="pin"><i class="social_pinterest"></i></a></li>
-                                    </ul>
-                                 </div>
+                                 
                               </div>
                            </div>
                         </div>
-                        <div class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
+                        <div
+                           class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
                            <div class="footer__widget mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Company</h3>
+                                 
                               </div>
                               <div class="footer__widget-body">
-                                 <div class="footer__link">
-                                    <ul>
-                                       <li><a href="#">About</a></li>
-                                       <li><a href="#">Courses</a></li>
-                                       <li><a href="#">Events</a></li>
-                                       <li><a href="#">Instructor</a></li>
-                                       <li><a href="#">Career</a></li>
-                                       <li><a href="#">Become a Teacher</a></li>
-                                       <li><a href="#">Contact</a></li>
-                                    </ul>
+                                 <div class="footer__link footer__link-2">
+                                    <div class="footer__logo">
+                                       <a href="index">
+
+                                       </a>
+                                    </div>
                                  </div>
                               </div>
                            </div>
@@ -1085,18 +1045,11 @@
                         <div class="col-xxl-2 col-xl-2 col-lg-2 offset-lg-0 col-md-3 offset-md-1 col-sm-6">
                            <div class="footer__widget mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Platform</h3>
+                                 
                               </div>
                               <div class="footer__widget-body">
-                                 <div class="footer__link">
-                                    <ul>
-                                       <li><a href="#">Browse Library</a></li>
-                                       <li><a href="#">Library</a></li>
-                                       <li><a href="#">Partners</a></li>
-                                       <li><a href="#">News & Blogs</a></li>
-                                       <li><a href="#">FAQs</a></li>
-                                       <li><a href="#">Tutorials</a></li>
-                                    </ul>
+                                 <div class="footer__link footer__link-2">
+                                    
                                  </div>
                               </div>
                            </div>
@@ -1104,20 +1057,26 @@
                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-6">
                            <div class="footer__widget footer__pl-70 mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Subscribe</h3>
+                                 
                               </div>
                               <div class="footer__widget-body">
-                                 <div class="footer__subscribe">
+                                 <div class="footer__subscribe footer__subscribe-2">
                                     <form action="#">
                                        <div class="footer__subscribe-input mb-15">
-                                          <input type="email" placeholder="Your email address">
-                                          <button type="submit">
-                                             <i class="far fa-arrow-right"></i>
-                                             <i class="far fa-arrow-right"></i>
-                                          </button>
+                                          
+                                          <div class="footer__social" style="margin-left: 100px;">
+                                             <ul>
+                                                <li><a href="#"><i class="social_facebook"></i></a></li>
+                                                <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
+                                                <li><a href="#" class="pin"><i class="social_pinterest"></i></a></li>
+                                             </ul>
+                                          </div>
+                                          
                                        </div>
+                                       
                                     </form>
-                                    <p>Get the latest news and updates right at your inbox.</p>
+                                    
+                                    
                                  </div>
                               </div>
                            </div>
@@ -1125,12 +1084,12 @@
                      </div>
                   </div>
                </div>
-               <div class="footer__bottom">
+               <div class="footer__bottom footer__bottom-2">
                   <div class="container">
                      <div class="row">
                         <div class="col-xxl-12">
-                           <div class="footer__copyright text-center">
-                              <p>© 2022 Educal, All Rights Reserved. Design By <a href="index">Theme Pure</a></p>
+                           <div class="footer__copyright footer__copyright-2 text-center">
+                              <p>Shout out to Soyun Kim <a href="">By BK jeon</a></p>
                            </div>
                         </div>
                      </div>

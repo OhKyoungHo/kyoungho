@@ -1,8 +1,10 @@
 package com.example.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +31,7 @@ public class CalendarController {
 	//DB에 입력된 강사 스케쥴을 달력에 구현하는 과정
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	//ModelAndView를 이용하여 구현
-	public ModelAndView getCalendarList(HttpServletRequest request,Integer tId) {
+	public String getCalendarList(HttpServletRequest request,Integer tId) {
 //		System.out.println("/academy/calendar");
 		String viewpage = "/lecture/calendar";
 		List<CalendarVO> calendar = null;
@@ -39,15 +41,20 @@ public class CalendarController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName(viewpage);
-		return mv;
+
+		// 결과 확인
+		for(CalendarVO vo : calendar) {
+			System.out.println(vo);
+		}
+		return viewpage;
 	}
 	
 	//스윗알럿에 뜬 예약확인창에 예약버튼을 눌를경우 실행
 	@RequestMapping("/reservation")
-	public String reservation(Integer calId) {
-		calRepo.reservation(calId);
+	public String reservation(Integer calId, HttpSession session) {
+		String tempidString = (String) session.getAttribute("memIdString");
+		calRepo.reservation(calId, tempidString);
+		
 		// 추후에 마이페이지로 리턴값수정해야함
 		return "redirect:/lecture/tutor";
 	}
