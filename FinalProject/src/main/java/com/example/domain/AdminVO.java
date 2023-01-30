@@ -1,6 +1,7 @@
 package com.example.domain;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,18 +16,17 @@ import lombok.Data;
 public class AdminVO {										//관리자 회원가입
 	
 	@Id
+	@Column(name="ad_id")
 	private String adId;									// 관리자 아이디
-				 
+	
+	@Column(name="ad_pass")
 	private String adPass;									// 관리자 비밀번호
-						
+	
+	@Column(name="ad_tel")
 	private String adTel;									// 공지 내용
 
+	@Column(name="ad_email")
 	private String adEmail;									// 이메일
 	
-	private char adPost;									// 우편 번호
-	
-	private String adAddr;									// 주소
-	
-	private String adAddrSub;								// 상세주소
 	
 }
