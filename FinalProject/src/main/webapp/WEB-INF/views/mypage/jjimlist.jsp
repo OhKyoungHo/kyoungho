@@ -563,25 +563,28 @@
                         <h2 class="section__title "><span class="yellow-bg-sm">관심강의리스트 <img src="/assets/img/shape/yellow-bg-4.png" alt="">  </span></h2>
                      </div>
                         <form action="#">
-                           <div class="table-content table-responsive">
+                           <div class="table-content table">
                               <table class="table">
                                     <thead>
                                        <tr>
                                           <th class="product-thumbnail"></th>
                                           <th class="cart-product-name">강의명</th>
-                                          <th class="cart-product-name">키워드</th>
-                                          <th class="product-subtotal">학원 바로가기</th>
+                                       
+                                          <th class="product-subtotal">강의 바로가기</th>
                                           <th class="product-remove">Remove</th>
                                        </tr>
                                     </thead>
                                     <c:forEach items="${jjimList}" var="wish">
+                                       <form action="/deletetWish?jjId=${wish[1]}">
                                     <tbody>
                                        <tr>
-                                          <td class="product-thumbnail"><a href="course-details"><img src="/assets/img/course/${wish[3]}" alt=""></a></td>
-                                          <td class="product-name"><a href="course-details">${wish[0]}</a></td>
-                                          <td class="product-price"><span class="amount">${wish[4]}</span></td>
-                                          <td class="product-subtotal"> <button class="e-btn e-btn-border" type="submit">상세보기</button></td>
-                                          <td class="product-remove"><a href="/mypage/deleteJjim?memIdInt=${wish[2]}&jjId=${wish[1]}"><i class="fa fa-times"></i></a></td>
+                                          <td class="product-thumbnail"><a href="course-details"><img src="/assets/img/lecture/${wish[3]}" alt="" style="width: 100px; height: 100px;"></a></td>
+                                          <td class="product-name" ><a href="/lecture/lecture-details?vcId=${wish[5]}">${wish[0]}</a></td>
+                                   
+                                         
+                                    
+                                          <td class="product-subtotal" style="width:120px"> <button class="e-btn e-btn-border" type='button' onclick="location.href='/lecture/lecture-details?vcId=${wish[5]}'">보기</button></td>
+                                          <td class="product-remove" id="removebtn"><a href="/mypage/deleteJjim?memIdInt=${wish[2]}&jjId=${wish[1]}"><i class="fa fa-times"></i></a></td>
                                        </tr>
                                     </tbody>
                                     </c:forEach>

@@ -201,7 +201,8 @@
                     <!-- Content Row -->
                     <div class="row">
                         <!-- Earnings (Monthly) Card Example -->
-                        <iframe src="http://192.168.0.26:5601/goto/0b274f42988e18c61463e970adc18bd3" height="1100" width="2400" style="border:none;"></iframe>
+                        <iframe src="http://52.78.230.250:5601/goto/3c680d9268e1e20b253ce0590fb8cab8" height="1100" width="2400" style="border:none;"></iframe>
+                        
 
                         <!-- Earnings (Monthly) Card Example -->
                        

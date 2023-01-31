@@ -433,9 +433,9 @@
                               <p>${education.edStartDate} ~ ${education.edEndDate} </p>
                            </div>
 
-                           <div class="course__lesson"> <!--0106 좋아요버튼-->
+                           <div class="course__lesson" > <!--0106 좋아요버튼-->
                               <span> <a href="/mypage/wishInsert?memIdInt=${sessionScope.memIdInt}&edId=${education.edId}">
-                                 <input type="image" style="width:10px;" class="icon.heart" src="/assets/img/course/off.png" alt="찜하기" id="likeImg">
+                                 <input type="image" style="width:30px;  margin-bottom: 10px; margin-right:10px"  class="icon.heart" src="/assets/img/course/on.png" alt="찜하기" id="likeImg">
                             </a></span>
                            </div>
                          
