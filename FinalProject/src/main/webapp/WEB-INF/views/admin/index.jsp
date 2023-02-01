@@ -199,7 +199,7 @@
 
                     <!-- Content Row -->
                     <div class="row">
-                        <iframe src="http://52.78.230.250:5601/goto/08b577c1fa3aaada6dace9e55d4b5f49" height="1500" width="2400" style="border:none"></iframe>
+                        <iframe src="http://52.78.230.250:5601/goto/08b577c1fa3aaada6dace9e55d4b5f49" height="1100" width="2400" style="border:none"></iframe>
                         <!-- Earnings (Monthly) Card Example -->
                        
 

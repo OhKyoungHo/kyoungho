@@ -1,5 +1,6 @@
 package com.example.persistence;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,16 +23,17 @@ public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> 
 	@Query(value="SELECT *\r\n"
 				+ "FROM calendar c inner join vchat_teacher t\r\n"
 				+ "ON c.t_id = t.t_id\r\n"
-				+ "WHERE c.t_id =?1 AND c.cal_reserve=0", nativeQuery=true)
+				+ "WHERE c.t_id =?1 AND c.cal_reserve=0 AND c.cal_start>=SYSDATE()", nativeQuery=true)
 	List<CalendarVO> CalendarSearch(Integer tId);
 	
 	// 예약누를시 cal_reserve를 1(예약상태)로 변경
-	@Query(value="UPDATE calendar SET cal_reserve = 1, checkout_date=sysdate(), price=ABS(TIMESTAMPDIFF(HOUR, cal_end, cal_start))*10000, checkout_name=?2 WHERE cal_id = ?1", nativeQuery = true)
-	Integer reservation(Integer calId, String tempidString);
+	@Query(value="UPDATE calendar SET cal_reserve = 1, checkout_date=sysdate(), price=ABS(TIMESTAMPDIFF(HOUR, cal_end, cal_start))*10000, checkout_name=?2, room_id=?3, vc_id=?4, m_idint=?5 WHERE cal_id = ?1", nativeQuery = true)
+	Integer reservation(Integer calId, String tempidString, String uuid, Integer vcId, Integer memIdInt);
 	
 	// 취소 누를 시 해당 cal_id의 데이터를 삭제
 	@Query(value="DELETE FROM calendar WHERE cal_id = ?1", nativeQuery = true)
 	void deleteReservation(Integer calId);
+	
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -40,7 +42,8 @@ public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> 
 			+ "c. cal_end calend, c.m_idint memidint, c.room_id roomid, c.t_id tid, v.vc_title vctitle, t.t_pic tcpic, t.t_name tcname "
 			+ "FROM calendar c left outer join vchat_class v ON c.vc_id = v.vc_id "
 			+ "left outer join vchat_teacher t ON c.t_id = t.t_id "
-			+ "WHERE c.m_idint =?1 AND c.cal_start >= (sysdate()+1/24*0.5) AND c.cal_reserve = 1", nativeQuery=true)
+			+ "WHERE c.m_idint =?1 AND c.cal_start >= (SELECT DATE_ADD(NOW(), INTERVAL 30 MINUTE)) AND c.cal_reserve=1 "
+			+ "ORDER BY c.cal_start", nativeQuery=true)
 	List<Map<String, Object>> memberCalendarSearch(Integer memIdInt);
 	
 	// 회원 수업함 (CalendarVO) (전체)
@@ -108,7 +111,8 @@ public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> 
 			+ "FROM calendar c left outer join vchat_class v ON c.vc_id = v.vc_id "
 			+ "left outer join vchat_teacher t ON c.t_id = t.t_id "
 			+ "left outer join member m ON c.m_idint = m.m_idint "
-			+ "WHERE c.t_id =?1 AND c.cal_start >= (sysdate()+1/24*0.5) AND c.cal_reserve = 1", nativeQuery=true)
+			+ "WHERE c.t_id =?1 AND c.cal_start >= (SELECT DATE_ADD(NOW(), INTERVAL 30 MINUTE)) AND c.cal_reserve=1 "
+			+ "ORDER BY c.cal_start", nativeQuery=true)
 	List<Map<String, Object>> teacherCalendarSearch(Integer teacherId);
 	
 	// 선생님 수업함 (CalendarVO) (전체)
@@ -173,4 +177,6 @@ public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> 
 				+ "FROM calendar\r\n"
 				+ "WHERE cal_reserve=1", nativeQuery=true)
 	List<CalendarVO> CheckoutInfom(CalendarVO vo);
+	
+	
 }

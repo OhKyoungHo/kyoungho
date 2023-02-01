@@ -62,276 +62,295 @@
       <!-- back to top end -->
 
       <!-- header area start -->
-     <header>
-      <div id="header-sticky" class="header__area header__transparent header__padding header__white">
-         <div class="container-fluid">
-            <div class="row align-items-center">
+      <header>
+         <div id="header-sticky" class="header__area header__transparent header__padding header__white">
+            <div class="container-fluid">
+               <div class="row align-items-center">
 
-               <!--로고와 사이트 전환 이미지-->
-               <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
-                  <div class="header__left d-flex">
-                     <div class="logo">
-                        <a href="index">
-                           <img src="/assets/img/logo/logo.png" alt="logo">
+                  <!--로고와 사이트 전환 이미지-->
+                  <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
+                     <div class="header__left d-flex">
+                        <div class="logo">
+                           <a href="/startpage">
+                              <img src="/assets/img/logo/logo.png" alt="logo">
+                           </a>
+                        </div>
+                        <div class="header__category d-none d-lg-block">
+                           <nav>
+                              <ul>
+                                 <li>
+                                    <div class="cat-dot-icon d-inline-block">
+                                       <input type="checkbox" id="switch" />
+                                       <label class="onoff" for="switch">Toggle</label>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </nav>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
+                  <c:choose>
+                     <c:when test="${empty sessionScope.memIdInt}">
+
+                        <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
+                           <div class="eader__center align-items-center d-flex justify-content-center">
+                              <div class="main-menu main-menu-3">
+                                 <nav id="mobile-menu">
+                                    <ul>
+                                       <li>
+                                          <a href="/aboutus">AboutUs</a>
+                                       </li>
+                                       <li class="has-dropdown">
+                                          <a href="course-grid">강의</a>
+                                          <ul class="submenu">
+                                             <li><a href="/academy/course-sidebar">학원 목록</a></li>
+                                             <li><a href="/academy/rank">학원 랭크</a></li>
+                                          </ul>
+                                       </li>
+                                       <li class="has-dropdown">
+                                          <a href="">게시판</a>
+                                          <ul class="submenu">
+                                             
+                                             <li><a href="/board/codingBoard">코딩 게시판</a></li>
+                                             <li><a href="/board/newsList">뉴스</a></li>
+                                             <li><a href="/board/announcement">공지</a></li>
+                                          </ul>
+                                       </li>
+                                       <li>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                       </li>
+                                    </ul>
+                                 </nav>
+                              </div>
+
+                              <div class="header__search p-relative ml-50 d-none d-md-block">
+
+                                 <!--맨위 검색부분임-->
+                                 <form action= /academy/course-sidebar method="GET" role="search">
+                                    <input type="text" name ="keywords" placeholder="Search...">
+                                    <button type="submit"><i class="fad fa-search"></i></button>
+                                 </form>
+                                 <!-- <div class="header__cart">
+                                    <a href="javascript:void(0);" class="cart-toggle-btn">
+                                       <div class="header__cart-icon">
+                                          <img src="/assets/img/heart.png" alt="heart">
+
+                                       </div>
+                                       <span class="cart-item">!</span>
+                                    </a>
+                                 </div> -->
+                              </div>
+                              <div class="header__btn ml-20 d-none d-sm-block">
+                                 <a href="/sign-in" class="e-btn">로그인</a>
+                              </div>
+                              <div class="sidebar__menu d-xl-none">
+                                 <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </c:when>
+                     <c:when test="${not empty sessionScope.memIdInt}">
+
+                        <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
+                           <div class="header__center align-items-center d-flex justify-content-center">
+                              <div class="main-menu main-menu-3">
+                                 <nav id="mobile-menu">
+                                    <ul>
+                                       <li>
+                                          <a href="/aboutus">AboutUs</a>
+                                       </li>
+                                       <li class="has-dropdown">
+                                          <a href="course-grid">강의</a>
+                                          <ul class="submenu">
+                                             <li><a href="/academy/course-sidebar">학원 목록</a></li>
+                                             <li><a href="/academy/rank">학원 랭크</a></li>
+                                          </ul>
+                                       </li>
+                                       <li class="has-dropdown">
+                                          <a href="">게시판</a>
+                                          <ul class="submenu">
+                                             
+                                             <li><a href="/board/codingBoard">코딩 게시판</a></li>
+                                             <li><a href="/board/newsList">뉴스</a></li>
+                                             <li><a href="/board/announcement">공지</a></li>
+                                          </ul>
+                                       </li>
+                                       <li>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                       </li>
+                                    </ul>
+                                 </nav>
+                              </div>
+                              <!-- 0103 찬주2
+                              메인화면에서의 검색기능과 동일한 부분 
+                           -->
+
+                              <div class="header__search p-relative ml-50 d-none d-md-block">
+
+                                 <form id="main" action=/academy/course-sidebar method="GET">
+                                    <input type="text" name="keywords" placeholder="여기서 검색">
+                                    <button type="submit"><i class="fad fa-search"></i></button>
+                                 </form>
+                                 <!-- 검색 끝-->
+
+
+
+
+                                 <div class="header__cart">
+                                    <a href="javascript:void(0);" class="cart-toggle-btn">
+                                       <div class="header__cart-icon">
+                                          <img src="/assets/img/heart.png" alt="heart"/ >
+                                       </div>
+                                       <span class="cart-item">!</span>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="header__btn ml-20 d-none d-sm-block">
+                                <!--  <div class="usercontainer">
+                                    <div class="usernav">
+                                      <h3>${sessionScope.memIdString}</h3>
+                                      <div class="drop">
+                                       <img class="user" src="/assets/img/user.png" alt="user"style="margin-right: 10px;"/>
+                                        <span class="online"></span>
+                                        <i class="fi-rr-angle-small-down"></i>
+                                      </div>
+                                    </div>
+                              </div>  -->
+
+                              <!--마이페이지-->
+                              <div class="header__category d-none d-lg-block">
+                                 <nav>
+                                    <ul>
+                                       <li>
+                                          <!-- <a href="course-grid" class="cat-menu d-flex align-items-center"> -->
+                                            
+                                             <!-- <span>${sessionScope.memIdString}</span> -->
+                                             <div class="drop">
+                                                <img class="user" src="/assets/img/user.png" alt="user"style="margin-right: 10px;"/>
+                                                 <span class="online"></span>
+                                                 <i class="fi-rr-angle-small-down"></i>
+                                               </div>
+
+                                          <!-- </a> -->
+                                          <ul class="cat-submenu">
+                                             <li><h4 style="margin-left: 10px;">${sessionScope.memIdString}님</h4></li>
+                                             <li class="sy" style="margin-left: 10px">${sessionScope.memEmail}</li>
+                                             <hr>
+                                             <li><a href="/mypage/modify">마이페이지</a></li>
+                                             <li><a href="/mypage/myreview">작성글 관리</a></li>
+                                             <li><a href="/mypage/lessonreserve">예약 현황</a></li>
+                                             <li><a href="/logoutMember">로그아웃</a></li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </nav>
+                              </div>
+
+
+
+
+
+                              
+                              
+
+                              <div class="sidebar__menu d-xl-none">
+                                 <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </c:when>
+                  </c:choose>
+                  <!-- JSTL c:when 끝-->
+
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- header area end -->
+
+   <!-- cart mini area start -->
+   <div class="cartmini__area">
+      <div class="cartmini__wrapper">
+         <div class="cartmini__title">
+            <h4>찜/위시리스트</h4>
+         </div>
+         <div class="cartmini__close">
+            <button type="button" class="cartmini__close-btn"><i class="fal fa-times"></i></button>
+         </div>
+         <div class="cartmini__widget ">
+            <div class="cartmini__inner" style="overflow-x:hidden;">
+               <ul>
+                  <c:forEach items="${jjimList}" var="wish">
+                  <li>
+                     <div class="cartmini__thumb">
+                        <a href="#">
+                           <img src="/assets/img/lecture/${wish[3]}" alt="">
                         </a>
                      </div>
-                     <div class="header__category d-none d-lg-block">
-                        <nav>
-                           <ul>
-                              <li>
-                                 <a href="/lecture/index" class="cat-menu d-flex align-items-center">
-                                    <div class="cat-dot-icon d-inline-block">
-                                     
-                                       <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
-
-                                    </div>
-                                
-                                 </a>
-                                 
-                              </li>
-                           </ul>
-                        </nav>
+                     <div class="cartmini__content">
+                        <h5><a href="#">${wish[0]} </a></h5>
+                        <div class="product-quantity mt-10 mb-10">
+                        </div>
+                        <div class="product__sm-price-wrapper">
+                           <span class="product__sm-price">${wish[3]}</span>
+                        </div>
                      </div>
-                  </div>
+                     <a href="/mypage/deleteJjim?memIdInt=${wish[2]}&jjId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
+                  </li>
+                  </c:forEach>
+               </ul>
+            </div>
+            <div class="cartmini__checkout">
+  
+               <div class="cartmini__checkout-btn">
+                  <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> 찜 목록 </a>
                </div>
-
-               <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
-               <c:choose>
-                  <c:when test="${empty sessionScope.memIdInt}">
-
-                     <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
-                        <div class="eader__center align-items-center d-flex justify-content-center">
-                           <div class="main-menu main-menu-3">
-                              <nav id="mobile-menu">
-                                 <ul>
-                                    <li class="has-dropdown">
-                                       <a>About</a>
-                                       <ul class="submenu">
-                                          <li><a href="/about">소개</a></li>
-                                          <li><a href="/map">지도</a></li>
-                                       </ul>
-                                    </li>
-                                    <li class="has-dropdown">
-                                       <a>학원</a>
-                                       <ul class="submenu">
-                                          <li><a href="/academy/course-sidebar">학원 목록</a></li>
-                                          <li><a href="/academy/rank">학원 랭크</a></li>
-                                       </ul>
-                                    </li>
-                                    <li class="has-dropdown">
-                                       <a>게시판</a>
-                                       <ul class="submenu">
-                                          <li><a href="/board/honestQuestionList">솔직 답변</a></li>
-                                          <li><a href="/board/codingBoard">코딩 게시판</a></li>
-                                          <li><a href="/board/newsList">뉴스</a></li>
-                                          <li><a href="/board/announcement">공지</a></li>
-                                       </ul>
-                                    </li>
-                                    <li>
-                                       <a href="/chatbot">챗봇</a>
-                                    </li>
-                                 </ul>
-                              </nav>
-                           </div>
-                           <div class="header__search p-relative ml-50 d-none d-md-block">
-                              <!-- 검색-->
-                              <form id = "main" action=/academy/course-sidebar method="GET">
-                                 <input type="text" name ="keywords"  placeholder="ex)교육과정 및 학원이름 검색">
-                                 <button type="submit"><i class="fad fa-search"></i></button>
-                              </form>
-                              <div class="header__cart">
-                                 <a href="javascript:void(0);" class="cart-toggle-btn">
-                                    <div class="header__cart-icon">
-                                       <svg viewBox="0 0 24 24">
-                                          <circle class="st0" cx="9" cy="21" r="1"/>
-                                          <circle class="st0" cx="20" cy="21" r="1"/>
-                                          <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
-                                       </svg>
-                                    </div>
-                                    <span class="cart-item">2</span>
-                                 </a>
-                              </div>
-                           </div>
-                           <div class="header__btn ml-20 d-none d-sm-block">
-                              <a href="/sign-in" class="e-btn">로그인</a>
-                           </div>
-                           <div class="sidebar__menu d-xl-none">
-                              <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
-                                 <span class="line"></span>
-                                 <span class="line"></span>
-                                 <span class="line"></span>
-                              </div>
-                           </div>
+            </div>
+            <div class="cartmini__inner ">
+               <ul>
+                  <c:forEach items="${wishList}" var="wish">
+                  <li>
+                     <div class="cartmini__thumb">
+                        <a href="#">
+                           <img src="/assets/img/course/${wish[4]}" alt="">
+                        </a>
+                     </div>
+                     <div class="cartmini__content">
+                        <h5><a href="#">${wish[0]} </a></h5>
+                        <div class="product-quantity mt-10 mb-10">
+                        </div>
+                        <div class="product__sm-price-wrapper">
+                           <span class="product__sm-price">${wish[3]}</span>
                         </div>
                      </div>
-
-                  </c:when>
-                  <c:when test="${not empty sessionScope.memIdInt}">
-
-                     <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
-                        <div class="eader__center align-items-center d-flex justify-content-center">
-                           <div class="main-menu main-menu-3">
-                              <nav id="mobile-menu">
-                                 <ul>
-                                    <li class="has-dropdown">
-                                       <a>About</a>
-                                       <ul class="submenu">
-                                          <li><a href="/about">로고 소개</a></li>
-                                          <li><a href="/map">지도</a></li>
-                                       </ul>
-                                    </li>
-                                    <li class="has-dropdown">
-                                       <a>학원</a>
-                                       <ul class="submenu">
-                                          <li><a href="/academy/course-sidebar">학원 목록</a></li>
-                                          <li><a href="/academy/rank">학원 랭크</a></li>
-                                       </ul>
-                                    </li>
-                                    <li class="has-dropdown">
-                                       <a>게시판</a>
-                                       <ul class="submenu">
-                                          <li><a href="/board/honestQuestionList">솔직 답변</a></li>
-                                          <li><a href="/board/codingBoard">코딩 게시판</a></li>
-                                          <li><a href="/board/newsList">뉴스</a></li>
-                                          <li><a href="/board/announcement">공지</a></li>
-                                       </ul>
-                                    </li>
-                                    <li>
-                                       <a href="/chatbot">챗봇</a>
-                                    </li>
-                                 </ul>
-                              </nav>
-                           </div>
-                          
-
-
-                              <div class="header__cart">
-                                 <a href="javascript:void(0);" class="cart-toggle-btn">
-                                    <div class="header__cart-icon">
-                                       <svg viewBox="0 0 24 24">
-                                          <circle class="st0" cx="9" cy="21" r="1"/>
-                                          <circle class="st0" cx="20" cy="21" r="1"/>
-                                          <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
-                                       </svg>
-                                    </div>
-                                    <span class="cart-item">2</span>
-                                 </a>
-                              </div>
-                           </div>
-                           <div class="header__btn ml-20 d-none d-sm-block">
-                              <a href="/logoutMember" class="e-btn">로그아웃</a>
-                           </div>
-                           <div class="sidebar__menu d-xl-none">
-                              <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
-                                 <span class="line"></span>
-                                 <span class="line"></span>
-                                 <span class="line"></span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-
-                  </c:when>
-               </c:choose>
-               <!-- JSTL c:when 끝-->
-
+                     <a href="/mypage/deleteWish?memIdInt=${wish[2]}&wId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
+                  </li>
+                  </c:forEach>
+               </ul>
             </div>
-         </div>
-      </div>
-   </header>
-   <!-- header area end -->
-
-
-
-
-
-
-       <!-- cart mini area start -->
-       <div class="cartmini__area">
-         <div class="cartmini__wrapper">
-            <div class="cartmini__title">
-               <h4>Shopping cart</h4>
-            </div>
-            <div class="cartmini__close">
-               <button type="button" class="cartmini__close-btn"><i class="fal fa-times"></i></button>
-            </div>
-            <div class="cartmini__widget">
-               <div class="cartmini__inner">
-                  <ul>
-                     <li>
-                        <div class="cartmini__thumb">
-                           <a href="#">
-                              <img src="/assets/img/course/sm/cart-1.jpg" alt="">
-                           </a>
-                        </div>
-                        <div class="cartmini__content">
-                           <h5><a href="#">Strategy law and organization Foundation </a></h5>
-                           <div class="product-quantity mt-10 mb-10">
-                              <span class="cart-minus">-</span>
-                              <input class="cart-input" type="text" value="1"/>
-                              <span class="cart-plus">+</span>
-                           </div>
-                           <div class="product__sm-price-wrapper">
-                              <span class="product__sm-price">$46.00</span>
-                           </div>
-                        </div>
-                        <a href="#" class="cartmini__del"><i class="fal fa-times"></i></a>
-                     </li>
-                     <li>
-                        <div class="cartmini__thumb">
-                           <a href="#">
-                              <img src="/assets/img/course/sm/cart-2.jpg" alt="">
-                           </a>
-                        </div>
-                        <div class="cartmini__content">
-                           <h5><a href="#">Fundamentals of music theory Learn new</a></h5>
-                           <div class="product-quantity mt-10 mb-10">
-                              <span class="cart-minus">-</span>
-                              <input class="cart-input" type="text" value="1"/>
-                              <span class="cart-plus">+</span>
-                           </div>
-                           <div class="product__sm-price-wrapper">
-                              <span class="product__sm-price">$32.00</span>
-                           </div>
-                        </div>
-                        <a href="#" class="cartmini__del"><i class="fal fa-times"></i></a>
-                     </li>
-                     <li>
-                        <div class="cartmini__thumb">
-                           <a href="#">
-                              <img src="/assets/img/course/sm/cart-3.jpg" alt="">
-                           </a>
-                        </div>
-                        <div class="cartmini__content">
-                           <h5><a href="#">Strategy law and organization Foundation </a></h5>
-                           <div class="product-quantity mt-10 mb-10">
-                              <span class="cart-minus">-</span>
-                              <input class="cart-input" type="text" value="1"/>
-                              <span class="cart-plus">+</span>
-                           </div>
-                           <div class="product__sm-price-wrapper">
-                              <span class="product__sm-price">$62.00</span>
-                           </div>
-                        </div>
-                        <a href="#" class="cartmini__del"><i class="fal fa-times"></i></a>
-                     </li>
-                  </ul>
-               </div>
-               <div class="cartmini__checkout">
-                  <div class="cartmini__checkout-title mb-30">
-                     <h4>Subtotal:</h4>
-                     <span>$113.00</span>
-                  </div>
-                  <div class="cartmini__checkout-btn">
-                     <a href="cart" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
-                     <a href="checkout" class="e-btn w-100"> <span></span> checkout</a>
-                  </div>
+            <div class="cartmini__checkout">
+  
+               <div class="cartmini__checkout-btn">
+                  <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> 위시리스트 목록 </a>
                </div>
             </div>
          </div>
       </div>
-      <div class="body-overlay"></div>
-      <!-- cart mini area end -->
+   </div>
+   <div class="body-overlay"></div>
+   <!-- cart mini area end -->
 
 
       <!-- sidebar area start -->
@@ -370,7 +389,7 @@
                            <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                         </svg>
                      </div>
-                     <span class="cart-item">2</span>
+                     <span class="cart-item">!</span>
                   </a>
                </div>
             </div>
@@ -382,7 +401,6 @@
 
   
       <main>
-
 
 
          <div id="font">
@@ -605,8 +623,12 @@
                </ul>
             </div>
          </div>
+
       </div>
    </div>    
+
+
+
                         <!--해당 교육과정 이미지-->
                         <div class="course__img w-img mb-30">
                            <img src="/assets/img/course/${edPic}" alt="" width='770' height='450'>
@@ -637,165 +659,188 @@
 
 
                         <!--안에 내용들 시작-->
-                        <div class="course__tab-content mb-95">
+                      <div class="course__tab-content mb-95">
                            <div class="tab-content" id="courseTabContent">
 
-                              <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                                 <div class="course__description">
-                                    <h3>${education.edTitle}</h3>
-                                     <!--상세내용(크롤링해서 넣기)-->
-                                    <p>${education.edIntro}</p>
+                                    <!--1번 소개-->
+                                    <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                                       <div class="course__description">
+                                          <h3>${education.edTitle}</h3>
+                                          <!--상세내용(크롤링해서 넣기)-->
+                                          <p>${education.edIntro}</p>
 
-                                    
-                                    <div class="course__description-list mb-45">
-                                       <h4>Code a clock을 즐기시는법!</h4>
-                                       <ul>
-                                          <li> <i class="icon_check"></i> 1) Code a clock만의 상세한 실시간 정보</li>
-                                          <li> <i class="icon_check"></i> 2) 한눈에 볼수 있는 교육과정</li>
-                                          <li> <i class="icon_check"></i> 3) 실시간 리뷰로 편하게 비교하세요</li>
-                                       </ul>
-                                    </div>
-                                    <div class="course__description-list mb-45">
-                                       <h4>Code a clock은 이런분들을 원해요!</h4>
-                                          <ul>
-                                             <li> <i class="icon_check"></i> 1) 실무에서 배우지 못한부분을 더 배우고 싶으신분!<li>
-                                             <li> <i class="icon_check"></i> 2) 실시간으로 변화하는 코딩없무를 빠르게 캐치하고 싶으신분!</li>
-                                             <li> <i class="icon_check"></i> 3) 저렴한 가격으로 수업받고 싶으신분!</li>
-                                          </ul>
+                                          
+                                          <div class="course__description-list mb-45">
+                                             <h4>Code a clock을 즐기시는법!</h4>
+                                             <ul>
+                                                <li> <i class="icon_check"></i> 1) Code a clock만의 상세한 실시간 정보</li>
+                                                <li> <i class="icon_check"></i> 2) 한눈에 볼수 있는 교육과정</li>
+                                                <li> <i class="icon_check"></i> 3) 실시간 리뷰로 편하게 비교하세요</li>
+                                             </ul>
+                                          </div>
+                                          <div class="course__description-list mb-45">
+                                             <h4>Code a clock은 이런분들을 원해요!</h4>
+                                                <ul>
+                                                   <li> <i class="icon_check"></i> 1) 실무에서 배우지 못한부분을 더 배우고 싶으신분!<li>
+                                                   <li> <i class="icon_check"></i> 2) 실시간으로 변화하는 코딩없무를 빠르게 캐치하고 싶으신분!</li>
+                                                   <li> <i class="icon_check"></i> 3) 저렴한 가격으로 수업받고 싶으신분!</li>
+                                                </ul>
+                                             </div>
+                     
                                        </div>
-               
-                                 </div>
-                         </div><!--1번 내용 div 끝-->
+                                  </div><!--1번 내용 div 끝-->
 
 
 
-                             <!--커리큘럼 부분-->
-                        <div class="tab-pane fade" id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
-                           <div class="course__curriculum">
 
-                                    <c:forEach items="${title}" var="i" step="3" varStatus="status" ><!--forEach-->
-                              <div class="accordion" id="course__accordion">
-                                    <div class="accordion-item mb-50">
-                                      <h2 class="accordion-header" id="week-01">
-                                       <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                             data-bs-target="#${title[status.index-3]}-content" aria-expanded="true"
-                                             aria-controls="${title[status.index-3]}-content">
-                                             ${i}
-                                          </button>
-                                      </h2>
 
-                                      <div id="${title[status.index-3]}-content" class="accordion-collapse collapse show" aria-labelledby="${title[status.index-3]}" data-bs-parent="#course__accordion">
-                                        <div class="accordion-body">
-                                          <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                             <div class="course__curriculum-info">
-                                             
-                                                <h3> <span>${title[status.index+1]}: </span> ${title[status.index+2]}</h3>
-                                             </div>
-                                            
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                 </div>
-                                 <div class="accordion" id="course__accordion-2">
-                                 </div>
-                               </c:forEach>
-                              </div>
-                        </div>
-                              <!----------------------------------------------------------------------------------------------------------------->
-                              <!--0105 찬주 별점2  평균 부분 나오는 큰부분 -->
-                        <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-                           <div class="course__review">
-                                    
-                                    <h3>평균 별점</h3>
-                                    <p>평균 별점으로 확실히 확인하세요!</p>
 
-                                    <div class="course__review-rating mb-50">
-                                       <div class="row g-0">
-                                          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                                             <div class="course__review-rating-info grey-bg text-center">
-                                                <c:forEach var="avg" items="${avg}">  
-                                                   <c:if test="${avg[0] == education.edId}" >  
-                                                <h5>${avg[1]}</h5>
-                                                <c:if test="${avg[1] == 1}">
-                                                      <img src="/assets/img/star/1s.png">
-                                                </c:if>
-                                                <c:if test="${avg[1]== 2}">
-                                                      <img src="/assets/img/star/2s.png">
-                                                </c:if>
-                                                <c:if test="${avg[1] == 3}">
-                                                      <img src="/assets/img/star/3s.png">
-                                                </c:if>
-                                                <c:if test="${avg[1] == 4}">
-                                                      <img src="/assets/img/star/4s.png">
-                                                </c:if>
-                                                <c:if test="${avg[1] == 5}">
-                                                      <img src="/assets/img/star/5s.png">
-                                                </c:if>
-                                             <p>${avg[1]} Ratings</p>
-                                             </c:if>
-                                                </c:forEach>
-                                             </div>
-                                          </div>
-                                         
-                                          <!-- 별점 큰부분 옆 이미지 대체-->
-                                          <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8">
-                                                <img src="/assets/img/star/re.png "  height="252" width="440">
-                                          </div>
-                                    </div>
-                            </div>
-                                                <!-- 0105 찬주 등록된 리뷰확인 -->
-                                                   <div class="course__comment mb-75" id="reviewBox">
-                                                       <h3>리뷰확인</h3>
-                                                         <!--반복문으로 출력--> 
-                                                       <c:forEach var="reviewList" items="${reviewList}">  
-                                                      <ul>
-                                                         <li>
-                                                            <div class="course__comment-box " >
-                                                               <div class="course__comment-thumb float-start">
-                                                                  
-                                                               </div>
-                                                               <div class="course__comment-content">
-                                                                  <div class="course__comment-wrapper ml-70 fix">
-                                                                     <div class="course__comment-info float-start">
-                                                                        <h4>${reviewList.memIdString}</h4>
-                                                                     </div>
-                                                                     <div class="course__comment-info float-start">
-                                                                        <fmt:formatDate value="${reviewList.reDate}" pattern="yyyy년 MM월 dd일 "/>    
-                                                                     </div>
-                                                                     <div class="course__comment-rating float-start float-sm-end">
-                                                                        <tr>
-                                                                           <td>${reviewList.star}
-                                                                              <c:if test="${reviewList.star ==1}">
-                                                                                 <img src="/assets/img/star/1s.png">
-                                                                              </c:if>
-                                                                              <c:if test="${reviewList.star ==2}">
-                                                                                 <img src="/assets/img/star/2s.png">
-                                                                              </c:if>
-                                                                              <c:if test="${reviewList.star ==3}">
-                                                                                 <img src="/assets/img/star/3s.png">
-                                                                              </c:if>
-                                                                              <c:if test="${reviewList.star ==4}">
-                                                                                 <img src="/assets/img/star/4s.png">
-                                                                              </c:if>
-                                                                              <c:if test="${reviewList.star ==5}">
-                                                                                 <img src="/assets/img/star/5s.png">
-                                                                              </c:if>
+                              <!--커리큘럼 부분-->
+                                 <div class="tab-pane fade" id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
+                                    <div class="course__curriculum">
 
-                                                                           </td>
-                                                                        </tr>
-                                                                     </div>
-                                                                  </div>
-                                                                  <div class="course__comment-text ml-70">
-                                                                     <p>${reviewList.reContent}</p>
-                                                               </div>
-                                                            </div>
-                                                         </li>
-                                                      </ul>
-                                                   </c:forEach>
+                                             <c:forEach items="${title}" var="i" step="3" varStatus="status" ><!--forEach-->
+                                       <div class="accordion" id="course__accordion">
+                                             <div class="accordion-item mb-50">
+                                             <h2 class="accordion-header" id="week-01">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                      data-bs-target="#${title[status.index-3]}-content" aria-expanded="true"
+                                                      aria-controls="${title[status.index-3]}-content">
+                                                      ${i}
+                                                   </button>
+                                             </h2>
+
+                                             <div id="${title[status.index-3]}-content" class="accordion-collapse collapse show" aria-labelledby="${title[status.index-3]}" data-bs-parent="#course__accordion">
+                                                <div class="accordion-body">
+                                                   <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
+                                                      <div class="course__curriculum-info">
+                                                      
+                                                         <h3> <span>${title[status.index+1]}: </span> ${title[status.index+2]}</h3>
+                                                      </div>
+                                                   
                                                    </div>
-                                                                        <div class="row">
-                                                                           <div class="col-xxl-12">
+                                                </div>
+                                             </div>
+                                             </div>
+                                          </div>
+                                          <div class="accordion" id="course__accordion-2">
+                                          </div>
+                                       </c:forEach>
+                                       </div>
+                                 </div><!--2번 커리큘럼 끝-->
+
+
+
+
+
+                                    <!----------------------------------------------------------------------------------------------------------------->
+                                        <!--0105 찬주 별점2  평균 부분 나오는 큰부분 -->
+                                       <!--3번 리뷰 별점관련 전체 부분 시작-->
+                                       <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+                                             <div class="course__review">
+                                                         
+                                                         <h3>평균 별점</h3>
+                                                         <p>평균 별점으로 확실히 확인하세요!</p>
+
+                                                      <!--2 - 1 부분-->
+                                                      <div class="course__review-rating mb-50">
+                                                         <div class="row g-0">
+                                                               <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                                                                  <div class="course__review-rating-info grey-bg text-center">
+                                                                           <c:forEach var="avg" items="${avg}">  
+                                                                              <c:if test="${avg[0] == education.edId}" >  
+                                                                           <h5>${avg[1]}</h5>
+                                                                           <c:if test="${avg[1] == 1}">
+                                                                                 <img src="/assets/img/star/1s.png">
+                                                                           </c:if>
+                                                                           <c:if test="${avg[1]== 2}">
+                                                                                 <img src="/assets/img/star/2s.png">
+                                                                           </c:if>
+                                                                           <c:if test="${avg[1] == 3}">
+                                                                                 <img src="/assets/img/star/3s.png">
+                                                                           </c:if>
+                                                                           <c:if test="${avg[1] == 4}">
+                                                                                 <img src="/assets/img/star/4s.png">
+                                                                           </c:if>
+                                                                           <c:if test="${avg[1] == 5}">
+                                                                                 <img src="/assets/img/star/5s.png">
+                                                                           </c:if>
+                                                                        <p>${avg[1]} Ratings</p>
+                                                                        </c:if>
+                                                                           </c:forEach>
+                                                                        </div>
+                                                                     </div>
+                                                                     
+                                                                  
+                                                                         <!-- 별점 큰부분 옆 이미지 대체-->
+                                                                        <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                                                                              <img src="/assets/img/star/re.png "  height="252" width="440">
+                                                                        </div>
+                                                                        
+                                                              
+                                                         </div>
+                                                      </div>
+
+
+                                                      <!--2-2부분-->
+                                                                     <!-- 0105 찬주 등록된 리뷰확인 -->
+                                                         <div class="course__comment mb-75" id="reviewBox">
+                                                            <h3>리뷰확인</h3>
+                                                               <!--반복문으로 출력--> 
+                                                                         <c:forEach var="reviewList" items="${reviewList}">  
+                                                            <ul>
+                                                               <li>
+                                                                  <div class="course__comment-box " >
+                                                                     <div class="course__comment-thumb float-start">
+                                                                        
+                                                                     </div>
+                                                                     <div class="course__comment-content">
+
+                                                                        <div class="course__comment-wrapper ml-70 fix">
+                                                                              <div class="course__comment-info float-start">
+                                                                                 <h4>${reviewList.memIdString}</h4>
+                                                                              </div>
+                                                                           
+                                                                              <div class="course__comment-rating float-start float-sm-end">
+                                                                                 <tr>
+                                                                                    <td>${reviewList.star}
+                                                                                       <c:if test="${reviewList.star ==1}">
+                                                                                          <img src="/assets/img/star/1s.png">
+                                                                                       </c:if>
+                                                                                       <c:if test="${reviewList.star ==2}">
+                                                                                          <img src="/assets/img/star/2s.png">
+                                                                                       </c:if>
+                                                                                       <c:if test="${reviewList.star ==3}">
+                                                                                          <img src="/assets/img/star/3s.png">
+                                                                                       </c:if>
+                                                                                       <c:if test="${reviewList.star ==4}">
+                                                                                          <img src="/assets/img/star/4s.png">
+                                                                                       </c:if>
+                                                                                       <c:if test="${reviewList.star ==5}">
+                                                                                          <img src="/assets/img/star/5s.png">
+                                                                                       </c:if>
+
+                                                                                    </td>
+                                                                                 </tr>
+                                                                              </div>
+
+
+                                                                        </div>
+
+                                                                           <div class="course__comment-text ml-70">
+                                                                              <p>${reviewList.reContent}</p>
+                                                                           </div>
+                                                                  </div>
+                                                               </li>
+                                                            </ul>
+                                                                            </c:forEach>
+                                                         </div>
+
+
+
+
+                                                                <!--2-3부분-->
+                                                                      <div class="col-xxl-12">
                                                                               <div class="basic-pagination wow fadeInUp mt-30" data-wow-delay=".2s">
                                                                                  <ul class="d-flex align-items-center"> 
                                                                                              <!-- 페이지 그룹 -->
@@ -806,12 +851,12 @@
                                                                                        <c:choose>
                                                                                        <c:when test="${pageNumber+1 == i}">
                                                                                           <li>
-                                                                                             <button class = "zz"><span id="a">${i}</span></button>
+                                                                                             <button class = "ajaxBtn" ><span id="a">${i}</span></button>
                                                                                           </li>
                                                                                        </c:when>
                                                                                        <c:otherwise>
                                                                                           <li>
-                                                                                            <button class = "zz"><span id="b">${i}</span></button> 
+                                                                                            <button class = "ajaxBtn"><span id="b">${i}</span></button> 
                                                                                           </li>
                                                                                        </c:otherwise>
                                                                                        </c:choose>
@@ -825,7 +870,7 @@
                                                                                        <c:when test="${elist.last}"></c:when>
                                                                                        <c:otherwise>
                                                                                           <li class="next">
-                                                                                             <a href="course-details?edId=${param.edId}" class="link-btn">
+                                                                                             <a href="course-details?edId=${param.edId}&page=${totalPages}" class="link-btn">
                                                                                              Next
                                                                                              <i class="arrow_right"></i>
                                                                                              <i class="arrow_right"></i>
@@ -835,172 +880,158 @@
                                                                                        </c:choose>
                                                                                     </ul>
                                                                            </div>
-                                                                        </div>
-                                                                  </div>
+                                                                     </div>
+                                                                  
+
+
+                                                      <!--2-4부분-->
                                                    <!-- 0104 찬주 리뷰등록 -->
                                                    <div class="course__form">
-                                                      <h3>리뷰작성</h3>
-                                                      <div class="course__form-inner">
+                                                         <h4>리뷰작성</h4>
+                                                         <div class="course__form-inner">
 
-                                                         <!--form의 시작-->
-                                                         <form action="" method="get" id ="cmtfrm" name="cmtfrm">
+                                                            <!--form의 시작-->
+                                                            <form action="" method="get" id ="cmtfrm" name="cmtfrm">
 
-                                                            <div class="row">
-                                                               <div class="col-xxl-6">
-                                                                  <div class="course__form-input">
-                                                                     <!--아이디값 저장 지금은 그냥 임의의 값 넣어줌-->
-                                                                     <!--참고로 re_id 는 시퀀스라 자동이고 날짜도 자동으로 들어가게 해놓음-->
-                                                                     <input type="text" name="memIdString" value="${sessionScope.memIdString}"  id = memIdString> <!-- "${sessionScope.memIdString}"-->
-                                                                     <input type="hidden" name="memIdInt" value="${sessionScope.memIdInt}"  id = memIdInt>
-                                                                     
-                                                                  </div>
-                                                               </div>
-                                                               
-                                             
-                                                               <!--별점 체크 부분-->
-                                                               <div class="col-xxl-12">
-                                                                  <div class="course__form-input">
-                                                                     <div class="course__form-rating">
-                                                                        <span>별점 </span>
-                                                                        <img id =image1 onmouseover=show(1) onclick=mark(1) onmouseout=noshow(1) src="/assets/img/star/0star.png">
-                                                                        <img id =image2 onmouseover=show(2) onclick=mark(2) onmouseout=noshow(2) src="/assets/img/star/0star.png">
-                                                                        <img id =image3 onmouseover=show(3) onclick=mark(3) onmouseout=noshow(3) src="/assets/img/star/0star.png">
-                                                                        <img id =image4 onmouseover=show(4) onclick=mark(4) onmouseout=noshow(4) src="/assets/img/star/0star.png">
-                                                                        <img id =image5 onmouseover=show(5) onclick=mark(5) onmouseout=noshow(5) src="/assets/img/star/0star.png">
-                                                                        <span id=startext></span>
-                                                                        <input type="hidden" name="star"  id="star" value="${param.star}"> <!--히든넘기기-->
-                                                                        <input type="hidden" name="edId" value="${param.edId}"> <!--히든넘기기--> <!--임의의값임 수정 완료-->
+                                                               <div class="row">
+                                                                  <div class="col-xxl-6">
+                                                                     <div class="course__form-input">
+                                                                        <!--아이디값 저장 지금은 그냥 임의의 값 넣어줌-->
+                                                                        <!--참고로 re_id 는 시퀀스라 자동이고 날짜도 자동으로 들어가게 해놓음-->
+                                                                        <input type="text" name="memIdString" value="${sessionScope.memIdString}"  id = memIdString readonly> <!-- "${sessionScope.memIdString}"-->
+                                                                        <input type="hidden" name="memIdInt" value="${sessionScope.memIdInt}"  id = memIdInt>
                                                                         
                                                                      </div>
-
-                                                                  <!--작성글 들어가는 부분!-->
-                                                                     <textarea placeholder="리뷰를작성" name="reContent"  id="text"></textarea>
                                                                   </div>
-                                                               </div>
+                                                                  
+                                                
+                                                                  <!--별점 체크 부분-->
+                                                                  <div class="col-xxl-12">
+                                                                     <div class="course__form-input">
+                                                                        <div class="course__form-rating">
+                                                                           <span>별점 </span>
+                                                                           <img id =image1 onmouseover=show(1) onclick=mark(1) onmouseout=noshow(1) src="/assets/img/star/0star.png">
+                                                                           <img id =image2 onmouseover=show(2) onclick=mark(2) onmouseout=noshow(2) src="/assets/img/star/0star.png">
+                                                                           <img id =image3 onmouseover=show(3) onclick=mark(3) onmouseout=noshow(3) src="/assets/img/star/0star.png">
+                                                                           <img id =image4 onmouseover=show(4) onclick=mark(4) onmouseout=noshow(4) src="/assets/img/star/0star.png">
+                                                                           <img id =image5 onmouseover=show(5) onclick=mark(5) onmouseout=noshow(5) src="/assets/img/star/0star.png">
+                                                                           <span id=startext></span>
+                                                                           <input type="hidden" name="star"  id="star" value="${param.star}"> <!--히든넘기기-->
+                                                                           <input type="hidden" name="edId" id="edId" value="${param.edId}"> <!--히든넘기기--> <!--임의의값임 수정 완료-->
+                                                                           
+                                                                        </div>
+
+                                                                     <!--작성글 들어가는 부분!-->
+                                                                        <textarea placeholder="리뷰를작성" name="reContent"  id="text"></textarea>
+                                                                     </div>
+                                                                  </div>
                                                          
 
-                                                            </div>
-                                                            <div class="row">
-                                                               <div class="col-xxl-12">
-                                                                  <div class="course__form-btn mt-10 mb-55">
-                                                                     <button type="button" class="e-btn" id="btn-e">글 등록</button>
-                                                                  </div>
                                                                </div>
-                                                            </div>
+
+
+                                                                  <div class="row">
+                                                                     <div class="col-xxl-12">
+                                                                        <div class="course__form-btn mt-10 mb-55">
+                                                                           <button type="button" class="e-btn" id="btn-e">글 등록</button>
+                                                                        </div>
+                                                                     </div>
+                                                                  </div>
                                                       
                                                          </form>
                                                       </div>
-                                                   </div>
-                                                   <!--0105 리뷰부분 종료 여기까지-->
-
-                                                   
-                                                      
                                                 </div>
-                                             </div>
+                                                   <!--0105 리뷰부분 종료 여기까지-->
+        
+                                       </div>
+                                    </div>
 
-                                       <!--지도API부분-->      
-                              <div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
-                                 <div class="course__member mb-45">
-                                    
-                                     <!-- ======= Contact Section ======= -->
-          <section id="contact" class="contact">
-            <div class="container">
-      
-              <div class="section-title">
-                <h2>Contact</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-              </div>
-      
-              <div>
-               <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B8%88%EC%B2%9C%EA%B5%AC%20%EB%94%94%EC%A7%80%ED%84%B8%EB%A1%9C9%EA%B8%B8%2099%20%EC%8A%A4%ED%83%80%EB%B0%B8%EB%A6%AC&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-              </div>
-      
-              <div class="row mt-5">
-      
-                  <div class="col-lg-4">
-                     <div class="info">
 
-         
-                       <div class="email">
-                        <i class="fal fa-location"></i>
-                         <h4>Location:</h4>
-                         <p>서울 금천구 가산디지털2로 101 
-                         </p>
-                       </div>
-         
 
-         
-                     </div>
-         
-                   </div>     
-      
-                
-      
-                  <div class="col-lg-4">
-                     <div class="info">
 
-         
-                       <div class="email">
-                        <i class="fal fa-envelope"></i>
-                         <h4>Email:</h4>
-                         <p>skquddnr9709@gmail.com</p>
-                       </div>
-         
 
-         
-                     </div>
-         
-                   </div>                 
+                                    <!-- 4 번 지도 API부분-->
+                                     <!--지도API부분-->      
+                                 <div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
+                                    <div class="course__member mb-45">
+                                           <!-- ======= Contact Section ======= -->
+                                                <section id="contact" class="contact">
+                                                   <div class="container">
+                                             
+                                                         <div class="section-title">
+                                                            <h2>Contact</h2>
+                                                            
+                                                         </div>
+
+                                             
+                                                               <div>
+                                                                  <iframe style= "border:0; width: 100%; height: 270px;" src="https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B8%88%EC%B2%9C%EA%B5%AC%20%EB%94%94%EC%A7%80%ED%84%B8%EB%A1%9C9%EA%B8%B8%2099%20%EC%8A%A4%ED%83%80%EB%B0%B8%EB%A6%AC&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                                               </div>
+
+                                             
+                                                      <div class="row mt-5">
+                                             
+                                                         <div class="col-lg-4">
+                                                           <div class="info">
+                                                
+                                                         
+                                                                     <div class="email">
+                                                                        <i class="fal fa-location"></i>
+                                                                        <h4>Location:</h4>
+                                                                        <p>서울 금천구 가산디지털2로 101 
+                                                                        </p>
+                                                                     </diV>
+                                                            </div>
+                                                   
+                                                         </div>     
+                                                
+                                                            <div class="col-lg-4">
+                                                               <div class="info">
+                                                   
+                                                            
+                                                                  <div class="email">
+                                                                     <i class="fal fa-envelope"></i>
+                                                                           <h4>Email:</h4>
+                                                                           <p>skquddnr9709@gmail.com</p>
+                                                                  </div>
+                                              
+                                                               </div>
+                        
+                                                            </div>                 
+                                                               
+                                                   
+                                                            
+                                             
+                                                            
+                                                         
+                                                                     <div class="col-lg-4">
+                                                                        <div class="info">
+                                                   
+                                                            
+                                                                        <div class="phone">
+                                                                           <i class="fal fa-phone"></i>
+                                                                           <h4>Call:</h4>
+                                                                           <p>+82 10 6585 9709</p>
+                                                                        </div>
+                                                            
+                                                                        </div>                     
+                                                            
+                                                                     </div>  
+                                                      </div> <!--end of row mt-5-->
+
+                                                </div>
+                                 
+                                             
+                                          </section><!-- End Contact Section -->
+                                    </div>
+                              </div><!--4번종료-->  
+
+
+                          </div>
+
+                      </div> 
+                   </main>
                    
-      
-                
-
-                
-      
-                  <div class="col-lg-4">
-                     <div class="info">
-
-         
-                       <div class="phone">
-                        <i class="fal fa-phone"></i>
-                         <h4>Call:</h4>
-                         <p>+82 10 6585 9709</p>
-                       </div>
-         
-                     </div>                     
-         
-                   </div>  
-                   
-                   
-                   
-      
-                
-      
-
-                
-              </div> <!--end of row mt-5-->
-      
-
-              
-            </div>
-
-            
-          </section><!-- End Contact Section -->
-      
-
-
-
-                                 </div>
-                              </div>
-
-
-
-
-
-
-                                          </div>         
-      </main>
-   </div>
          <!-- footer area start -->
          <footer>
             <div class="footer__area grey-bg-2">
@@ -1110,6 +1141,19 @@
       <script src="/assets/js/main.js"></script>
       <script src="/assets/js/star.js"></script>
       <script src="/assets/js/reviewAjax.js"></script>
+      <script type = "text/javascript">
+         $(function() {
+             $(".onoff").click( function() { 
+                 // if( $("#switch").is_CHECKED) {
+                        //alert("s");
+                        setTimeout(() => {
+                           window.location.href="/lecture/index";
+                        }, 300);
+                        
+                 // }    
+               });
+            })
+      </script>
 
    </body>
 </html>

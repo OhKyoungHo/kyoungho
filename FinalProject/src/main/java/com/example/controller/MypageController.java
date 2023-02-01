@@ -24,9 +24,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.domain.CalendarVO;
 import com.example.domain.EducationVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.TeacherVO;
@@ -38,6 +40,7 @@ import com.example.persistence.ReviewRepository;
 import com.example.persistence.VchatFileRepository;
 import com.example.persistence.VchatRecordRepository;
 import com.example.persistence.WishListRepository;
+import com.example.service.CalendarService;
 import com.example.service.EducationService;
 import com.example.service.TeacherService;
 import com.example.service.WishListService;
@@ -76,6 +79,9 @@ public class MypageController {
 	
 	@Autowired
 	private VchatFileRepository vchatFileRepo;
+
+	@Autowired
+	private CalendarService calService;
 
 
 
@@ -181,42 +187,44 @@ public class MypageController {
 
 
 	
-	//마이페이지 화상학원부분
-	@GetMapping("/myreview2")
-	public String getEdReview2(ReviewVO rvo, Model model,HttpSession session,
-			@RequestParam(required = false, defaultValue = "") String memIdInt,
-			@PageableDefault(size = 2, direction = Sort.Direction.DESC) Pageable paging) {
+
+	   //마이페이지 화상학원부분
+	   @GetMapping("/myreview2")
+	   public String getEdReview2(ReviewVO rvo, Model model,HttpSession session,
+         @RequestParam(required = false, defaultValue = "") String memIdInt,
+         @PageableDefault(size = 2, direction = Sort.Direction.DESC) Pageable paging) {
 
 
-		//세션에 저장된 값으로 넘겨버리기 
-		rvo.setMemIdInt((Integer) session.getAttribute("memIdInt"));
-		String temp_m_idint = String.valueOf(rvo.getMemIdInt());
-		System.out.println(temp_m_idint);
-		Page<ReviewVO> mypageReviewList2 = reviewRepository.getMyReview2(paging, temp_m_idint);
+      //세션에 저장된 값으로 넘겨버리기 
+      rvo.setMemIdInt((Integer) session.getAttribute("memIdInt"));
+      String temp_m_idint = String.valueOf(rvo.getMemIdInt());
+      System.out.println(temp_m_idint);
+      Page<ReviewVO> mypageReviewList2 = reviewRepository.getMyReview2(paging, temp_m_idint);
 
-		//현재페이지
-		int pageNumber=((Slice<ReviewVO>) mypageReviewList2).getPageable().getPageNumber();
-		//총페이지수
-		int totalPages=((Page<ReviewVO>) mypageReviewList2).getTotalPages(); //검색에따라 10개면 10개..
-		int pageBlock = 5; //블럭의 수 1, 2, 3, 4, 5   
-		//시작하는 블록
-		int startBlockPage = ((pageNumber)/pageBlock)*pageBlock+1; //현재 페이지가 7이라면 1*5+1=6
-		//끝나는 블록
-		int endBlockPage = startBlockPage+pageBlock-1; //6+5-1=10. 6,7,8,9,10해서 10.
-		endBlockPage= totalPages<endBlockPage? totalPages:endBlockPage;
+      //현재페이지
+      int pageNumber=((Slice<ReviewVO>) mypageReviewList2).getPageable().getPageNumber();
+      //총페이지수
+      int totalPages=((Page<ReviewVO>) mypageReviewList2).getTotalPages(); //검색에따라 10개면 10개..
+      int pageBlock = 5; //블럭의 수 1, 2, 3, 4, 5   
+      //시작하는 블록
+      int startBlockPage = ((pageNumber)/pageBlock)*pageBlock+1; //현재 페이지가 7이라면 1*5+1=6
+      //끝나는 블록
+      int endBlockPage = startBlockPage+pageBlock-1; //6+5-1=10. 6,7,8,9,10해서 10.
+      endBlockPage= totalPages<endBlockPage? totalPages:endBlockPage;
 
-		System.out.println("reviewList : " + mypageReviewList2.getContent());
+      System.out.println("reviewList : " + mypageReviewList2.getContent());
 
-		//각 값들을 jsp 파일에 붙이기
-		model.addAttribute("pageNumber", pageNumber);
-		model.addAttribute("totalPages", totalPages);
-		model.addAttribute("startBlockPage", startBlockPage);
-		model.addAttribute("endBlockPage", endBlockPage);
-		model.addAttribute("mypageReviewList1", mypageReviewList2.getContent()); 
+      //각 값들을 jsp 파일에 붙이기
+      model.addAttribute("pageNumber", pageNumber);
+      model.addAttribute("totalPages", totalPages);
+      model.addAttribute("startBlockPage", startBlockPage);
+      model.addAttribute("endBlockPage", endBlockPage);
+      model.addAttribute("mypageReviewList2", mypageReviewList2.getContent()); 
 
 
-		return "mypage/myreview2";
-	}
+      return "mypage/myreview2";
+   }
+	   
 	
 	
 	
@@ -326,7 +334,7 @@ public class MypageController {
 	// 선생님의 수업함
 	@GetMapping("/lessonbox")
 	public String getLessonBox(Model model, HttpSession session,
-		@PageableDefault(size = 7) Pageable paging, 
+		@PageableDefault(size = 3) Pageable paging, 
 		@RequestParam(required = false, defaultValue = "제목") String type,
         @RequestParam(required = false, defaultValue = "") String searchword) {
 		
@@ -359,8 +367,8 @@ public class MypageController {
 			System.out.println("tcname : " + a.get("tcname"));
 		}
 		
-		List<VchatRecordVO> tutorBoxRecord = vchatRecordRepo.findByTeacherId(tempmemIdInt);
-		List<VchatFileVO> tutorBoxFile = vchatFileRepo.findByTeacherId(tempmemIdInt);
+		List<VchatRecordVO> tutorBoxRecord = vchatRecordRepo.findByMemIdInt(tempmemIdInt);
+		List<VchatFileVO> tutorBoxFile = vchatFileRepo.findByMemIdInt(tempmemIdInt);
 		
 		for (VchatRecordVO vo : tutorBoxRecord) {
 			System.out.println("OrigRecName : " + vo.getOrigRecName());
@@ -457,7 +465,7 @@ public class MypageController {
 	// 선생님의 수업함
 	@GetMapping("/tutorBox")
 	public String getTutorBox(Model model, HttpSession session,
-		@PageableDefault(size = 7) Pageable paging, 
+		@PageableDefault(size = 3) Pageable paging, 
 		@RequestParam(required = false, defaultValue = "제목") String type,
         @RequestParam(required = false, defaultValue = "") String searchword) {
 		
@@ -587,6 +595,64 @@ public class MypageController {
 
 	}
 	
+	// 자료 파일 업로드
+	@RequestMapping("/uploadRecord")
+	@ResponseBody
+	public void insertRecord(@RequestParam("file") List<MultipartFile> files, VchatRecordVO dto) throws IOException {
+		
+		try {
+			System.out.println("uploadRecord 요청");
+			System.out.println("VchatRecordVO : " + dto);
+			
+			for (MultipartFile file :files) {
+				String origFilename = file.getOriginalFilename();
+				System.out.println("origFilename : " + origFilename);
+				
+				// 파일첨부를한경우에만
+				if( origFilename != null && !origFilename.equals(""))
+				{   	
+
+					String filename = new MD5Generator(origFilename).toString();
+					/* 실행되는위치의 'files' 폴더에파일이저장됩니다. */
+					String savePath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\assets\\files\\rec";
+					/* 파일이저장되는폴더가없으면폴더를생성합니다. */
+					if (!new File(savePath).exists()) {
+						try {
+							new File(savePath).mkdir();
+						}
+						catch(Exception e) {
+							e.getStackTrace();
+						}
+					}
+					String filepath = savePath + "\\" + filename;
+					System.out.println("filepath : "+filepath);
+
+					file.transferTo(new File(filepath));
+
+					VchatRecordVO vo = new VchatRecordVO();
+					
+					vo.setOrigRecName(origFilename);
+					vo.setRecName(filename);
+					vo.setRecPath(filepath);
+					vo.setCalId(dto.getCalId());
+					vo.setMemIdInt(dto.getMemIdInt());
+					vo.setTeacherId(dto.getTeacherId());
+
+					vchatRecordRepo.save(vo);
+					System.out.println("웹캠 동영상 첨부인경우");
+				}else {
+					System.out.println("웹캠 동영상 첨부가아닌경우");
+				}
+			
+			}
+			
+		} catch(Exception e) {
+			System.out.println("웹캠 동영상 업로드실패:" + e.getMessage());
+			e.printStackTrace();
+		}
+		
+	}
+	
 	// 녹화 영상 보여주는 창을 띄울 때 사용
 	@RequestMapping("/video")
 	public void showVideo(String loc, Model m) {
@@ -607,6 +673,22 @@ public class MypageController {
 	public String deleteTeacherReservation(Integer calId) {
 		calRepo.deleteReservation(calId);
 		// 추후에 마이페이지로 리턴값수정해야함
+		return "redirect:/mypage/tutorReserve";
+	}
+
+	// 예약 등록(선생님, 경주)
+	@RequestMapping("/insertReservation")
+	public String insertReservation(CalendarVO vo, HttpSession session) {
+		
+//		Date test = vo.getCalStart();
+//		System.out.println(test);
+//		String test2 = test.toString();
+//		System.out.println(test2);
+//		String test3 = test2.replace("T", " ");
+//		System.out.println(test3);
+		
+		
+		calService.insertReservation(vo);
 		return "redirect:/mypage/tutorReserve";
 	}
 

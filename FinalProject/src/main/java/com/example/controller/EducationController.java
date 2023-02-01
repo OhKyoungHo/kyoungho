@@ -1,6 +1,7 @@
 package com.example.controller;
 
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -20,8 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.domain.EducationVO;
 import com.example.domain.ReviewVO;
 import com.example.persistence.EducationRepository;
+import com.example.persistence.JjimRepository;
 import com.example.persistence.RankRepository;
 import com.example.persistence.ReviewRepository;
+import com.example.persistence.WishListRepository;
 import com.example.service.EducationService;
 import com.example.service.ReviewService;
 
@@ -45,6 +48,12 @@ public class EducationController {
    @Autowired
    private RankRepository rankRepo;
    
+   @Autowired
+   private JjimRepository jjimRepo;
+   
+   @Autowired
+   private WishListRepository wishRepo;
+   
    
    
 
@@ -56,7 +65,23 @@ public class EducationController {
    public String getNewIndex(Model m, 
       @PageableDefault(size = 6, direction = Sort.Direction.DESC) Pageable paging, 
       @RequestParam(required = false, defaultValue = "") String order,
-      @RequestParam(required = false, defaultValue = "") String keywords){
+      @RequestParam(required = false, defaultValue = "") String keywords,
+      HttpSession session){
+	   
+	  Integer memIdInt = (Integer) session.getAttribute("memIdInt");
+      List<Object[]> wlist = wishRepo.findByMemIdInt(memIdInt);
+      List<Object[]> jlist = jjimRepo.findByMemIdIntlec(memIdInt);
+      
+      for(Object[] temp : wlist) {
+    	  System.out.println("wlist : " + Arrays.toString(temp));
+      }
+      
+      for(Object[] temp : jlist) {
+    	  System.out.println("jlist : " + Arrays.toString(temp));
+      }
+      
+      m.addAttribute("wishList", wlist);
+      m.addAttribute("jjimList", jlist);
       
       //keywords 값 잘넘어옵니다 확인완료
       System.out.println("keywords 값 확인 : " + keywords);

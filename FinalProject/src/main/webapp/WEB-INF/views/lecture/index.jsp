@@ -25,6 +25,8 @@
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
       <link rel="stylesheet" href="/assets/css/onoff.css">
+      <link rel="stylesheet" href="/assets/css/wishlist.css"><!-- 0106 좋아요 버튼 관련 css -->
+
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -66,7 +68,7 @@
                   <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
                      <div class="header__left d-flex">
                         <div class="logo">
-                           <a href="index">
+                           <a href="/startpage">
                               <img src="/assets/img/logo/logo.png" alt="logo">
                            </a>
                         </div>
@@ -74,15 +76,10 @@
                            <nav>
                               <ul>
                                  <li>
-                                    <a href="course-grid" class="cat-menu d-flex align-items-center">
-                                       <div class="cat-dot-icon d-inline-block">
-                                        
-                                          <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
-
-                                       </div>
-                                   
-                                    </a>
-                                    
+                                    <div class="cat-dot-icon d-inline-block">
+                                       <input type="checkbox" id="switch" checked/>
+                                       <label class="onoff" for="switch">Toggle</label>
+                                    </div>
                                  </li>
                               </ul>
                            </nav>
@@ -92,62 +89,47 @@
 
                   <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
                   <c:choose>
-							<c:when test="${empty sessionScope.memIdInt}">
+                     <c:when test="${empty sessionScope.memIdInt}">
 
                         <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
                            <div class="eader__center align-items-center d-flex justify-content-center">
                               <div class="main-menu main-menu-3">
                                  <nav id="mobile-menu">
                                     <ul>
+                                       <li>
+                                          <a href="/aboutus">AboutUs</a>
+                                       </li>
                                        <li class="has-dropdown">
-                                          <a href="/about">About</a>
+                                          <a href="course-grid">강의</a>
                                           <ul class="submenu">
-                                             <li><a href="/about">소개</a></li>
-                                             <li><a href="/map">지도</a></li>
+                                                <li><a href="/lecture/tutor">튜터 목록</a></li>
+                                                <li><a href="/lecture/lecture-sidebar">강의 목록</a></li>
                                           </ul>
                                        </li>
                                        <li class="has-dropdown">
-                                          <a>화상</a>
+                                          <a href="">게시판</a>
                                           <ul class="submenu">
-                                             <li><a href="/lecture/tutor">선생님</a></li>
-                                             <li><a href="/lecture/lecture-sidebar">강의</a></li>
-                                          </ul>
-                                       </li>
-                                       <li class="has-dropdown">
-                                          <a>게시판</a>
-                                          <ul class="submenu">
-                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             
                                              <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                              <li><a href="/board/newsList">뉴스</a></li>
                                              <li><a href="/board/announcement">공지</a></li>
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="/chatbot">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
                               </div>
 
-
-
                               <div class="header__search p-relative ml-50 d-none d-md-block">
-                                 <form action= /lecture/lecture-sidebar method="GET" role="search">
-                                    <input type="text" name ="keywords" placeholder="ex)수업명 검색">
+
+                                 <!--맨위 검색부분임-->
+                                 <form action= /academy/course-sidebar method="GET" role="search">
+                                    <input type="text" name ="keywords" placeholder="Search...">
                                     <button type="submit"><i class="fad fa-search"></i></button>
                                  </form>
-                                 <div class="header__cart">
-                                    <a href="javascript:void(0);" class="cart-toggle-btn">
-                                       <div class="header__cart-icon">
-                                          <svg viewBox="0 0 24 24">
-                                             <circle class="st0" cx="9" cy="21" r="1"/>
-                                             <circle class="st0" cx="20" cy="21" r="1"/>
-                                             <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
-                                          </svg>
-                                       </div>
-                                       <span class="cart-item">2</span>
-                                    </a>
-                                 </div>
+                                 
                               </div>
                               <div class="header__btn ml-20 d-none d-sm-block">
                                  <a href="/sign-in" class="e-btn">로그인</a>
@@ -163,64 +145,110 @@
                         </div>
 
                      </c:when>
-							<c:when test="${not empty sessionScope.memIdInt}">
+                     <c:when test="${not empty sessionScope.memIdInt}">
 
                         <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-7 col-sm-6 col-6">
-                           <div class="eader__center align-items-center d-flex justify-content-center">
+                           <div class="header__center align-items-center d-flex justify-content-center">
                               <div class="main-menu main-menu-3">
                                  <nav id="mobile-menu">
                                     <ul>
+                                       <li>
+                                          <a href="/aboutus">AboutUs</a>
+                                       </li>
                                        <li class="has-dropdown">
-                                          <a href="/about">About</a>
+                                          <a href="course-grid">강의</a>
                                           <ul class="submenu">
-                                             <li><a href="/about">소개</a></li>
-                                             <li><a href="/map">지도</a></li>
+                                                <li><a href="/lecture/tutor">튜터 목록</a></li>
+                                                <li><a href="/lecture/lecture-sidebar">강의 목록</a></li>
                                           </ul>
                                        </li>
                                        <li class="has-dropdown">
-                                          <a>화상</a>
+                                          <a href="">게시판</a>
                                           <ul class="submenu">
-                                             <li><a href="/lecture/tutor">선생님</a></li>
-                                             <li><a href="/lecture/lecture-sidebar">강의</a></li>
-                                          </ul>
-                                       </li>
-                                       <li class="has-dropdown">
-                                          <a>게시판</a>
-                                          <ul class="submenu">
-                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             
                                              <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                              <li><a href="/board/newsList">뉴스</a></li>
                                              <li><a href="/board/announcement">공지</a></li>
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="/chatbot">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
                               </div>
-                              
-                              
+                              <!-- 0103 찬주2
+                              메인화면에서의 검색기능과 동일한 부분 
+                           -->
 
-                              
+                              <div class="header__search p-relative ml-50 d-none d-md-block">
 
-                                 
+                                 <form id="main" action=/academy/course-sidebar method="GET">
+                                    <input type="text" name="keywords" placeholder="여기서 검색">
+                                    <button type="submit"><i class="fad fa-search"></i></button>
+                                 </form>
+                                 <!-- 검색 끝-->
+
+
+
+
                                  <div class="header__cart">
                                     <a href="javascript:void(0);" class="cart-toggle-btn">
                                        <div class="header__cart-icon">
-                                          <svg viewBox="0 0 24 24">
-                                             <circle class="st0" cx="9" cy="21" r="1"/>
-                                             <circle class="st0" cx="20" cy="21" r="1"/>
-                                             <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
-                                          </svg>
+                                          <img src="/assets/img/heart.png" alt="heart"/ >
                                        </div>
-                                       <span class="cart-item">2</span>
+                                       <span class="cart-item">!</span>
                                     </a>
                                  </div>
                               </div>
                               <div class="header__btn ml-20 d-none d-sm-block">
-                                 <a href="/logoutMember" class="e-btn">로그아웃</a>
+                                <!--  <div class="usercontainer">
+                                    <div class="usernav">
+                                      <h3>${sessionScope.memIdString}</h3>
+                                      <div class="drop">
+                                       <img class="user" src="/assets/img/user.png" alt="user"style="margin-right: 10px;"/>
+                                        <span class="online"></span>
+                                        <i class="fi-rr-angle-small-down"></i>
+                                      </div>
+                                    </div>
+                              </div>  -->
+
+                              <!--마이페이지-->
+                              <div class="header__category d-none d-lg-block">
+                                 <nav>
+                                    <ul>
+                                       <li>
+                                          <!-- <a href="course-grid" class="cat-menu d-flex align-items-center"> -->
+                                            
+                                             <!-- <span>${sessionScope.memIdString}</span> -->
+                                             <div class="drop">
+                                                <img class="user" src="/assets/img/user.png" alt="user"style="margin-right: 10px;"/>
+                                                 <span class="online"></span>
+                                                 <i class="fi-rr-angle-small-down"></i>
+                                               </div>
+
+                                          <!-- </a> -->
+                                          <ul class="cat-submenu">
+                                             <li><h4 style="margin-left: 10px;">${sessionScope.memIdString}님</h4></li>
+                                             <li class="sy" style="margin-left: 10px">${sessionScope.memEmail}</li>
+                                             <hr>
+                                             <li><a href="/mypage/modify">마이페이지</a></li>
+                                             <li><a href="/mypage/myreview">작성글 관리</a></li>
+                                             <li><a href="/mypage/lessonreserve">예약 현황</a></li>
+                                             <li><a href="/logoutMember">로그아웃</a></li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </nav>
                               </div>
+
+
+
+
+
+                              
+                              
+
                               <div class="sidebar__menu d-xl-none">
                                  <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
                                     <span class="line"></span>
@@ -232,7 +260,7 @@
                         </div>
 
                      </c:when>
-						</c:choose>
+                  </c:choose>
                   <!-- JSTL c:when 끝-->
 
                </div>
@@ -241,77 +269,77 @@
       </header>
       <!-- header area end -->
 
-      <!-- cart mini area start -->
-      <div class="cartmini__area">
-         <div class="cartmini__wrapper">
-            <div class="cartmini__title">
-               <h4>Shopping cart</h4>
+   <!-- cart mini area start -->
+   <div class="cartmini__area">
+      <div class="cartmini__wrapper">
+         <div class="cartmini__title">
+            <h4>찜/위시리스트</h4>
+         </div>
+         <div class="cartmini__close">
+            <button type="button" class="cartmini__close-btn"><i class="fal fa-times"></i></button>
+         </div>
+         <div class="cartmini__widget ">
+            <div class="cartmini__inner" style="overflow-x:hidden;">
+               <ul>
+                  <c:forEach items="${jjimList}" var="wish">
+                  <li>
+                     <div class="cartmini__thumb">
+                        <a href="#">
+                           <img src="/assets/img/lecture/${wish[3]}" alt="">
+                        </a>
+                     </div>
+                     <div class="cartmini__content">
+                        <h5><a href="#">${wish[0]} </a></h5>
+                        <div class="product-quantity mt-10 mb-10">
+                        </div>
+                        <div class="product__sm-price-wrapper">
+                           <span class="product__sm-price">${wish[3]}</span>
+                        </div>
+                     </div>
+                     <a href="/mypage/deleteJjim?memIdInt=${wish[2]}&jjId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
+                  </li>
+                  </c:forEach>
+               </ul>
             </div>
-            <div class="cartmini__close">
-               <button type="button" class="cartmini__close-btn"><i class="fal fa-times"></i></button>
+            <div class="cartmini__checkout">
+  
+               <div class="cartmini__checkout-btn">
+                  <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> 찜 목록 </a>
+               </div>
             </div>
-            <div class="cartmini__widget ">
-               <div class="cartmini__inner" style="overflow-x:hidden;">
-                  <ul>
-                     <c:forEach items="${jjimList}" var="wish">
-                     <li>
-                        <div class="cartmini__thumb">
-                           <a href="#">
-                              <img src="/assets/img/lecture/${wish[3]}" alt="">
-                           </a>
+            <div class="cartmini__inner ">
+               <ul>
+                  <c:forEach items="${wishList}" var="wish">
+                  <li>
+                     <div class="cartmini__thumb">
+                        <a href="#">
+                           <img src="/assets/img/course/${wish[4]}" alt="">
+                        </a>
+                     </div>
+                     <div class="cartmini__content">
+                        <h5><a href="#">${wish[0]} </a></h5>
+                        <div class="product-quantity mt-10 mb-10">
                         </div>
-                        <div class="cartmini__content">
-                           <h5><a href="#">${wish[0]} </a></h5>
-                           <div class="product-quantity mt-10 mb-10">
-                           </div>
-                           <div class="product__sm-price-wrapper">
-                              <span class="product__sm-price">${wish[3]}</span>
-                           </div>
+                        <div class="product__sm-price-wrapper">
+                           <span class="product__sm-price">${wish[3]}</span>
                         </div>
-                        <a href="/mypage/deleteJjim?memIdInt=${wish[2]}&jjId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
-                     </li>
-                     </c:forEach>
-                  </ul>
-               </div>
-               <div class="cartmini__checkout">
-     
-                  <div class="cartmini__checkout-btn">
-                     <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
-                  </div>
-               </div>
-               <div class="cartmini__inner ">
-                  <ul>
-                     <c:forEach items="${wishList}" var="wish">
-                     <li>
-                        <div class="cartmini__thumb">
-                           <a href="#">
-                              <img src="/assets/img/course/${wish[4]}" alt="">
-                           </a>
-                        </div>
-                        <div class="cartmini__content">
-                           <h5><a href="#">${wish[0]} </a></h5>
-                           <div class="product-quantity mt-10 mb-10">
-                           </div>
-                           <div class="product__sm-price-wrapper">
-                              <span class="product__sm-price">${wish[3]}</span>
-                           </div>
-                        </div>
-                        <a href="/mypage/deleteWish?memIdInt=${wish[2]}&wId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
-                     </li>
-                     </c:forEach>
-                  </ul>
-               </div>
-               <div class="cartmini__checkout">
-     
-                  <div class="cartmini__checkout-btn">
-                     <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
-                  </div>
+                     </div>
+                     <a href="/mypage/deleteWish?memIdInt=${wish[2]}&wId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
+                  </li>
+                  </c:forEach>
+               </ul>
+            </div>
+            <div class="cartmini__checkout">
+  
+               <div class="cartmini__checkout-btn">
+                  <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> 위시리스트 </a>
                </div>
             </div>
          </div>
       </div>
-      <div class="body-overlay"></div>
-      <!-- cart mini area end -->
+   </div>
+   <div class="body-overlay"></div>
+   <!-- cart mini area end -->
 
 
       <!-- sidebar area start -->
@@ -339,7 +367,7 @@
                            <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                         </svg>
                      </div>
-                     <span class="cart-item">2</span>
+                     <span class="cart-item">!</span>
                   </a>
                </div>
             </div>
@@ -364,11 +392,15 @@
                      <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                         <div class="hero__content p-relative z-index-1">
                            <h3 class="hero__title">
-                              <span>Access 2700+</span>
-                              <span class="yellow-shape">Online <img src="/assets/img/shape/yellow-bg.png" alt="yellow-shape"> </span> 
-                              Tutorial From Top Instructor.</h3>
-                              <p>Meet university,and cultural institutions, who'll share their experience.</p>
-                              <a href="course-grid.html" class="e-btn">view all course</a>
+                              <h3 class="section__title hero__title-2">
+                                 당신의 IT 강의를 <br>
+                                 <span class="yellow-shape"> <img src="/assets/img/shape/yellow-bg.png"
+                                       alt="yellow-shape"> 효율적으로</span>
+                                 찾을 수 있는
+                              </h3>
+                              <h2 class="hero__title">Code O' Clock</h2>
+                              <p></p>
+                              <a href="/lecture/lecture-sidebar" class="e-btn">강의 보러가기</a>
                         </div>
                      </div>
                      <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
@@ -379,14 +411,14 @@
                               <img class="hero-1-circle-4" src="/assets/img/shape/hero/hero-1-circle-4.png" alt="">
                            </div>
                            <div class="hero__thumb-big mr-30">
-                              <img src="/assets/img/hero/hero-1.jpg" alt="">
+                              <img src="/assets/img/hero/hero-3.gif" alt="">
                               <div class="hero__quote hero__quote-animation">
-                                 <span>Tomorrow is our</span>
-                                 <h4>“When I Grow Up” Spirit Day!</h4>
+                                 <span>수강생 민*주</span>
+                                 <h4>“가볍게 어디서든 접근할 수 있어서 좋아요!”</h4>
                               </div>
                            </div>
                            <div class="hero__thumb-sm mt-50 d-none d-lg-block">
-                              <img src="/assets/img/hero/hero-sm-1.jpg" alt="">
+                              <img src="/assets/img/hero/hero.png" alt="">
                            </div>
                         </div>
                      </div>
@@ -396,7 +428,9 @@
          </section>
          <!-- hero area end -->
 
+         
          <!-- category area start -->
+         <!--
          <section class="category__area pt-120 pb-70">
             <div class="container">
                <div class="row align-items-end">
@@ -576,104 +610,79 @@
                </div>
             </div>
          </section>
+         -->
          <!-- category area end -->
+        
 
-         <!-- banner area start -->
-         <section class="banner__area pb-110">
-            <div class="container">
-               <div class="row">
-                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                     <div class="banner__item p-relative mb-40" data-background="/assets/img/banner/banner-bg-1.jpg">
-                        <div class="banner__content">
-                           <span>Free</span>
-                           <h3 class="banner__title">
-                              <a href="course-details.html">Germany Foundation <br> Document</a>
-                           </h3>
-                           <a href="course-grid.html" class="e-btn e-btn-2">View Courses</a>
-                        </div>
-                        <div class="banner__thumb d-none d-sm-block d-md-none d-lg-block">
-                           <img src="/assets/img/banner/banner-img-1.png" alt="">
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                     <div class="banner__item p-relative mb-40" data-background="/assets/img/banner/banner-bg-2.jpg">
-                        <div class="banner__content">
-                           <span class="orange">new</span>
-                           <h3 class="banner__title">
-                              <a href="course-details.html">Online Courses <br>From Eduka University</a>
-                           </h3>
-                           <a href="course-grid.html" class="e-btn e-btn-2">Find Out More</a>
-                        </div>
-                        <div class="banner__thumb banner__thumb-2 d-none d-sm-block d-md-none d-lg-block">
-                           <img src="/assets/img/banner/banner-img-2.png" alt="">
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <!-- banner area end -->
-
-         <!-- course area start -->
+         <!-- course area start 인기리스트(작업필요)-->
          <section class="course__area pt-115 pb-120 grey-bg">
             <div class="container">
                <div class="row align-items-end">
                   <div class="col-xxl-5 col-xl-6 col-lg-6">
                      <div class="section__title-wrapper mb-60">
-                        <h2 class="section__title">Find the Right<br>Online <span class="yellow-bg yellow-bg-big">Course<img src="/assets/img/shape/yellow-bg.png" alt=""></span> for you</h2>
-                        <p>You don't have to struggle alone, you've got our assistance and help.</p>
-                     </div>
-                  </div>
-                  <div class="col-xxl-7 col-xl-6 col-lg-6">
-                     <div class="course__menu d-flex justify-content-lg-end mb-60">
-                        <div class="masonary-menu filter-button-group">
-                           <button class="active" data-filter="*">
-                              See All
-                              <span class="tag">new</span>
-                           </button>
-                           <button data-filter=".cat1">Trending</button>
-                           <button data-filter=".cat2">Popularity</button>
-                           <button data-filter=".cat3">Featured</button>
-                           <button data-filter=".cat4">Art & Design</button>
-                       </div>
+                        <h2 class="section__title"><span class="yellow-bg yellow-bg-big">인기<img
+                                 src="/assets/img/shape/yellow-bg.png" alt=""></span> 강의 목록</h2>
                      </div>
                   </div>
                </div>
+
+                                
+               <!--내용들 -->
                <div class="row grid">
-                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat1 cat2 cat4">
+                  <c:forEach items="${lectureList}" var="lecture"><!--forE-->
+                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat2 cat3 cat4">
+                     
                      <div class="course__item white-bg mb-30 fix">
                         <div class="course__thumb w-img p-relative fix">
-                           <a href="course-details.html">
-                              <img src="/assets/img/course/course-1.jpg" alt="">
+                           <a href="lecture-details?vcId=${lecture.vcId}">
+                                      
+                              <!--해당 교육과정 관련 이미지 저장 경로 지정-->
+                              <img src="/assets/img/lecture/${lecture.vc_pic}" alt="" width='370' height='260' >
                            </a>
                            <div class="course__tag">
-                              <a href="#">Art & Design</a>
+                              <!-- 국비/ 부트캠프 인지-->
+                              <a href="lecture-details?vcId=${lecture.vcId}">화상교육</a>
                            </div>
                         </div>
                         <div class="course__content">
                            <div class="course__meta d-flex align-items-center justify-content-between">
-                              <div class="course__lesson">
-                                 <span><i class="far fa-book-alt"></i>43 Lesson</span>
+                              <div class="course__lesson"> <!--0106 좋아요버튼-->
+                                 <span><a href="javascript:;"  class="icon heart">
+                                    <img id="likeBtn" src="https://cdn-icons-png.flaticon.com/512/812/812327.png" alt="찜하기">
+                                 </a><input type="hidden" id="like_check" value="1"></span>
                               </div>
-                              <div class="course__rating">
-                                 <span><i class="icon_star"></i>4.5 (44)</span>
-                              </div>
+
+
+
+                                         <!-- 별점출력 부분 값 지정해주기-->
+                                         <c:forEach items="${avg}" var="avg">
+                                          <c:if test="${avg[0] == lecture.vcId}" >
+                                             <div class="course__rating">
+                                                <span><i class="icon_star"></i>${avg[1]}</span>
+                                              </div>
+                                          </c:if>
+                                       </c:forEach>
+
                            </div>
-                           <h3 class="course__title"><a href="course-details.html">Become a product Manager learn the skills & job.</a></h3>
+                             <h3 class="course__title"><a href="lecture-details?vcId=${lecture.vcId}">${lecture.vcTitle}</a></h3>
+                                
                            <div class="course__teacher d-flex align-items-center">
                               <div class="course__teacher-thumb mr-15">
-                                 <img src="/assets/img/course/teacher/teacher-1.jpg" alt="">
+                                 <img src="/assets/img/course/charity.png" alt="">
                               </div>
-                              <h6><a href="instructor-details.html">Jim Séchen</a></h6>
+                              <h6><a href="#">${lecture.teacherName}</a></h6>
                            </div>
+                           <div class="course__tag-2 mt-15">
+                              <!--0106 여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
+                            <span><i class="fal fa-tag"></i>
+                             ${lecture.vcKeyword}</span>
+                          </div>
                         </div>
                         <div class="course__more d-flex justify-content-between align-items-center">
                            <div class="course__status">
-                              <span>Free</span>
                            </div>
                            <div class="course__btn">
-                              <a href="course-details.html" class="link-btn">
+                              <a href="lecture-details?vcId=${lecture.vcId}" class="link-btn">
                                  Know Details
                                  <i class="far fa-arrow-right"></i>
                                  <i class="far fa-arrow-right"></i>
@@ -681,523 +690,51 @@
                            </div>
                         </div>
                      </div>
+                  
                   </div>
-                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat2 cat3 cat4">
-                     <div class="course__item white-bg mb-30 fix">
-                        <div class="course__thumb w-img p-relative fix">
-                           <a href="course-details.html">
-                              <img src="/assets/img/course/course-2.jpg" alt="">
-                           </a>
-                           <div class="course__tag">
-                              <a href="#" class="sky-blue">Mechanical</a>
-                           </div>
-                        </div>
-                        <div class="course__content">
-                           <div class="course__meta d-flex align-items-center justify-content-between">
-                              <div class="course__lesson">
-                                 <span><i class="far fa-book-alt"></i>72 Lesson</span>
-                              </div>
-                              <div class="course__rating">
-                                 <span><i class="icon_star"></i>4.5 (44)</span>
-                              </div>
-                           </div>
-                           <h3 class="course__title"><a href="course-details.html">Fundamentals of music theory Learn new</a></h3>
-                           <div class="course__teacher d-flex align-items-center">
-                              <div class="course__teacher-thumb mr-15">
-                                 <img src="/assets/img/course/teacher/teacher-2.jpg" alt="">
-                              </div>
-                              <h6><a href="instructor-details.html">Barry Tone</a></h6>
-                           </div>
-                        </div>
-                        <div class="course__more d-flex justify-content-between align-items-center">
-                           <div class="course__status d-flex align-items-center">
-                              <span class="sky-blue">$32.00</span>
-                              <span class="old-price">$68.00</span>
-                           </div>
-                           <div class="course__btn">
-                              <a href="course-details.html" class="link-btn">
-                                 Know Details
-                                 <i class="far fa-arrow-right"></i>
-                                 <i class="far fa-arrow-right"></i>
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat3 cat4 cat3">
-                     <div class="course__item white-bg mb-30 fix">
-                        <div class="course__thumb w-img p-relative fix">
-                           <a href="course-details.html">
-                              <img src="/assets/img/course/course-3.jpg" alt="">
-                           </a>
-                           <div class="course__tag">
-                              <a href="#" class="green">Development</a>
-                           </div>
-                        </div>
-                        <div class="course__content">
-                           <div class="course__meta d-flex align-items-center justify-content-between">
-                              <div class="course__lesson">
-                                 <span><i class="far fa-book-alt"></i>14 Lesson</span>
-                              </div>
-                              <div class="course__rating">
-                                 <span><i class="icon_star"></i>3.5 (55)</span>
-                              </div>
-                           </div>
-                           <h3 class="course__title"><a href="course-details.html">Strategy law and organization Foundation</a></h3>
-                           <div class="course__teacher d-flex align-items-center">
-                              <div class="course__teacher-thumb mr-15">
-                                 <img src="/assets/img/course/teacher/teacher-3.jpg" alt="">
-                              </div>
-                              <h6><a href="instructor-details.html">Elon Gated</a></h6>
-                           </div>
-                        </div>
-                        <div class="course__more d-flex justify-content-between align-items-center">
-                           <div class="course__status d-flex align-items-center">
-                              <span class="green">$46.00</span>
-                              <span class="old-price">$68.00</span>
-                           </div>
-                           <div class="course__btn">
-                              <a href="course-details.html" class="link-btn">
-                                 Know Details
-                                 <i class="far fa-arrow-right"></i>
-                                 <i class="far fa-arrow-right"></i>
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat4 cat1 cat3">
-                     <div class="course__item white-bg mb-30 fix">
-                        <div class="course__thumb w-img p-relative fix">
-                           <a href="course-details.html">
-                              <img src="/assets/img/course/course-4.jpg" alt="">
-                           </a>
-                           <div class="course__tag">
-                              <a href="#" class="blue">Marketing</a>
-                           </div>
-                        </div>
-                        <div class="course__content">
-                           <div class="course__meta d-flex align-items-center justify-content-between">
-                              <div class="course__lesson">
-                                 <span><i class="far fa-book-alt"></i>22 Lesson</span>
-                              </div>
-                              <div class="course__rating">
-                                 <span><i class="icon_star"></i>4.5 (42)</span>
-                              </div>
-                           </div>
-                           <h3 class="course__title"><a href="course-details.html">The business Intelligence analyst Course 2022</a></h3>
-                           <div class="course__teacher d-flex align-items-center">
-                              <div class="course__teacher-thumb mr-15">
-                                 <img src="/assets/img/course/teacher/teacher-4.jpg" alt="">
-                              </div>
-                              <h6><a href="instructor-details.html">Eleanor Fant</a></h6>
-                           </div>
-                        </div>
-                        <div class="course__more d-flex justify-content-between align-items-center">
-                           <div class="course__status d-flex align-items-center">
-                              <span class="blue">$62.00</span>
-                              <span class="old-price">$97.00</span>
-                           </div>
-                           <div class="course__btn">
-                              <a href="course-details.html" class="link-btn">
-                                 Know Details
-                                 <i class="far fa-arrow-right"></i>
-                                 <i class="far fa-arrow-right"></i>
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat1 cat2 cat4">
-                     <div class="course__item white-bg mb-30 fix">
-                        <div class="course__thumb w-img p-relative fix">
-                           <a href="course-details.html">
-                              <img src="/assets/img/course/course-5.jpg" alt="">
-                           </a>
-                           <div class="course__tag">
-                              <a href="#" class="orange">Audio & Music</a>
-                           </div>
-                        </div>
-                        <div class="course__content">
-                           <div class="course__meta d-flex align-items-center justify-content-between">
-                              <div class="course__lesson">
-                                 <span><i class="far fa-book-alt"></i>18 Lesson</span>
-                              </div>
-                              <div class="course__rating">
-                                 <span><i class="icon_star"></i>4.5 (37)</span>
-                              </div>
-                           </div>
-                           <h3 class="course__title"><a href="course-details.html">Build your media and Public presence</a></h3>
-                           <div class="course__teacher d-flex align-items-center">
-                              <div class="course__teacher-thumb mr-15">
-                                 <img src="/assets/img/course/teacher/teacher-5.jpg" alt="">
-                              </div>
-                              <h6><a href="instructor-details.html">Pelican Steve</a></h6>
-                           </div>
-                        </div>
-                        <div class="course__more d-flex justify-content-between align-items-center">
-                           <div class="course__status d-flex align-items-center">
-                              <span class="orange">$62.00</span>
-                              <span class="old-price">$97.00</span>
-                           </div>
-                           <div class="course__btn">
-                              <a href="course-details.html" class="link-btn">
-                                 Know Details
-                                 <i class="far fa-arrow-right"></i>
-                                 <i class="far fa-arrow-right"></i>
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat2 cat3">
-                     <div class="course__item white-bg mb-30 fix">
-                        <div class="course__thumb w-img p-relative fix">
-                           <a href="course-details.html">
-                              <img src="/assets/img/course/course-6.jpg" alt="">
-                           </a>
-                           <div class="course__tag">
-                              <a href="#" class="pink">UX Design</a>
-                           </div>
-                        </div>
-                        <div class="course__content">
-                           <div class="course__meta d-flex align-items-center justify-content-between">
-                              <div class="course__lesson">
-                                 <span><i class="far fa-book-alt"></i>13 Lesson</span>
-                              </div>
-                              <div class="course__rating">
-                                 <span><i class="icon_star"></i>4.5 (72)</span>
-                              </div>
-                           </div>
-                           <h3 class="course__title"><a href="course-details.html">Creative writing through Storytelling</a></h3>
-                           <div class="course__teacher d-flex align-items-center">
-                              <div class="course__teacher-thumb mr-15">
-                                 <img src="/assets/img/course/teacher/teacher-6.jpg" alt="">
-                              </div>
-                              <h6><a href="instructor-details.html">Shahnewaz Sakil</a></h6>
-                           </div>
-                        </div>
-                        <div class="course__more d-flex justify-content-between align-items-center">
-                           <div class="course__status d-flex align-items-center">
-                              <span class="pink">$46.00</span>
-                              <span class="old-price">$72.00</span>
-                           </div>
-                           <div class="course__btn">
-                              <a href="course-details.html" class="link-btn">
-                                 Know Details
-                                 <i class="far fa-arrow-right"></i>
-                                 <i class="far fa-arrow-right"></i>
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+               </c:forEach>
+                  <!--끝-->
+
+
+                  
+              
             </div>
          </section>
          <!-- course area end -->
-
-         <!-- events area start -->
-         <section class="events__area pt-115 pb-120 p-relative">
-            <div class="events__shape">
-               <img class="events-1-shape" src="/assets/img/events/events-shape.png" alt="">
-            </div>
-            <div class="container">
-               <div class="row">
-                  <div class="col-xxl-4 offset-xxl-4">
-                     <div class="section__title-wrapper mb-60 text-center">
-                        <h2 class="section__title">Current <span class="yellow-bg yellow-bg-big">Events<img src="/assets/img/shape/yellow-bg.png" alt=""></span></h2>
-                        <p>We found 13 events available for you.</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-xxl-10 offset-xxl-1 col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
-                     <div class="events__item mb-10 hover__active">
-                        <div class="events__item-inner d-sm-flex align-items-center justify-content-between white-bg">
-                           <div class="events__content">
-                              <div class="events__meta">
-                                 <span>Jun 14, 2022</span>
-                                 <span>12:00 am - 2:30 pm</span>
-                                 <span>New York</span>
-                              </div>
-                              <h3 class="events__title"><a href="event-details.html">Digital transformation conference</a></h3>
-                           </div>
-                           <div class="events__more">
-                              <a href="event-details.html" class="link-btn">
-                                 View More
-                                 <i class="far fa-arrow-right"></i>
-                                 <i class="far fa-arrow-right"></i>
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xxl-10 offset-xxl-1 col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
-                     <div class="events__item mb-10 hover__active active">
-                        <div class="events__item-inner d-sm-flex align-items-center justify-content-between white-bg">
-                           <div class="events__content">
-                              <div class="events__meta">
-                                 <span>April 10, 2022</span>
-                                 <span>9:00 am - 5:00 pm</span>
-                                 <span>Mindahan</span>
-                              </div>
-                              <h3 class="events__title"><a href="event-details.html">World education day conference</a></h3>
-                           </div>
-                           <div class="events__more">
-                              <a href="event-details.html" class="link-btn">
-                                 View More
-                                 <i class="far fa-arrow-right"></i>
-                                 <i class="far fa-arrow-right"></i>
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xxl-10 offset-xxl-1 col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
-                     <div class="events__item mb-10 hover__active">
-                        <div class="events__item-inner d-sm-flex align-items-center justify-content-between white-bg">
-                           <div class="events__content">
-                              <div class="events__meta">
-                                 <span>July 16, 2022</span>
-                                 <span>10:30 am - 1:30 pm</span>
-                                 <span>Weedpatch</span>
-                              </div>
-                              <h3 class="events__title"><a href="event-details.html">Foundations of global health</a></h3>
-                           </div>
-                           <div class="events__more">
-                              <a href="event-details.html" class="link-btn">
-                                 View More
-                                 <i class="far fa-arrow-right"></i>
-                                 <i class="far fa-arrow-right"></i>
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xxl-10 offset-xxl-1 col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
-                     <div class="events__item mb-10 hover__active">
-                        <div class="events__item-inner d-sm-flex align-items-center justify-content-between white-bg">
-                           <div class="events__content">
-                              <div class="events__meta">
-                                 <span>March 24, 2022</span>
-                                 <span>10:30 am - 12:00 pm</span>
-                                 <span>Lnland</span>
-                              </div>
-                              <h3 class="events__title"><a href="event-details.html">Business creativity workshops</a></h3>
-                           </div>
-                           <div class="events__more">
-                              <a href="event-details.html" class="link-btn">
-                                 View More
-                                 <i class="far fa-arrow-right"></i>
-                                 <i class="far fa-arrow-right"></i>
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <!-- events area end -->
-
-         <!-- pricing area start -->
-         <section class="price__area pt-60 pb-130">
-            <div class="container">
-               <div class="row">
-                  <div class="col-xxl-4 offset-xxl-4">
-                     <div class="section__title-wrapper mb-60 text-center">
-                        <h2 class="section__title">Simple <br> All Inclusive  <span class="yellow-bg yellow-bg-big">Pricing<img src="/assets/img/shape/yellow-bg.png" alt=""></span></h2>
-                        <p>No contracts. No surprise fees.</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-xxl-12">
-                     <div class="price__tab-btn text-center mb-50">
-                        <nav>
-                           <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                             <button class="nav-link" id="nav-monthly-tab" data-bs-toggle="tab" data-bs-target="#nav-monthly" type="button" role="tab" aria-controls="nav-monthly" aria-selected="true">monthly plan</button>
-                             <button class="nav-link active" id="nav-annually-tab" data-bs-toggle="tab" data-bs-target="#nav-annually" type="button" role="tab" aria-controls="nav-annually" aria-selected="false">Annual Plan</button>
-                           </div>
-                         </nav>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-xxl-10 offset-xxl-1 col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
-                     <div class="price__tab-content">
-                        <div class="tab-content" id="nav-tabContent">
-                           <div class="tab-pane fade" id="nav-monthly" role="tabpanel" aria-labelledby="nav-monthly-tab">
-                              <div class="row">
-                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                                    <div class="price__item grey-bg mb-30 p-relative">
-                                       <div class="price__head">
-                                          <h3>Gold</h3>
-                                          <p>Perfect for small marketing teams</p>
-                                       </div>
-                                       <div class="price__tag mb-25">
-                                          <h4>$59<span>.99 / annually</span></h4>
-                                       </div>
-                                       <div class="price__features mb-40">
-                                          <ul>
-                                             <li><i class="far fa-check"></i>Course Discussions</li>
-                                             <li><i class="far fa-check"></i>Content Library</li>
-                                             <li><i class="far fa-check"></i>1-hour Mentorship</li>
-                                          </ul>
-                                       </div>
-                                       <a href="contact.html" class="e-btn e-btn-4">Get Started</a>
-                                    </div>
-                                 </div>
-                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                                    <div class="price__item grey-bg mb-30 p-relative">
-                                       <div class="price__offer">
-                                          <span>Best Value</span>
-                                       </div>
-                                       <div class="price__head">
-                                          <h3>Diamond</h3>
-                                          <p>Perfect for small marketing teams</p>
-                                       </div>
-                                       <div class="price__tag mb-25">
-                                          <h4>$99<span>.99 / annually</span></h4>
-                                       </div>
-                                       <div class="price__features mb-40">
-                                          <ul>
-                                             <li><i class="far fa-check"></i>Course Discussions</li>
-                                             <li><i class="far fa-check"></i>Content Library</li>
-                                             <li><i class="far fa-check"></i>1-hour Mentorship</li>
-                                             <li><i class="far fa-check"></i>Online Course</li>
-                                          </ul>
-                                       </div>
-                                       <a href="contact.html" class="e-btn e-btn-border">Get Started</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="tab-pane fade show active" id="nav-annually" role="tabpanel" aria-labelledby="nav-annually-tab">
-                              <div class="row">
-                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                                    <div class="price__item grey-bg mb-30 p-relative">
-                                       <div class="price__head">
-                                          <h3>Gold</h3>
-                                          <p>Perfect for small marketing teams</p>
-                                       </div>
-                                       <div class="price__tag mb-25">
-                                          <h4>$59<span>.99 / annually</span></h4>
-                                       </div>
-                                       <div class="price__features mb-40">
-                                          <ul>
-                                             <li><i class="far fa-check"></i>Course Discussions</li>
-                                             <li><i class="far fa-check"></i>Content Library</li>
-                                             <li><i class="far fa-check"></i>1-hour Mentorship</li>
-                                          </ul>
-                                       </div>
-                                       <a href="contact.html" class="e-btn e-btn-4">Get Started</a>
-                                    </div>
-                                 </div>
-                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                                    <div class="price__item grey-bg mb-30 p-relative">
-                                       <div class="price__offer">
-                                          <span>Best Value</span>
-                                       </div>
-                                       <div class="price__head">
-                                          <h3>Diamond</h3>
-                                          <p>Perfect for small marketing teams</p>
-                                       </div>
-                                       <div class="price__tag mb-25">
-                                          <h4>$99<span>.99 / annually</span></h4>
-                                       </div>
-                                       <div class="price__features mb-40">
-                                          <ul>
-                                             <li><i class="far fa-check"></i>Course Discussions</li>
-                                             <li><i class="far fa-check"></i>Content Library</li>
-                                             <li><i class="far fa-check"></i>1-hour Mentorship</li>
-                                             <li><i class="far fa-check"></i>Online Course</li>
-                                          </ul>
-                                       </div>
-                                       <a href="contact.html" class="e-btn e-btn-border">Get Started</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                         </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <!-- pricing area end -->
-
-         <!-- cta area start -->
-         <section class="cta__area mb--120">
-            <div class="container">
-               <div class="cta__inner blue-bg fix">
-                  <div class="cta__shape">
-                     <img src="/assets/img/cta/cta-shape.png" alt="">
-                  </div>
-                  <div class="row align-items-center">
-                     <div class="col-xxl-7 col-xl-7 col-lg-8 col-md-8">
-                        <div class="cta__content">
-                           <h3 class="cta__title">You can be your own Guiding star with our help</h3>
-                        </div>
-                     </div>
-                     <div class="col-xxl-5 col-xl-5 col-lg-4 col-md-4">
-                        <div class="cta__more d-md-flex justify-content-end p-relative z-index-1">
-                           <a href="contact.html" class="e-btn e-btn-white">Get Started</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <!-- cta area end -->
 
       </main>
 
          <!-- footer area start -->
          <footer>
-            <div class="footer__area footer-bg">
-               <div class="footer__top pt-190 pb-40">
+            <div class="footer__area grey-bg-2">
+               <div class="footer__top pt-20 pb-0">
                   <div class="container">
                      <div class="row">
                         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                            <div class="footer__widget mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <div class="footer__logo">
-                                    <a href="index.html">
-                                       <img src="/assets/img/logo/logo-2.png" alt="">
-                                    </a>
-                                 </div>
+                                 <img src="/assets/img/logo/logo.png" alt="">
                               </div>
-                              <div class="footer__widget-body">
-                                 <p>Great lesson ideas and lesson plans for ESL teachers! Educators can customize lesson plans to best.</p>
+                              <div class="footer__widget-body footer__widget-body-2">
+                                 
 
-                                 <div class="footer__social">
-                                    <ul>
-                                       <li><a href="#"><i class="social_facebook"></i></a></li>
-                                       <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
-                                       <li><a href="#" class="pin"><i class="social_pinterest"></i></a></li>
-                                    </ul>
-                                 </div>
+                                 
                               </div>
                            </div>
                         </div>
-                        <div class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
+                        <div
+                           class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
                            <div class="footer__widget mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Company</h3>
+                                 
                               </div>
                               <div class="footer__widget-body">
-                                 <div class="footer__link">
-                                    <ul>
-                                       <li><a href="#">About</a></li>
-                                       <li><a href="#">Courses</a></li>
-                                       <li><a href="#">Events</a></li>
-                                       <li><a href="#">Instructor</a></li>
-                                       <li><a href="#">Career</a></li>
-                                       <li><a href="#">Become a Teacher</a></li>
-                                       <li><a href="#">Contact</a></li>
-                                    </ul>
+                                 <div class="footer__link footer__link-2">
+                                    <div class="footer__logo">
+                                       <a href="index">
+
+                                       </a>
+                                    </div>
                                  </div>
                               </div>
                            </div>
@@ -1205,18 +742,11 @@
                         <div class="col-xxl-2 col-xl-2 col-lg-2 offset-lg-0 col-md-3 offset-md-1 col-sm-6">
                            <div class="footer__widget mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Platform</h3>
+                                 
                               </div>
                               <div class="footer__widget-body">
-                                 <div class="footer__link">
-                                    <ul>
-                                       <li><a href="#">Browse Library</a></li>
-                                       <li><a href="#">Library</a></li>
-                                       <li><a href="#">Partners</a></li>
-                                       <li><a href="#">News & Blogs</a></li>
-                                       <li><a href="#">FAQs</a></li>
-                                       <li><a href="#">Tutorials</a></li>
-                                    </ul>
+                                 <div class="footer__link footer__link-2">
+                                    
                                  </div>
                               </div>
                            </div>
@@ -1224,20 +754,26 @@
                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-6">
                            <div class="footer__widget footer__pl-70 mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Subscribe</h3>
+                                 
                               </div>
                               <div class="footer__widget-body">
-                                 <div class="footer__subscribe">
+                                 <div class="footer__subscribe footer__subscribe-2">
                                     <form action="#">
                                        <div class="footer__subscribe-input mb-15">
-                                          <input type="email" placeholder="Your email address">
-                                          <button type="submit">
-                                             <i class="far fa-arrow-right"></i>
-                                             <i class="far fa-arrow-right"></i>
-                                          </button>
+                                          
+                                          <div class="footer__social" style="margin-left: 100px;">
+                                             <ul>
+                                                <li><a href="#"><i class="social_facebook"></i></a></li>
+                                                <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
+                                                <li><a href="#" class="pin"><i class="social_pinterest"></i></a></li>
+                                             </ul>
+                                          </div>
+                                          
                                        </div>
+                                       
                                     </form>
-                                    <p>Get the latest news and updates right at your inbox.</p>
+                                    
+                                    
                                  </div>
                               </div>
                            </div>
@@ -1245,12 +781,12 @@
                      </div>
                   </div>
                </div>
-               <div class="footer__bottom">
+               <div class="footer__bottom footer__bottom-2">
                   <div class="container">
                      <div class="row">
                         <div class="col-xxl-12">
-                           <div class="footer__copyright text-center">
-                              <p>© 2022 Educal, All Rights Reserved. Design By <a href="index.html">Theme Pure</a></p>
+                           <div class="footer__copyright footer__copyright-2 text-center">
+                              <p>Shout out to Soyun Kim <a href="">By BK jeon</a></p>
                            </div>
                         </div>
                      </div>
@@ -1259,6 +795,7 @@
             </div>
          </footer>
          <!-- footer area end -->
+
       <!-- JS here -->
       <script src="/assets/js/vendor/jquery-3.5.1.min.js"></script>
       <script src="/assets/js/vendor/waypoints.min.js"></script>
@@ -1275,6 +812,19 @@
       <script src="/assets/js/wow.min.js"></script>
       <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="/assets/js/main.js"></script>
+      <script type = "text/javascript">
+         $(function() {
+             $(".onoff").click( function() { 
+                 // if( $("#switch").is_CHECKED) {
+                        //alert("s");
+                        setTimeout(() => {
+                           window.location.href="/academy/index";
+                        }, 300);
+                        
+                 // }    
+               });
+            })
+      </script>
    </body>
 </html>
 

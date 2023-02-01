@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -33,6 +34,15 @@ public class ViewController {
       Integer memIdInt = (Integer) session.getAttribute("memIdInt");
       List<Object[]> wlist = wishRepo.findByMemIdInt(memIdInt);
       List<Object[]> jlist = jjimRepo.findByMemIdIntlec(memIdInt);
+      
+      for(Object[] temp : wlist) {
+    	  System.out.println("wlist : " + Arrays.toString(temp));
+      }
+      
+      for(Object[] temp : jlist) {
+    	  System.out.println("jlist : " + Arrays.toString(temp));
+      }
+      
       m.addAttribute("wishList", wlist);
       m.addAttribute("jjimList", jlist);
       return "/academy/"+step;
@@ -48,6 +58,15 @@ public class ViewController {
       Integer memIdInt = (Integer) session.getAttribute("memIdInt");
       List<Object[]> wlist = wishRepo.findByMemIdInt(memIdInt);
       List<Object[]> jlist = jjimRepo.findByMemIdIntlec(memIdInt);
+      
+      for(Object[] temp : wlist) {
+    	  System.out.println("wlist : " + Arrays.toString(temp));
+      }
+      
+      for(Object[] temp : jlist) {
+    	  System.out.println("jlist : " + Arrays.toString(temp));
+      }
+      
       m.addAttribute("wishList", wlist);
       m.addAttribute("jjimList", jlist);
       return "/lecture/"+step;
@@ -79,7 +98,10 @@ public class ViewController {
 		httpServletResponse.sendRedirect("http://"+step);
 	}
 	
-	
+	@RequestMapping("/hello")
+	public void test(String test) {
+		System.out.println(test);
+	}
 	
 	
 }

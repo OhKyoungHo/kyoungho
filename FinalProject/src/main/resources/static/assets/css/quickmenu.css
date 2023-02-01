@@ -10,10 +10,13 @@ div, ul, li {
 a {text-decoration:none;}
 
 .quickmenu {
-	position:absolute;width:90px;top:50%;margin-top:-50px;right:10px;background:#fff;}
+	position:absolute;width:60px;top:50%;margin-top:-50px;
+	right:10px;background:#fff;
+	}
 	
 .quickmenu ul {
-	position:relative;float:left;width:100%;display:inline-block;*display:inline;border:1px solid #ddd;}
+	position:relative;float:left;width:100%;display:inline-block;*display:inline;border:1px solid #ddd;
+	}
 	
 .quickmenu ul li {
 	float:left;
@@ -40,3 +43,6 @@ a {text-decoration:none;}
 
 .content {
 	position:relative;min-height:1000px;}
+	
+	
+	

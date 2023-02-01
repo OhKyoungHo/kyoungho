@@ -1,6 +1,9 @@
 package com.example.controller;
 
+import java.util.Arrays;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.domain.LectureVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.TeacherVO;
+import com.example.persistence.JjimRepository;
 import com.example.persistence.LectureRepository;
 import com.example.persistence.ReviewRepository;
 import com.example.persistence.TeacherRepository;
+import com.example.persistence.WishListRepository;
 import com.example.service.LectureService;
 import com.example.service.ReviewService;
 
@@ -40,6 +45,66 @@ public class LectureController {
 	
 	@Autowired
 	private TeacherRepository teacherRepository;
+	
+	@Autowired
+   private WishListRepository wishRepo;
+   
+   @Autowired
+   private JjimRepository jjimRepo;
+
+	//0128
+	//인덱스에서최신등록순
+	@GetMapping("/index")
+	 
+	public String getNewIndex(Model m, 
+	   @PageableDefault(size = 6, direction = Sort.Direction.DESC) Pageable paging, 
+	   @RequestParam(required = false, defaultValue = "") String order,
+	   @RequestParam(required = false, defaultValue = "") String keywords,
+	   HttpSession session){
+
+//---------------------------------------------------------------------------------------
+		// 찜/위시리스트 하트 목록
+
+		Integer memIdInt = (Integer) session.getAttribute("memIdInt");
+		List<Object[]> wlist = wishRepo.findByMemIdInt(memIdInt);
+		List<Object[]> jlist = jjimRepo.findByMemIdIntlec(memIdInt);
+		
+		for(Object[] temp : wlist) {
+			System.out.println("wlist : " + Arrays.toString(temp));
+		}
+		
+		for(Object[] temp : jlist) {
+			System.out.println("jlist : " + Arrays.toString(temp));
+		}
+		
+		m.addAttribute("wishList", wlist);
+		m.addAttribute("jjimList", jlist);
+//----------------------------------------------------------------------------------------
+	      
+	   //keywords 값 잘넘어옵니다 확인완료
+	   System.out.println("keywords 값 확인 : " + keywords);
+	   //order 값 잘 넘어옵니다 확인완료
+	   System.out.println("order 값 확인:"+ order);
+	      
+	   Page<LectureVO> elist = null;
+	   
+	   elist = lecRepo.getNewIndex(paging, keywords, order);
+	     
+	      
+	     
+	   //각 값들을 jsp 파일에 붙이기
+	   
+	   m.addAttribute("lectureList", elist.getContent());
+	      
+//	   //찬주 리스트 별점평균용
+//	   List<Object[]> avg = reviewService.avgStar();
+//	   System.out.println("list.size():" + avg.size());   
+//	   m.addAttribute("avg",avg);
+	      
+	      
+	   //리턴페이지의 디폴트 값
+	   return "/lecture/index";
+	}//end of getAcademyList
 
 	@GetMapping("/lecture-sidebar")
 	public String getLectureList(Model m, 
@@ -92,7 +157,7 @@ public class LectureController {
 	@GetMapping("/lecture-details")
 	public String getBoard(LectureVO vo, Model model,
 			@RequestParam(required = false, defaultValue = "") String vcId,
-			@PageableDefault(size = 4, direction = Sort.Direction.DESC) Pageable paging,
+			@PageableDefault(size = 3, direction = Sort.Direction.DESC) Pageable paging,
 			Integer teacherId){
 
 		//기본 학원디테일 정보

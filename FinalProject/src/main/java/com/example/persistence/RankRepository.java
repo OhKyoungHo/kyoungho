@@ -11,7 +11,7 @@ import com.example.domain.ReviewVO;
 public interface RankRepository extends CrudRepository<EducationVO, Integer> {
 
 	//1~3위
-	@Query(value="SELECT e.ed_name AS NAME , e.ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star,RANK() over (ORDER BY star desc) as 'RANK'\r\n"
+	@Query(value="SELECT e.ed_name AS NAME , e.ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star,RANK() over (ORDER BY star desc) as 'RANK', e.ed_url\r\n"
 			+ "FROM education AS e left outer join review AS r\r\n"
 			+ "ON e.ed_id = r.ed_id\r\n"
 			+ "GROUP BY e.ed_name\r\n"
@@ -20,7 +20,7 @@ public interface RankRepository extends CrudRepository<EducationVO, Integer> {
 	List<Object[]> rankQuery();
 	
 	//4~10위
-	@Query(value="SELECT e.ed_name AS NAME , ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star,RANK() over (ORDER BY star desc) as 'RANK'\r\n"
+	@Query(value="SELECT e.ed_name AS NAME , ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star,RANK() over (ORDER BY star desc) as 'RANK', e.ed_url\r\n"
 			+ "FROM education e left outer join review r\r\n"
 			+ "ON e.ed_id = r.ed_id\r\n"
 			+ "GROUP BY e.ed_name\r\n"
@@ -29,7 +29,7 @@ public interface RankRepository extends CrudRepository<EducationVO, Integer> {
 	List<Object[]> rankQueryOther();
 	
 	//1위
-	@Query(value="SELECT e.ed_name AS NAME , e.ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star,RANK() over (ORDER BY star desc) as 'RANK'\r\n"
+	@Query(value="SELECT e.ed_name AS NAME , e.ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star,RANK() over (ORDER BY star desc) as 'RANK',e.ed_url\r\n"
 			+ "FROM education AS e left outer join review AS r\r\n"
 			+ "ON e.ed_id = r.ed_id\r\n"
 			+ "GROUP BY e.ed_name\r\n"
@@ -38,7 +38,7 @@ public interface RankRepository extends CrudRepository<EducationVO, Integer> {
 	List<Object[]> rankQueryFirst();
 	
 	//2위
-	@Query(value="SELECT e.ed_name AS NAME , e.ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star,RANK() over (ORDER BY star desc) as 'RANK'\r\n"
+	@Query(value="SELECT e.ed_name AS NAME , e.ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star,RANK() over (ORDER BY star desc) as 'RANK', e.ed_url\r\n"
 			+ "FROM education AS e left outer join review AS r\r\n"
 			+ "ON e.ed_id = r.ed_id\r\n"
 			+ "GROUP BY e.ed_name\r\n"
@@ -47,7 +47,7 @@ public interface RankRepository extends CrudRepository<EducationVO, Integer> {
 	List<Object[]> rankQuerySecond();
 	
 	//3위
-	@Query(value="SELECT e.ed_name AS NAME , e.ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star,RANK() over (ORDER BY star desc) as 'RANK'\r\n"
+	@Query(value="SELECT e.ed_name AS NAME , e.ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star,RANK() over (ORDER BY star desc) as 'RANK', e.ed_url\r\n"
 			+ "FROM education AS e left outer join review AS r\r\n"
 			+ "ON e.ed_id = r.ed_id\r\n"
 			+ "GROUP BY e.ed_name\r\n"

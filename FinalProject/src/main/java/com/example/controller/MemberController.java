@@ -29,7 +29,7 @@ public class MemberController {
    public String insertMember(MemberVO vo) {
       System.out.println(vo); // 회원가입 할 때 생성되는 vo
       memberService.insertMember(vo);
-      return "redirect:/academy/index";
+      return "redirect:/startpage";
    }
 
    // 로그인
@@ -60,7 +60,7 @@ public class MemberController {
          session.setAttribute("memIdInt", result.getMemIdInt());
          session.setAttribute("memIdString", result.getMemIdString());
          session.setAttribute("teacherId", result.getT_id());
-         return "redirect:/academy/index";
+         return "redirect:/startpage";
       }else{ // 로그인 실패
          return "redirect:/sign-in";
       }
@@ -78,7 +78,7 @@ public class MemberController {
       System.out.println("###nickname#### : " + userInfo.getMemNickname());
       System.out.println("###email#### : " + userInfo.getMemEmail());
 
-      return "redirect:/academy/index";
+      return "redirect:/startpage";
    }
 
    // 로그아웃
@@ -88,7 +88,7 @@ public class MemberController {
       session.removeAttribute("memIdInt");
       session.removeAttribute("memIdString");
       session.removeAttribute("teacherId");
-      return "redirect:/academy/index";
+      return "redirect:/startpage";
    }
 
    // 아이디 중복 체크

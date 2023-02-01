@@ -16,12 +16,12 @@ $(document).ready(function(){
       
    
       // 버튼이 눌렸을 때
-      $('.quickmenu').on('click',function(){
+      $('#quickmenu2').on('click',function(){
       
          //alert($('#memberId').val());
       
        //세션스코프 벨류값 url에 추가해서 다른포트번호로 채팅방 띄우는것입니다.
-         var url = 'http://127.0.0.48:5000/?id=' + $('#memberId').val();
+         var url = 'http://192.168.0.48:5000/?id=' + $('#memberId').val();
          window.open(url,'width=260', 'height=120');
          
         

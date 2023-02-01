@@ -1,4 +1,4 @@
-package com.example.domain;
+	package com.example.domain;
 
 import java.util.Date;
 import java.util.List;
@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
@@ -21,8 +23,10 @@ public class CalendarVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer calId;
 	
-	private Date calStart;
-	private Date calEnd;
+	//@DateTimeFormat(pattern = "yyyy-MM-dd HH:mi")
+	private String calStart;
+	//@DateTimeFormat(pattern = "yyyy-MM-dd HH:mi")
+	private String calEnd;
 	
 	
 	@Column(name="t_id")

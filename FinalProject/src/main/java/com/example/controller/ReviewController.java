@@ -27,13 +27,20 @@ public class ReviewController {
 
 
    
+	
+	
      @Autowired
      private ReviewService reviewService;
      
      @Autowired
      private ReviewRepository  reviewRepository;
 
-     //리뷰 등록부분 (안되면리퀘스트 매핑으로)
+     
+     
+     
+     
+     //국비/부트 부분
+     //리뷰 등록하면 아래 붙도록 ajax gson 처리 
      @GetMapping("/insertRV")
      @ResponseBody //ajax 쓰려고 리퀘스트 바디
      public String insertRV(ReviewVO vo, 
@@ -41,8 +48,7 @@ public class ReviewController {
         System.out.println("리뷰뷰뷴 : " +   vo);
         
         reviewService.saveRV(vo);
-        
-       
+
         
         //가져오는거 넣기
         String temp_ed_id = String.valueOf(vo.getEdId());
@@ -57,8 +63,7 @@ public class ReviewController {
         for( ReviewVO rvo : reviewList ) {
             
             JsonObject object = new JsonObject();
-            
-            
+ 
             object.addProperty("memIdString", String.valueOf(rvo.getMemIdString()));
             object.addProperty("star", String.valueOf(rvo.getStar()));
             object.addProperty("reDate", String.valueOf(rvo.getReDate()));
@@ -80,28 +85,26 @@ public class ReviewController {
      
      
      
+     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      
      
-      //2번째 누르면 리뷰부분 페이징 에이작서 > 여기다시풀어보자
+     
+     //국비 / 부트부분
+      //리뷰부분 페이징 ajax
      @GetMapping("/insertRVPajing")
      @ResponseBody //ajax 쓰려고 리퀘스트 바디
      public String insertRVPajing(ReviewVO vo, Model m,	
              @RequestParam String edId,@PageableDefault(size = 3) Pageable paging, String re) {
           System.out.println("리뷰뷰뷴 : " +   vo);
           
-          
-          
-          
+
           //가져오는거 넣기
           String temp_ed_id = String.valueOf(vo.getEdId());
-       
-          
+
           System.out.println(temp_ed_id);
           Page<ReviewVO> list = reviewRepository.getReviewAndPaging(paging,temp_ed_id );
           List<ReviewVO> reviewList = list.getContent();
-         
-          
-          
+
           //현재페이지
           int pageNumber=list.getPageable().getPageNumber();
           //총페이지수
@@ -112,8 +115,7 @@ public class ReviewController {
           //끝나는 블록
           int endBlockPage = startBlockPage+pageBlock-1; //6+5-1=10. 6,7,8,9,10해서 10.
           endBlockPage= totalPages<endBlockPage? totalPages:endBlockPage;
-          
-          
+
           Gson gson = new Gson();
           JsonArray jArray = new JsonArray();
           
@@ -122,8 +124,7 @@ public class ReviewController {
           for( ReviewVO rvo : reviewList ) {
               
               JsonObject object = new JsonObject();
-              
-              
+
               object.addProperty("memIdString", String.valueOf(rvo.getMemIdString()));
               object.addProperty("star", String.valueOf(rvo.getStar()));
               object.addProperty("reDate", String.valueOf(rvo.getReDate()));
@@ -146,13 +147,19 @@ public class ReviewController {
           // 문자열로 변환해서 리턴
            System.out.println("json의 값은???" + json);
            return json ;   //리턴 ok값은 섯세스의 리절트라는 이름으로 보내봄  
-          
-     
-          
-     }
+ 
+     } //end of insertRVPajing
    
      
    
+     
+     //-------------------------------------------------------------------------------------
+     
+     
+     
+
+     
+     
      
 }
      

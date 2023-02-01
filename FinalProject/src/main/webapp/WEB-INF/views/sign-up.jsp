@@ -119,14 +119,14 @@
                                       <li class="has-dropdown">
                                          <a href="honestAnswer">게시판</a>
                                          <ul class="submenu">
-                                            <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                            
                                             <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                             <li><a href="/board/newsList">뉴스</a></li>
                                             <li><a href="/board/announcement">공지</a></li>
                                          </ul>
                                       </li>
                                       <li>
-                                         <a href="/chatbot">챗봇</a>
+                                         <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                       </li>
                                    </ul>
                                 </nav>
@@ -145,7 +145,7 @@
                                             <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                                          </svg>
                                       </div>
-                                      <span class="cart-item">2</span>
+                                      <span class="cart-item">!</span>
                                    </a>
                                 </div>
                              </div>
@@ -189,14 +189,14 @@
                                       <li class="has-dropdown">
                                          <a>게시판</a>
                                          <ul class="submenu">
-                                            <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                            
                                             <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                             <li><a href="/board/newsList">뉴스</a></li>
                                             <li><a href="/board/announcement">공지</a></li>
                                          </ul>
                                       </li>
                                       <li>
-                                         <a href="/chatbot">챗봇</a>
+                                         <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                       </li>
                                    </ul>
                                 </nav>
@@ -225,7 +225,7 @@
                                             <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                                          </svg>
                                       </div>
-                                      <span class="cart-item">2</span>
+                                      <span class="cart-item">!</span>
                                    </a>
                                 </div>
                              </div>
@@ -371,7 +371,7 @@
                                     <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6" />
                                 </svg>
                             </div>
-                            <span class="cart-item">2</span>
+                            <span class="cart-item">!</span>
                         </a>
                     </div>
                 </div>
@@ -398,10 +398,8 @@
                         <div class="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2">
                             <div class="section__title-wrapper text-center mb-55">
                                 <h2 class="section__title">
-                                    Create a free <br />
-                                    Account
+                                    회원가입 <br />
                                 </h2>
-                                <p>I'm a subhead that goes with a story.</p>
                             </div>
                         </div>
                     </div>
@@ -414,19 +412,17 @@
                                     <!-- bk 회원가입 버튼 액션-->
                                     <form action="insertMember" type="post">
                                         <div class="sign__input-wrapper mb-25">
-                                            <h5>ID</h5>
+                                            <h5>아이디</h5>
                                             <div class="sign__input">
                                                 <input type="text" placeholder="ID" id="memIdString" name="memIdString" required/>                                                
                                                 <i class="fal fa-user"></i>                                                
                                             </div>
                                             <!-- 유효성검사 js 연결(아이디) -->
                                             <p id="chkNotice" size="2"></p>
-                                            
                                         </div>
 
-
                                         <div class="sign__input-wrapper mb-25">
-                                            <h5>Password</h5>
+                                            <h5>비밀번호</h5>
                                             <div class="sign__input">
                                                 <input type="password" placeholder="Password" id="m_pass" name="memPass" required/>
                                                 <i class="fal fa-lock"></i>
@@ -435,7 +431,7 @@
                                             <p id="chkNotice2" size="2"></p>
                                         </div>
                                         <div class="sign__input-wrapper mb-10">
-                                            <h5>Re-Password</h5>
+                                            <h5>비밀번호 확인</h5>
                                             <div class="sign__input">
                                                 <input type="password" placeholder="Re-Password" id="m_pass_ck"/>
                                                 <i class="fal fa-lock"></i>
@@ -445,7 +441,7 @@
                                         </div>
 
                                         <div class="sign__input-wrapper mb-25">
-                                            <h5>Full Name</h5>
+                                            <h5>이름</h5>
                                             <div class="sign__input">
                                                 <input type="text" placeholder="Full name" id="m_name" name="memName" required/>
                                                 <i class="fal fa-user"></i>
@@ -455,7 +451,7 @@
                                         </div>
 
                                         <div class="sign__input-wrapper mb-25">
-                                            <h5>Phone Number</h5>
+                                            <h5>연락처</h5>
                                             <div class="sign__input">
                                                 <input type="tel" placeholder="Phone number" id="m_tel" name="memTel" required/>
                                                 <i class="fal fa-phone"></i>
@@ -465,7 +461,7 @@
                                         </div>
 
                                         <div class="sign__input-wrapper mb-25">
-                                            <h5>E-mail</h5>
+                                            <h5>이메일</h5>
                                             <div class="sign__input">
                                                 <input type="email" placeholder="E-mail address" id="m_email" name="memEmail" required/>
                                                 <i class="fal fa-envelope"></i>
@@ -475,7 +471,7 @@
                                         </div>
 
                                         <div class="sign__input-wrapper mb-25">
-                                            <h5>Postal Code</h5>
+                                            <h5>우편번호</h5>
                                             <div class="sign__input">
                                                 <!-- onclick 을 통해서 주소 찾기 api 가능-->
                                                 <input type="text" placeholder="Postal code" id="m_post" name="m_post"  onclick="findAddress()"  readonly  required/>
@@ -484,32 +480,23 @@
                                         </div>
 
                                         <div class="sign__input-wrapper mb-25">
-                                            <h5>Address</h5>
+                                            <h5>주소</h5>
                                             <div class="sign__input">
                                                 <input type="text" placeholder="Address" id="m_addr" name="m_addr" required/>
                                                 <i class="fal fa-location-arrow"></i>
                                             </div>
                                         </div>
                                         <div class="sign__input-wrapper mb-25">
-                                            <h5>Detailed Address</h5>
+                                            <h5>상세주소</h5>
                                             <div class="sign__input">
                                                 <input type="text" placeholder="Detailed address" id="m_addr_sub" name="m_addr_sub" required/>
                                                 <i class="fal fa-location-arrow"></i>
-
                                             </div>
+                                            <br/>
                                         </div>
-
-                                
-
-                                        <div class="sign__action d-flex justify-content-between mb-30">
-                                            <div class="sign__agree d-flex align-items-center">
-                                                <input class="m-check-input" type="checkbox" id="m-agree" required/>
-                                                <label class="m-check-label" for="m-agree">위의 모든 약관에 동의합니다. </label>
-                                            </div>
-                                        </div>
-                                        <button class="e-btn w-100" type="submit"><span></span> Sign Up</button>
+                                        <button class="e-btn w-100" type="submit"><span></span> 회원가입</button>
                                         <div class="sign__new text-center mt-20">
-                                            <p>Already in Markit ? <a href="sign-in"> Sign In</a></p>
+                                            <p>계정이 이미 있으신가요? <a href="sign-in"> 로그인</a></p>
                                         </div>
                                     </form>
                                 </div>

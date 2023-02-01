@@ -70,6 +70,8 @@ public class EducationVO {								      	//테이블:국비/부트 교육과정
    @Column(name="ed_days")
    private String edDays; //찬주 변경 학원등록날짜
    
+   private String edUrl;
+   
    //각 교육별 평균 점이 달라야 하기에 추가
    private Integer avg;								      	//별점평균
 }

@@ -244,7 +244,7 @@
                                                         <tr>
                                                             <td>${checkout.calId}</td>
                                                             <td>${checkout.checkoutName}</td>
-                                                            <td>${checkout.calTitle}</td>
+                                                            <td>${checkout.calStart}</td>
                                                             <td>${checkout.price}</td>
                                                             <td><fmt:formatDate value="${checkout.checkoutDate}" pattern="YYYY.MM.DD" /></td>
                                                         </tr>

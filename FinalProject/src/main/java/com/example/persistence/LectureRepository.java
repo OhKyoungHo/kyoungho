@@ -77,6 +77,16 @@ public interface LectureRepository extends CrudRepository<LectureVO, Integer> {
 	//강의아이디로 상세정보 출력
 	List<LectureVO> findByVcId(Integer vcId);
 
+	//------------------------------------------------------------------------
+	//lecture-index
+	//인덱스페이지에서 별점 높은 녀석만 출력
+    @Query(value= " SELECT *  "
+            + " FROM vchat_class "
+            + " WHERE lower(vc_title) LIKE CONCAT('%',?1,'%')"
+            + " OR lower(vc_keyword) LIKE CONCAT('%',?1,'%')"
+            + " ORDER BY avg DESC", nativeQuery=true)
+    Page<LectureVO> getNewIndex (Pageable paging, String keywords, String order);
+
 
 
 

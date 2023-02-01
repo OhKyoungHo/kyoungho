@@ -123,14 +123,14 @@
                                        <li class="has-dropdown">
                                           <a href="honestAnswer">게시판</a>
                                           <ul class="submenu">
-                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             
                                              <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                              <li><a href="/board/newsList">뉴스</a></li>
                                              <li><a href="/board/announcement">공지</a></li>
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="/chatbot">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -149,7 +149,7 @@
                                              <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                                           </svg>
                                        </div>
-                                       <span class="cart-item">2</span>
+                                       <span class="cart-item">!</span>
                                     </a>
                                  </div>
                               </div>
@@ -193,14 +193,14 @@
                                        <li class="has-dropdown">
                                           <a>게시판</a>
                                           <ul class="submenu">
-                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             
                                              <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                              <li><a href="/board/newsList">뉴스</a></li>
                                              <li><a href="/board/announcement">공지</a></li>
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="/chatbot">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -229,7 +229,7 @@
                                              <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                                           </svg>
                                        </div>
-                                       <span class="cart-item">2</span>
+                                       <span class="cart-item">!</span>
                                     </a>
                                  </div>
                               </div>
@@ -376,7 +376,7 @@
                            <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                         </svg>
                      </div>
-                     <span class="cart-item">2</span>
+                     <span class="cart-item">!</span>
                   </a>
                </div>
             </div>
@@ -401,7 +401,7 @@
     <form class="form" action="#" method="post" id="pwForm">
     <div class="social-container"></div>
     <div class="social-container"></div>
-      <h1 >Find Password</h1>
+      <h1 >비밀번호 찾기</h1>
       <div class="social-container">
 
       </div>
@@ -420,7 +420,7 @@
   </div>
   <div class="form-container sign-in-container" >
     <form class="form" method="post" id="idForm">
-      <h1>Find ID</h1>
+      <h1>아이디 찾기</h1>
       <div class="social-container">
       </div>
       <tr/>     
@@ -439,13 +439,13 @@
       <div class="overlay-panel overlay-left" >
         <img src="/assets/img/logo/pw3.gif" >
         <img src="/assets/img/logo/logo.png" alt="logo">
-        <p class="p">Forgot your ID?</p>
+        <p class="p">아이디를 잊으셨나요?</p>
         <button class="button" id="signIn">아이디 찾기</button>
       </div>
       <div class="overlay-panel overlay-right" >
         <img src="/assets/img/logo/pw2.gif" >
         <img src="/assets/img/logo/logo.png" alt="logo">
-        <p class="p">Forgot your password?</p>
+        <p class="p">비밀번호를 잊으셨나요?</p>
         <button class="button" id="signUp">비밀번호 찾기</button>
       </div>
     </div>

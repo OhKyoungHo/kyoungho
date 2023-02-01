@@ -121,14 +121,14 @@
                                        <li class="has-dropdown">
                                           <a href="honestAnswer">게시판</a>
                                           <ul class="submenu">
-                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             
                                              <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                              <li><a href="/board/newsList">뉴스</a></li>
                                              <li><a href="/board/announcement">공지</a></li>
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="/chatbot">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -147,7 +147,7 @@
                                              <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                                           </svg>
                                        </div>
-                                       <span class="cart-item">2</span>
+                                       <span class="cart-item">!</span>
                                     </a>
                                  </div>
                               </div>
@@ -191,14 +191,14 @@
                                        <li class="has-dropdown">
                                           <a>게시판</a>
                                           <ul class="submenu">
-                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             
                                              <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                              <li><a href="/board/newsList">뉴스</a></li>
                                              <li><a href="/board/announcement">공지</a></li>
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="/chatbot">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -227,7 +227,7 @@
                                              <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                                           </svg>
                                        </div>
-                                       <span class="cart-item">2</span>
+                                       <span class="cart-item">!</span>
                                     </a>
                                  </div>
                               </div>
@@ -374,7 +374,7 @@
                            <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                         </svg>
                      </div>
-                     <span class="cart-item">2</span>
+                     <span class="cart-item">!</span>
                   </a>
                </div>
             </div>
@@ -400,9 +400,9 @@
             <div class="container">
                <div class="row">
                   <div class="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2">
+                     <br/> 
                      <div class="section__title-wrapper text-center mb-55">
-                        <h2 class="section__title">Sign in to <br>  recharge direct.</h2>
-                        <p>it you don't have an account you can <a href="#">Register here!</a></p>
+                        <h2 class="section__title">로그인 <br> </h2>
                      </div>
                   </div>
                </div>
@@ -412,7 +412,7 @@
                         <div class="sign__header mb-35">
                            <div class="sign__in text-center">
                               <!-- 카카오 로그인 -->
-                              <a href="https://kauth.kakao.com/oauth/authorize?client_id=ed05f17a60ce1cf99ab3e4539248dbbf&redirect_uri=http://localhost:8080/kakaoLogin&response_type=code" class="sign__social text-start mb-15"><img src="/assets/img/logo/kakao.png"></i>                                    Sign in with kakao talk</a>
+                              <a href="https://kauth.kakao.com/oauth/authorize?client_id=ed05f17a60ce1cf99ab3e4539248dbbf&redirect_uri=http://localhost:8080/kakaoLogin&response_type=code" class="sign__social text-start mb-15"><img src="/assets/img/logo/kakao.png"></i>                                    카카오톡으로 로그인 하기</a>
                               <div/>
                               <p> <span>........</span> </a> 로그인 하기<span> ........</span> </p>
                            </div>
@@ -421,14 +421,14 @@
                            <!-- bk 로그인 버튼 액션 -->
                            <form action="loginMember" type="post">
                               <div class="sign__input-wrapper mb-25">
-                                 <h5>ID</h5>
+                                 <h5>아이디</h5>
                                  <div class="sign__input">
                                     <input type="text" placeholder="ID" id="memIdString" name="memIdString">
                                     <i class="fal fa-user"></i>
                                  </div>
                               </div>
                               <div class="sign__input-wrapper mb-10">
-                                 <h5>Password</h5>
+                                 <h5>비밀번호</h5>
                                  <div class="sign__input">
                                     <input type="password" placeholder="Password" id="memPass" name="memPass">
                                     <i class="fal fa-lock"></i>
@@ -436,17 +436,15 @@
                               </div>
                               <div class="sign__action d-sm-flex justify-content-between mb-30">
                                  <div class="sign__agree d-flex align-items-center">
-                                    <input class="m-check-input" type="checkbox" id="m-agree">
-                                    <label class="m-check-label" for="m-agree">Keep me signed in
-                                       </label>
+                                    
                                  </div>
                                  <div class="sign__forgot">
                                     <a href="/findIdPw">계정 / 비밀번호 찾기</a>
                                  </div>
                               </div>
-                              <button class="e-btn  w-100" type="submit"> <span></span> Sign In</button>
+                              <button class="e-btn  w-100" type="submit"> <span></span> 로그인</button>
                               <div class="sign__new text-center mt-20">
-                                 <p>New to Markit? <a href="/sign-up">Sign Up</a></p>
+                                 <p>계정이 없으신가요? <a href="/sign-up">회원가입</a></p>
                               </div>
                            </form>
                         </div>
