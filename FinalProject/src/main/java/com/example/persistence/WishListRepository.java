@@ -39,3 +39,4 @@ public interface WishListRepository extends CrudRepository<WishListVO, Integer>{
 
 
 }
+
